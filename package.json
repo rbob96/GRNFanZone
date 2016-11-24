@@ -3,14 +3,24 @@
   "version": "0.0.1",
   "description": "GRN FanZone webapp",
   "main": "./src/app/app.js",
+  "repository": "https://gitlab.com/cluskii/GRNFanZone.git",
   "scripts": {
     "test": "gulp test"
   },
   "author": "andrew.m.mccluskey@googlemail.com",
   "license": "MIT",
   "dependencies": {
-    "angular": "^1.5.8",
-    "bower": "^1.7.9"
+    "angular-route": "^1.5.8",
+    "angular2": "^2.0.0-beta.17",
+    "bower": "^1.7.9",
+    "es6-shim": "^0.35.1",
+    "express": "^4.14.0",
+    "firebase": "^3.6.1",
+    "firebaseui": "^1.0.0",
+    "http": "0.0.0",
+    "reflect-metadata": "^0.1.2",
+    "rxjs": "^5.0.0-beta.6",
+    "zone.js": "^0.6.26"
   },
   "devDependencies": {
     "del": "^2.2.1",
