@@ -16,10 +16,11 @@
 \contentsline {subsubsection}{\numberline {3.3.3}Epic User Stories}{7}
 \contentsline {subsubsection}{\numberline {3.3.4}User Stories}{8}
 \contentsline {subsection}{\numberline {3.4}Constraints, Assumptions and Dependencies}{8}
-\contentsline {section}{\numberline {4}Wireframes}{10}
-\contentsline {subsection}{\numberline {4.1}Dashboard}{11}
-\contentsline {subsection}{\numberline {4.2}Team Page}{12}
-\contentsline {subsection}{\numberline {4.3}Edit Profile}{13}
+\contentsline {section}{\numberline {4}Wireframes}{9}
+\contentsline {subsection}{\numberline {4.1}Dashboard}{10}
+\contentsline {subsection}{\numberline {4.2}Team Page}{11}
+\contentsline {subsection}{\numberline {4.3}Edit Profile}{12}
+\contentsline {subsection}{\numberline {4.4}User Journey}{13}
 \contentsline {section}{\numberline {5}Specific requirements}{14}
 \contentsline {subsection}{\numberline {5.1}External interface requirements}{14}
 \contentsline {subsubsection}{\numberline {5.1.1}User Interfaces}{14}

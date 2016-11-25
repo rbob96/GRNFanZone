@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  18 NOV 2016 12:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  25 NOV 2016 15:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -454,44 +454,25 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 81.
  [4]
-<images/ganttchart.png, id=21, 1695.33376pt x 312.16624pt>
-File: images/ganttchart.png Graphic file (type png)
+<images/gannt1.png, id=21, 637.38126pt x 312.16624pt>
+File: images/gannt1.png Graphic file (type png)
+ <use images/gannt1.png>
+Package pdftex.def Info: images/gannt1.png used on input line 136.
+(pdftex.def)             Requested size: 254.94798pt x 124.86427pt.
 
-<use images/ganttchart.png>
-Package pdftex.def Info: images/ganttchart.png used on input line 130.
-(pdftex.def)             Requested size: 345.0pt x 63.52292pt.
+<images/gannt2.png, id=23, 1059.96pt x 312.16624pt>
+File: images/gannt2.png Graphic file (type png)
+ <use images/gannt2.png>
+Package pdftex.def Info: images/gannt2.png used on input line 138.
+(pdftex.def)             Requested size: 317.99045pt x 93.65059pt.
 
-Overfull \hbox (15.0pt too wide) in paragraph at lines 130--131
-[][] 
- []
-
-[5 <./images/ganttchart.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 157--158
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 160--161
+[5 <./images/gannt1.png> <./images/gannt2.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 167--168
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 163--164
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 166--167
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 169--170
-
- []
-
-[6]
-Underfull \hbox (badness 10000) in paragraph at lines 171--172
+Underfull \hbox (badness 10000) in paragraph at lines 170--171
 
  []
 
@@ -501,12 +482,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 173--174
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 175--176
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 177--178
+Underfull \hbox (badness 10000) in paragraph at lines 176--177
 
  []
 
@@ -515,57 +491,93 @@ Underfull \hbox (badness 10000) in paragraph at lines 179--180
 
  []
 
-
+[6]
 Underfull \hbox (badness 10000) in paragraph at lines 181--182
 
  []
 
-[7] [8] [9] [10]
-<images/wireframe-dashboard.png, id=43, 767.86874pt x 524.96124pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 183--184
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 185--186
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 187--188
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 189--190
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 191--192
+
+ []
+
+[7] [8] [9] <images/wireframe-dashboard.png, id=42, 767.86874pt x 524.96124pt>
 File: images/wireframe-dashboard.png Graphic file (type png)
 
 <use images/wireframe-dashboard.png>
-Package pdftex.def Info: images/wireframe-dashboard.png used on input line 302.
+Package pdftex.def Info: images/wireframe-dashboard.png used on input line 286.
 
 (pdftex.def)             Requested size: 345.0pt x 235.86191pt.
 
-Overfull \hbox (13.46664pt too wide) in paragraph at lines 302--303
+Overfull \hbox (13.46664pt too wide) in paragraph at lines 286--287
 [] 
  []
 
-[11 <./images/wireframe-dashboard.png>]
-<images/wireframe-team-player-page.png, id=48, 769.87625pt x 1127.21124pt>
+[10 <./images/wireframe-dashboard.png>]
+<images/wireframe-team-player-page.png, id=47, 769.87625pt x 1127.21124pt>
 File: images/wireframe-team-player-page.png Graphic file (type png)
 
 <use images/wireframe-team-player-page.png>
 Package pdftex.def Info: images/wireframe-team-player-page.png used on input li
-ne 306.
+ne 290.
 (pdftex.def)             Requested size: 345.0pt x 505.142pt.
 
-Overfull \hbox (13.46664pt too wide) in paragraph at lines 306--307
+Overfull \hbox (13.46664pt too wide) in paragraph at lines 290--291
 [] 
  []
 
-[12 <./images/wireframe-team-player-page.png>]
-<images/wireframe-profile-edit.png, id=53, 767.86874pt x 660.4675pt>
+[11 <./images/wireframe-team-player-page.png>]
+<images/wireframe-profile-edit.png, id=52, 766.865pt x 425.59pt>
 File: images/wireframe-profile-edit.png Graphic file (type png)
 
 <use images/wireframe-profile-edit.png>
-Package pdftex.def Info: images/wireframe-profile-edit.png used on input line 3
-10.
-(pdftex.def)             Requested size: 345.0pt x 296.74403pt.
+Package pdftex.def Info: images/wireframe-profile-edit.png used on input line 2
+94.
+(pdftex.def)             Requested size: 345.0pt x 191.46826pt.
 
-Overfull \hbox (13.46664pt too wide) in paragraph at lines 310--311
+Overfull \hbox (13.46664pt too wide) in paragraph at lines 294--295
 [] 
  []
 
-[13 <./images/wireframe-profile-edit.png>] [14] [15]
+[12 <./images/wireframe-profile-edit.png>]
+<images/wireframe-user-journey.png, id=57, 1003.75pt x 2127.95pt>
+File: images/wireframe-user-journey.png Graphic file (type png)
+
+<use images/wireframe-user-journey.png>
+Package pdftex.def Info: images/wireframe-user-journey.png used on input line 2
+98.
+(pdftex.def)             Requested size: 282.07425pt x 597.99742pt.
+
+Overfull \vbox (23.18904pt too high) has occurred while \output is active []
+
+
+[13 <./images/wireframe-user-journey.png>] [14] [15]
 (./Requirements Document GRN.aux) ) 
 Here is how much of TeX's memory you used:
- 2670 strings out of 493089
- 35184 string characters out of 6134842
+ 2680 strings out of 493089
+ 35438 string characters out of 6134842
  97421 words of memory out of 5000000
- 6099 multiletter control sequences out of 15000+600000
+ 6107 multiletter control sequences out of 15000+600000
  11503 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  37i,6n,24p,752b,198s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -576,10 +588,10 @@ e1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type
 public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmr17.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/publ
 ic/amsfonts/cm/cmsy10.pfb>
-Output written on "Requirements Document GRN.pdf" (15 pages, 217725 bytes).
+Output written on "Requirements Document GRN.pdf" (15 pages, 380295 bytes).
 PDF statistics:
- 86 PDF objects out of 1000 (max. 8388607)
+ 90 PDF objects out of 1000 (max. 8388607)
  54 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
