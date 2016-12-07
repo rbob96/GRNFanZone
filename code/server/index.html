@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!-- Latest compiled and minified CSS -->
+<html lang="en" ng-app="skeleton_app">
+  <head>
+    <link rel="stylesheet" href="styles/style.css">
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+
+<!-- jQuery library -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <title>GRN FanZone</title>
+<script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
+<script src="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.js"></script>
+<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.css" />
+<script>
+  var config = {
+    apiKey: "AIzaSyCoo25Hw0ftCZHYtQx73gOvbu7SS4YCXW8",
+    authDomain: "grnfanzone.firebaseapp.com",
+    databaseURL: "https://grnfanzone.firebaseio.com",
+    storageBucket: "grnfanzone.appspot.com",
+    messagingSenderId: "90265713781"
+  };
+  firebase.initializeApp(config);
+</script>
+<script type="text/javascript">
+      // FirebaseUI config.
+      var uiConfig = {
+        'signInSuccessUrl': 'templates/dashboard.html',
+        'signInOptions': [
+          // Leave the lines as is for the providers you want to offer your users.
+          firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+          firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+          firebase.auth.TwitterAuthProvider.PROVIDER_ID
+        ],
+        // Terms of service url.
+        'tosUrl': '<your-tos-url>',
+      };
+
+      // Initialize the FirebaseUI Widget using Firebase.
+      var ui = new firebaseui.auth.AuthUI(firebase.auth());
+      // The start method will wait until the DOM is loaded.
+      ui.start('#firebaseui-auth-container', uiConfig);
+    </script>
+    <script> 
+    $(function(){
+      $("#includedContent").load("templates/navBar.html"); 
+    });
+    </script> 
+	</head>
+  <body>
+      <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+       <div id="includedContent"></div>
+<div class="container">
+    <div class="omb_login">
+    	<h3 class="omb_authTitle">Register</h3>
+        <div class="row omb_row-sm-offset-3">
+			<div class="col-xs-12 col-sm-3">
+				<div class="form-group">
+                        <input type="text" class="form-control" name="firstname" placeholder="First Name">
+                    </div>
+			</div>
+			<div class="col-xs-12 col-sm-3">
+				<div class="form-group">
+                        <input type="text" class="form-control" name="lastname" placeholder="Last Name">
+                    </div>
+		</div>
+        </div>
+		<div class="row omb_row-sm-offset-3">
+			<div class="col-xs-12 col-sm-6">	
+			    <form class="omb_loginForm" action="" autocomplete="off" method="POST">
+                    <div class="input-group">
+						<span class="input-group-addon"><i class="fa fa-user"></i></span>
+						<input type="text" class="form-control" name="username" placeholder="User name">
+					</div>
+                    <span class="help-block"></span>
+					<div class="input-group">
+						<span class="input-group-addon"><i class="fa fa-user"></i></span>
+						<input type="text" class="form-control" name="email" placeholder="email address">
+					</div>
+					<span class="help-block"></span>
+										
+					<div class="input-group">
+						<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+						<input  type="password" class="form-control" name="password" placeholder="Password">
+					</div>
+                    <span class="help-block"></span>
+                    <div class="input-group">
+						<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+						<input  type="password" class="form-control" name="confirmpassword" placeholder="Confirm Password">
+					</div>
+                    <br>
+					<button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+				</form>
+			</div>
+    	</div>
+		
+		<div class="row omb_row-sm-offset-3 omb_loginOr">
+			<div class="col-xs-12 col-sm-6">
+				<hr class="omb_hrOr">
+				<span class="omb_spanOr">or</span>
+			</div>
+		</div>
+    <div id="firebaseui-auth-container"></div>
+	</div>
+
+
+
+        </div>
+  </body>
+</html>
