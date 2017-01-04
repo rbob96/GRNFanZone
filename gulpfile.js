@@ -50,15 +50,7 @@ gulp.task('karma', function(done){
   }, done).start();
 });
 
-gulp.task('default', function() {
-  // place code for your default task here
-});
 
-
-///////////
-funtion errorLogger(error){
-  
-}
 
 function clean(path, done) {
   log('Cleaning: ' + $.util.colors.blue(path));

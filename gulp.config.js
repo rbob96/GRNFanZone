@@ -2,12 +2,12 @@ module.exports = function() {
   var config = {
     //All the js files we will have
     sourceJS: [
-      './src/**/*.js',
+      './code/**/*.js',
       './*.js'
     ],
     //Less files
     sourceLess: [
-      './src/app/**/*.less'
+      './code/public/**/*.less'
     ],
     //Temp path
     pathTemp: './.tmp/',
