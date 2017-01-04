@@ -51,7 +51,6 @@ gulp.task('karma', function(done){
 });
 
 
-
 function clean(path, done) {
   log('Cleaning: ' + $.util.colors.blue(path));
   return del(path);
