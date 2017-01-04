@@ -25,12 +25,15 @@ test_app:
   script:
     - gulp karma
 
-#build_app:
-#  only:
-#    - master
-#    - dev
-#  script:
-#    - gulp build
-#
+
+deploy_prod:
+  stage: deploy
+  script:
+    - echo "Deploy to prod server"
+  environment:
+    name: Production
+    url: https://grnfanzone.firebaseio.com/
+  only:
+  - master
 
 
