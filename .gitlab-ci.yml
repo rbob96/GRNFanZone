@@ -9,28 +9,24 @@ cache:
 before_script:
   - npm install
 
-stages:
-  - build
-  - build_deploy
+after_script:
+  - gulp clean
 
-test_app:
+lint_app:
   script:
     - gulp vet
+
+#To be changed to mocha once tests are actually set up
+test_app:
+  script:
     - gulp karma
 
 #build_app:
-#  stage: build
 #  only:
 #    - master
 #    - dev
 #  script:
 #    - gulp build
 #
-#build_&_deploy_app:
-#  stage: build_deploy
-#  only:
-#   - master
-#  script:
-#   - gulp build -production
-#   - gulp deploy
+
 
