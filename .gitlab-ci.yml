@@ -1,6 +1,6 @@
 #Using Script inspired by RafalSladek
 #https://gist.github.com/RafalSladek/0d92fa68cb985c698560
-image: node:latest
+image: docker:latest
 
 cache:
   paths:
@@ -8,6 +8,8 @@ cache:
 
 before_script:
   - npm install
+  - pwd
+  - which gulp
 
 after_script:
   - gulp clean
