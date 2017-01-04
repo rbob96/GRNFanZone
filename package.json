@@ -10,8 +10,8 @@
   "author": "andrew.m.mccluskey@googlemail.com",
   "license": "MIT",
   "dependencies": {
+    "@angular/core": "^2.4.1",
     "angular-route": "^1.5.8",
-    "angular2": "@angular/core",
     "bower": "^1.7.9",
     "es6-shim": "^0.35.1",
     "express": "^4.14.0",
@@ -20,7 +20,7 @@
     "http": "0.0.0",
     "reflect-metadata": "^0.1.2",
     "rxjs": "^5.0.0-beta.6",
-    "zone.js": "^0.6.26"
+    "zone.js": "^0.7.2"
   },
   "devDependencies": {
     "del": "^2.2.1",
