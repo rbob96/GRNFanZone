@@ -1,6 +1,6 @@
 #Using Script inspired by RafalSladek
 #https://gist.github.com/RafalSladek/0d92fa68cb985c698560
-image: docker:latest
+image: node:latest
 
 cache:
   paths:
@@ -14,16 +14,18 @@ before_script:
 after_script:
   - gulp clean
 
-lint_app:
-  stage: test
-  script:
-    - gulp vet
+#lint_app:
+#  stage: Test
+#  script:
+#    - gulp vet
 
 #To be changed to mocha once tests are actually set up
 test_app:
-  stage: test
+  stage: Test
   script:
+    - gulp vet
     - gulp karma
+
 
 
 deploy_prod:
