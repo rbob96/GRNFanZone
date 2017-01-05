@@ -1,0 +1,22 @@
+{
+  "id": "4b98f89b-5d18-4b00-8c2a-c9d95d1d9bf0",
+  "first_name": "Owen",
+  "last_name": "Jones",
+  "bio": "I play for the Glasgow Tigers 1st XV.",
+  "age": 22,
+  "height": 182,
+  "weight": 80,
+  "gender": "male",
+  "avatar": "https://example.com/avatar.png",
+  "banner": "https://example.com/banner.png",
+  "location": {
+    "city": "Glasgow",
+    "country": "UK"
+  },
+  "teams": {
+    "2cc9ab1d-3be3-44fc-9ba9-eec2130df658": {
+      "position": "Scrum Half"
+    }
+  },
+  "created_at": "2016-12-07T12:00:00"
+}

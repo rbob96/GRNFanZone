@@ -5,11 +5,11 @@ image: docker:latest
 cache:
   paths:
    - node_modules/
+   - bower_components/
 
 before_script:
   - npm install
-  - pwd
-  - which gulp
+  - bower install
 
 after_script:
   - gulp clean
