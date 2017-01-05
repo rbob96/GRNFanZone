@@ -10,7 +10,7 @@ cache:
 before_script:
   - npm install
   - npm install -g bower gulp
-  - bower install
+  - bower install --allow-root
 
 after_script:
   - gulp clean
@@ -26,7 +26,6 @@ test_app:
   script:
     - gulp vet
     - gulp karma
-
 
 
 deploy_prod:
