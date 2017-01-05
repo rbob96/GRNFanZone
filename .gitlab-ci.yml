@@ -9,7 +9,7 @@ cache:
 
 before_script:
   - npm install
-  - npm -i -g bower gulp
+  - npm install -g bower gulp
   - bower install
 
 after_script:

@@ -28,7 +28,7 @@ gulp.task('less', ['clean-temp', 'clean-build'], function() {
 });
 
 gulp.task('less-watcher', function(){
-  gulp.watch([config.sourceLess], ['less'])
+  gulp.watch([config.sourceLess], ['less']);
 });
 
 gulp.task('clean-temp', function (done) {
