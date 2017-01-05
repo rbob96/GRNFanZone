@@ -15,19 +15,19 @@ before_script:
 after_script:
   - gulp clean
 
-#lint_app:
-#  stage: test
-#  script:
-#    - gulp vet
-
-#To be changed to mocha once tests are actually set up
-test_app:
+# Testing #
+lint_app:
   stage: test
   script:
     - gulp vet
+
+test_app:
+  stage: test
+  script:
     - gulp karma
+# End Testing #
 
-
+# Deployment #
 deploy_prod:
   stage: deploy
   script:
@@ -37,5 +37,4 @@ deploy_prod:
     url: https://grnfanzone.firebaseio.com/
   only:
   - master
-
-
+# End Deployment #
