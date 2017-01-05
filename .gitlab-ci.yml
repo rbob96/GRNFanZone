@@ -15,13 +15,13 @@ after_script:
   - gulp clean
 
 #lint_app:
-#  stage: Test
+#  stage: test
 #  script:
 #    - gulp vet
 
 #To be changed to mocha once tests are actually set up
 test_app:
-  stage: Test
+  stage: test
   script:
     - gulp vet
     - gulp karma
