@@ -9,7 +9,10 @@ cache:
 
 before_script:
   - npm install
+  # install runners
   - npm install -g bower gulp
+  # install test software
+  - npm install -g karma karma-mocha mocha karma-phantomjs-launcher
   - bower install --allow-root
 
 after_script:
