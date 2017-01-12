@@ -15,8 +15,6 @@ var config = require('./gulp.config.js')();
 
 var $ = require('gulp-load-plugins')({lazy: true});
 
-gulp.task('vet', ['vet-js', 'vet-ts'])
-
 gulp.task('vet-js', function (done) {
   log("Vetting code with jshint...");
   return gulp
@@ -33,7 +31,7 @@ gulp.task('vet-ts', function (done){
       .pipe(tslint({
           formatter: "verbose"
       }))
-      .pipe(tslint.report())
+      .pipe(tslint.report());
 });
 
 gulp.task('compile-less', ['clean-temp', 'clean-build'], function() {
@@ -55,7 +53,7 @@ gulp.task('compile-app', ['clean-temp', 'clean-build'], function(){
   return gulp.src(config.appJS)
   .pipe(babel())
   .pipe(concat(config.compiledApp))
-  .pipe(gulp.dest(config.pathBuild))
+  .pipe(gulp.dest(config.pathBuild));
 });
 
 gulp.task('clean-temp', function (done) {

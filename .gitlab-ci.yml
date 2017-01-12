@@ -22,12 +22,13 @@ after_script:
 lint_app:
   stage: test
   script:
-    - gulp vet
+    - gulp vet-js
+    - gulp vet-ts
 
-test_app:
-  stage: test
-  script:
-    - gulp karma
+# test_app:
+#   stage: test
+#   script:
+#     - gulp karma
 # End Testing #
 
 # Deployment #
