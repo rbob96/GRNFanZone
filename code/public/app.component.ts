@@ -1,12 +1,12 @@
-import { Component } from "@angular/core";
-import { TranslateService } from "ng2-translate";
+import { Component } from '@angular/core';
+import { TranslateService } from 'ng2-translate';
 
 
 @Component({
-    selector: "gnr-app",
+    selector: 'gnr-app',
     template: `
 		<h1> WELCOME TO GNR FANZONE </h1>
-    <div [innerHTML]="'HELLO' | translate"></div>
+    <div [innerHTML]='"HELLO" | translate'></div>
 		`
 })
 
@@ -20,12 +20,12 @@ export class AppComponent {
 
     constructor(private translate: TranslateService) {
 
-        translate.get("HELLO", { value: "world" }).subscribe((res: string) => {
+        translate.get('HELLO', { value: 'world' }).subscribe((res: string) => {
             console.log(res); // => THIS GETS YOU HELLO WORLD
         });
 
-        translate.setDefaultLang("en");
-        translate.use("en");
+        translate.setDefaultLang('en');
+        translate.use('en');
     }
 
 }

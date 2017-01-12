@@ -22,7 +22,13 @@ gulp.task('vet-js', function (done) {
 gulp.task('vet-ts', function (done){
   log("Vetting code with tslint...");
   gulp.src(config.sourceTS)
-      .pipe($.tslint())
+      .pipe($.tslint({
+        configuration: {
+          rules: {
+            "quotemark": [true, "single", "avoid-escape"]
+          }
+        }
+      }))
       .pipe($.tslint.report($.stylish, {
         emitError: false,
         sort: true,
