@@ -8,11 +8,13 @@ cache:
    - bower_components/
 
 before_script:
-  - npm install --quiet
   # install runners
   - npm install --quiet -g bower gulp
   # install test software
-  - npm install --quiet -g karma karma-mocha mocha karma-phantomjs-launcher
+  - npm install --quiet -g karma karma-mocha mocha karma-phantomjs-launcher phantomjs-prebuilt
+  # install everything else
+  - npm install --quiet
+  # Bower components
   - bower install --allow-root
 
 after_script:
