@@ -26,6 +26,7 @@ lint_app:
   script:
     - gulp vet-js
     - gulp vet-ts
+    - gulp vet-html
 
 # test_app:
 #   stage: test

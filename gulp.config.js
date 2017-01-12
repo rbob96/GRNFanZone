@@ -10,6 +10,9 @@ module.exports = function() {
     sourceTS: [
       './code/**/*.ts'
     ],
+    sourceHTML: [
+      './code/**/*.html'
+    ],
     //Less files
     sourceLess: [
       './code/public/**/*.less'
