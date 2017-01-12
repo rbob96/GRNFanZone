@@ -1,10 +1,8 @@
 
 
-// var express = require('express');
-// var app = express();
-// var http = require('http').Server(app);
-require('express');
-require('http').Server(app);
+var express = require('express');
+var app = express();
+var http = require('http').Server(app);
 
 //Lets define a port we want to listen to
 const PORT=8080;

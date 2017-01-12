@@ -7,10 +7,15 @@ module.exports = function() {
       './code/**/*.js',
       './*.js'
     ],
+    sourceTS: [
+      './code/**/*.ts'
+    ],
     //Less files
     sourceLess: [
       './code/public/**/*.less'
     ],
+    appCode: ["./code/public/**/*.component.ts", "./code/public/**/*.module.ts", "./code/public/**/*.ts"],
+    compiledApp: "app.js",
     //Temp path
     pathTemp: './.tmp/',
     //build path
