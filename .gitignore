@@ -3,3 +3,11 @@ node_modules/*
 bower_components/*
 
 *.log
+
+*.iml
+
+.idea
+
+*~
+
+.DS_Store

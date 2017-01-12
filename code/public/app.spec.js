@@ -1,11 +1,10 @@
-describe('app', function() {
+//Mocha Tests file
 
-  it("should run 1===1", function(){
-    expect(1).toEqual(1);
+var assert = require('assert');
+describe('integer', function() {
+  describe('1', function() {
+    it('should equal 1', function() {
+      assert.equal(1, 1);
+    });
   });
-
-  it("should like 1===1", function(){
-    expect(1).toEqual(1);
-  });
-
 });
