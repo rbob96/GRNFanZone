@@ -4,10 +4,8 @@ import { TranslateService } from "ng2-translate";
 
 @Component({
     selector: "gnr-app",
-    template: `
-		<h1> WELCOME TO GNR FANZONE </h1>
-    <div [innerHTML]="'HELLO' | translate"></div>
-		`
+    templateUrl: './app.component.html',
+	styleUrls: ['./app.component.css']
 })
 
 export class AppComponent {
@@ -18,11 +16,10 @@ export class AppComponent {
     // prefix/suffix:
 
 
-    constructor(private translate: TranslateService) {
+    constructor(
+		private translate: TranslateService,
+		private af:	AuthService) {
 
-        translate.get("HELLO", { value: "world" }).subscribe((res: string) => {
-            console.log(res); // => THIS GETS YOU HELLO WORLD
-        });
 
         translate.setDefaultLang("en");
         translate.use("en");
