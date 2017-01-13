@@ -41,7 +41,7 @@ gulp.task('vet-html', function (done){
   log("Vetting code with htmlhint");
   gulp.src(config.sourceHTML)
   .pipe(htmlhint())
-  .pipe(htmlhint.reporter());
+  .pipe(htmlhint.failReporter());
 });
 
 
