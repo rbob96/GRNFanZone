@@ -34,6 +34,17 @@ gulp.task('vet-ts', function (done){
       .pipe(tslint.report());
 });
 
+gulp.task('vet-html', function (done){
+  log("Vetting code with htmlhint");
+  gulp.src(config.sourceHTML)
+  .pipe($.htmlhint({
+    "attr-lowercase": false
+  }))
+  .pipe($.htmlhint.reporter("htmlhint-stylish"))
+  .pipe($.htmlhint.failReporter({ suppress: true }));
+
+});
+
 gulp.task('compile-less', ['clean-temp', 'clean-build'], function() {
   log('Compiling less...');
   return gulp
