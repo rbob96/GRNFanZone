@@ -3,9 +3,7 @@ var args = require('yargs').argv;
 var karma = require('karma');
 var del = require('del');
 var sourcemaps = require("gulp-sourcemaps");
-var babel = require("gulp-babel");
 var concat = require("gulp-concat");
-var ts = require("gulp-typescript");
 
 //Linters:
 var tslint = require("gulp-tslint");
@@ -32,6 +30,17 @@ gulp.task('vet-ts', function (done){
           formatter: "verbose"
       }))
       .pipe(tslint.report());
+});
+
+gulp.task('vet-html', function (done){
+  log("Vetting code with htmlhint");
+  gulp.src(config.sourceHTML)
+  .pipe($.htmlhint({
+    "attr-lowercase": false
+  }))
+  .pipe($.htmlhint.reporter("htmlhint-stylish"))
+  .pipe($.htmlhint.failReporter({ suppress: true }));
+
 });
 
 gulp.task('compile-less', ['clean-temp', 'clean-build'], function() {
