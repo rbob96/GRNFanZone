@@ -2,12 +2,18 @@ var gulp = require('gulp');
 var args = require('yargs').argv;
 var karma = require('karma');
 var del = require('del');
-var htmlhint = require("gulp-htmlhint");
+var sourcemaps = require("gulp-sourcemaps");
+var babel = require("gulp-babel");
+var concat = require("gulp-concat");
+var ts = require("gulp-typescript");
+
+//Linters:
+var tslint = require("gulp-tslint");
+
 
 var config = require('./gulp.config.js')();
 
 var $ = require('gulp-load-plugins')({lazy: true});
-
 
 gulp.task('vet-js', function (done) {
   log("Vetting code with jshint...");
@@ -20,30 +26,24 @@ gulp.task('vet-js', function (done) {
 });
 
 gulp.task('vet-ts', function (done){
-  log("Vetting code with tslint...");
+  log("Vetting code with tshint...");
   gulp.src(config.sourceTS)
-      .pipe($.tslint({
-        configuration: {
-          rules: {
-            "quotemark": [true, "single", "avoid-escape"]
-          }
-        }
+      .pipe(tslint({
+          formatter: "verbose"
       }))
-      .pipe($.tslint.report($.stylish, {
-        emitError: false,
-        sort: true,
-        bell: true,
-        fullPath: true
-      }));
+      .pipe(tslint.report());
 });
 
 gulp.task('vet-html', function (done){
   log("Vetting code with htmlhint");
   gulp.src(config.sourceHTML)
-  .pipe(htmlhint())
-  .pipe(htmlhint.failReporter());
-});
+  .pipe($.htmlhint({
+    "attr-lowercase": false
+  }))
+  .pipe($.htmlhint.reporter("htmlhint-stylish"))
+  .pipe($.htmlhint.failReporter({ suppress: true }));
 
+});
 
 gulp.task('compile-less', ['clean-temp', 'clean-build'], function() {
   log('Compiling less...');
@@ -57,6 +57,14 @@ gulp.task('compile-less', ['clean-temp', 'clean-build'], function() {
 
 gulp.task('less-watcher', function(){
   gulp.watch([config.sourceLess], ['less']);
+});
+
+gulp.task('compile-app', ['clean-temp', 'clean-build'], function(){
+  log('Compiling app js...');
+  return gulp.src(config.appJS)
+  .pipe(babel())
+  .pipe(concat(config.compiledApp))
+  .pipe(gulp.dest(config.pathBuild));
 });
 
 gulp.task('clean-temp', function (done) {

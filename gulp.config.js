@@ -4,21 +4,22 @@ module.exports = function() {
   var config = {
     //All the js files we will have
     sourceJS: [
-      './code/**/*.js',
+      './src/**/*.js',
       './*.js'
     ],
     sourceTS: [
-      './code/**/*.ts'
+      './src/**/*.ts'
+    ],
+    sourceHTML: [
+      './src/**/*.html'
     ],
     sourceHTML: [
       './code/**/*.html'
     ],
     //Less files
     sourceLess: [
-      './code/public/**/*.less'
+      './src/**/*.less'
     ],
-    appCode: ["./code/public/**/*.component.ts", "./code/public/**/*.module.ts", "./code/public/**/*.ts"],
-    compiledApp: "app.js",
     //Temp path
     pathTemp: './.tmp/',
     //build path
