@@ -7,12 +7,10 @@ cache:
   key: $CI_BUILD_REF_NAME"
   paths:
    - node_modules/
-   - bower_components/
-
 
 before_script:
   # install runners
-  - npm install --silent -g bower gulp
+  - npm install --silent -g gulp
   # install test software
   # - npm install --silent -g karma karma-mocha mocha karma-phantomjs-launcher phantomjs-prebuilt
   # install everything else
