@@ -23,7 +23,7 @@ gulp.task('vet-js', function (done) {
     .pipe($.jshint.reporter('fail'));
 });
 
-gulp.task('vet-ts', function (done){
+gulp.task('vet-ts', function (done) {
   log("Vetting code with tshint...");
   gulp.src(config.sourceTS)
       .pipe(tslint({
@@ -32,7 +32,7 @@ gulp.task('vet-ts', function (done){
       .pipe(tslint.report());
 });
 
-gulp.task('vet-html', function (done){
+gulp.task('vet-html', function (done) {
   log("Vetting code with htmlhint");
   gulp.src(config.sourceHTML)
   .pipe($.htmlhint({
@@ -41,6 +41,13 @@ gulp.task('vet-html', function (done){
   .pipe($.htmlhint.reporter("htmlhint-stylish"))
   .pipe($.htmlhint.failReporter({ suppress: true }));
 
+});
+
+gulp.task('vet-less', function (done) {
+    return gulp.src(config.sourceLess)
+        .pipe($.lesshint( {} ))
+        .pipe($.lesshint.reporter())
+        .pipe($.lesshint.failOnError());
 });
 
 gulp.task('compile-less', ['clean-temp', 'clean-build'], function() {
