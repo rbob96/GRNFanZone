@@ -6,7 +6,7 @@
         "experimentalAsyncFunctions": true
     },
     "files": [
-        "code/**/*.ts"
+        "src/**/*.ts"
     ],
     "exclude": [
         "node_modules"

@@ -13,9 +13,6 @@ module.exports = function() {
     sourceHTML: [
       './src/**/*.html'
     ],
-    sourceHTML: [
-      './code/**/*.html'
-    ],
     //Less files
     sourceLess: [
       './src/**/*.less'
@@ -23,7 +20,7 @@ module.exports = function() {
     //Temp path
     pathTemp: './.tmp/',
     //build path
-    pathBuild: './build/'
+    pathBuild: './dist/'
   };
   return config;
 };
