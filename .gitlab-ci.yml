@@ -36,6 +36,10 @@ lint_html:
   script:
     - gulp vet-html
 
+lint_less:
+  stage: test
+  script:
+    - gulp vet-less
 
 # test_app:
 #   stage: test
