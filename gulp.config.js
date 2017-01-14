@@ -20,7 +20,7 @@ module.exports = function() {
     //Temp path
     pathTemp: './.tmp/',
     //build path
-    pathBuild: './build/'
+    pathBuild: './dist/'
   };
   return config;
 };
