@@ -21,12 +21,21 @@ after_script:
   - gulp clean
 
 # Testing #
-lint_app:
+lint_js:
   stage: test
   script:
     - gulp vet-js
+
+lint_ts:
+  stage: test
+  script:
     - gulp vet-ts
+
+lint_html:
+  stage: test
+  script:
     - gulp vet-html
+
 
 # test_app:
 #   stage: test
