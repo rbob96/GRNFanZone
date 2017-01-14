@@ -1,0 +1,22 @@
+{
+  "id": "unique_id",
+  "posted_by": "2cc9ab1d-3be3-44fc-9ba9-eec2130df658",
+  "title": "New status update",
+  "text": "This is a status update.",
+  "image": "https://example.com/post_image.png",
+  "likes": {
+    "user_id": {
+      "liked_at": "2016-12-07T12:00:00"
+    },
+    "another_user_id": {
+      "liked_at": "2016-12-08T12:00:00"
+    }
+  },
+  "comments": {
+    "user_id": {
+      "commented_at": "2016-12-07T13:00:00",
+      "text": "This is a comment"
+    }
+  },
+  "posted_at": "2016-12-06T12:00:00"
+}
