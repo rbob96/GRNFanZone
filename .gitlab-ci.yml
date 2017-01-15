@@ -10,9 +10,9 @@ cache:
 after_script:
   - gulp clean
 
-# Setup #
+# Build #
 install_node_modules:
-  stage: setup
+  stage: build
   script:
     # install runners
     - npm install --quiet -g gulp
