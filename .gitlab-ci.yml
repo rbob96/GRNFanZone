@@ -7,6 +7,12 @@ cache:
   paths:
    - node_modules/
 
+before_script:
+  # Global runner commands
+  - npm install --quiet -g gulp
+  # Global tests software
+  # - npm install --quiet -g karma karma-mocha mocha karma-phantomjs-launcher phantomjs-prebuilt
+
 after_script:
   - gulp clean
 
@@ -14,11 +20,7 @@ after_script:
 install_node_modules:
   stage: build
   script:
-    # install runners
-    - npm install --quiet -g gulp
-    # install test software
-    # - npm install --silent -g karma karma-mocha mocha karma-phantomjs-launcher phantomjs-prebuilt
-    # install everything else
+    # Install modules
     - npm install --quiet
 
 
