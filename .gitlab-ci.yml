@@ -20,8 +20,7 @@ install_node_modules:
     # - npm install --silent -g karma karma-mocha mocha karma-phantomjs-launcher phantomjs-prebuilt
     # install everything else
     - npm install --quiet
-    # Bower components
-    - bower install --allow-root
+
 
 # Testing #
 lint_js:
