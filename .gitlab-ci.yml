@@ -4,12 +4,13 @@ image: node:latest
 
 cache:
   untracked: true
+  key: "$CI_BUILD_REF_NAME"
   paths:
    - node_modules/
 
 before_script:
   # Global runner commands
-  - npm install --quiet -g gulp
+  - npm install --verbose -g gulp
   # Global tests software
   # - npm install --quiet -g karma karma-mocha mocha karma-phantomjs-launcher phantomjs-prebuilt
 
@@ -21,7 +22,7 @@ install_node_modules:
   stage: build
   script:
     # Install modules
-    - npm install --quiet
+    - npm install --verbose
 
 
 # Testing #
