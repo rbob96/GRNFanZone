@@ -2,15 +2,8 @@
 #https://gist.github.com/RafalSladek/0d92fa68cb985c698560
 image: node:latest
 
-stages:
-  - setup
-  - test
-  - build
-  - deploy
-
 cache:
   untracked: true
-  key: "$CI_BUILD_REF_NAME"
   paths:
    - node_modules/
 
@@ -19,18 +12,11 @@ before_script:
   - npm install -g gulp
   # Global tests software
   # - npm install --quiet -g karma karma-mocha mocha karma-phantomjs-launcher phantomjs-prebuilt
+  # Install modules
+  - npm install
 
 after_script:
   - gulp clean
-
-# Setup #
-install_node_modules:
-  stage: setup
-  script:
-    # Install modules
-    - ls -alh node_modules
-    - npm install
-
 
 # Testing #
 lint_js:
