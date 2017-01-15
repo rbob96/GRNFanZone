@@ -7,18 +7,21 @@ cache:
   paths:
    - node_modules/
 
-before_script:
-  # install runners
-  - npm install --silent -g gulp
-  # install test software
-  # - npm install --silent -g karma karma-mocha mocha karma-phantomjs-launcher phantomjs-prebuilt
-  # install everything else
-  - npm install --silent
-  # Bower components
-  - bower install --allow-root
-
 after_script:
   - gulp clean
+
+# Setup #
+install_node_modules:
+  stage: setup
+  script:
+    # install runners
+    - npm install --quiet -g gulp
+    # install test software
+    # - npm install --silent -g karma karma-mocha mocha karma-phantomjs-launcher phantomjs-prebuilt
+    # install everything else
+    - npm install --quiet
+    # Bower components
+    - bower install --allow-root
 
 # Testing #
 lint_js:
