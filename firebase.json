@@ -1,0 +1,17 @@
+{
+  "database": {
+    "rules": {
+      "rules": {
+        ".read": "auth != null",
+        ".write": "auth != null"
+      }
+    }
+  },
+  "hosting": {
+    "public": "src",
+    "rewrites": [{
+      "source": "**",
+      "destination": "/index.html"
+    }]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "id": "unique_id",
+  "auth_id": "PbhYdb2xSvbRhimHN6r7oj2lXSw1",
+  "username": "Dan",
+  "first_name": "Daniel",
+  "last_name": "Juranec",
+  "avatar": "https://example.com/avatar.png",
+  "teams_followed": {
+    "2cc9ab1d-3be3-44fc-9ba9-eec2130df658": {
+      "favourite": "yes"
+    }
+  },
+  "players_followed": {
+    "4b98f89b-5d18-4b00-8c2a-c9d95d1d9bf0": {
+      "favourite": "no"
+    }
+  }
+}

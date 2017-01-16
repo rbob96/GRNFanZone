@@ -3,7 +3,6 @@
 image: node:latest
 
 cache:
-  untracked: true
   paths:
    - node_modules/
 
@@ -46,13 +45,13 @@ lint_less:
 # End Testing #
 
 # Deployment #
-deploy_prod:
+deploy_production:
   stage: deploy
-  script:
-    - echo "Deploy to prod server"
-  environment:
-    name: Production
-    url: https://grnfanzone.firebaseio.com/
+  environment: Production
   only:
-  - master
+    - master
+  script:
+    - firebase use --add grnfanzone production
+    - firebase use --token $FIREBASE_TOKEN production
+    - firebase deploy -m "Pipeline $CI_PIPELINE_ID, build $CI_BUILD_ID" --non-interactive --token $FIREBASE_TOKEN
 # End Deployment #
