@@ -53,5 +53,6 @@ deploy_production:
   script:
     - firebase use --add grnfanzone production
     - firebase use --token $FIREBASE_TOKEN production
+    - ng build --prod
     - firebase deploy -m "Pipeline $CI_PIPELINE_ID, build $CI_BUILD_ID" --non-interactive --token $FIREBASE_TOKEN
 # End Deployment #
