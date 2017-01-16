@@ -1,0 +1,16 @@
+{
+  "id": "fa351287-6a9c-42b1-847b-7bdb1fc0cf80",
+  "home_team_id": "2cc9ab1d-3be3-44fc-9ba9-eec2130df658",
+  "away_team_id": "26335a62-c294-43b1-bbd3-4d6145e1f60f",
+  "home_team": "Glasgow Tigers 1st XV",
+  "away_team": "Edinburgh Lions 1st XV",
+  "home_score": 14,
+  "away_score": 5,
+  "kickoff": "2016-12-07T18:00:00",
+  "location": {
+    "address": "Garscube Sports Complex",
+    "city": "Glasgow",
+    "country": "UK"
+  },
+  "created_at": "2016-12-07T12:00:00"
+}

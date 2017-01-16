@@ -2,12 +2,18 @@ var gulp = require('gulp');
 var args = require('yargs').argv;
 var karma = require('karma');
 var del = require('del');
+var sourcemaps = require("gulp-sourcemaps");
+var concat = require("gulp-concat");
+
+//Linters:
+var tslint = require("gulp-tslint");
+
 
 var config = require('./gulp.config.js')();
 
 var $ = require('gulp-load-plugins')({lazy: true});
 
-gulp.task('vet', function (done) {
+gulp.task('vet-js', function (done) {
   log("Vetting code with jshint...");
   return gulp
     .src(config.sourceJS)
@@ -17,7 +23,34 @@ gulp.task('vet', function (done) {
     .pipe($.jshint.reporter('fail'));
 });
 
-gulp.task('less', ['clean-temp', 'clean-build'], function() {
+gulp.task('vet-ts', function (done) {
+  log("Vetting code with tshint...");
+  gulp.src(config.sourceTS)
+      .pipe(tslint({
+          formatter: "verbose"
+      }))
+      .pipe(tslint.report());
+});
+
+gulp.task('vet-html', function (done) {
+  log("Vetting code with htmlhint");
+  gulp.src(config.sourceHTML)
+  .pipe($.htmlhint({
+    "attr-lowercase": false
+  }))
+  .pipe($.htmlhint.reporter("htmlhint-stylish"))
+  .pipe($.htmlhint.failReporter({ suppress: true }));
+
+});
+
+gulp.task('vet-less', function (done) {
+    return gulp.src(config.sourceLess)
+        .pipe($.lesshint( {} ))
+        .pipe($.lesshint.reporter())
+        .pipe($.lesshint.failOnError());
+});
+
+gulp.task('compile-less', ['clean-temp', 'clean-build'], function() {
   log('Compiling less...');
   return gulp
     .src(config.sourceLess)
@@ -28,7 +61,15 @@ gulp.task('less', ['clean-temp', 'clean-build'], function() {
 });
 
 gulp.task('less-watcher', function(){
-  gulp.watch([config.sourceLess], ['less'])
+  gulp.watch([config.sourceLess], ['less']);
+});
+
+gulp.task('compile-app', ['clean-temp', 'clean-build'], function(){
+  log('Compiling app js...');
+  return gulp.src(config.appJS)
+  .pipe(babel())
+  .pipe(concat(config.compiledApp))
+  .pipe(gulp.dest(config.pathBuild));
 });
 
 gulp.task('clean-temp', function (done) {
@@ -41,7 +82,7 @@ gulp.task('clean-build', function (done){
 
 gulp.task('clean', ['clean-temp', 'clean-build']);
 
-gulp.task('karma', function(done){
+gulp.task('karma', ['compile-app'], function(done){
   log('Testing with karma server');
   var singlerun = args.once;
   new karma.Server({
@@ -50,15 +91,6 @@ gulp.task('karma', function(done){
   }, done).start();
 });
 
-gulp.task('default', function() {
-  // place code for your default task here
-});
-
-
-///////////
-funtion errorLogger(error){
-  
-}
 
 function clean(path, done) {
   log('Cleaning: ' + $.util.colors.blue(path));

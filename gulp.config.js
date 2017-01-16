@@ -1,3 +1,5 @@
+
+
 module.exports = function() {
   var config = {
     //All the js files we will have
@@ -5,14 +7,20 @@ module.exports = function() {
       './src/**/*.js',
       './*.js'
     ],
+    sourceTS: [
+      './src/**/*.ts'
+    ],
+    sourceHTML: [
+      './src/**/*.html'
+    ],
     //Less files
     sourceLess: [
-      './src/app/**/*.less'
+      './src/**/*.less'
     ],
     //Temp path
     pathTemp: './.tmp/',
     //build path
-    pathBuild: './build/'
+    pathBuild: './dist/'
   };
   return config;
 };
