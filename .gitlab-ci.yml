@@ -8,7 +8,7 @@ cache:
 
 before_script:
   # Global runner commands
-  - npm install -g gulp
+  - npm install -g gulp firebase-tools angular-cli
   # Global tests software
   # - npm install --quiet -g karma karma-mocha mocha karma-phantomjs-launcher phantomjs-prebuilt
   # Install modules
