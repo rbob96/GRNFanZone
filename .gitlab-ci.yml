@@ -48,6 +48,8 @@ lint_less:
 deploy_production:
   stage: deploy
   environment: Production
+  only:
+    - master
   script:
     - firebase use --add grnfanzone production
     - firebase use --token $FIREBASE_TOKEN grnfanzone production
