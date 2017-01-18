@@ -3,7 +3,7 @@ import { AuthService } from '../services/auth.service';
 import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-teamsFollowed',
+  selector: 'app-teams',
   templateUrl: './teams-followed.html',
   styleUrls: ['../teams-followed/teams-followed.css']
 })
