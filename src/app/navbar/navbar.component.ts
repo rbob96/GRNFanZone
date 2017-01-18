@@ -10,6 +10,5 @@ import { AuthService } from '../services/auth.service';
 
 export class NavbarComponent {
 
-    constructor(private af: AuthService) {}
-    
+    constructor(private af: AuthService) {}  
 }

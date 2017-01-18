@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../services/auth.service';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 @Component({
-  selector: 'players-followed',
+  selector: 'app-playersFollowed',
   templateUrl: './players-followed.html',
   styleUrls: ['../players-followed/players-followed.css']
 })
