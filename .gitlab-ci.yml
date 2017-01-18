@@ -48,11 +48,9 @@ lint_less:
 deploy_production:
   stage: deploy
   environment: Production
-  only:
-    - master
   script:
     - firebase use --add grnfanzone production
-    - firebase use --token $FIREBASE_TOKEN production
+    - firebase use --token $FIREBASE_TOKEN grnfanzone production
     - ng build --prod
     - firebase deploy -m "Pipeline $CI_PIPELINE_ID, build $CI_BUILD_ID" --non-interactive --token $FIREBASE_TOKEN
 # End Deployment #
