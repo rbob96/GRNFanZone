@@ -3,13 +3,12 @@ import { AuthService } from '../services/auth.service';
 
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar-component.html',
-  styleUrls: ['../navbar/navbar-component.css']
+  selector: 'app-login',
+  templateUrl: './login-component.html',
+  styleUrls: ['../login/login-component.css']
 })
 
-export class NavbarComponent {
+export class LoginComponent {
 
     constructor(private af: AuthService) {}
-    
 }
