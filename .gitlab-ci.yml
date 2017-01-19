@@ -18,30 +18,19 @@ after_script:
   - gulp clean
 
 # Testing #
-lint_js:
-  stage: test
-  script:
-    - gulp vet-js
-
-lint_ts:
-  stage: test
-  script:
-    - gulp vet-ts
-
-lint_html:
+lint_src:
   stage: test
   script:
     - gulp vet-html
+    - gulp vet-js
+    - gulp vet-less
+    - gulp vet-ts
 
-lint_less:
+test_src:
   stage: test
   script:
-    - gulp vet-less
-
-# test_app:
-#   stage: test
-#   script:
-#     - gulp karma
+    - ng test --code-coverage --single-run
+    - cat ./coverage/summary.txt
 # End Testing #
 
 # Deployment #
