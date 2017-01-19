@@ -20,8 +20,9 @@ module.exports = function (config) {
     },
     remapIstanbulReporter: {
       reports: {
-        html: 'coverage',
-        lcovonly: './coverage/coverage.lcov'
+        'lcovonly': './coverage/coverage.lcov',
+        'text-summary': './coverage/summary.txt',
+        'text': './coverage/text.txt'
       }
     },
     angularCli: {
@@ -31,6 +32,7 @@ module.exports = function (config) {
     reporters: config.angularCli && config.angularCli.codeCoverage
               ? ['progress', 'karma-remap-istanbul']
               : ['progress'],
+
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,

@@ -38,6 +38,11 @@ lint_less:
   script:
     - gulp vet-less
 
+test_src:
+  stage: test
+  script:
+    - ng test --code-coverage --single-run
+
 # test_app:
 #   stage: test
 #   script:
