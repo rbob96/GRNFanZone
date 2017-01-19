@@ -1,11 +1,13 @@
 ## Team V Professional Software Development Project
 
+### Master Status
+[![build status](https://gitlab.com/cluskii/GRNFanZone/badges/master/build.svg)](https://gitlab.com/cluskii/GRNFanZone/commits/master)
+[![coverage report](https://gitlab.com/cluskii/GRNFanZone/badges/master/coverage.svg)](https://gitlab.com/cluskii/GRNFanZone/commits/master)
+
+### Dev status
 [![build status](https://gitlab.com/cluskii/GRNFanZone/badges/dev/build.svg)](https://gitlab.com/cluskii/GRNFanZone/commits/dev)
 [![coverage report](https://gitlab.com/cluskii/GRNFanZone/badges/dev/coverage.svg)](https://gitlab.com/cluskii/GRNFanZone/commits/dev)
 
-
-[![build status](https://gitlab.com/cluskii/GRNFanZone/badges/master/build.svg)](https://gitlab.com/cluskii/GRNFanZone/commits/master)
-[![coverage report](https://gitlab.com/cluskii/GRNFanZone/badges/master/coverage.svg)](https://gitlab.com/cluskii/GRNFanZone/commits/master)
 
 
 ### Useful Snippets
