@@ -42,6 +42,7 @@ test_src:
   stage: test
   script:
     - ng test --code-coverage --single-run
+    - cat ./coverage/summary.txt
 
 # test_app:
 #   stage: test
