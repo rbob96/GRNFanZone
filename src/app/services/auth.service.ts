@@ -33,7 +33,7 @@ export class AuthService {
     }).then(authState => {
       console.log('AFTER LOGIN', authState);
       this.af.database.object('/users/' + authState.uid).update({
-          name  : authState.auth.displayName, 
+          name  : authState.auth.displayName,
           email : authState.auth.email,
           avatar: authState.auth.photoURL
         });
