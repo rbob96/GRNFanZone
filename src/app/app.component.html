@@ -1,5 +1,12 @@
 <!DOCTYPE html>
-
+<html>
+<head>
+  <title> GRNFanZone</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7" />
+</head>
+<body>
 <app-navbar></app-navbar>
 
 <div class="jumbotron">
@@ -9,17 +16,7 @@
 
     <img *ngIf="photoURL" src="{{ photoURL }}" alt="">
 
-
-    <div class="g-row sign-in">
-      <div class="g-col">
-        <h1 class="sign-in__heading">Sign in</h1>
-        <button class="sign-in__button" (click)="signInAnonymously()" type="button">Anonymously</button>
-        <button class="sign-in__button" (click)="af.login('facebook')" type="button">Facebook</button>
-        <button class="sign-in__button" (click)="af.login('google')" type="button">Google</button>
-        <button class="sign-in__button" (click)="af.logout()">Logout</button>
-      </div>
-    </div>
-
-
   </div>
 </div>
+</body>
+</html>

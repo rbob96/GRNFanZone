@@ -8,8 +8,12 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
+import {DashboardComponent} from './dashboard/dashboard.component';
+import {ProfileComponent} from './profile/profile.component';
+import {LoginComponent} from './login/login.component';
+import {TeamsFollowedComponent} from './teams-followed/teams-followed.component';
+import {PlayersFollowedComponent} from './players-followed/players-followed.component';
+
 import { routing } from './app.routing';
 import { AuthService } from './services/auth.service';
 
@@ -25,8 +29,11 @@ export const firebaseConfig = {
   declarations: [
     AppComponent,
     NavbarComponent,
-    HomeComponent,
-    AboutComponent
+    LoginComponent,
+    DashboardComponent,
+    ProfileComponent,
+    TeamsFollowedComponent,
+    PlayersFollowedComponent
   ],
   imports: [
     BrowserModule,
