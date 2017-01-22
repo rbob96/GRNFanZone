@@ -33,7 +33,8 @@ export const firebaseConfig = {
     DashboardComponent,
     ProfileComponent,
     TeamsFollowedComponent,
-    PlayersFollowedComponent
+    PlayersFollowedComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
