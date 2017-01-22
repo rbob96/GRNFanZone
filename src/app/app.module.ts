@@ -13,6 +13,13 @@ import {ProfileComponent} from './profile/profile.component';
 import {LoginComponent} from './login/login.component';
 import {TeamsFollowedComponent} from './teams-followed/teams-followed.component';
 import {PlayersFollowedComponent} from './players-followed/players-followed.component';
+import {TeamComponent} from './team-profile/team.component';
+import {PlayerComponent} from './player-profile/player.component';
+import {ClubComponent} from './club-profile/club.component';
+import {TabViewModule} from 'primeng/primeng';
+import {DataListModule} from 'primeng/primeng';
+import {DialogModule} from 'primeng/primeng';
+
 
 import { routing } from './app.routing';
 import { AuthService } from './services/auth.service';
@@ -33,14 +40,20 @@ export const firebaseConfig = {
     DashboardComponent,
     ProfileComponent,
     TeamsFollowedComponent,
-    PlayersFollowedComponent
+    PlayersFollowedComponent,
+    TeamComponent,
+    PlayerComponent,
+    ClubComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    routing
+    routing,
+    TabViewModule,
+    DataListModule,
+    DialogModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
