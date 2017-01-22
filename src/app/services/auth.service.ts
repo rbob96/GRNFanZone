@@ -7,6 +7,7 @@ import { Routes } from '@angular/router';
 export class AuthService {
   displayName;
   photoURL;
+  email;
   authState;
 
   constructor(private af: AngularFire) {
@@ -16,12 +17,14 @@ export class AuthService {
 
         this.displayName = null;
         this.photoURL = null;
+        this.email = null;
         return;
 
       }
 
       this.displayName = authState.auth.displayName;
       this.photoURL = authState.auth.photoURL;
+      this.email = authState.auth.email;
     });
   }
 
