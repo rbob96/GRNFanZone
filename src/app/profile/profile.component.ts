@@ -11,9 +11,7 @@ import {Router} from '@angular/router';
 
 
 export class ProfileComponent {
-  displayName;
-  photoURL;
-  email;
+  
   constructor() {
     let displayName = '';
     let photoURL = '';
