@@ -23,8 +23,11 @@ lint_src:
   script:
     - gulp vet-html
     - gulp vet-js
+    - gulp vet-json 
+    - gulp vet-css
     - gulp vet-less
     - gulp vet-ts
+
 
 test_src:
   stage: test

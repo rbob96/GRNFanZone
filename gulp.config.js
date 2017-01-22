@@ -20,6 +20,10 @@ module.exports = function() {
     sourceCSS: [
       './src/**/*.css'
     ],
+    sourceJson: [
+      './*.json',
+      './src/**/*.json'
+    ],
     //Temp path
     pathTemp: './.tmp/',
     //build path

@@ -56,6 +56,12 @@ gulp.task('vet-css', function (done) {
       .pipe($.csslint.formatter(require('csslint-stylish')));
 });
 
+gulp.task('vet-json', function (done) {
+  gulp.src(config.sourceJson)
+      .pipe($.jsonlint())
+      .pipe($.jsonlint.reporter());
+});
+
 gulp.task('compile-less', ['clean-temp', 'clean-build'], function() {
   log('Compiling less...');
   return gulp
