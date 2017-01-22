@@ -50,6 +50,12 @@ gulp.task('vet-less', function (done) {
         .pipe($.lesshint.failOnError());
 });
 
+gulp.task('vet-css', function (done) {
+  gulp.src(config.sourceCSS)
+      .pipe($.csslint())
+      .pipe($.csslint.formatter(require('csslint-stylish')));
+});
+
 gulp.task('compile-less', ['clean-temp', 'clean-build'], function() {
   log('Compiling less...');
   return gulp

@@ -17,6 +17,9 @@ module.exports = function() {
     sourceLess: [
       './src/**/*.less'
     ],
+    sourceCSS: [
+      './src/**/*.css'
+    ],
     //Temp path
     pathTemp: './.tmp/',
     //build path
