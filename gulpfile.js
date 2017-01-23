@@ -7,7 +7,8 @@ var concat = require("gulp-concat");
 
 //Linters:
 var csslintConfig = {
-  'box-model': false
+  'box-model': false,
+  'zero-units': false
 }
 
 var config = require('./gulp.config.js')();
