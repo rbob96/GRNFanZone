@@ -24,7 +24,7 @@ gulp.task('vet-ts', function (done) {
   log("Vetting code with tshint...");
   gulp.src(config.sourceTS)
       .pipe($.tslint({
-            formatter: verbose
+            formatter: "verbose"
           }))
       .pipe($.tslint.report({
         emitError: false
