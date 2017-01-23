@@ -6,7 +6,9 @@ var sourcemaps = require("gulp-sourcemaps");
 var concat = require("gulp-concat");
 
 //Linters:
-
+var csslintConfig = {
+  'box-model': false
+}
 
 var config = require('./gulp.config.js')();
 
@@ -46,7 +48,7 @@ gulp.task('vet-less', function (done) {
 
 gulp.task('vet-css', function (done) {
   gulp.src(config.sourceCSS)
-      .pipe($.csslint())
+      .pipe($.csslint(csslintConfig))
       .pipe($.csslint.formatter(require('csslint-stylish')));
 });
 
@@ -71,7 +73,7 @@ gulp.task('vet-fail', function (done){
       .pipe($.lesshint( {} ))
       .pipe($.lesshint.failOnError());
   gulp.src(config.sourceCSS)
-      .pipe($.csslint())
+      .pipe($.csslint(csslintConfig))
       .pipe($.csslint.formatter('fail'));
   gulp.src(config.sourceJson)
       .pipe($.jsonlint())
