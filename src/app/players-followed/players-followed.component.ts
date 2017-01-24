@@ -27,7 +27,7 @@ export class PlayersFollowedComponent implements OnInit {
   constructor(private playersService: PlayersService) { }
 
   ngOnInit() {
-      this.playersService.getPlayers().then(players => this.players = [1,2,3]);
+      this.playersService.getPlayers().then(players => this.players = [1, 2]);
       console.log('The component is initialized');
   }
 }
