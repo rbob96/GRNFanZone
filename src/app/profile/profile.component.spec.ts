@@ -38,4 +38,14 @@ describe('ProfileComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should get id from Router', () => {
+    // The UserId should exist
+    expect(component.UserId).toBeTruthy();
+
+    // The UserId should be 5
+    expect(component.UserId).toEqual(5);
+
+  })
+
 });

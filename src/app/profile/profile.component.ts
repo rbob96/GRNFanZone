@@ -14,7 +14,7 @@ import { AngularFire, AuthMethods, AuthProviders } from 'angularfire2';
 
 export class ProfileComponent implements OnInit, OnDestroy {
   // User id
-  id: number;
+  UserId: number;
   // Subscription to route params
   private sub: any;
 
@@ -22,9 +22,10 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
-       this.id = +params['id']; // (+) converts string 'id' to a number
+       this.UserId = +params['id']; // (+) converts string 'id' to a number
 
        // In a real app: dispatch action to load the details here.
+
     });
   }
 
