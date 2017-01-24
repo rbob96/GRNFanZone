@@ -7,7 +7,7 @@ import 'rxjs/Rx';
 export class PlayersService {
 
     constructor(private http: Http) {}
-
+// tried importing the example data....
     getPlayers() {
         return this.http.get('player.json')
                     .toPromise()

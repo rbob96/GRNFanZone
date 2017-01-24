@@ -36,7 +36,8 @@ gulp.task('vet-html', function (done) {
   log("Vetting code with htmlhint");
   gulp.src(config.sourceHTML)
   .pipe($.htmlhint({
-    "attr-lowercase": false
+    "tagname-lowercase": false,
+    "attr-lowercase": false,
   }))
   .pipe($.htmlhint.reporter("htmlhint-stylish"))
   .pipe($.htmlhint.failReporter({ suppress: true }));
