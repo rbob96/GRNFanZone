@@ -33,9 +33,15 @@ gulp.task('vet-ts', function (done) {
 });
 
 gulp.task('vet-html', function (done) {
-  return gulp.src(config.sourceHTML)
-  .pipe($.htmlhint(config.htmlhintConfig))
-  .pipe($.htmlhint.reporter("htmlhint-stylish"));
+  log("Vetting code with htmlhint");
+  gulp.src(config.sourceHTML)
+  .pipe($.htmlhint({
+    "tagname-lowercase": false,
+    "attr-lowercase": false,
+  }))
+  .pipe($.htmlhint.reporter("htmlhint-stylish"))
+  .pipe($.htmlhint.failReporter({ suppress: true }));
+
 });
 
 gulp.task('vet-less', function (done) {

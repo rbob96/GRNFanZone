@@ -6,6 +6,9 @@ import {ProfileComponent} from './profile/profile.component';
 import {LoginComponent} from './login/login.component';
 import {TeamsFollowedComponent} from './teams-followed/teams-followed.component';
 import {PlayersFollowedComponent} from './players-followed/players-followed.component';
+import {TeamComponent} from './team-profile/team.component';
+import {PlayerComponent} from './player-profile/player.component';
+import {ClubComponent} from './club-profile/club.component';
 
 const appRoutes: Routes = [
     {
@@ -26,6 +29,18 @@ const appRoutes: Routes = [
       {
         path : 'playersFollowed',
         component : PlayersFollowedComponent
+      },
+      {
+        path : 'team',
+        component : TeamComponent
+      },
+      {
+        path : 'player',
+        component : PlayerComponent
+      },
+      {
+        path : 'club',
+        component : ClubComponent
       }
 
 ];

@@ -30,7 +30,8 @@ module.exports = function() {
     pathBuild: './dist/',
 
     htmlhintConfig: {
-        "attr-lowercase": false
+        "attr-lowercase": false,
+        "tagname-lowercase": false
     }
 
   };
