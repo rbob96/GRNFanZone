@@ -35,8 +35,8 @@ export class ProfileComponent implements OnInit, OnDestroy {
     });
   }
 
-  // ngOnDestroy() {
-  //   this.sub.unsubscribe();
-  // }
+  ngOnDestroy() {
+    this.sub.unsubscribe();
+  }
 
 }
