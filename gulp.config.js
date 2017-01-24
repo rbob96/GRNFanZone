@@ -17,10 +17,22 @@ module.exports = function() {
     sourceLess: [
       './src/**/*.less'
     ],
+    sourceCSS: [
+      './src/**/*.css'
+    ],
+    sourceJson: [
+      './*.json',
+      './src/**/*.json'
+    ],
     //Temp path
     pathTemp: './.tmp/',
     //build path
-    pathBuild: './dist/'
+    pathBuild: './dist/',
+
+    htmlhintConfig: {
+        "attr-lowercase": false
+    }
+
   };
   return config;
 };
