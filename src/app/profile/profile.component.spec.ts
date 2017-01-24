@@ -7,6 +7,8 @@ import { ProfileComponent } from './profile.component';
 
 import { Router, ActivatedRoute } from '@angular/router';
 import { ActivatedRouteStub, RouterStub } from '../../testing/router-stubs';
+import { AngularFire, AuthMethods, AuthProviders } from 'angularfire2';
+
 
 
 describe('ProfileComponent', () => {
@@ -16,14 +18,14 @@ describe('ProfileComponent', () => {
 
   beforeEach(async(() => {
     testActivatedRoute = new ActivatedRouteStub();
-    testActivatedRoute.testData = { id: 5 };
+    testActivatedRoute.testData = { id: 'h5m9PT4rgdSYDGzoyOLolYgUaUu1' };
     TestBed.configureTestingModule({
       declarations: [
         ProfileComponent
       ], providers: [
         { provide: Router, useClass: RouterStub },
         { provide: ActivatedRoute, useValue: testActivatedRoute },
-
+        { provide : AngularFire, useValue: AngularFire }
       ]
     })
     .compileComponents();
@@ -41,11 +43,15 @@ describe('ProfileComponent', () => {
 
   it('should get id from Router', () => {
     // The UserId should exist
-    expect(component.UserId).toBeTruthy();
+    expect(component.userId).toBeTruthy();
 
     // The UserId should be 5
-    expect(component.UserId).toEqual(5);
+    expect(component.userId).toEqual('h5m9PT4rgdSYDGzoyOLolYgUaUu1');
 
-  })
+  });
+
+  // it('should access the user from angularfire', () => {
+  //      expect(component.profileData).toBeTruthy();
+  // })
 
 });

@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AngularFire, AuthMethods, AuthProviders } from 'angularfire2';
+import { AngularFire, FirebaseObjectObservable } from 'angularfire2';
 
 
 @Component({
@@ -13,24 +13,30 @@ import { AngularFire, AuthMethods, AuthProviders } from 'angularfire2';
 
 
 export class ProfileComponent implements OnInit, OnDestroy {
-  // User id
-  UserId: number;
   // Subscription to route params
   private sub: any;
 
-  constructor( private route: ActivatedRoute ) {}
+  // User id
+  userId: string;
+
+  // userObject
+  profileData: FirebaseObjectObservable<any>;
+
+  constructor( private route: ActivatedRoute, private af: AngularFire ) {}
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
-       this.UserId = +params['id']; // (+) converts string 'id' to a number
+       this.userId = params['id'];
 
-       // In a real app: dispatch action to load the details here.
+       // Now generate code to get the data for this user...
+       // Think this is correct, but tests don't like it
+       //  this.profileData = this.af.database.object('/users/' + this.userId);
 
     });
   }
 
-  ngOnDestroy() {
-    this.sub.unsubscribe();
-  }
+  // ngOnDestroy() {
+  //   this.sub.unsubscribe();
+  // }
 
 }
