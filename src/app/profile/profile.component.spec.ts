@@ -12,17 +12,18 @@ import { ActivatedRouteStub, RouterStub } from '../../testing/router-stubs';
 describe('ProfileComponent', () => {
   let component: ProfileComponent;
   let fixture: ComponentFixture<ProfileComponent>;
-  let activatedRoute: ActivatedRouteStub;
+  let testActivatedRoute: ActivatedRouteStub;
 
   beforeEach(async(() => {
-    activatedRoute = new ActivatedRouteStub();
-    activatedRoute.testData = { id: 5 };
+    testActivatedRoute = new ActivatedRouteStub();
+    testActivatedRoute.testData = { id: 5 };
     TestBed.configureTestingModule({
       declarations: [
         ProfileComponent
       ], providers: [
         { provide: Router, useClass: RouterStub },
-        { provide: ActivatedRoute, useValue: activatedRoute },
+        { provide: ActivatedRoute, useValue: testActivatedRoute },
+
       ]
     })
     .compileComponents();
