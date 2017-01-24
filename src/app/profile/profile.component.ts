@@ -18,9 +18,9 @@ export class ProfileComponent implements OnInit, OnDestroy {
   // Subscription to route params
   private sub: any;
 
-    constructor( private route: ActivatedRoute ) {}
+  constructor( private route: ActivatedRoute ) {}
 
-    ngOnInit() {
+  ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
        this.id = +params['id']; // (+) converts string 'id' to a number
 

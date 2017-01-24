@@ -8,11 +8,11 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import {DashboardComponent} from './dashboard/dashboard.component';
-import {ProfileComponent} from './profile/profile.component';
-import {LoginComponent} from './login/login.component';
-import {TeamsFollowedComponent} from './teams-followed/teams-followed.component';
-import {PlayersFollowedComponent} from './players-followed/players-followed.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ProfileComponent } from './profile/profile.component';
+import { LoginComponent } from './login/login.component';
+import { TeamsFollowedComponent } from './teams-followed/teams-followed.component';
+import { PlayersFollowedComponent } from './players-followed/players-followed.component';
 
 import { routing } from './app.routing';
 import { AuthService } from './services/auth.service';
@@ -31,7 +31,6 @@ export const firebaseConfig = {
     NavbarComponent,
     LoginComponent,
     DashboardComponent,
-    ProfileComponent,
     TeamsFollowedComponent,
     PlayersFollowedComponent,
     ProfileComponent
@@ -43,7 +42,7 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     routing
   ],
-  providers: [AuthService],
-  bootstrap: [AppComponent]
+  providers: [ AuthService ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }

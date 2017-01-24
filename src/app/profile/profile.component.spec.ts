@@ -5,13 +5,25 @@ import { DebugElement } from '@angular/core';
 
 import { ProfileComponent } from './profile.component';
 
+import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRouteStub, RouterStub } from '../../testing/router-stubs';
+
+
 describe('ProfileComponent', () => {
   let component: ProfileComponent;
   let fixture: ComponentFixture<ProfileComponent>;
+  let activatedRoute: ActivatedRouteStub;
 
   beforeEach(async(() => {
+    activatedRoute = new ActivatedRouteStub();
+    activatedRoute.testData = { id: 5 };
     TestBed.configureTestingModule({
-      declarations: [ ProfileComponent ]
+      declarations: [
+        ProfileComponent
+      ], providers: [
+        { provide: Router, useClass: RouterStub },
+        { provide: ActivatedRoute, useValue: activatedRoute },
+      ]
     })
     .compileComponents();
   }));
