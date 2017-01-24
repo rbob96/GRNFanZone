@@ -16,16 +16,14 @@ var config = require('./gulp.config.js')();
 var $ = require('gulp-load-plugins')({lazy: true});
 
 gulp.task('vet-js', function (done) {
-  log("Vetting code with jshint...");
-  gulp.src(config.sourceJS)
+  return gulp.src(config.sourceJS)
     .pipe($.if(args.verbose, $.print()))
     .pipe($.jshint())
     .pipe($.jshint.reporter('jshint-stylish', {verbose:true}));
 });
 
 gulp.task('vet-ts', function (done) {
-  log("Vetting code with tshint...");
-  gulp.src(config.sourceTS)
+  return gulp.src(config.sourceTS)
       .pipe($.tslint({
             formatter: "verbose"
           }))
@@ -35,8 +33,7 @@ gulp.task('vet-ts', function (done) {
 });
 
 gulp.task('vet-html', function (done) {
-  log("Vetting code with htmlhint");
-  gulp.src(config.sourceHTML)
+  return gulp.src(config.sourceHTML)
   .pipe($.htmlhint(config.htmlhintConfig))
   .pipe($.htmlhint.reporter("htmlhint-stylish"));
 });
@@ -48,13 +45,13 @@ gulp.task('vet-less', function (done) {
 });
 
 gulp.task('vet-css', function (done) {
-  gulp.src(config.sourceCSS)
+  return gulp.src(config.sourceCSS)
       .pipe($.csslint(csslintConfig))
       .pipe($.csslint.formatter(require('csslint-stylish')));
 });
 
 gulp.task('vet-json', function (done) {
-  gulp.src(config.sourceJson)
+  return gulp.src(config.sourceJson)
       .pipe($.jsonlint())
       .pipe($.jsonlint.reporter());
 });
