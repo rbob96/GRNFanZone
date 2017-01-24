@@ -9,7 +9,7 @@ var concat = require("gulp-concat");
 var csslintConfig = {
   'box-model': false,
   'zero-units': false
-}
+};
 
 var config = require('./gulp.config.js')();
 
@@ -38,13 +38,13 @@ gulp.task('vet-html', function (done) {
   log("Vetting code with htmlhint");
   gulp.src(config.sourceHTML)
   .pipe($.htmlhint(config.htmlhintConfig))
-  .pipe($.htmlhint.reporter("htmlhint-stylish"))
+  .pipe($.htmlhint.reporter("htmlhint-stylish"));
 });
 
 gulp.task('vet-less', function (done) {
     return gulp.src(config.sourceLess)
         .pipe($.lesshint( {} ))
-        .pipe($.lesshint.reporter())
+        .pipe($.lesshint.reporter());
 });
 
 gulp.task('vet-css', function (done) {
