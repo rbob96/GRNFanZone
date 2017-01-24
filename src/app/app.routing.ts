@@ -17,7 +17,7 @@ const appRoutes: Routes = [
       component : DashboardComponent
     },
     {
-      path : 'profile',
+      path : 'profile/:id',
       component : ProfileComponent
     },
     {

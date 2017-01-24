@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
-import { AuthService } from '../services/auth.service';
-import {Router} from '@angular/router';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AngularFire, AuthMethods, AuthProviders } from 'angularfire2';
 
 
@@ -8,22 +7,29 @@ import { AngularFire, AuthMethods, AuthProviders } from 'angularfire2';
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['../profile/profile.component.css'],
-  providers: [ AuthService, AngularFire ]
+  providers: [ ]
 })
 
 
 
-export class ProfileComponent {
+export class ProfileComponent implements OnInit, OnDestroy {
+  // User id
+  id: number;
+  // Subscription to route params
+  private sub: any;
 
-  constructor( private auth: AuthService ) {
-    let displayName = '';
-    let photoURL = '';
-    let email = '';
+    constructor( private route: ActivatedRoute ) {}
 
-    displayName = '';
-    photoURL = '';
-    email = '';
+    ngOnInit() {
+    this.sub = this.route.params.subscribe(params => {
+       this.id = +params['id']; // (+) converts string 'id' to a number
 
+       // In a real app: dispatch action to load the details here.
+    });
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
 
 }
