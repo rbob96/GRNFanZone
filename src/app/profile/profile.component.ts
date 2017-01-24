@@ -8,14 +8,14 @@ import { AngularFire, AuthMethods, AuthProviders } from 'angularfire2';
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['../profile/profile.component.css'],
-  providers: [ AuthService ]
+  providers: [ AuthService, AngularFire ]
 })
 
 
 
 export class ProfileComponent {
 
-  constructor( ) {
+  constructor( private auth: AuthService ) {
     let displayName = '';
     let photoURL = '';
     let email = '';
