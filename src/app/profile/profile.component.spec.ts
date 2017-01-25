@@ -7,25 +7,25 @@ import { ProfileComponent } from './profile.component';
 
 import { Router, ActivatedRoute } from '@angular/router';
 import { ActivatedRouteStub, RouterStub } from '../../testing/router-stubs';
-import { AngularFire, AuthMethods, AuthProviders } from 'angularfire2';
+import {AngularFire, AuthMethods, AuthProviders, AngularFireModule} from 'angularfire2';
+import {Observable} from "rxjs";
 
-
+import {firebaseConfig} from "../app.module";
 
 describe('ProfileComponent', () => {
   let component: ProfileComponent;
   let fixture: ComponentFixture<ProfileComponent>;
-  let testActivatedRoute: ActivatedRouteStub;
 
   beforeEach(async(() => {
-    testActivatedRoute = new ActivatedRouteStub();
-    testActivatedRoute.testData = { id: 'h5m9PT4rgdSYDGzoyOLolYgUaUu1' };
     TestBed.configureTestingModule({
       declarations: [
         ProfileComponent
       ], providers: [
         { provide: Router, useClass: RouterStub },
-        { provide: ActivatedRoute, useValue: testActivatedRoute },
-        { provide : AngularFire, useValue: AngularFire }
+        { provide: ActivatedRoute, useValue: { 'params': Observable.from([{ 'id': 'h5m9PT4rgdSYDGzoyOLolYgUaUu1' }]) } },
+        { provide : AngularFire, useClass: AngularFire }
+      ], imports: [
+        AngularFireModule.initializeApp(firebaseConfig)
       ]
     })
     .compileComponents();
@@ -49,9 +49,5 @@ describe('ProfileComponent', () => {
     expect(component.userId).toEqual('h5m9PT4rgdSYDGzoyOLolYgUaUu1');
 
   });
-
-  // it('should access the user from angularfire', () => {
-  //      expect(component.profileData).toBeTruthy();
-  // })
 
 });

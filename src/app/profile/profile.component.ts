@@ -12,7 +12,7 @@ import { AngularFire, FirebaseObjectObservable } from 'angularfire2';
 
 
 
-export class ProfileComponent implements OnInit, OnDestroy {
+export class ProfileComponent implements OnInit {
   // Subscription to route params
   private sub: any;
 
@@ -25,18 +25,18 @@ export class ProfileComponent implements OnInit, OnDestroy {
   constructor( private route: ActivatedRoute, private af: AngularFire ) {}
 
   ngOnInit() {
+    // Activated Route unsubscribed from by router, so not necessary to
+    // implement ngOnDestroy()
     this.sub = this.route.params.subscribe(params => {
        this.userId = params['id'];
 
        // Now generate code to get the data for this user...
        // Think this is correct, but tests don't like it
-       //  this.profileData = this.af.database.object('/users/' + this.userId);
+       this.profileData = this.af.database.object('/users/' + this.userId);
 
     });
   }
 
-  ngOnDestroy() {
-    this.sub.unsubscribe();
-  }
+
 
 }
