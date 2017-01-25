@@ -1,4 +1,3 @@
-
 import { TestBed, async, inject } from '@angular/core/testing';
 import { TeamDataService } from './team-data.service';
 import {AngularFire, AngularFireModule} from 'angularfire2';

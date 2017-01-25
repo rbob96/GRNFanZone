@@ -1,4 +1,3 @@
-
 import { TestBed, async, inject } from '@angular/core/testing';
 import {AngularFire, AngularFireModule} from 'angularfire2';
 import {firebaseConfig} from '../app.module';
