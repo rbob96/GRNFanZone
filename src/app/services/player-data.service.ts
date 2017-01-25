@@ -3,48 +3,19 @@ import { AngularFire } from 'angularfire2';
 
 @Injectable()
 
+// We will only be pulling data, not updating it
 export class PlayerDataService {
 
   constructor(private af: AngularFire) {}
 
-  // Gets all teams
+  // Gets all players
   public getPlayers () {
     return this.af.database.list('/players');
   }
 
-  // Gets a team by UID
+  // Gets a player by UID
   public getPlayerData (uid: string) {
-    return this.af.database.object('/teams/' + uid);
+    return this.af.database.object('/players/' + uid);
   }
-
-  // Sets a team by UID
-  public setUserData (uid: string, playerObject: any) {
-    // sanity checks
-    if (
-        playerObject.age &&
-        playerObject.avatar &&
-        playerObject.banner &&
-        playerObject.bio &&
-        playerObject.created_at &&
-        playerObject.first_name &&
-        playerObject.gender &&
-        playerObject.height &&
-        playerObject.id &&
-        playerObject.last_name &&
-        playerObject.location &&
-        playerObject.location.city &&
-        playerObject.location.country &&
-        playerObject.teams &&
-        playerObject.weight
-    ) {
-
-      // Get db observable
-      const teamObservable = this.af.database.object('/teams/' + uid);
-
-      // Update (destructive)
-      teamObservable.set(playerObject);
-    }
-  }
-
 
 }

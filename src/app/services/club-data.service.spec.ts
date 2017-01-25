@@ -1,13 +1,13 @@
 import { TestBed, async, inject } from '@angular/core/testing';
-import {AngularFire, AngularFireModule} from 'angularfire2';
-import {firebaseConfig} from '../app.module';
-import {PlayerDataService} from './player-data.service';
+import { AngularFire, AngularFireModule } from 'angularfire2';
+import { firebaseConfig } from '../app.module';
+import { ClubDataService } from './club-data.service';
 
-describe('PlayerDataService', () => {
+describe('ClubDataService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
-        PlayerDataService,
+        ClubDataService,
         { provide : AngularFire, useClass: AngularFire }
       ],
       imports: [
@@ -16,7 +16,7 @@ describe('PlayerDataService', () => {
     });
   });
 
-  it('should create', inject([PlayerDataService], (service: PlayerDataService) => {
+  it('should create', inject([ClubDataService], (service: ClubDataService) => {
     expect(service).toBeTruthy();
   }));
 
