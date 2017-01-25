@@ -1,31 +1,45 @@
 import { Injectable } from '@angular/core';
 import { AngularFire, AuthMethods, AuthProviders } from 'angularfire2';
-import { Routes } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Injectable()
 
 export class AuthService {
-  displayName;
-  photoURL;
+
+  userDetails = {
+    displayName: null,
+    photoURL: null,
+    email: null,
+    uid: null
+  };
+
   authState;
   registered;
 
-  constructor(private af: AngularFire) {
+  constructor(private router: Router, private af: AngularFire) {
 
       this.af.auth.subscribe(authState => {
-      if (!authState) {
 
-        this.displayName = null;
-        this.photoURL = null;
-        this.registered = false;
-        return;
+        if (!authState) {
 
-      }
+          this.userDetails.displayName = null;
+          this.userDetails.photoURL = null;
+          this.userDetails.email = null;
+          this.userDetails.uid = null;
 
-      this.displayName = authState.auth.displayName;
-      this.photoURL = authState.auth.photoURL;
-      this.registered = true;
-    });
+          this.registered = false;
+
+          return;
+
+        }
+
+        this.userDetails.displayName = authState.auth.displayName;
+        this.userDetails.photoURL = authState.auth.photoURL;
+        this.userDetails.email = authState.auth.email;
+        this.userDetails.uid = authState.auth.uid;
+        this.registered = true;
+
+        });
   }
 
 
@@ -40,11 +54,13 @@ export class AuthService {
           email : authState.auth.email,
           avatar: authState.auth.photoURL
         });
+      this.router.navigate(['/']);
     });
   }
 
   logout() {
     this.af.auth.logout();
+    this.router.navigate(['/login']);
   }
 
 
