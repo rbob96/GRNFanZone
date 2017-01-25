@@ -41,24 +41,7 @@ export class TeamDataService {
       const teamObservable = this.af.database.object('/teams/' + uid);
 
       // Update (destructive)
-      teamObservable.set({
-        age_group: teamObject.age_group,
-        avatar: teamObject.avatar,
-        banner: teamObject.banner,
-        club_id: teamObject.club_id,
-        created_at: teamObject.created_at,
-        description: teamObject.description,
-        gender: teamObject.gender,
-        id: teamObject.id,
-        location: {
-            address: teamObject.location.address,
-          city: teamObject.location.city,
-          country: teamObject.location.country
-        },
-        name: teamObject.name,
-        type: teamObject.location.type
-
-      });
+      teamObservable.set(teamObject);
     }
   }
 
