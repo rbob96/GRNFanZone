@@ -9,12 +9,14 @@ export class AuthService {
   photoURL;
   authState;
   registered;
+  uid;
 
   constructor(private af: AngularFire) {
 
       this.af.auth.subscribe(authState => {
       if (!authState) {
 
+        this.uid = null;
         this.displayName = null;
         this.photoURL = null;
         this.registered = false;
@@ -22,6 +24,7 @@ export class AuthService {
 
       }
 
+      this.uid = authState.auth.uid;
       this.displayName = authState.auth.displayName;
       this.photoURL = authState.auth.photoURL;
       this.registered = true;
