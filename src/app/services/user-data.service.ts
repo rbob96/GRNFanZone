@@ -24,6 +24,7 @@ export class UserDataService {
         email: userObject.email,
         name: userObject.name
       });
+
     }
 
   }

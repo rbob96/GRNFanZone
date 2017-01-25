@@ -24,6 +24,7 @@ import { DialogModule } from 'primeng/primeng';
 import { routing } from './app.routing';
 import { AuthService } from './services/auth.service';
 import {UserDataService} from './services/user-data.service';
+import {AuthGuardService} from './services/auth-guard.service';
 
 export const firebaseConfig = {
     apiKey: 'AIzaSyCoo25Hw0ftCZHYtQx73gOvbu7SS4YCXW8',
@@ -58,7 +59,11 @@ export const firebaseConfig = {
     DataListModule,
     DialogModule
   ],
-  providers: [ AuthService, UserDataService ],
+  providers: [
+    AuthService,
+    UserDataService,
+    AuthGuardService
+  ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFire, AuthMethods, AuthProviders } from 'angularfire2';
-import { Routes } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Injectable()
 
@@ -15,7 +15,7 @@ export class AuthService {
 
   authState;
 
-  constructor(private af: AngularFire) {
+  constructor(private router: Router, private af: AngularFire) {
 
       this.af.auth.subscribe(authState => {
 
@@ -49,6 +49,7 @@ export class AuthService {
           email : authState.auth.email,
           avatar: authState.auth.photoURL
         });
+      this.router.navigate(['/']);
     });
   }
 
