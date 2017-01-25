@@ -2,7 +2,7 @@
 
 import { TestBed, async, inject } from '@angular/core/testing';
 import { AuthGuardService } from './auth-guard.service';
-import { AngularFire, AngularFireModule } from 'angularfire2';
+import { AngularFireModule, FirebaseAuth } from 'angularfire2';
 import { firebaseConfig } from '../app.module';
 import { Router } from '@angular/router';
 import { RouterStub } from '../../testing/router-stubs';
@@ -13,7 +13,7 @@ describe('AuthGuardService', () => {
       providers: [
         AuthGuardService,
         { provide: Router, useClass: RouterStub },
-        { provide : AngularFire, useClass: AngularFire }
+        { provide : FirebaseAuth, useClass: FirebaseAuth }
       ],
       imports: [
         AngularFireModule.initializeApp(firebaseConfig)
