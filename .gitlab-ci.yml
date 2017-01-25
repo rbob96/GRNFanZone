@@ -38,6 +38,18 @@ test_src:
 # End Testing #
 
 # Deployment #
+deploy_staging:
+  stage: deploy
+  environment: Staging
+#  only:
+#    - dev
+  script:
+    - firebase use --add grnfanzone-staging staging
+    - firebase use --token $FIREBASE_TOKEN grnfanzone-staging staging
+    - ng build --prod
+    - firebase deploy -m "Pipeline $CI_PIPELINE_ID, build $CI_BUILD_ID" --non-interactive --token $FIREBASE_TOKEN
+
+
 deploy_production:
   stage: deploy
   environment: Production
