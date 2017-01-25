@@ -6,37 +6,38 @@ var sourcemaps = require("gulp-sourcemaps");
 var concat = require("gulp-concat");
 
 //Linters:
-var tslint = require("gulp-tslint");
-
+var csslintConfig = {
+  'box-model': false,
+  'zero-units': false
+};
 
 var config = require('./gulp.config.js')();
 
 var $ = require('gulp-load-plugins')({lazy: true});
 
 gulp.task('vet-js', function (done) {
-  log("Vetting code with jshint...");
-  return gulp
-    .src(config.sourceJS)
+  return gulp.src(config.sourceJS)
     .pipe($.if(args.verbose, $.print()))
     .pipe($.jshint())
-    .pipe($.jshint.reporter('jshint-stylish', {verbose:true}))
-    .pipe($.jshint.reporter('fail'));
+    .pipe($.jshint.reporter('jshint-stylish', {verbose:true}));
 });
 
 gulp.task('vet-ts', function (done) {
-  log("Vetting code with tshint...");
-  gulp.src(config.sourceTS)
-      .pipe(tslint({
-          formatter: "verbose"
-      }))
-      .pipe(tslint.report());
+  return gulp.src(config.sourceTS)
+      .pipe($.tslint({
+            formatter: "verbose"
+          }))
+      .pipe($.tslint.report({
+        emitError: false
+      }));
 });
 
 gulp.task('vet-html', function (done) {
   log("Vetting code with htmlhint");
   gulp.src(config.sourceHTML)
   .pipe($.htmlhint({
-    "attr-lowercase": false
+    "tagname-lowercase": false,
+    "attr-lowercase": false,
   }))
   .pipe($.htmlhint.reporter("htmlhint-stylish"))
   .pipe($.htmlhint.failReporter({ suppress: true }));
@@ -46,8 +47,41 @@ gulp.task('vet-html', function (done) {
 gulp.task('vet-less', function (done) {
     return gulp.src(config.sourceLess)
         .pipe($.lesshint( {} ))
-        .pipe($.lesshint.reporter())
-        .pipe($.lesshint.failOnError());
+        .pipe($.lesshint.reporter());
+});
+
+gulp.task('vet-css', function (done) {
+  return gulp.src(config.sourceCSS)
+      .pipe($.csslint(csslintConfig))
+      .pipe($.csslint.formatter(require('csslint-stylish')));
+});
+
+gulp.task('vet-json', function (done) {
+  return gulp.src(config.sourceJson)
+      .pipe($.jsonlint())
+      .pipe($.jsonlint.reporter());
+});
+
+
+gulp.task('vet-fail', function (done){
+  gulp.src(config.sourceJS)
+      .pipe($.jshint())
+      .pipe($.jshint.reporter('fail'));
+  gulp.src(config.sourceTS)
+      .pipe($.tslint())
+      .pipe($.tslint.report());
+  gulp.src(config.sourceHTML)
+      .pipe($.htmlhint(config.htmlhintConfig))
+      .pipe($.htmlhint.failReporter());
+  gulp.src(config.sourceLess)
+      .pipe($.lesshint( {} ))
+      .pipe($.lesshint.failOnError());
+  gulp.src(config.sourceCSS)
+      .pipe($.csslint(csslintConfig))
+      .pipe($.csslint.formatter('fail'));
+  gulp.src(config.sourceJson)
+      .pipe($.jsonlint())
+      .pipe($.jsonlint.failOnError());
 });
 
 gulp.task('compile-less', ['clean-temp', 'clean-build'], function() {
