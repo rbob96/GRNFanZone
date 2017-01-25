@@ -5,27 +5,36 @@ import { Routes } from '@angular/router';
 @Injectable()
 
 export class AuthService {
-  displayName;
-  photoURL;
-  email;
+
+  userDetails = {
+    displayName: null,
+    photoURL: null,
+    email: null,
+    uid: null
+  };
+
   authState;
 
   constructor(private af: AngularFire) {
 
       this.af.auth.subscribe(authState => {
-      if (!authState) {
 
-        this.displayName = null;
-        this.photoURL = null;
-        this.email = null;
-        return;
+        if (!authState) {
 
-      }
+          this.userDetails.displayName = null;
+          this.userDetails.photoURL = null;
+          this.userDetails.email = null;
+          this.userDetails.uid = null;
+          return;
 
-      this.displayName = authState.auth.displayName;
-      this.photoURL = authState.auth.photoURL;
-      this.email = authState.auth.email;
-    });
+        }
+
+        this.userDetails.displayName = authState.auth.displayName;
+        this.userDetails.photoURL = authState.auth.photoURL;
+        this.userDetails.email = authState.auth.email;
+        this.userDetails.uid = authState.auth.uid;
+
+        });
   }
 
 

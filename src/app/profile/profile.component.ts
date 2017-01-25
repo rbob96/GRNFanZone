@@ -32,7 +32,7 @@ export class ProfileComponent implements OnInit {
 
        // Now generate code to get the data for this user...
        // Think this is correct, but tests don't like it
-       this.profileData = this.af.database.object('/users/' + this.userId);
+
 
     });
   }

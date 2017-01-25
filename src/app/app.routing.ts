@@ -9,11 +9,11 @@ import {PlayersFollowedComponent} from './players-followed/players-followed.comp
 
 const appRoutes: Routes = [
     {
-        path: '',
+        path: 'login',
         component: LoginComponent
     },
     {
-      path : 'dashboard',
+      path : '',
       component : DashboardComponent
     },
     {

@@ -16,6 +16,7 @@ import { PlayersFollowedComponent } from './players-followed/players-followed.co
 
 import { routing } from './app.routing';
 import { AuthService } from './services/auth.service';
+import {UserDataService} from "./services/user-data.service";
 
 export const firebaseConfig = {
     apiKey: 'AIzaSyCoo25Hw0ftCZHYtQx73gOvbu7SS4YCXW8',
@@ -42,7 +43,7 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     routing
   ],
-  providers: [ AuthService ],
+  providers: [ AuthService, UserDataService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

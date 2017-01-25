@@ -9,5 +9,8 @@ import { AuthService } from '../services/auth.service';
 })
 
 export class NavbarComponent {
-  constructor(private af: AuthService) {}
+  currentUser;
+  constructor(private authService: AuthService) {
+    this.currentUser = authService.userDetails;
+  }
 }
