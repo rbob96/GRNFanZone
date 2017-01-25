@@ -18,7 +18,7 @@ describe('UserDataService', () => {
     });
   });
 
-  it('should ...', inject([UserDataService], (service: UserDataService) => {
+  it('should create', inject([UserDataService], (service: UserDataService) => {
     expect(service).toBeTruthy();
   }));
 });

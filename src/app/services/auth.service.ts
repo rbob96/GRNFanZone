@@ -55,6 +55,7 @@ export class AuthService {
 
   logout() {
     this.af.auth.logout();
+    this.router.navigate(['/login']);
   }
 
 
