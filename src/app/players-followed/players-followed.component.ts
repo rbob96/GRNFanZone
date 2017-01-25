@@ -6,14 +6,14 @@ import {DataListModule} from 'primeng/primeng';
 import {Header} from 'primeng/primeng';
 import {Footer} from 'primeng/primeng';
 import {Dialog} from 'primeng/primeng';
-import {PlayersService} from '../services/players.service';
+import {PlayerDataService} from '../services/player-data.service';
 
 
 @Component({
   selector: 'app-players',
   templateUrl: './players-followed.html',
-  styleUrls: ['../players-followed/players-followed.css'],
-  providers: [PlayersService]
+  styleUrls: ['./players-followed.css'],
+  providers: [ PlayerDataService ]
 })
 
 export class PlayersFollowedComponent implements OnInit {
@@ -24,10 +24,15 @@ export class PlayersFollowedComponent implements OnInit {
 
   displayDialog: boolean;
 
-  constructor(private playersService: PlayersService) { }
+  constructor(private playerDataService: PlayerDataService, private router: Router) { }
 
   ngOnInit() {
-      this.playersService.getPlayers().then(players => this.players = [1, 2]);
-      console.log('The component is initialized');
+      const promise = this.playerDataService.getPlayers();
+      promise.subscribe(players => this.players = [1, 2]);
   }
+
+  public selectPlayer (playerId: string) {
+    // this.router.navigate(['/player/' + playerId]);
+  }
+
 }
