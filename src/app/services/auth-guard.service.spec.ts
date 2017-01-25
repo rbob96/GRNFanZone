@@ -2,17 +2,18 @@
 
 import { TestBed, async, inject } from '@angular/core/testing';
 import { AuthGuardService } from './auth-guard.service';
-import { AngularFireModule, FirebaseAuth } from 'angularfire2';
+import { AngularFireModule } from 'angularfire2';
 import { firebaseConfig } from '../app.module';
 import { Router } from '@angular/router';
 import { RouterStub } from '../../testing/router-stubs';
+import {AuthService} from './auth.service';
 
 describe('AuthGuardService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
         AuthGuardService,
-        { provide : FirebaseAuth, useClass: FirebaseAuth },
+        { provide : AuthService, useClass: AuthService },
         { provide: Router, useClass: RouterStub }
         ],
       imports: [
@@ -21,7 +22,7 @@ describe('AuthGuardService', () => {
     });
   });
 
-  // it('should create', inject([AuthGuardService], (service: AuthGuardService) => {
-  //   expect(service).toBeTruthy();
-  // }));
+  it('should create', inject([AuthGuardService], (service: AuthGuardService) => {
+    expect(service).toBeTruthy();
+  }));
 });
