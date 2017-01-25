@@ -19,11 +19,13 @@ import { ClubComponent } from './club-profile/club.component';
 import { TabViewModule } from 'primeng/primeng';
 import { DataListModule } from 'primeng/primeng';
 import { DialogModule } from 'primeng/primeng';
-
+import {UserDataService} from './services/user-data.service';
+import {TeamDataService} from './services/team-data.service';
+import {ClubDataService} from './services/club-data.service';
+import {PlayerDataService} from './services/player-data.service';
 
 import { routing } from './app.routing';
 import { AuthService } from './services/auth.service';
-import {UserDataService} from './services/user-data.service';
 import {AuthGuardService} from './services/auth-guard.service';
 
 export const firebaseConfig = {
@@ -62,7 +64,10 @@ export const firebaseConfig = {
   providers: [
     AuthService,
     UserDataService,
-    AuthGuardService
+    AuthGuardService,
+    PlayerDataService,
+    TeamDataService,
+    ClubDataService
   ],
   bootstrap: [ AppComponent ]
 })
