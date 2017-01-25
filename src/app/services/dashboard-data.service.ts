@@ -17,4 +17,8 @@ export class DashboardDataService {
     });
 
   }
+
+  public setComment(comment: string, uid: string, postid: string){
+    this.af.database.list('/posts/' + postid + '/comments').push({comment : comment});
+  }
 }
