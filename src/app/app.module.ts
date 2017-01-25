@@ -42,7 +42,7 @@ export const firebaseConfig = {
     ProfileComponent,
     TeamsFollowedComponent,
     PlayersFollowedComponent,
-    ProfileComponent
+    ProfileComponent,
     PlayersFollowedComponent,
     TeamComponent,
     PlayerComponent,
