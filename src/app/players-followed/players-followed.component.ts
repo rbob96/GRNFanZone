@@ -31,7 +31,7 @@ export class PlayersFollowedComponent implements OnInit {
       promise.subscribe(players => this.players = [1, 2]);
   }
 
-  public selectPlayer (playerId: string){
+  public selectPlayer (playerId: string) {
     // this.router.navigate(['/player/' + playerId]);
   }
 
