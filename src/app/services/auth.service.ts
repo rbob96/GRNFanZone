@@ -8,6 +8,7 @@ export class AuthService {
   displayName;
   photoURL;
   authState;
+  registered;
 
   constructor(private af: AngularFire) {
 
@@ -16,12 +17,14 @@ export class AuthService {
 
         this.displayName = null;
         this.photoURL = null;
+        this.registered = false;
         return;
 
       }
 
       this.displayName = authState.auth.displayName;
       this.photoURL = authState.auth.photoURL;
+      this.registered = true;
     });
   }
 
