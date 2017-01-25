@@ -29,11 +29,11 @@ export class UserDataService {
 
   }
 
-  public getUserFollowingTeams(uid: string){
+  public getUserFollowingTeams (uid: string) {
     return this.af.database.list('/users/' + uid + '/teams_followed');
   }
 
-  public getUserFollowingPlayers(uid: string){
+  public getUserFollowingPlayers (uid: string) {
     return this.af.database.list('/users/' + uid + '/players_followed');
   }
 

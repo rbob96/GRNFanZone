@@ -41,14 +41,14 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-  public sendToPlayer(uid: string){
+  public sendToPlayer (uid: string) {
     console.log(uid);
-    this.router.navigate(["/players/" + uid]);
+    this.router.navigate(['/players/' + uid]);
   }
 
-  public sendToTeam(uid: string){
+  public sendToTeam (uid: string) {
     console.log(uid);
-    this.router.navigate(["/teams/" + uid]);
+    this.router.navigate(['/teams/' + uid]);
 
   }
 
