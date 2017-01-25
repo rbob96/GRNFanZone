@@ -46,7 +46,7 @@ deploy_staging:
   script:
     - firebase use --add grnfanzone-staging staging
     - firebase use --token $FIREBASE_TOKEN grnfanzone-staging staging
-    - ng build --prod
+    - ng build -dev
     - firebase deploy -m "[Staging] Pipeline $CI_PIPELINE_ID, build $CI_BUILD_ID" --non-interactive --token $FIREBASE_TOKEN
 
 
@@ -58,6 +58,6 @@ deploy_production:
   script:
     - firebase use --add grnfanzone production
     - firebase use --token $FIREBASE_TOKEN grnfanzone production
-    - ng build --prod
+    - ng build -prod
     - firebase deploy -m "[Production] Pipeline $CI_PIPELINE_ID, build $CI_BUILD_ID" --non-interactive --token $FIREBASE_TOKEN
 # End Deployment #
