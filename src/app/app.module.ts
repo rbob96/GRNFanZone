@@ -28,14 +28,14 @@ import {PlayerDataService} from './services/player-data.service';
 
 
 let fbConfig;
-if (isDevMode()){
+if (isDevMode()) {
   fbConfig = {
     apiKey: 'AIzaSyD7jKiG3GWyGE3QT_rJuxRDUt5ejsQYoJk',
     authDomain: 'grnfanzone-staging.firebaseapp.com',
     databaseURL: 'https://grnfanzone-staging.firebaseio.com',
     storageBucket: 'grnfanzone-staging.appspot.com',
     messagingSenderId: '825894718144'
-  }
+  };
 } else {
   fbConfig = {
     apiKey: 'AIzaSyCoo25Hw0ftCZHYtQx73gOvbu7SS4YCXW8',
@@ -43,7 +43,7 @@ if (isDevMode()){
     databaseURL: 'https://grnfanzone.firebaseio.com',
     storageBucket: 'grnfanzone.appspot.com',
     messagingSenderId: '90265713781'
-  }
+  };
 }
 
 export const firebaseConfig = fbConfig;
