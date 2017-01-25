@@ -23,6 +23,8 @@ import {DialogModule} from 'primeng/primeng';
 
 import { routing } from './app.routing';
 import { AuthService } from './services/auth.service';
+import {TeamDataService} from './services/team-data.service';
+import {PlayerDataService} from './services/player-data.service';
 
 export const firebaseConfig = {
     apiKey: 'AIzaSyCoo25Hw0ftCZHYtQx73gOvbu7SS4YCXW8',
@@ -55,7 +57,7 @@ export const firebaseConfig = {
     DataListModule,
     DialogModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, PlayerDataService, TeamDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
