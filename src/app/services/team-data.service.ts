@@ -7,10 +7,17 @@ export class TeamDataService {
 
   constructor(private af: AngularFire) {}
 
+  // Gets all teams
+  public getTeams () {
+    return this.af.database.list('/teams');
+  }
+
+  // Gets a team by UID
   public getTeamData (uid: string) {
     return this.af.database.object('/teams/' + uid);
   }
 
+  // Sets a team by UID
   public setUserData (uid: string, teamObject: any) {
     // sanity checks
     if (
@@ -54,5 +61,6 @@ export class TeamDataService {
       });
     }
   }
+
 
 }
