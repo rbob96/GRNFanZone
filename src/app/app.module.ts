@@ -59,7 +59,8 @@ export const firebaseConfig = {
     routing,
     TabViewModule,
     DataListModule,
-    DialogModule
+    DialogModule,
+    RouterModule
   ],
   providers: [
     AuthService,

@@ -55,39 +55,31 @@
             </div>
             <div class="row">
               <div class="col-md-6 ">
-                <div class="list-group">
-                  <a href="#" class="list-group-item active lead text-center">
-                      Teams
-                      </a>
-                  <a href="#" class="list-group-item list-group-item-action">Team 1</a>
-                  <a href="#" class="list-group-item list-group-item-action">Team 2</a>
-                  <a href="#" class="list-group-item list-group-item-action">Team 3</a>
+                <div class="list-group" *ngIf="followingTeams">
+                  <a class="list-group-item active lead text-center"> Teams </a>
+                  <a (click)="sendToPlayer(team.id)" class="list-group-item list-group-item-action" *ngFor="let team of followingTeams | async">
+                    {{team.name}}
+                  </a>
                 </div>
               </div>
               <div class="col-md-6 ">
-                <div class="list-group">
-                  <a href="#" class="list-group-item active lead text-center">
-                      Players
-                      </a>
-                  <a href="#" class="list-group-item list-group-item-action">Player 1</a>
-                  <a href="#" class="list-group-item list-group-item-action">Player 2</a>
-                  <a href="#" class="list-group-item list-group-item-action">Player 3</a>
+                <div class="list-group" *ngIf="followingPlayers">
+                  <a class="list-group-item active lead text-center"> Players </a>
+                  <a (click)="sendToPlayer(player.id)" class="list-group-item list-group-item-action" *ngFor="let player of followingPlayers | async">
+                    {{player.first_name + " " + player.last_name}}
+                  </a>
                 </div>
               </div>
             </div>
             <div class="row">
-              <div class="col-md-6 text-center ">
+              <div class="col-md-6 text-center" *ngIf="profileData.followed_teams">
                 <a routerLink="/teamsFollowed">See all</a>
               </div>
-              <div class="col-md-6 text-center ">
+              <div class="col-md-6 text-center" *ngIf="profileData.followed_players">
                 <a routerLink="/playersFollowed">See all</a>
               </div>
             </div>
             <hr>
-            <div class="row">
-              <div class="col-md-12 lead">Posts</div>
-            </div>
-            <div class="row">Pinned, favorited posts by teams/players? Don't remember if we had that</div>
           </div>
         </div>
       </div>
