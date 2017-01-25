@@ -1,11 +1,10 @@
 .search-box {
   float:right;
 }
-
 .form{
-  height: 50px;
-  overflow: auto;
-  padding:5px 5px 0;
+    height: 50px;
+    overflow: auto;
+    padding:5px 5px 0;
 }
 .user {
   background-position: center center;
@@ -15,7 +14,6 @@
   display: inline-block;
   height: 50px;
   width: 50px;
-
 }
 .two {
   background-image: url('http://placehold.it/50x50');
@@ -25,13 +23,13 @@
     position: relative;
 }
 .dropdown-content {
-  background-color: #f9f9f9;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  display: none;
-  min-width: 160px;
-  padding: 12px 16px;
-  position: absolute;
-  z-index: 1;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    display: none;
+    min-width: 160px;
+    padding: 12px 16px;
+    position: absolute;
+    z-index: 1;
 }
 .dropdown-content a {
     color: black;
@@ -43,23 +41,17 @@
 .dropdown:hover .dropdown-content {
     display: block;
 }
-/*//===================================================================
-//  SIGN-IN
-//===================================================================*/
-
 .sign-in {
   display: block;
   margin: 0 auto;
   max-width: 300px;
 }
-
 .sign-in__heading {
   font-size: 30px;
   font-weight: 300;
   margin-bottom: 36px;
   text-align: center;
 }
-
 .sign-in__button {
   background: transparent;
   border: 1px solid #555;

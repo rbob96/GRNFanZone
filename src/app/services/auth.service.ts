@@ -14,6 +14,7 @@ export class AuthService {
   };
 
   authState;
+  registered;
 
   constructor(private router: Router, private af: AngularFire) {
 
@@ -25,6 +26,9 @@ export class AuthService {
           this.userDetails.photoURL = null;
           this.userDetails.email = null;
           this.userDetails.uid = null;
+
+          this.registered = false;
+
           return;
 
         }
@@ -33,6 +37,7 @@ export class AuthService {
         this.userDetails.photoURL = authState.auth.photoURL;
         this.userDetails.email = authState.auth.email;
         this.userDetails.uid = authState.auth.uid;
+        this.registered = true;
 
         });
   }
