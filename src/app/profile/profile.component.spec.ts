@@ -7,10 +7,11 @@ import { ProfileComponent } from './profile.component';
 
 import { Router, ActivatedRoute } from '@angular/router';
 import { ActivatedRouteStub, RouterStub } from '../../testing/router-stubs';
-import {AngularFire, AuthMethods, AuthProviders, AngularFireModule} from 'angularfire2';
 
 import {firebaseConfig} from '../app.module';
 import {Observable} from 'rxjs';
+import {UserDataService} from '../services/user-data.service';
+import {AngularFire, AngularFireModule} from 'angularfire2';
 
 describe('ProfileComponent', () => {
   let component: ProfileComponent;
@@ -23,8 +24,10 @@ describe('ProfileComponent', () => {
       ], providers: [
         { provide: Router, useClass: RouterStub },
         { provide: ActivatedRoute, useValue: { 'params': Observable.from([{ 'id': 'h5m9PT4rgdSYDGzoyOLolYgUaUu1' }]) } },
+        { provide: UserDataService, useClass: UserDataService },
         { provide : AngularFire, useClass: AngularFire }
-      ], imports: [
+      ],
+      imports: [
         AngularFireModule.initializeApp(firebaseConfig)
       ]
     })

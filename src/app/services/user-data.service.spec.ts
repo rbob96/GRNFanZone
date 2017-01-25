@@ -2,8 +2,8 @@
 
 import { TestBed, async, inject } from '@angular/core/testing';
 import { UserDataService } from './user-data.service';
-import {AngularFire, AngularFireModule} from "angularfire2";
-import {firebaseConfig} from "../app.module";
+import {AngularFire, AngularFireModule} from 'angularfire2';
+import {firebaseConfig} from '../app.module';
 
 describe('UserDataService', () => {
   beforeEach(() => {
