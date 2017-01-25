@@ -8,9 +8,9 @@ import { ProfileComponent } from './profile.component';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ActivatedRouteStub, RouterStub } from '../../testing/router-stubs';
 import {AngularFire, AuthMethods, AuthProviders, AngularFireModule} from 'angularfire2';
-import {Observable} from "rxjs";
 
-import {firebaseConfig} from "../app.module";
+import {firebaseConfig} from '../app.module';
+import {Observable} from 'rxjs';
 
 describe('ProfileComponent', () => {
   let component: ProfileComponent;
