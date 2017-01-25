@@ -23,7 +23,7 @@ export class DashboardComponent implements OnInit {
   }
 
   public setComment(postid : string){
-    console.log(this.curComment, this.authService.uid, postid );
-    this.dashboardDataService.setComment(this.curComment, this.authService.uid, postid);
+    console.log(this.curComment, this.authService.userDetails.uid, postid );
+    this.dashboardDataService.setComment(this.curComment, this.authService.userDetails.uid, postid);
   }
 }
