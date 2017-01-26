@@ -9,18 +9,20 @@ import {PlayersFollowedComponent} from './players-followed/players-followed.comp
 import {TeamComponent} from './team-profile/team.component';
 import {PlayerComponent} from './player-profile/player.component';
 import {ClubComponent} from './club-profile/club.component';
+import {AuthGuardService} from './services/auth-guard.service';
 
 const appRoutes: Routes = [
     {
-        path: '',
+        path: 'login',
         component: LoginComponent
     },
     {
-      path : 'dashboard',
-      component : DashboardComponent
+      path : '',
+      component : DashboardComponent,
+      canActivate: [ AuthGuardService ]
     },
     {
-      path : 'profile',
+      path : 'user/:id',
       component : ProfileComponent
     },
     {
