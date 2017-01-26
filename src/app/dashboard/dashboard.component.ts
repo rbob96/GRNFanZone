@@ -12,15 +12,17 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 export class DashboardComponent implements OnInit {
 
-  posts : FirebaseListObservable<any>;
-  curComment : string;
+  posts: FirebaseListObservable<any>;
+  curComment: string;
   constructor(private dashboardDataService: DashboardDataService, private route: ActivatedRoute, private authService: AuthService) {}
 
-  ngOnInit(){
+  ngOnInit() {
+
     this.route.params.subscribe(params => {
       this.posts = this.dashboardDataService.getDashboardData(params['id']);
     });
   }
+
 
   public setComment(postid : string){
     console.log(this.curComment, this.authService.userDetails.uid, postid );
