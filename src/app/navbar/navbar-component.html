@@ -39,18 +39,17 @@
   </div>
     <div class="pull-right col-sm-2">
       <div class="container">
-        <div [hidden]="!af.registered">
+        <div [hidden]="!authService.registered">
         <div class="dropdown">
-          <span>{{ af.displayName }}</span>
+          <span>{{ currentUser.displayName }}</span>
           <div class="dropdown-content">
-            <a routerLink="/profile">Profile</a>
-            <a routerLink="/dashboard">Dashboard</a>
-            <a href="#">Link 3</a>
+            <a routerLink="/user/{{currentUser.uid}}">Profile</a>
+            <a routerLink="/">Dashboard</a>
           </div>
         </div>
-        <img  class="user" src="{{af.photoURL}}"
+        <img  class="user" src="{{currentUser.photoURL}}"
         onError=""  alt="" />
-        <button type="button" class="btn btn-secondary" (click)="af.logout()">Logout</button>
+        <button type="button" class="btn btn-secondary" (click)="authService.logout()">Logout</button>
       </div>
           </div>
     </div>

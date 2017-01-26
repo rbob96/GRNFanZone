@@ -9,12 +9,12 @@
 <body>
 <app-navbar></app-navbar>
 
-
 <div class="jumbotron">
   <div class="container">
+
     <router-outlet></router-outlet>
 
-    
+    <img *ngIf="photoURL" src="{{ af.photoURL }}" alt="">
 
   </div>
 </div>
