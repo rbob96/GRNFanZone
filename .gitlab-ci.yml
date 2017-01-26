@@ -27,6 +27,7 @@ lint_src:
     - gulp vet-css
     - gulp vet-less
     - gulp vet-ts
+    - ng lint
     - gulp vet-fail
 
 
