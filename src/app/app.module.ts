@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { TranslateModule } from 'ng2-translate';
 import { BrowserModule } from '@angular/platform-browser';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -30,12 +30,13 @@ import { DashboardDataService } from './services/dashboard-data.service';
 import {AuthGuardService} from './services/auth-guard.service';
 
 export const firebaseConfig = {
-    apiKey: 'AIzaSyCoo25Hw0ftCZHYtQx73gOvbu7SS4YCXW8',
-    authDomain: 'grnfanzone.firebaseapp.com',
-    databaseURL: 'https://grnfanzone.firebaseio.com',
-    storageBucket: 'grnfanzone.appspot.com',
-    messagingSenderId: '90265713781'
-  };
+  apiKey: 'AIzaSyCoo25Hw0ftCZHYtQx73gOvbu7SS4YCXW8',
+  authDomain: 'grnfanzone.firebaseapp.com',
+  databaseURL: 'https://grnfanzone.firebaseio.com',
+  storageBucket: 'grnfanzone.appspot.com',
+  messagingSenderId: '90265713781'
+};
+
 
 @NgModule({
   declarations: [
