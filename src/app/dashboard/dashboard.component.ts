@@ -14,7 +14,6 @@ export class DashboardComponent {
   posts: FirebaseListObservable<any>;
   // curComment: string;
   constructor(private dashboardDataService: DashboardDataService, private authService: AuthService) {
-    
     this.posts = this.dashboardDataService.getDashboardData(this.authService.userDetails.uid);
   }
 
