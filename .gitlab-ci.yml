@@ -41,8 +41,8 @@ test_src:
 deploy_staging:
   stage: deploy
   environment: Staging
-#  only:
-#    - dev
+  only:
+    - dev
   script:
     - firebase use --add grnfanzone-staging staging
     - firebase use --token $FIREBASE_TOKEN grnfanzone-staging staging
