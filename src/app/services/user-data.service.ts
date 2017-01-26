@@ -15,7 +15,7 @@ export class UserDataService {
   public setUserData (uid: string, userObject: any) {
 
     // sanity checks
-    if (userObject.email && userObject.name && userObject.avatar) {
+    if (userObject) {
       // Get db observable
       const userObservable = this.af.database.object('/users/' + uid);
       // Update (destructive)
@@ -30,10 +30,6 @@ export class UserDataService {
 
     }
 
-  }
-
-  public getUserFollowingTeams (uid: string) {
-    return this.af.database.list('/users/' + uid + '/teams_followed');
   }
 
   public getUserFollowingPlayers (uid: string) {
@@ -56,8 +52,15 @@ export class UserDataService {
 
     });
 
+  }
 
+  public unfollowPlayer (userID: string, playerID: string) {
+    const toDelete = this.af.database.object('/users/' + userID + '/players_followed/' + playerID);
+    toDelete.remove();
+  }
 
+  public getUserFollowingTeams (uid: string) {
+    return this.af.database.list('/users/' + uid + '/teams_followed');
   }
 
   public followTeam (userID: string, teamID: string) {
@@ -75,6 +78,15 @@ export class UserDataService {
 
   }
 
+  public unfollowTeam (userID: string, teamID: string) {
+    const toDelete = this.af.database.object('/users/' + userID + '/teams_followed/' + teamID);
+    toDelete.remove();
+  }
+
+  public getUserFollowingClubs (uid: string) {
+    return this.af.database.list('/users/' + uid + '/clubs_followed');
+  }
+
   public followClub (userID: string, clubID: string) {
 
     this.af.database.object('/clubs/' + clubID).first().toPromise().then(club => {
@@ -89,5 +101,9 @@ export class UserDataService {
 
   }
 
+  public unfollowClub (userID: string, clubID: string) {
+    const toDelete = this.af.database.object('/users/' + userID + '/clubs_followed/' + clubID);
+    toDelete.remove();
+  }
 
 }
