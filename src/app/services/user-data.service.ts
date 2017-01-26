@@ -22,7 +22,10 @@ export class UserDataService {
       userObservable.set({
         avatar: userObject.avatar,
         email: userObject.email,
-        name: userObject.name
+        name: userObject.name,
+        players_followed: userObject.players_followed,
+        teams_followed: userObject.teams_followed,
+        clubs_followed: userObject.clubs_followed
       });
 
     }
@@ -42,8 +45,9 @@ export class UserDataService {
     // Creates a promise for the player object, and then pushes the required data to the user's players list
     this.af.database.object('/players/' + playerID).first().toPromise().then(player => {
 
-      let players_followed = this.af.database.list('/users/' + userID + '/players_followed');
-      players_followed.push({
+      // Defines a new child in the list
+      const followed = this.af.database.object('/users/' + userID + '/players_followed/' + playerID);
+      followed.set({
         first_name: player.first_name,
         last_name: player.last_name,
         id: player.id,
@@ -52,17 +56,21 @@ export class UserDataService {
 
     });
 
+
+
   }
 
   public followTeam (userID: string, teamID: string) {
 
     this.af.database.object('/teams/' + teamID).first().toPromise().then(team => {
-      let teams_followed = this.af.database.list('/users/' + userID + '/teams_followed');
-        teams_followed.push({
+
+      const followed = this.af.database.object('/users/' + userID + '/teams_followed/' + teamID);
+      followed.set({
         name: team.name,
         id: team.id,
         avatar: team.avatar
       });
+
     });
 
   }
@@ -70,12 +78,13 @@ export class UserDataService {
   public followClub (userID: string, clubID: string) {
 
     this.af.database.object('/clubs/' + clubID).first().toPromise().then(club => {
-      let clubs_followed = this.af.database.list('/users/' + userID + '/clubs_followed');
-      clubs_followed.push({
+      const followed = this.af.database.object('/users/' + userID + '/clubs_followed/' + clubID);
+      followed.set({
         name: club.name,
         id: club.id,
         avatar: club.avatar
       });
+
     });
 
   }
