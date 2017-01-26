@@ -2,20 +2,37 @@
 <html>
 <head>
   <title>Players Followed</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7" />
 </head>
-<body>
-<div class="container-fluid">
-<h3> List of all players followed- could be changed to a modal rather than a separate Page</h3>
-<hr>
-      <div class="list-group">
-        <div class="row">
-          <div class="col-md-8 "><h4>Player 1</h4></div>
-          <div class="col-md-4"><button type="button" class="btn btn-info">Unfollow</button></div>
+<p-dataList [value]="players" [paginator]="true" [rows]="5">
+    <p-header>
+        <h3>List of Players</h3>
+    </p-header>
+    <template let-player pTemplate="item">
+        <div class="ui-grid ui-grid-responsive ui-fluid" style="font-size:16px;padding:20px;border-bottom:1px solid #D5D5D5;">
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-3" style="text-align:center"><i class="fa fa-search" (click)="selectPlayer( player.id )" style="cursor:pointer;float:left;margin-top:40px"></i><img src="{{player.avatar}}"></div>
+                <div class="ui-grid-col-9">
+                    <div class="ui-grid ui-grid-responsive ui-fluid">
+                        <div class="ui-grid-row">
+                            <div class="ui-grid-col-2">First Name: </div>
+                            <div class="ui-grid-col-10">{{player.first_name}}</div>
+                        </div>
+                        <div class="ui-grid-row">
+                            <div class="ui-grid-col-2">Last Name: </div>
+                            <div class="ui-grid-col-10">{{player.last_name}}</div>
+                        </div>
+                        <div class="ui-grid-row">
+                            <div class="ui-grid-col-2">Bio: </div>
+                            <div class="ui-grid-col-10">{{player.bio}}</div>
+                        </div>
+                        <div class="ui-grid-row">
+                            <div class="ui-grid-col-2">Location: </div>
+                            <div class="ui-grid-col-10">{{player.location}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-</div>
-</body>
+    </template>
+</p-dataList>
 </html>

@@ -6,18 +6,23 @@ import {ProfileComponent} from './profile/profile.component';
 import {LoginComponent} from './login/login.component';
 import {TeamsFollowedComponent} from './teams-followed/teams-followed.component';
 import {PlayersFollowedComponent} from './players-followed/players-followed.component';
+import {TeamComponent} from './team-profile/team.component';
+import {PlayerComponent} from './player-profile/player.component';
+import {ClubComponent} from './club-profile/club.component';
+import {AuthGuardService} from './services/auth-guard.service';
 
 const appRoutes: Routes = [
     {
-        path: '',
+        path: 'login',
         component: LoginComponent
     },
     {
-      path : 'dashboard',
-      component : DashboardComponent
+      path : '',
+      component : DashboardComponent,
+      canActivate: [ AuthGuardService ]
     },
     {
-      path : 'profile',
+      path : 'user/:id',
       component : ProfileComponent
     },
     {
@@ -26,6 +31,18 @@ const appRoutes: Routes = [
       {
         path : 'playersFollowed',
         component : PlayersFollowedComponent
+      },
+      {
+        path : 'team',
+        component : TeamComponent
+      },
+      {
+        path : 'player',
+        component : PlayerComponent
+      },
+      {
+        path : 'club',
+        component : ClubComponent
       }
 
 ];
