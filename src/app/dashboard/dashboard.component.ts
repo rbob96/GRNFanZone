@@ -13,7 +13,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class DashboardComponent implements OnInit {
 
   posts: FirebaseListObservable<any>;
-  curComment: string;
+  //curComment: string;
   constructor(private dashboardDataService: DashboardDataService, private route: ActivatedRoute, private authService: AuthService) {}
 
   ngOnInit() {
@@ -24,8 +24,8 @@ export class DashboardComponent implements OnInit {
   }
 
 
-  public setComment(postid : string){
+  /*public setComment(postid: string) {
     console.log(this.curComment, this.authService.userDetails.uid, postid );
     this.dashboardDataService.setComment(this.curComment, this.authService.userDetails.uid, postid);
-  }
+  }*/
 }
