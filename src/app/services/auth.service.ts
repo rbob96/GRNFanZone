@@ -3,7 +3,6 @@ import { AngularFire, AuthMethods, AuthProviders } from 'angularfire2';
 import { Router } from '@angular/router';
 
 @Injectable()
-
 export class AuthService {
 
   userDetails = {
@@ -41,8 +40,6 @@ export class AuthService {
 
         });
   }
-
-
   login(from: string) {
     this.af.auth.login( {
       provider: this.getProvider(from),
@@ -56,19 +53,14 @@ export class AuthService {
       this.router.navigate(['/']);
     });
   }
-
   logout() {
     this.af.auth.logout();
     this.router.navigate(['/login']);
   }
-
-
   private getProvider(from: String) {
-
     switch (from) {
       case 'facebook': return AuthProviders.Facebook;
       case 'google': return AuthProviders.Google;
     }
-
   }
 }

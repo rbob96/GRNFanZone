@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { TranslateModule } from 'ng2-translate';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AngularFireModule } from 'angularfire2';
 import { RouterModule, Routes } from '@angular/router';
@@ -26,6 +26,7 @@ import {PlayerDataService} from './services/player-data.service';
 
 import { routing } from './app.routing';
 import { AuthService } from './services/auth.service';
+import { DashboardDataService } from './services/dashboard-data.service';
 import {AuthGuardService} from './services/auth-guard.service';
 
 export const firebaseConfig = {
@@ -54,6 +55,7 @@ export const firebaseConfig = {
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     AngularFireModule.initializeApp(firebaseConfig),
     routing,
@@ -68,7 +70,8 @@ export const firebaseConfig = {
     AuthGuardService,
     PlayerDataService,
     TeamDataService,
-    ClubDataService
+    ClubDataService,
+    DashboardDataService
   ],
   bootstrap: [ AppComponent ]
 })
