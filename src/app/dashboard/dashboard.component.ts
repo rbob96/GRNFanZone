@@ -9,15 +9,13 @@ import {AuthService} from '../services/auth.service';
 
 })
 
-export class DashboardComponent implements OnInit {
+export class DashboardComponent {
 
   posts: FirebaseListObservable<any>;
   // curComment: string;
-  constructor(private dashboardDataService: DashboardDataService, private authService: AuthService) {}
-
-  ngOnInit() {
-
-      this.posts = this.dashboardDataService.getDashboardData(this.authService.userDetails.uid);
+  constructor(private dashboardDataService: DashboardDataService, private authService: AuthService) {
+    
+    this.posts = this.dashboardDataService.getDashboardData(this.authService.userDetails.uid);
   }
 
 
