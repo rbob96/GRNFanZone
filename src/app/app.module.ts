@@ -9,7 +9,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { ProfileComponent } from './profile/profile.component';
+import { ProfileComponent } from './user-profile/profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import { TeamsFollowedComponent } from './teams-followed/teams-followed.component';
 import { PlayersFollowedComponent } from './players-followed/players-followed.component';
@@ -28,6 +28,7 @@ import { routing } from './app.routing';
 import { AuthService } from './services/auth.service';
 import { DashboardDataService } from './services/dashboard-data.service';
 import {AuthGuardService} from './services/auth-guard.service';
+import { ProfileEditComponent } from './user-profile/profile-edit/profile-edit.component';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyCoo25Hw0ftCZHYtQx73gOvbu7SS4YCXW8',
@@ -51,7 +52,8 @@ export const firebaseConfig = {
     PlayersFollowedComponent,
     TeamComponent,
     PlayerComponent,
-    ClubComponent
+    ClubComponent,
+    ProfileEditComponent
   ],
   imports: [
     BrowserModule,

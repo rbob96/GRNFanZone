@@ -11,6 +11,12 @@ var csslintConfig = {
   'zero-units': false
 };
 
+var htmllintConfig = {
+  'tagname-lowercase': false,
+  'attr-lowercase': false,
+  'doctype-first': false
+};
+
 var config = require('./gulp.config.js')();
 
 var $ = require('gulp-load-plugins')({lazy: true});
@@ -35,10 +41,7 @@ gulp.task('vet-ts', function (done) {
 gulp.task('vet-html', function (done) {
   log("Vetting code with htmlhint");
   gulp.src(config.sourceHTML)
-  .pipe($.htmlhint({
-    "tagname-lowercase": false,
-    "attr-lowercase": false,
-  }))
+  .pipe($.htmlhint(htmllintConfig))
   .pipe($.htmlhint.reporter("htmlhint-stylish"))
   .pipe($.htmlhint.failReporter({ suppress: true }));
 

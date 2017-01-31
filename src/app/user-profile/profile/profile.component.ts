@@ -1,13 +1,13 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import {Router, ActivatedRoute, RouterModule} from '@angular/router';
 import {AngularFire, FirebaseObjectObservable, FirebaseListObservable} from 'angularfire2';
-import {UserDataService} from '../services/user-data.service';
+import {UserDataService} from '../../services/user-data.service';
 
 
 @Component({
   selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['../profile/profile.component.css']
+  templateUrl: 'profile.component.html',
+  styleUrls: ['profile.component.css']
 })
 
 
