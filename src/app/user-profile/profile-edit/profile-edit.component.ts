@@ -6,8 +6,8 @@ import {UserDataService} from '../../services/user-data.service';
 
 @Component({
   selector: 'app-profile-edit',
-  templateUrl: 'profile.component.html',
-  styleUrls: ['profile.component.css']
+  templateUrl: 'profile-edit.component.html',
+  styleUrls: ['profile-edit.component.css']
 })
 
 
