@@ -15,9 +15,7 @@ import {KeysPipe} from './dashboard-component.pipe';
 export class DashboardComponent {
 
   posts: FirebaseListObservable<any>;
-  comments: FirebaseListObservable<any>;
-  commentsSubject: Subject<any>;
-  curComment: string;
+
   constructor(private dashboardDataService: DashboardDataService, private authService: AuthService) {
     this.posts = this.dashboardDataService.getDashboardData(this.authService.userDetails.uid);
   }

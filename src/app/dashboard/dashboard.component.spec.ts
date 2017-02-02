@@ -18,12 +18,13 @@ describe('DashboardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DashboardComponent ],
+      declarations: [ DashboardComponent, KeysPipe ],
       providers : [ {
         provide: DashboardDataService, useClass: DashboardDataService },
         { provide : AngularFire, useClass: AngularFire },
         { provide: AuthService, useClass: AuthService},
         { provide: Router, useClass: RouterStub },
+        { provide: KeysPipe}
         ],
         imports: [
         AngularFireModule.initializeApp(firebaseConfig)
