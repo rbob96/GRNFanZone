@@ -5,7 +5,6 @@
     <title>Dashboard</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" rel="stylesheet"/>
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,13 +32,20 @@
 				<div class="col-sm-6 text-left">
 					<div class="card">
 						<div class="card-header">Comments</div>
-							<div class="card-block" >
-							TODO</div>
-
-					</div>
+							<div class="card-block" *ngFor="let comment of post.comments | keys">
+                <div *ngFor="let t of comment.value | keys">
+              <li>{{t.value}}
+              <input type="text" #updatetext [value]="" />
+              <button (click)="updateComment(comment.key, updatetext.value, post.id)">Update</button>
+              <button (click)="deleteComment(comment.key, post.id)">Delete</button>
+              </li>
+            </div>
+							</div>
+              </div>
 					<div class="form-group">
 						<label for="comment">Comment:</label>
-						<textarea class="form-control" rows="5" id="comment" ></textarea>
+            <input type="text" #newComment/>
+            <button (click)="addComment(newComment.value, post.id)">Add</button>
 					</div>
 				</div>
 			</div><hr>
