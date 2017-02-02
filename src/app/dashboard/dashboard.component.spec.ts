@@ -7,6 +7,7 @@ import { AngularFire, AngularFireModule } from 'angularfire2';
 import { AuthService} from '../services/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ActivatedRouteStub, RouterStub } from '../../testing/router-stubs';
+import {KeysPipe} from './dashboard-component.pipe';
 
 import {firebaseConfig} from '../app.module';
 import { DashboardComponent } from './dashboard.component';
