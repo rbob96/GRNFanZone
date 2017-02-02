@@ -23,6 +23,7 @@ import {UserDataService} from './services/user-data.service';
 import {TeamDataService} from './services/team-data.service';
 import {ClubDataService} from './services/club-data.service';
 import {PlayerDataService} from './services/player-data.service';
+import {KeysPipe} from './dashboard/dashboard-component.pipe';
 
 import { routing } from './app.routing';
 import { AuthService } from './services/auth.service';
@@ -51,7 +52,8 @@ export const firebaseConfig = {
     PlayersFollowedComponent,
     TeamComponent,
     PlayerComponent,
-    ClubComponent
+    ClubComponent,
+    KeysPipe
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { AngularFire } from 'angularfire2';
-
 @Injectable()
 
 export class DashboardDataService {
@@ -12,7 +11,8 @@ export class DashboardDataService {
     const queryList = this.af.database.list('/posts', {
       query: {
         orderByChild : 'created_at',
-        limitToFirst : 100
+        limitToFirst : 100,
+        preserveSnapshot: true
       }
     });
 
@@ -20,7 +20,15 @@ export class DashboardDataService {
 
   }
 
-  /*public setComment(comment: string, uid: string, postid: string) {
-    this.af.database.list('/posts/' + postid + '/comments').push({comment : comment});
-  }*/
+  public getPostCommets (postid: string) {
+    const postComments = this.af.database.list('/posts/' + postid + '/comments');
+  }
+
+  public getDatabase () {
+    return this.af.database;
+  }
+
+  public getComments(postid: string) {
+    return this.af.database.list('/posts/' + postid + '/comments');
+  }
 }
