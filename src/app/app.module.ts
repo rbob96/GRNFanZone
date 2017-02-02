@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { TranslateModule } from 'ng2-translate';
 import { BrowserModule } from '@angular/platform-browser';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -23,6 +23,7 @@ import {UserDataService} from './services/user-data.service';
 import {TeamDataService} from './services/team-data.service';
 import {ClubDataService} from './services/club-data.service';
 import {PlayerDataService} from './services/player-data.service';
+import {KeysPipe} from './dashboard/dashboard-component.pipe';
 
 import { routing } from './app.routing';
 import { AuthService } from './services/auth.service';
@@ -30,12 +31,13 @@ import { DashboardDataService } from './services/dashboard-data.service';
 import {AuthGuardService} from './services/auth-guard.service';
 
 export const firebaseConfig = {
-    apiKey: 'AIzaSyCoo25Hw0ftCZHYtQx73gOvbu7SS4YCXW8',
-    authDomain: 'grnfanzone.firebaseapp.com',
-    databaseURL: 'https://grnfanzone.firebaseio.com',
-    storageBucket: 'grnfanzone.appspot.com',
-    messagingSenderId: '90265713781'
-  };
+  apiKey: 'AIzaSyCoo25Hw0ftCZHYtQx73gOvbu7SS4YCXW8',
+  authDomain: 'grnfanzone.firebaseapp.com',
+  databaseURL: 'https://grnfanzone.firebaseio.com',
+  storageBucket: 'grnfanzone.appspot.com',
+  messagingSenderId: '90265713781'
+};
+
 
 @NgModule({
   declarations: [
@@ -50,7 +52,8 @@ export const firebaseConfig = {
     PlayersFollowedComponent,
     TeamComponent,
     PlayerComponent,
-    ClubComponent
+    ClubComponent,
+    KeysPipe
   ],
   imports: [
     BrowserModule,
@@ -71,7 +74,8 @@ export const firebaseConfig = {
     PlayerDataService,
     TeamDataService,
     ClubDataService,
-    DashboardDataService
+    DashboardDataService,
+    KeysPipe
   ],
   bootstrap: [ AppComponent ]
 })
