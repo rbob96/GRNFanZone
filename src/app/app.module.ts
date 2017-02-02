@@ -74,7 +74,8 @@ export const firebaseConfig = {
     PlayerDataService,
     TeamDataService,
     ClubDataService,
-    DashboardDataService
+    DashboardDataService,
+    KeysPipe
   ],
   bootstrap: [ AppComponent ]
 })
