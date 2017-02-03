@@ -15,6 +15,5 @@ export class PlayerSearchService {
     return this._af.database.list('/players');
   }
 
-  
 
 }
