@@ -3,38 +3,42 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
+import { ProfileComponent } from './profile.component';
+
 import { Router, ActivatedRoute } from '@angular/router';
-import { ActivatedRouteStub, RouterStub } from '../../../testing/router-stubs';
+import { ActivatedRouteStub, RouterStub } from '../../testing/router-stubs';
 
-import {firebaseConfig} from '../../app.module';
+import {firebaseConfig} from '../app.module';
 import {Observable} from 'rxjs';
-import {UserDataService} from '../../services/user-data.service';
+import {UserDataService} from '../services/user-data.service';
 import {AngularFire, AngularFireModule} from 'angularfire2';
-import {ProfileEditComponent} from './profile-edit.component';
+import {MockAuthService} from '../../testing/mock.auth.service';
+import {AuthService} from '../services/auth.service';
 
-describe('ProfileEditComponent', () => {
-  let component: ProfileEditComponent;
-  let fixture: ComponentFixture<ProfileEditComponent>;
+describe('ProfileComponent', () => {
+  let component: ProfileComponent;
+  let fixture: ComponentFixture<ProfileComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        ProfileEditComponent
+        ProfileComponent
       ], providers: [
         { provide: Router, useClass: RouterStub },
         { provide: ActivatedRoute, useValue: { 'params': Observable.from([{ 'id': 'h5m9PT4rgdSYDGzoyOLolYgUaUu1' }]) } },
         { provide: UserDataService, useClass: UserDataService },
-        { provide : AngularFire, useClass: AngularFire }
+        { provide: AngularFire, useClass: AngularFire },
+        { provide: AuthService, useClass: MockAuthService}
       ],
       imports: [
         AngularFireModule.initializeApp(firebaseConfig)
       ]
     })
-      .compileComponents();
+    .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ProfileEditComponent);
+    fixture = TestBed.createComponent(ProfileComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

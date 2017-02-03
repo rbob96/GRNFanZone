@@ -4,7 +4,7 @@ import { Routes } from '@angular/router';
 
 @Injectable()
 
-export class AuthService {
+export class MockAuthService {
   displayName;
   photoURL;
   email;
