@@ -17,7 +17,7 @@ export class ListComponent {
   clubs: FirebaseListObservable<any>;
   teams: FirebaseListObservable<any>;
   players: FirebaseListObservable<any>;
-  constructor(private af: AuthService, private clubDataService: ClubDataService, private teamDataService: TeamDataService, private playerDataService: PlayerDataService) {
+  constructor(private clubDataService: ClubDataService, private teamDataService: TeamDataService, private playerDataService: PlayerDataService) {
     this.clubs = this.clubDataService.getClubs();
     this.teams = this.teamDataService.getTeams();
     this.players = this.playerDataService.getPlayers();
