@@ -4,9 +4,9 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { SearchComponent } from './search.component';
-import {PlayerSearchService} from "../services/player-search.service";
-import {AngularFireModule, AngularFire} from "angularfire2";
-import {firebaseConfig} from "../app.module";
+import {PlayerSearchService} from '../services/player-search.service';
+import {AngularFireModule, AngularFire} from 'angularfire2';
+import {firebaseConfig} from '../app.module';
 
 describe('SearchComponent', () => {
   let component: SearchComponent;

@@ -12,9 +12,9 @@ var csslintConfig = {
 };
 
 var htmlhintConfig = {
-  'tagname-lowercase': false,
-  'attr-lowercase': false,
-  'doctype-first': false
+  "tagname-lowercase": false,
+  "attr-lowercase": false,
+  "doctype-first": false
 };
 
 var config = require('./gulp.config.js')();

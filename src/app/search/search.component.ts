@@ -5,7 +5,7 @@ import { Player } from '../player';
 import { PlayerSearchService } from '../services/player-search.service';
 
 @Component({
-  selector: 'search',
+  selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css']
 })
@@ -20,18 +20,15 @@ allPlayers: Player[];
     this._search.getAllPlayers()
       .subscribe(
         players => this.allPlayers = this.filtered = players
-      )
+      );
   }
 
 
-  search(term:string){
-    //console.log(term);
-    term = term.toLowerCase();
-    for(let player of this.allPlayers){
-      player.first_name = player.first_name.toLowerCase();
-    }
-    this.filtered = this.allPlayers.filter(player => player.first_name.includes(term));
-    console.log(this.filtered);
+  search(term: string) {
+    // console.log(term);
+
+    this.filtered = this.allPlayers.filter(player => player.first_name.tolowerCase().includes(term.toLowerCase()));
+    // console.log(this.filtered);
   }
 
 
