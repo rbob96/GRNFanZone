@@ -50,12 +50,10 @@ export class ProfileComponent implements OnInit {
   }
 
   public sendToPlayer (uid: string) {
-    console.log(uid);
     this.router.navigate(['/players/' + uid]);
   }
 
   public sendToTeam (uid: string) {
-    console.log(uid);
     this.router.navigate(['/teams/' + uid]);
   }
 
