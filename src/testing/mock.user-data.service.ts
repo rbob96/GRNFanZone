@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {FirebaseObjectObservable} from "angularfire2";
+import {FirebaseObjectObservable} from 'angularfire2';
 
 @Injectable()
 
@@ -8,9 +8,9 @@ export class MockUserDataService {
 
   constructor() {}
 
-  getUserData (uid: string){
+  public getUserData (uid: string) {
 
-    let user = {
+    const user = {
       name: 'Andrew Thompson',
       avatar: 'https://upload.wikimedia.org/wikipedia/en/4/4e/Elijah_Wood_as_Frodo_Baggins.png',
       email: 'athompson@example.com',
@@ -36,9 +36,26 @@ export class MockUserDataService {
           name : 'Jason Mann'
         }
       }
-    }
+    };
 
     return FirebaseObjectObservable.create(user);
+
+  }
+
+  public setUserData (uid: string, userObject: any) {}
+
+  public getUserFollowingPlayers (uid: string) {
+
+    const followed = {
+        '4b98f89b-5d18-4b00-8c2a-c9d95d1d9bf0' : {
+          avatar : 'https://example.com/avatar.png',
+          first_name : 'Owen',
+          id : '4b98f89b-5d18-4b00-8c2a-c9d95d1d9bf0',
+          last_name : 'Jones'
+        }
+      };
+
+    return FirebaseObjectObservable.create(followed);
 
   }
 
