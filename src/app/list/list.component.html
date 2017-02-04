@@ -15,30 +15,42 @@
         <br>
 		<div class="container-fluid">
 			<div class="row">
-			<div class="col-md-4">
-				<div class="list-group">
-				<a class="list-group-item active lead text-center">Clubs</a>
-				<a class="list-group-item list-group-item-action" *ngFor="let club of clubs | async">
-					{{club.name}}
-				</a>
+				<div class="col-md-12">
+					<ul class="nav nav-tabs" role="tablist">
+						<li class="nav-item">
+							<a class="nav-link active" data-toggle="tab" href="#clubs" role="tab">Clubs</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" data-toggle="tab" href="#teams" role="tab">Teams</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" data-toggle="tab" href="#players" role="tab">Players</a>
+						</li>
+					</ul>
+					<div class="tab-content">
+						<div id="clubs" class="tab-pane active" role="tabpanel">
+							<div class="list-group">
+								<a class="list-group-item list-group-item-action" *ngFor="let club of clubs | async">
+									{{club.name}}
+								</a>
+							</div>
+						</div>
+						<div id="teams" class="tab-pane" role="tabpanel">
+							<div class="list-group">
+								<a class="list-group-item list-group-item-action" *ngFor="let team of teams | async">
+									{{team.name}}
+								</a>
+							</div>
+						</div>
+						<div id="players" class="tab-pane" role="tabpanel">
+							<div class="list-group">
+								<a class="list-group-item list-group-item-action" *ngFor="let player of players | async">
+									{{player.first_name + " " + player.last_name}}
+								</a>
+							</div>
+						</div>
+					</div>
 				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="list-group">
-				<a class="list-group-item active lead text-center">Teams</a>
-				<a class="list-group-item list-group-item-action" *ngFor="let team of teams | async">
-					{{team.name}}
-				</a>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="list-group">
-				<a class="list-group-item active lead text-center">Players</a>
-				<a class="list-group-item list-group-item-action" *ngFor="let player of players | async">
-					{{player.first_name + " " + player.last_name}}
-				</a>
-				</div>
-			</div>
 			</div>
 		</div>
     </body>
