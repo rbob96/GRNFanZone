@@ -58,7 +58,6 @@ export class ProfileComponent implements OnInit {
   }
 
   public unfollowPlayer(uid: string) {
-    console.log(uid);
     this.userDataService.unfollowPlayer(this.currentUser, uid);
   }
 
