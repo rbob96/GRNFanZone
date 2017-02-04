@@ -22,7 +22,7 @@ export class ProfileComponent implements OnInit {
   followingTeams: FirebaseListObservable<any>;
   followingPlayers: FirebaseListObservable<any>;
 
-  currentUser: string = '';
+  currentUser: string; //ID
 
   constructor( private router: Router,
                private route: ActivatedRoute,
