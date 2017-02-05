@@ -1,16 +1,14 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import {Router, ActivatedRoute, RouterModule} from '@angular/router';
-import {AngularFire, FirebaseObjectObservable, FirebaseListObservable} from 'angularfire2';
+import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { AngularFire, FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2';
 import {UserDataService} from '../services/user-data.service';
 
 
 @Component({
   selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['../profile/profile.component.css']
+  templateUrl: 'profile.component.html',
+  styleUrls: ['profile.component.css']
 })
-
-
 
 export class ProfileComponent implements OnInit {
   // Subscription to route params
@@ -24,9 +22,21 @@ export class ProfileComponent implements OnInit {
   followingTeams: FirebaseListObservable<any>;
   followingPlayers: FirebaseListObservable<any>;
 
-  constructor( private router: Router, private route: ActivatedRoute, private userDataService: UserDataService ) {}
+  currentUser: string; // ID
+
+  constructor( private router: Router,
+               private route: ActivatedRoute,
+               private userDataService: UserDataService,
+               private af: AngularFire) {
+
+    this.af.auth.subscribe(user => {
+      this.currentUser = user.uid;
+    });
+
+  }
 
   ngOnInit() {
+
     // Activated Route unsubscribed from by router, so not necessary to
     // implement ngOnDestroy()
     this.sub = this.route.params.subscribe(params => {
@@ -36,20 +46,23 @@ export class ProfileComponent implements OnInit {
       this.followingTeams = this.userDataService.getUserFollowingTeams(this.userId);
       this.followingPlayers = this.userDataService.getUserFollowingPlayers(this.userId);
 
-
-
     });
   }
 
   public sendToPlayer (uid: string) {
-    console.log(uid);
     this.router.navigate(['/players/' + uid]);
   }
 
   public sendToTeam (uid: string) {
-    console.log(uid);
     this.router.navigate(['/teams/' + uid]);
+  }
 
+  public unfollowPlayer(uid: string) {
+    this.userDataService.unfollowPlayer(this.currentUser, uid);
+  }
+
+  public unfollowTeam(uid: string) {
+    this.userDataService.unfollowTeam(this.currentUser, uid);
   }
 
 }
