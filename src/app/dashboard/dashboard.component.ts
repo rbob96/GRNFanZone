@@ -1,9 +1,8 @@
 import { Component, OnInit, OnDestroy} from '@angular/core';
-import { AngularFire, FirebaseListObservable} from 'angularfire2';
-import {DashboardDataService} from '../services/dashboard-data.service';
+import {AngularFire, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2';
+import {PostDataService} from '../services/post-data.service';
 import {AuthService} from '../services/auth.service';
 import {Subject} from 'rxjs/Subject';
-import {KeysPipe} from './dashboard-component.pipe';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,26 +13,27 @@ import {KeysPipe} from './dashboard-component.pipe';
 
 export class DashboardComponent {
 
-  posts: FirebaseListObservable<any>;
+  posts;
+  user: FirebaseObjectObservable<any>;
 
-  constructor(private dashboardDataService: DashboardDataService, private authService: AuthService) {
-    this.posts = this.dashboardDataService.getDashboardData(this.authService.userDetails.uid);
+  constructor(private postDataService: PostDataService, private authService: AuthService) {
+
+    this.posts = this.postDataService.getUserFollowingPosts(this.authService.userDetails.uid);
   }
 
   addComment(newComment: string, postid: string ) {
-    this.dashboardDataService.getComments(postid).push({ comment: newComment });
-    this.dashboardDataService.getComments(postid).forEach(comment => {
+    this.postDataService.getComments(postid).push({ comment: newComment });
+    this.postDataService.getComments(postid).forEach(comment => {
       console.log(comment);
     });
   }
   updateComment(key: string, newComment: string, postid: string) {
-    this.dashboardDataService.getComments(postid).update(key, { comment: newComment });
-
+    this.postDataService.getComments(postid).update(key, { comment: newComment });
   }
   deleteComment(key: string, postid: string) {
-    this.dashboardDataService.getComments(postid).remove(key);
+    this.postDataService.getComments(postid).remove(key);
   }
   deleteEverything(postid) {
-    this.dashboardDataService.getComments(postid).remove();
+    this.postDataService.getComments(postid).remove();
   }
 }

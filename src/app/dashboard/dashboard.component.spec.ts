@@ -2,15 +2,14 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-import {DashboardDataService} from '../services/dashboard-data.service';
 import { AngularFire, AngularFireModule } from 'angularfire2';
 import { AuthService} from '../services/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ActivatedRouteStub, RouterStub } from '../../testing/router-stubs';
-import {KeysPipe} from './dashboard-component.pipe';
 
 import {firebaseConfig} from '../app.module';
 import { DashboardComponent } from './dashboard.component';
+import {PostDataService} from '../services/post-data.service';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -18,13 +17,12 @@ describe('DashboardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DashboardComponent, KeysPipe ],
-      providers : [ {
-        provide: DashboardDataService, useClass: DashboardDataService },
+      declarations: [ DashboardComponent ],
+      providers : [
         { provide : AngularFire, useClass: AngularFire },
         { provide: AuthService, useClass: AuthService},
         { provide: Router, useClass: RouterStub },
-        { provide: KeysPipe}
+        { provide: PostDataService, useClass: PostDataService}
         ],
         imports: [
         AngularFireModule.initializeApp(firebaseConfig)

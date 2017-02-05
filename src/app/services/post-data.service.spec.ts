@@ -1,15 +1,15 @@
 /* tslint:disable:no-unused-variable */
 
 import { TestBed, async, inject } from '@angular/core/testing';
-import { DashboardDataService } from './dashboard-data.service';
+import { PostDataService} from './post-data.service';
 import {AngularFire, AngularFireModule} from 'angularfire2';
 import {firebaseConfig} from '../app.module';
 
-describe('DashboardDataService', () => {
+describe('PostDataService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
-        DashboardDataService,
+        PostDataService,
         { provide : AngularFire, useClass: AngularFire }
         ],
         imports: [
@@ -18,7 +18,7 @@ describe('DashboardDataService', () => {
     });
   });
 
-  it('should ...', inject([DashboardDataService], (service: DashboardDataService) => {
+  it('should ...', inject([PostDataService], (service: PostDataService) => {
     expect(service).toBeTruthy();
   }));
 });
