@@ -40,6 +40,11 @@ export class AuthService {
 
         });
   }
+
+  currentUser() {
+
+  }
+
   login(from: string) {
     this.af.auth.login( {
       provider: this.getProvider(from),

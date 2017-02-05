@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {ProfileComponent} from './profile/profile.component';
+
 import {LoginComponent} from './login/login.component';
 import {TeamsFollowedComponent} from './teams-followed/teams-followed.component';
 import {PlayersFollowedComponent} from './players-followed/players-followed.component';
@@ -27,23 +28,24 @@ const appRoutes: Routes = [
     },
     {
       path : 'teamsFollowed',
-      component : TeamsFollowedComponent},
-      {
-        path : 'playersFollowed',
-        component : PlayersFollowedComponent
-      },
-      {
-        path : 'team',
-        component : TeamComponent
-      },
-      {
-        path : 'player',
-        component : PlayerComponent
-      },
-      {
-        path : 'club',
-        component : ClubComponent
-      }
+      component : TeamsFollowedComponent
+    },
+    {
+      path : 'playersFollowed',
+      component : PlayersFollowedComponent
+    },
+    {
+      path : 'team',
+      component : TeamComponent
+    },
+    {
+      path : 'player',
+      component : PlayerComponent
+    },
+    {
+      path : 'club',
+      component : ClubComponent
+    }
 
 ];
 
