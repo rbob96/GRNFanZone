@@ -7,7 +7,9 @@ export class PostDataService {
   posts;
 
   constructor(private af: AngularFire) {
-    this.posts = af.database.list('/posts').subscribe();
+    af.database.list('/posts').subscribe(posts => {
+      this.posts = posts;
+    });
   }
 
   public getRecentPosts (n: number) {
@@ -25,15 +27,5 @@ export class PostDataService {
     return this.af.database.list('/posts/' + postid + '/comments');
   }
 
-  public getUserFollowingPosts (userid: string) {
-
-    // Get all posts:
-
-
-    // Filter them by only accepting ones the user follows
-
-    // Return the list
-
-  }
 
 }
