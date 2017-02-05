@@ -10,6 +10,7 @@ import {PlayersFollowedComponent} from './players-followed/players-followed.comp
 import {TeamComponent} from './team-profile/team.component';
 import {PlayerComponent} from './player-profile/player.component';
 import {ClubComponent} from './club-profile/club.component';
+import {ListComponent} from './list/list.component';
 import {AuthGuardService} from './services/auth-guard.service';
 
 const appRoutes: Routes = [
@@ -25,6 +26,10 @@ const appRoutes: Routes = [
     {
       path : 'user/:id',
       component : ProfileComponent
+    },
+    {
+      path : 'list',
+      component : ListComponent
     },
     {
       path : 'teamsFollowed',
