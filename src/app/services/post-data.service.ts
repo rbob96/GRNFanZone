@@ -7,24 +7,17 @@ export class PostDataService {
   posts;
 
   constructor(private af: AngularFire) {
-    this.posts = af.database.list('/posts', {
-      query: {
-        orderByChild : 'created_at',
-        limitToFirst : 100
-      }
-    }).subscribe();
+    this.posts = af.database.list('/posts').subscribe();
   }
 
-  public getRecentPosts () {
+  public getRecentPosts (n: number) {
 
-    const queryList = this.af.database.list('/posts', {
+    return this.af.database.list('/posts', {
       query: {
         orderByChild : 'created_at',
-        limitToFirst : 100
+        limitToFirst: n
       }
     });
-
-    return queryList;
 
   }
 
@@ -33,6 +26,7 @@ export class PostDataService {
   }
 
   public getUserFollowingPosts (userid: string) {
+
     // Get all posts:
 
 

@@ -1,12 +1,15 @@
 {
   "database": {
     "rules": {
-	  "users": {
-        "$uid": {
-          ".read": "$uid === auth.uid",
-          ".write": "$uid === auth.uid"
-        }
+      "posts": {
+        ".indexOn": "created_at"
       },
+      "users": {
+          "$uid": {
+            ".read": "auth != null",
+            ".write": "$uid === auth.uid"
+          }
+        },
       "rules": {
         ".read": "auth != null",
         ".write": "auth != null"
