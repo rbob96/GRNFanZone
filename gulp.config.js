@@ -27,12 +27,7 @@ module.exports = function() {
     //Temp path
     pathTemp: './.tmp/',
     //build path
-    pathBuild: './dist/',
-
-    htmlhintConfig: {
-        "attr-lowercase": false,
-        "tagname-lowercase": false
-    }
+    pathBuild: './dist/'
 
   };
   return config;

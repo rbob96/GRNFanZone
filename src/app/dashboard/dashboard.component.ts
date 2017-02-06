@@ -4,12 +4,9 @@ import {PostDataService} from '../services/post-data.service';
 import {AuthService} from '../services/auth.service';
 import {Subject} from 'rxjs/Subject';
 
-import { PostComponent } from '../post/post.component';
-
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard-component.html'
-
 })
 
 

@@ -11,7 +11,7 @@ var csslintConfig = {
   'zero-units': false
 };
 
-var htmllintConfig = {
+var htmlhintConfig = {
   'tagname-lowercase': false,
   'attr-lowercase': false,
   'doctype-first': false
@@ -41,7 +41,7 @@ gulp.task('vet-ts', function (done) {
 gulp.task('vet-html', function (done) {
   log("Vetting code with htmlhint");
   gulp.src(config.sourceHTML)
-  .pipe($.htmlhint(htmllintConfig))
+  .pipe($.htmlhint(htmlhintConfig))
   .pipe($.htmlhint.reporter("htmlhint-stylish"))
   .pipe($.htmlhint.failReporter({ suppress: true }));
 
@@ -74,7 +74,7 @@ gulp.task('vet-fail', function (done){
       .pipe($.tslint())
       .pipe($.tslint.report());
   gulp.src(config.sourceHTML)
-      .pipe($.htmlhint(config.htmlhintConfig))
+      .pipe($.htmlhint(htmlhintConfig))
       .pipe($.htmlhint.failReporter());
   gulp.src(config.sourceLess)
       .pipe($.lesshint( {} ))

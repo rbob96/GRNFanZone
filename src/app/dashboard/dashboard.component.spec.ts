@@ -10,6 +10,7 @@ import { ActivatedRouteStub, RouterStub } from '../../testing/router-stubs';
 import {firebaseConfig} from '../app.module';
 import { DashboardComponent } from './dashboard.component';
 import {PostDataService} from '../services/post-data.service';
+import {PostComponent} from '../post/post.component';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -17,7 +18,9 @@ describe('DashboardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DashboardComponent ],
+      declarations: [
+        DashboardComponent, PostComponent
+      ],
       providers : [
         { provide : AngularFire, useClass: AngularFire },
         { provide: AuthService, useClass: AuthService},
