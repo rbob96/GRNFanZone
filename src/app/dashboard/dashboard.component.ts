@@ -4,6 +4,8 @@ import {PostDataService} from '../services/post-data.service';
 import {AuthService} from '../services/auth.service';
 import {Subject} from 'rxjs/Subject';
 
+import { PostComponent } from '../post/post.component';
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard-component.html'
@@ -21,25 +23,20 @@ export class DashboardComponent {
     this.currentUserId = authService.uid;
 
       af.database.object('users/' + this.currentUserId).subscribe(userData => {
-
         af.database.list('posts').subscribe(posts => {
-
-          this.posts = [];
 
           posts.forEach(post => {
 
             if (post.posted_by in userData.players_followed) {
-              console.log("Player post found: " + post.name);
               this.posts.push(post);
             } else if (post.posted_by in userData.teams_followed) {
-              console.log("Team post found: " + post.name);
               this.posts.push(post);
             } else if (post.posted_by in userData.clubs_followed) {
-              console.log("Club post found: " + post.name);
               this.posts.push(post);
             }
 
         });
+
       });
     });
 

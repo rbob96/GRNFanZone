@@ -1,0 +1,17 @@
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h2 class="panel-title">
+          <a>{{post.name}}</a>
+        </h2>
+      </div>
+      <div class="panel-body">
+        <b>{{post.title}} </b> - {{(post.created_at | date)}} <br>
+        {{post.text}}
+      </div>
+      <div class="panel-footer">LIKE/SHARE</div>
+    </div>
+  </div>
+</div>

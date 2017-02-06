@@ -29,6 +29,7 @@ import { routing } from './app.routing';
 import { AuthService } from './services/auth.service';
 import {AuthGuardService} from './services/auth-guard.service';
 import {PostDataService} from './services/post-data.service';
+import { PostComponent } from './post/post.component';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyCoo25Hw0ftCZHYtQx73gOvbu7SS4YCXW8',
@@ -53,7 +54,8 @@ export const firebaseConfig = {
     TeamComponent,
     PlayerComponent,
     ClubComponent,
-    ListComponent
+    ListComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
