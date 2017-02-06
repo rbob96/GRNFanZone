@@ -16,7 +16,8 @@
 
           <div class="row">
             <div class="col-sm-12">
-              <button (click)="likePost(currentUserId)" type="button" class = "btn btn-default pull-right" style="text-align:center"><i class="glyphicon glyphicon-thumbs-up"></i></button>
+              <b>{{likes.length}} likes</b>
+              <span (click)="likeToggle(currentUserId)" class="glyphicon glyphicon-thumbs-up pull-right"></span>
             </div>
           </div>
 
@@ -31,5 +32,4 @@
       </div>
     </div>
   </div>
-
 </div>

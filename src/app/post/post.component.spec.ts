@@ -4,8 +4,6 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { PostComponent } from './post.component';
-import { CommentComponent } from '../comment/comment.component';
-import {PostDataService} from '../services/post-data.service';
 import {AngularFire, AngularFireModule} from 'angularfire2';
 import {firebaseConfig} from '../app.module';
 import {AuthService} from '../services/auth.service';
@@ -19,8 +17,7 @@ describe('PostComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        PostComponent,
-        CommentComponent
+        PostComponent
       ],
       providers: [
         { provide : AngularFire, useClass: AngularFire },

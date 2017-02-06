@@ -15,6 +15,7 @@ export class PostComponent implements OnInit {
   post: Post;
 
   comments;
+  likes = [];
 
   currentUserId;
 
@@ -25,32 +26,43 @@ export class PostComponent implements OnInit {
     this.currentUserId = this.authService.uid;
 
     if (this.post) {
+
       this.af.database.list('posts/' + this.post.id + '/comments').subscribe(comments => {
         this.comments = comments;
       });
+
+      this.af.database.list('posts/' + this.post.id + '/likes').subscribe(likes => {
+
+        this.likes = likes.map(l => {
+            return l.$key;
+        });
+
+      });
+
     }
 
   }
 
-  likePost(uid: string) {
+  likeToggle(uid: string) {
     if (this.post) {
-      const likes = this.af.database.list('posts/' + this.post.id + '/likes');
-      likes.push(
-        {
-          uid: {
-            'liked_at': '2082-12-31T14:50:46.381Z'
-          }
-        }
-      );
+      const observable = this.af.database.object('posts/' + this.post.id + '/likes/' + uid);
+
+      console.log(this.likes);
+
+      if (this.likes.indexOf(uid) === -1) {
+
+        console.log('Liking');
+        observable.set({
+          'liked_at': '2082-12-31T14:50:46.381Z'
+        });
+
+      } else {
+
+        observable.remove();
+
+      }
     }
 
-  }
-
-  unlikePost(uid: string) {
-    if (this.post) {
-      const likes = this.af.database.list('posts/' + this.post.id + '/likes');
-      likes.remove(uid);
-    }
   }
 
 }

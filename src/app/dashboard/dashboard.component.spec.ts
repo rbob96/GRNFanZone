@@ -11,7 +11,6 @@ import {firebaseConfig} from '../app.module';
 import { DashboardComponent } from './dashboard.component';
 import {PostDataService} from '../services/post-data.service';
 import {PostComponent} from '../post/post.component';
-import {CommentComponent} from '../comment/comment.component';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -21,8 +20,7 @@ describe('DashboardComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         DashboardComponent,
-        PostComponent,
-        CommentComponent
+        PostComponent
       ],
       providers : [
         { provide : AngularFire, useClass: AngularFire },

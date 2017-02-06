@@ -22,6 +22,8 @@ export class DashboardComponent {
       af.database.object('users/' + this.currentUserId).subscribe(userData => {
         af.database.list('posts').subscribe(posts => {
 
+          this.posts = [];
+
           posts.forEach(post => {
 
             if (post.posted_by in userData.players_followed) {
@@ -33,6 +35,7 @@ export class DashboardComponent {
             }
 
         });
+
 
       });
     });
