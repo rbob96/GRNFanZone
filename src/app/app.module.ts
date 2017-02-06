@@ -30,6 +30,7 @@ import { AuthService } from './services/auth.service';
 import {AuthGuardService} from './services/auth-guard.service';
 import {PostDataService} from './services/post-data.service';
 import { PostComponent } from './post/post.component';
+import { CommentComponent } from './comment/comment.component';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyCoo25Hw0ftCZHYtQx73gOvbu7SS4YCXW8',
@@ -55,7 +56,8 @@ export const firebaseConfig = {
     PlayerComponent,
     ClubComponent,
     ListComponent,
-    PostComponent
+    PostComponent,
+    CommentComponent
   ],
   imports: [
     BrowserModule,

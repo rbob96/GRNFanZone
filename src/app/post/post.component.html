@@ -11,8 +11,23 @@
         <div class="panel-body">
           <b>{{post.title}} </b> - {{(post.created_at | date)}} <br>
           {{post.text}}
+
+          <hr>
+
+          <div class="row">
+            <div class="col-sm-12">
+              <button (click)="likePost(currentUserId)" type="button" class = "btn btn-default pull-right" style="text-align:center"><i class="glyphicon glyphicon-thumbs-up"></i></button>
+            </div>
+          </div>
+
         </div>
-        <div class="panel-footer">LIKE/SHARE</div>
+        <div class="panel-footer">
+          <ul class="list-group">
+            <li *ngFor="let postComment of comments" class="list-group-item">
+              {{postComment.comment}}
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>

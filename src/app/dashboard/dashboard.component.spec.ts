@@ -4,13 +4,14 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { AngularFire, AngularFireModule } from 'angularfire2';
 import { AuthService} from '../services/auth.service';
-import { Router, ActivatedRoute } from '@angular/router';
-import { ActivatedRouteStub, RouterStub } from '../../testing/router-stubs';
+import { Router } from '@angular/router';
+import { RouterStub } from '../../testing/router-stubs';
 
 import {firebaseConfig} from '../app.module';
 import { DashboardComponent } from './dashboard.component';
 import {PostDataService} from '../services/post-data.service';
 import {PostComponent} from '../post/post.component';
+import {CommentComponent} from '../comment/comment.component';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -19,7 +20,9 @@ describe('DashboardComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        DashboardComponent, PostComponent
+        DashboardComponent,
+        PostComponent,
+        CommentComponent
       ],
       providers : [
         { provide : AngularFire, useClass: AngularFire },
