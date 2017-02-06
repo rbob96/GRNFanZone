@@ -23,13 +23,14 @@ import {UserDataService} from './services/user-data.service';
 import {TeamDataService} from './services/team-data.service';
 import {ClubDataService} from './services/club-data.service';
 import {PlayerDataService} from './services/player-data.service';
-import {PlayerSearchService} from './services/player-search.service';
+
 
 import { routing } from './app.routing';
 import { AuthService } from './services/auth.service';
 import { DashboardDataService } from './services/dashboard-data.service';
 import {AuthGuardService} from './services/auth-guard.service';
 import { SearchComponent } from './search/search.component';
+import { ResultsComponent } from './results/results.component';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyCoo25Hw0ftCZHYtQx73gOvbu7SS4YCXW8',
@@ -54,7 +55,8 @@ export const firebaseConfig = {
     TeamComponent,
     PlayerComponent,
     ClubComponent,
-    SearchComponent
+    SearchComponent,
+    ResultsComponent
   ],
   imports: [
     BrowserModule,
@@ -75,8 +77,7 @@ export const firebaseConfig = {
     PlayerDataService,
     TeamDataService,
     ClubDataService,
-    DashboardDataService,
-    PlayerSearchService
+    DashboardDataService
   ],
   bootstrap: [ AppComponent ]
 })

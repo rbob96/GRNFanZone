@@ -10,6 +10,7 @@ import {TeamComponent} from './team-profile/team.component';
 import {PlayerComponent} from './player-profile/player.component';
 import {ClubComponent} from './club-profile/club.component';
 import {AuthGuardService} from './services/auth-guard.service';
+import {ResultsComponent} from './results/results.component';
 
 const appRoutes: Routes = [
     {
@@ -43,6 +44,10 @@ const appRoutes: Routes = [
       {
         path : 'club',
         component : ClubComponent
+      },
+      {
+        path: 'results/:term',
+        component: ResultsComponent
       }
 
 ];
