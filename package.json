@@ -39,7 +39,7 @@
     "ts-helpers": "^1.1.1",
     "tslint": "^4.4.2",
     "tslint-stylish": "^2.1.0",
-    "zone.js": "^0.7.4"
+    "zone.js": "^0.7.6"
   },
   "devDependencies": {
     "@angular/compiler-cli": "^2.3.1",
