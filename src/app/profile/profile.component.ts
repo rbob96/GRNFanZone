@@ -15,7 +15,7 @@ export class ProfileComponent implements OnInit {
   private sub: any;
 
   // User id
-  userId: string;
+  userId;
 
   // userObject
   profileData: FirebaseObjectObservable<any>;
