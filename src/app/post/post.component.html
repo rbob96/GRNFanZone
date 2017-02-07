@@ -23,11 +23,21 @@
 
         </div>
         <div class="panel-footer">
+
           <ul class="list-group">
             <li *ngFor="let postComment of comments" class="list-group-item">
               {{postComment.comment}}
             </li>
           </ul>
+
+          <br>
+
+          <div class="form-group">
+            <label>Comment:</label>
+            <input type="text" #newComment/>
+            <button class="btn btn-primary btn-sm pull-right" (click)="addComment(newComment.value, post.id)">Add</button>
+          </div>
+
         </div>
       </div>
     </div>

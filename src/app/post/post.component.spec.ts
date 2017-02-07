@@ -9,6 +9,7 @@ import {firebaseConfig} from '../app.module';
 import {AuthService} from '../services/auth.service';
 import {RouterStub} from '../../testing/router-stubs';
 import {Router} from '@angular/router';
+import {PostDataService} from '../services/post-data.service';
 
 describe('PostComponent', () => {
   let component: PostComponent;
@@ -21,8 +22,9 @@ describe('PostComponent', () => {
       ],
       providers: [
         { provide : AngularFire, useClass: AngularFire },
-        { provide: AuthService, useClass: AuthService},
-        { provide: Router, useClass: RouterStub }
+        { provide: AuthService, useClass: AuthService },
+        { provide: Router, useClass: RouterStub },
+        { provide: PostDataService, useClass: PostDataService }
       ],
       imports: [
         AngularFireModule.initializeApp(firebaseConfig)

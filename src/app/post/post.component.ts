@@ -3,6 +3,7 @@ import { Post } from '../post';
 import {AngularFire, FirebaseListObservable} from 'angularfire2';
 import Any = jasmine.Any;
 import {AuthService} from '../services/auth.service';
+import {PostDataService} from '../services/post-data.service';
 
 @Component({
   selector: 'app-post',
@@ -19,7 +20,7 @@ export class PostComponent implements OnInit {
 
   currentUserId;
 
-  constructor ( private af: AngularFire, private authService: AuthService ) {}
+  constructor ( private af: AngularFire, private authService: AuthService, private postDataService: PostDataService ) {}
 
   ngOnInit() {
 
@@ -63,6 +64,19 @@ export class PostComponent implements OnInit {
       }
     }
 
+  }
+
+  addComment(newComment: string, postid: string ) {
+    this.postDataService.getComments(postid).push({ comment: newComment });
+    this.postDataService.getComments(postid).forEach(comment => {
+      console.log(comment);
+    });
+  }
+  updateComment(key: string, newComment: string, postid: string) {
+    this.postDataService.getComments(postid).update(key, { comment: newComment });
+  }
+  deleteComment(key: string, postid: string) {
+    this.postDataService.getComments(postid).remove(key);
   }
 
 }
