@@ -1,0 +1,9 @@
+.unlike {
+  color: black;
+}
+
+.media-object {
+  border-radius: 10%;
+  height: 64px;
+  width: 64px;
+}

@@ -5,6 +5,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AngularFireModule } from 'angularfire2';
 import { RouterModule, Routes } from '@angular/router';
+import {MomentModule} from 'angular2-moment';
+
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -23,13 +25,13 @@ import {UserDataService} from './services/user-data.service';
 import {TeamDataService} from './services/team-data.service';
 import {ClubDataService} from './services/club-data.service';
 import {PlayerDataService} from './services/player-data.service';
-import {KeysPipe} from './dashboard/dashboard-component.pipe';
 import {ListComponent} from './list/list.component';
 
 import { routing } from './app.routing';
 import { AuthService } from './services/auth.service';
-import { DashboardDataService } from './services/dashboard-data.service';
 import {AuthGuardService} from './services/auth-guard.service';
+import {PostDataService} from './services/post-data.service';
+import { PostComponent } from './post/post.component';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyCoo25Hw0ftCZHYtQx73gOvbu7SS4YCXW8',
@@ -54,8 +56,8 @@ export const firebaseConfig = {
     TeamComponent,
     PlayerComponent,
     ClubComponent,
-    KeysPipe,
-    ListComponent
+    ListComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +69,8 @@ export const firebaseConfig = {
     TabViewModule,
     DataListModule,
     DialogModule,
-    RouterModule
+    RouterModule,
+    MomentModule
   ],
   providers: [
     AuthService,
@@ -76,8 +79,7 @@ export const firebaseConfig = {
     PlayerDataService,
     TeamDataService,
     ClubDataService,
-    DashboardDataService,
-    KeysPipe
+    PostDataService
   ],
   bootstrap: [ AppComponent ]
 })
