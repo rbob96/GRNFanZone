@@ -14,14 +14,15 @@ import {Observable} from 'rxjs/Observable';
 })
 export class ResultsComponent implements OnInit {
 
-  
-  // Player Object
-  player: Player;
+  // sub for routing params
+  sub: any;
 
   // Get filtered results
-  results: Player[];
-  allPlayers: FirebaseListObservable<Player[]>;;
-
+  results: FirebaseListObservable<any>;
+  testing: Player[];
+  filters: Player[];
+  
+  // Player uid
   playerName: string;
 
 
@@ -32,23 +33,26 @@ export class ResultsComponent implements OnInit {
     }
 
   ngOnInit() {
-
+    
     this.route.params.subscribe(params => {
+
       this.playerName = params['query'];
+
+      this.results = this.playerDataService.getPlayersList(this.playerName);
+
+      //this.filters = this.playerDataService.getPlayersList(this.playerName);
+      
+
     });
-    
-    this.playerDataService.searchPlayer(this.playerName)
-      .subscribe(
-        players => this.results = players
-      )
 
-    console.log(this.results);
+    this.results.subscribe(console.log);
+    console.log(this.playerName);
 
     
-
+      
 
     
-    // // Get player
+    // Get player
     // player.first_name = player.first_name.toLowerCase();
     // }
     // this.results = this.allPlayers.filter(player => player.first_name.includes(this.playerName.toLowerCase()));

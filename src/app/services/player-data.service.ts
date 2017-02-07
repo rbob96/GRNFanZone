@@ -12,16 +12,18 @@ import { Player } from '../player';
 // We will only be pulling data, not updating it
 export class PlayerDataService {
 
-  player: Player[];
-
-  filtered: FirebaseListObservable<Player[]>;
-  allPlayers: FirebaseListObservable<Player[]>;
 
   constructor(private af: AngularFire) {}
 
   // Gets all players
   public getPlayers(): Observable<Player[]> {
-    return this.af.database.list('/players');
+    return this.af.database.list('/players/');
+  }
+
+
+  // Get player list
+  public getPlayersList(uid: string) {
+    return this.af.database.list('/players/');
   }
 
   // Gets a player by UID
@@ -29,8 +31,5 @@ export class PlayerDataService {
     return this.af.database.object('/players/' + uid);
   }
 
-  public searchPlayer(uid: string){
-    this.allPlayers = this.af.database.list('/players/' + uid);
-    return this.allPlayers; 
-  }
+
 }

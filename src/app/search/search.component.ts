@@ -10,27 +10,24 @@ import { Router } from '@angular/router';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css']
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent{
 
-allPlayers: Player[];
-  filtered: Player[];
-  query: string;
+  query:string;
 
   constructor(
     private _search: PlayerDataService,
     private _router: Router) { }
 
 
-  ngOnInit(){
-    this._search.getPlayers()
-      .subscribe(
-        players => this.allPlayers = this.filtered = players
-      );
-  }
+  // ngOnInit(){
+  //   this._search.getPlayers()
+  //     .subscribe(
+  //       players => this.allPlayers = this.filtered = players
+  //     );
+  // }
 
 
   // search(term: string) {
-
   //   for(let player of this.filtered){
   //     player.first_name = player.first_name.toLowerCase();
   //   }
