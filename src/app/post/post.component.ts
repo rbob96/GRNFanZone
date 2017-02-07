@@ -72,7 +72,8 @@ export class PostComponent implements OnInit {
 
     let comment = {
       comment: newComment,
-      commented_at: (new Date().getTime())
+      commented_at: (new Date().getTime()),
+      author: this.currentUserId
     };
 
     this.postDataService.getComments(postid).push(comment);
