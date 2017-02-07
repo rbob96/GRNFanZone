@@ -5,6 +5,8 @@ import Any = jasmine.Any;
 import {AuthService} from '../services/auth.service';
 import {PostDataService} from '../services/post-data.service';
 
+
+
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
@@ -48,15 +50,17 @@ export class PostComponent implements OnInit {
     if (this.post) {
       const observable = this.af.database.object('posts/' + this.post.id + '/likes/' + uid);
 
+      // Check if uid in likes
       if (this.likes.indexOf(uid) === -1) {
 
-        console.log('Liking');
+        // Create the like
         observable.set({
-          'liked_at': '2082-12-31T14:50:46.381Z'
+          liked_at: (new Date().getTime())
         });
 
       } else {
 
+        // like
         observable.remove();
 
       }
@@ -65,10 +69,13 @@ export class PostComponent implements OnInit {
   }
 
   addComment(newComment: string, postid: string ) {
-    this.postDataService.getComments(postid).push({ comment: newComment });
-    this.postDataService.getComments(postid).forEach(comment => {
-      console.log(comment);
-    });
+
+    let comment = {
+      comment: newComment,
+      commented_at: (new Date().getTime())
+    };
+
+    this.postDataService.getComments(postid).push(comment);
   }
   updateComment(key: string, newComment: string, postid: string) {
     this.postDataService.getComments(postid).update(key, { comment: newComment });

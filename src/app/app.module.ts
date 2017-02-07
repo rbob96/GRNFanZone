@@ -5,6 +5,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AngularFireModule } from 'angularfire2';
 import { RouterModule, Routes } from '@angular/router';
+import {MomentModule} from 'angular2-moment';
+
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -67,7 +69,8 @@ export const firebaseConfig = {
     TabViewModule,
     DataListModule,
     DialogModule,
-    RouterModule
+    RouterModule,
+    MomentModule
   ],
   providers: [
     AuthService,

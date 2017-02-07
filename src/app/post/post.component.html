@@ -44,10 +44,17 @@
 
           <ul class="list-group">
             <li *ngFor="let postComment of comments" class="list-group-item">
+
               {{postComment.comment}}
-              <button type="button" class="btn btn-danger pull-right btn-sm" (click)="deleteComment(postComment.$key, post.id)">
+
+              <button type="button" class="btn btn-danger btn-sm pull-right" (click)="deleteComment(postComment.$key, post.id)">
                 <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
               </button>
+
+              <br>
+
+              <small><em>{{postComment.commented_at | amTimeAgo}}</em></small>
+
             </li>
           </ul>
 

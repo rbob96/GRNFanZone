@@ -1,1 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Makes comments etc wrap their text */
+.list-group-item {
+  word-wrap: break-word;
+}
