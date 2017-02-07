@@ -69,14 +69,11 @@ export class PostComponent implements OnInit {
   }
 
   addComment(newComment: string, postid: string ) {
-
-    let comment = {
+    this.postDataService.getComments(postid).push({
       comment: newComment,
       commented_at: (new Date().getTime()),
       author: this.currentUserId
-    };
-
-    this.postDataService.getComments(postid).push(comment);
+    });
   }
   updateComment(key: string, newComment: string, postid: string) {
     this.postDataService.getComments(postid).update(key, { comment: newComment });

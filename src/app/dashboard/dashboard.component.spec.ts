@@ -7,6 +7,8 @@ import { AuthService} from '../services/auth.service';
 import { Router } from '@angular/router';
 import { RouterStub } from '../../testing/router-stubs';
 
+import { MomentModule } from 'angular2-moment';
+
 import {firebaseConfig} from '../app.module';
 import { DashboardComponent } from './dashboard.component';
 import {PostDataService} from '../services/post-data.service';
@@ -29,7 +31,8 @@ describe('DashboardComponent', () => {
         { provide: PostDataService, useClass: PostDataService}
         ],
         imports: [
-        AngularFireModule.initializeApp(firebaseConfig)
+          AngularFireModule.initializeApp(firebaseConfig),
+          MomentModule
       ]
     })
     .compileComponents();

@@ -3,6 +3,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
+import { MomentModule } from 'angular2-moment';
+
 import { PostComponent } from './post.component';
 import {AngularFire, AngularFireModule} from 'angularfire2';
 import {firebaseConfig} from '../app.module';
@@ -27,7 +29,8 @@ describe('PostComponent', () => {
         { provide: PostDataService, useClass: PostDataService }
       ],
       imports: [
-        AngularFireModule.initializeApp(firebaseConfig)
+        AngularFireModule.initializeApp(firebaseConfig),
+        MomentModule
       ]
     })
     .compileComponents();
