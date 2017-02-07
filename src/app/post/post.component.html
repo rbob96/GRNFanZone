@@ -9,16 +9,33 @@
           </h2>
         </div>
         <div class="panel-body">
-          <b>{{post.title}} </b> - {{(post.created_at | date)}} <br>
-          {{post.text}}
+
+          <div class="media">
+            <div class="media-left">
+              <a href="#">
+                <img class="media-object" src="{{post.image}}" alt="Avatar for {{post.name}}">
+              </a>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading"> {{post.title}} </h4>
+              <i>{{(post.created_at | date)}}</i> <br>
+
+              {{post.text}}
+
+            </div>
+          </div>
 
           <hr>
 
           <div class="row">
             <div class="col-sm-12">
               <b>{{likes.length}} likes</b>
-              <span *ngIf="likes.indexOf(currentUserId) === -1" (click)="likeToggle(currentUserId)" class="glyphicon glyphicon-thumbs-up pull-right"></span>
-              <span *ngIf="likes.indexOf(currentUserId) !== -1" (click)="likeToggle(currentUserId)" class="glyphicon glyphicon-thumbs-down pull-right"></span>
+              <button *ngIf="likes.indexOf(currentUserId) !== -1" type="button" class="btn btn-primary pull-right btn-sm" (click)="likeToggle(currentUserId)">
+                <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+              </button>
+              <button *ngIf="likes.indexOf(currentUserId) === -1" type="button" class="btn btn-primary pull-right btn-sm" (click)="likeToggle(currentUserId)">
+                <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+              </button>
             </div>
           </div>
 
@@ -28,6 +45,9 @@
           <ul class="list-group">
             <li *ngFor="let postComment of comments" class="list-group-item">
               {{postComment.comment}}
+              <button type="button" class="btn btn-danger pull-right btn-sm" (click)="deleteComment(postComment.$key, post.id)">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+              </button>
             </li>
           </ul>
 
