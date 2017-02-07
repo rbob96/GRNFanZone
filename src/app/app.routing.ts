@@ -46,7 +46,7 @@ const appRoutes: Routes = [
         component : ClubComponent
       },
       {
-        path: 'results/:term',
+        path: 'results/:query',
         component: ResultsComponent
       }
 
