@@ -50,19 +50,19 @@ export class ProfileComponent implements OnInit {
   }
 
   public sendToPlayer (uid: string) {
-    this.router.navigate(['/players/' + uid]);
+    setTimeout(() => this.router.navigate(['/players/' + uid]));
   }
 
   public sendToTeam (uid: string) {
-    this.router.navigate(['/teams/' + uid]);
+    setTimeout(() => this.router.navigate(['/teams/' + uid]));
   }
 
   public unfollowPlayer(uid: string) {
-    this.userDataService.unfollowPlayer(this.currentUser, uid);
+    setTimeout(() => this.userDataService.unfollowPlayer(this.currentUser, uid));
   }
 
   public unfollowTeam(uid: string) {
-    this.userDataService.unfollowTeam(this.currentUser, uid);
+    setTimeout(() => this.userDataService.unfollowTeam(this.currentUser, uid));
   }
 
 }
