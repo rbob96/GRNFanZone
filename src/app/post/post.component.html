@@ -17,7 +17,8 @@
           <div class="row">
             <div class="col-sm-12">
               <b>{{likes.length}} likes</b>
-              <span (click)="likeToggle(currentUserId)" class="glyphicon glyphicon-thumbs-up pull-right"></span>
+              <span *ngIf="likes.indexOf(currentUserId) === -1" (click)="likeToggle(currentUserId)" class="glyphicon glyphicon-thumbs-up pull-right"></span>
+              <span *ngIf="likes.indexOf(currentUserId) !== -1" (click)="likeToggle(currentUserId)" class="glyphicon glyphicon-thumbs-down pull-right"></span>
             </div>
           </div>
 

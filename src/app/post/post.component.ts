@@ -48,8 +48,6 @@ export class PostComponent implements OnInit {
     if (this.post) {
       const observable = this.af.database.object('posts/' + this.post.id + '/likes/' + uid);
 
-      console.log(this.likes);
-
       if (this.likes.indexOf(uid) === -1) {
 
         console.log('Liking');
