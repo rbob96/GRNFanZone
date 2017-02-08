@@ -26,10 +26,5 @@ export class PlayerDataService {
     return this.af.database.list('/players/');
   }
 
-  // Gets a player by UID
-  public getPlayerData (uid: string) {
-    return this.af.database.object('/players/' + uid);
-  }
-
 
 }
