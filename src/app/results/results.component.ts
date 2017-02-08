@@ -12,17 +12,15 @@ import {Observable} from 'rxjs/Observable';
   templateUrl: './results.component.html',
   styleUrls: ['./results.component.css']
 })
-export class ResultsComponent implements OnInit {
 
+export class ResultsComponent implements OnInit {
 
   // Get filtered results
   results: FirebaseListObservable<any>;
   players = [];
   
-  
   // Player uid
   playerName: string;
-
 
   constructor(
     private router: Router, 
@@ -35,9 +33,7 @@ export class ResultsComponent implements OnInit {
       this.playerName = params['query'];
       this.results = this.playerDataService.getPlayersList(this.playerName);
     });
-
     
-
     this.results.subscribe(results => {
       results.forEach(result => {
         if(result.first_name.toLowerCase() == this.playerName.toLowerCase()){
@@ -45,7 +41,5 @@ export class ResultsComponent implements OnInit {
         }
       });
     });
-
-
   }
 }

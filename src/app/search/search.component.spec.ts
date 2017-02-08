@@ -4,7 +4,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { SearchComponent } from './search.component';
-import {PlayerSearchService} from '../services/player-search.service';
+import {PlayerDataService} from '../services/player-data.service';
 import {AngularFireModule, AngularFire} from 'angularfire2';
 import {firebaseConfig} from '../app.module';
 
@@ -16,7 +16,7 @@ describe('SearchComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ SearchComponent ],
       providers: [
-        PlayerSearchService,
+        PlayerDataService,
         { provide : AngularFire, useClass: AngularFire }
       ],
       imports: [
