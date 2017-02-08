@@ -8,7 +8,7 @@ import {Player} from '../player';
 import {Observable} from 'rxjs/Observable';
 
 @Component({
-  selector: 'results',
+  selector: 'app-results',
   templateUrl: './results.component.html',
   styleUrls: ['./results.component.css']
 })
