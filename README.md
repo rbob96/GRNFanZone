@@ -22,4 +22,5 @@ Log in to the lab and open graphical browser
     ssh -XC sibu.dcs.gla.ac.uk
 
 Firebase:
-    https://grnfanzone.firebaseapp.com/
+    main:    https://grnfanzone.firebaseapp.com/
+    staging: https://grnfanzone-staging.firebaseapp.com/
