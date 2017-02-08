@@ -6,14 +6,14 @@ import { AngularFireModule } from 'angularfire2';
 import { firebaseConfig } from '../app.module';
 import { Router } from '@angular/router';
 import { RouterStub } from '../../testing/router-stubs';
-import {AuthService} from './auth.service';
+import { AngularFireAuth } from 'angularfire2';
 
 describe('AuthGuardService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
-        AuthGuardService,
-        { provide : AuthService, useClass: AuthService },
+        AngularFireAuth,
+        { provide : AngularFireAuth, useClass: AngularFireAuth },
         { provide: Router, useClass: RouterStub }
         ],
       imports: [

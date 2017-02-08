@@ -18,7 +18,7 @@ export class AuthService {
   registered;
 
   constructor(private router: Router, private af: AngularFire) {
-
+      
       this.af.auth.subscribe(authState => {
 
         if (!authState) {
