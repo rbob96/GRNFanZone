@@ -40,7 +40,7 @@ export class ResultsComponent implements OnInit {
 
     this.results.subscribe(results => {
       results.forEach(result => {
-        if(result.first_name == this.playerName){
+        if(result.first_name.toLowerCase() == this.playerName.toLowerCase()){
           this.players.push(result);
         }
       });
