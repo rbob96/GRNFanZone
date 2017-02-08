@@ -13,13 +13,11 @@ import { Router } from '@angular/router';
 
 export class SearchComponent{
 
-
   query:string;
 
   constructor(
     private _search: PlayerDataService,
     private _router: Router) { }
-
 
   search(term: string){
     this.query = term;
