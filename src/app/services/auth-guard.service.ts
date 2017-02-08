@@ -12,13 +12,13 @@ import { AngularFireAuth } from 'angularfire2';
 export class AuthGuardService implements CanActivate {
   constructor(private auth: AngularFireAuth, private router: Router) {}
 
-    canActivate():Observable<boolean>|boolean {
+    canActivate(): Observable<boolean>|boolean {
         return this.auth.map((auth) => {
             if (auth) {
                 return true;
             }
             this.router.navigateByUrl('/login');
             return false;
-        })
+        });
     }
 }
