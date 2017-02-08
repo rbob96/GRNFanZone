@@ -1,7 +1,7 @@
 
 
 module.exports = function() {
-  var config = {
+  return {
     //All the js files we will have
     sourceJS: [
       './src/**/*.js',
@@ -30,5 +30,4 @@ module.exports = function() {
     pathBuild: './dist/'
 
   };
-  return config;
 };

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../services/auth.service';
-import {Router} from '@angular/router';
-import {TabViewModule} from 'primeng/primeng';
+
 @Component({
   selector: 'app-club',
   templateUrl: './club-component.html',

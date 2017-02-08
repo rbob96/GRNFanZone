@@ -1,8 +1,7 @@
 /* tslint:disable:max-line-length */
-import {Component, OnInit} from '@angular/core';
-import {AuthService} from '../services/auth.service';
+import {Component} from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
-import {AngularFire, FirebaseListObservable} from 'angularfire2';
+import {FirebaseListObservable} from 'angularfire2';
 import {ClubDataService} from '../services/club-data.service';
 import {TeamDataService} from '../services/team-data.service';
 import {PlayerDataService} from '../services/player-data.service';

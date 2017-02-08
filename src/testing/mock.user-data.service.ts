@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {FirebaseObjectObservable, AngularFire} from 'angularfire2';
+import {AngularFire} from 'angularfire2';
 import {Observable} from 'rxjs';
 
 export const testUser = {

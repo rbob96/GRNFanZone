@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Post } from '../post';
-import {AngularFire, FirebaseListObservable} from 'angularfire2';
+import {AngularFire} from 'angularfire2';
 import Any = jasmine.Any;
 import {AuthService} from '../services/auth.service';
 import {PostDataService} from '../services/post-data.service';
