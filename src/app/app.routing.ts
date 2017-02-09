@@ -7,6 +7,7 @@ import {ProfileComponent} from './profile/profile.component';
 import {LoginComponent} from './login/login.component';
 import {TeamsFollowedComponent} from './teams-followed/teams-followed.component';
 import {PlayersFollowedComponent} from './players-followed/players-followed.component';
+import {ClubsFollowedComponent} from './clubs-followed/clubs-followed.component';
 import {TeamComponent} from './team-profile/team.component';
 import {PlayerComponent} from './player-profile/player.component';
 import {ClubComponent} from './club-profile/club.component';
@@ -32,12 +33,16 @@ const appRoutes: Routes = [
       component : ListComponent
     },
     {
-      path : 'teamsFollowed',
+      path : 'teamsFollowed/:id',
       component : TeamsFollowedComponent
     },
     {
-      path : 'playersFollowed',
+      path : 'playersFollowed/:id',
       component : PlayersFollowedComponent
+    },
+    {
+      path : 'clubsFollowed/:id',
+      component : ClubsFollowedComponent
     },
     {
       path : 'team',

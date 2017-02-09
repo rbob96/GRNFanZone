@@ -1,38 +1,57 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
-import {Router} from '@angular/router';
-import {Player} from '../player';
-import {DataListModule} from 'primeng/primeng';
-import {Header} from 'primeng/primeng';
-import {Footer} from 'primeng/primeng';
-import {Dialog} from 'primeng/primeng';
-import {PlayerDataService} from '../services/player-data.service';
+import {Router, ActivatedRoute} from '@angular/router';
+import { AngularFire, FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2';
+import {UserDataService} from '../services/user-data.service';
 
 
 @Component({
   selector: 'app-players',
   templateUrl: './players-followed.html',
-  styleUrls: ['./players-followed.css'],
-  providers: [ PlayerDataService ]
+  styleUrls: ['./players-followed.css']
 })
 
 export class PlayersFollowedComponent implements OnInit {
+  // Subscription to route params
+  private sub: any;
 
-  players: Player[];
+  // User id
+  userId;
 
-  selectedPlayer: Player;
+  // userObject
+  profileData: FirebaseObjectObservable<any>;
+  followingPlayers: FirebaseListObservable<any>;
 
-  displayDialog: boolean;
+  currentUser: string; // ID
 
-  constructor(private playerDataService: PlayerDataService, private router: Router) { }
+  constructor( private router: Router,
+               private route: ActivatedRoute,
+               private userDataService: UserDataService,
+               private af: AngularFire) {
 
-  ngOnInit() {
-      const promise = this.playerDataService.getPlayers();
-      promise.subscribe(players => this.players = [1, 2]);
+    this.af.auth.subscribe(user => {
+      this.currentUser = user.uid;
+    });
   }
 
-  public selectPlayer (playerId: string) {
-    // this.router.navigate(['/player/' + playerId]);
+  ngOnInit() {
+
+    // Activated Route unsubscribed from by router, so not necessary to
+    // implement ngOnDestroy()
+    this.sub = this.route.params.subscribe(params => {
+      this.userId = params['id'];
+      // Get user data
+      this.profileData = this.userDataService.getUserData(this.userId);
+      this.followingPlayers = this.userDataService.getUserFollowingPlayers(this.userId);
+    });
+  }
+
+  public sendToPlayer (uid: string) {
+    this.router.navigate(['/player/' + uid]);
+  }
+
+  public unfollowPlayer(uid: string) {
+    this.userDataService.unfollowPlayer(this.currentUser, uid);
   }
 
 }

@@ -15,6 +15,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import { TeamsFollowedComponent } from './teams-followed/teams-followed.component';
 import { PlayersFollowedComponent } from './players-followed/players-followed.component';
+import {ClubsFollowedComponent} from './clubs-followed/clubs-followed.component';
 import { TeamComponent } from './team-profile/team.component';
 import { PlayerComponent } from './player-profile/player.component';
 import { ClubComponent } from './club-profile/club.component';
@@ -53,6 +54,7 @@ export const firebaseConfig = {
     PlayersFollowedComponent,
     ProfileComponent,
     PlayersFollowedComponent,
+    ClubsFollowedComponent,
     TeamComponent,
     PlayerComponent,
     ClubComponent,

@@ -13,11 +13,11 @@
 <body>
 <div class="container-fluid">
 <div class="list-group">
-  <a class="list-group-item active lead text-center"> Players </a>
-  <div *ngFor="let player of followingPlayers | async" class="list-group-item list-group-item-action">
+  <a class="list-group-item active lead text-center"> Clubs </a>
+  <div *ngFor="let club of followingClubs | async" class="list-group-item list-group-item-action">
     <div class="row">
-    <a (click)="sendToPlayer(player.id)"> {{player.first_name + " " + player.last_name}} </a>
-    <button *ngIf="currentUser === userId" type="button" class="btn btn-primary btn-xs btn-danger pull-right" (click)="unfollowPlayer(player.id)">Unfollow</button>
+    <a (click)="sendToClub(club.id)"> {{club.name}} </a>
+    <button *ngIf="currentUser === userId" type="button" class="btn btn-primary btn-xs btn-danger pull-right" (click)="unfollowClub(club.id)">Unfollow</button>
   </div>
   </div>
 </div>
