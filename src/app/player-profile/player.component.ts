@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
 import {AngularFire} from 'angularfire2';
+import {UserDataService} from '../services/user-data.service';
+import {User} from '../user';
 
 @Component({
   selector: 'app-teams',
@@ -19,10 +21,18 @@ export class PlayerComponent implements OnInit {
 
   currentUserId: string;
 
+  userFollowing = false;
 
-  constructor(private af: AngularFire, private router: Router, private route: ActivatedRoute) {
+  constructor(private af: AngularFire,
+              private router: Router,
+              private route: ActivatedRoute,
+              private userDataService: UserDataService) {
+
     this.af.auth.subscribe(user => {
       this.currentUserId = user.uid;
+      this.af.database.list('users/' + user.uid + '/players_followed').subscribe(players => {
+        this.userFollowing = (players.indexOf(this.playerId) !== -1);
+      });
     });
   }
 
@@ -44,10 +54,18 @@ export class PlayerComponent implements OnInit {
 
       });
 
-
-
     });
 
+  }
+
+  public unfollowPlayer() {
+    this.userDataService.unfollowPlayer(this.currentUserId, this.playerId);
+    this.userFollowing = false;
+  }
+
+  public followPlayer() {
+    this.userDataService.followPlayer(this.currentUserId, this.playerId);
+    this.userFollowing = true;
   }
 
 }
