@@ -36,7 +36,6 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-
     // Activated Route unsubscribed from by router, so not necessary to
     // implement ngOnDestroy()
     this.sub = this.route.params.subscribe(params => {

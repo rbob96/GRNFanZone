@@ -1,23 +1,67 @@
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-sm-6 text-left">
 
-      <!-- MEDIA ITEM FOR PLAYER CARD -->
-      <h1>{{(playerData | async)?.first_name}} {{(playerData | async)?.last_name}}</h1>
+  <div class="panel panel-default">
+    <div class="panel-body">
 
-
-    </div>
-  </div>
-</div>
-<br>
-<div class="pad">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-12 col-md-12 col-lg-12">
-        <app-post *ngFor="let post of playerPosts " [post]="post"></app-post>
+      <div class="row">
+        <div class="col-md-12 lead">
+          Player Profile
+          <hr>
+        </div>
       </div>
+
+      <div class="row">
+
+        <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+
+          <div class="media">
+            <div class="media-left">
+              <a href="#">
+                <img class="media-object img-circle avatar avatar-original" src="{{(playerData | async)?.avatar}}"
+                     alt="{{(playerData | async)?.first_name}} {{(playerData | async)?.last_name}}">
+              </a>
+            </div>
+            <div class="media-body">
+              <h3 class="media-heading">{{(playerData | async)?.first_name}} {{(playerData | async)?.last_name}}</h3>
+
+              <em> Age:</em> {{(playerData | async)?.age}} <br>
+              <em> Height:</em> {{(playerData | async)?.height}}cm <br>
+              <em> Weight:</em> {{(playerData | async)?.weight}}kg <br>
+              <em> Gender:</em> {{(playerData | async)?.gender}} <br>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <br>
+      <hr>
+
+      <div class="row">
+        <div class ="col-sm-10 col-sm-offset-1 col-md-5 col-md-offset-1 col-lg-5 col-lg-offset-1">
+          <h3>Bio:</h3>
+          {{(playerData | async)?.bio}}
+        </div>
+      </div>
+
+      <br>
+      <hr>
+
+      <div class="row">
+        <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+          <h3>Posts:</h3>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          <app-post *ngFor="let post of playerPosts " [post]="post"></app-post>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
-
 
