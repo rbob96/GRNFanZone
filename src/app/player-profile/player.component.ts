@@ -38,12 +38,8 @@ export class PlayerComponent implements OnInit {
       // and posts
       this.af.database.list('posts').subscribe( posts => {
 
-        posts.forEach(post => {
-
-          if (post.posted_by === this.playerId) {
-            this.playerPosts.push(post);
-          }
-
+        this.playerPosts = posts.filter( p => {
+          return p.posted_by === this.playerId;
         });
 
       });
