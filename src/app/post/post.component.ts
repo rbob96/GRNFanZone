@@ -4,6 +4,7 @@ import {AngularFire} from 'angularfire2';
 import Any = jasmine.Any;
 import {AuthService} from '../services/auth.service';
 import {PostDataService} from '../services/post-data.service';
+import {Router} from "@angular/router";
 
 
 
@@ -22,7 +23,7 @@ export class PostComponent implements OnInit {
 
   currentUserId;
 
-  constructor ( private af: AngularFire, private authService: AuthService, private postDataService: PostDataService ) {}
+  constructor ( private af: AngularFire, private authService: AuthService, private postDataService: PostDataService, private router: Router ) {}
 
   ngOnInit() {
 
@@ -75,11 +76,23 @@ export class PostComponent implements OnInit {
       author: this.currentUserId
     });
   }
+
   updateComment(key: string, newComment: string, postid: string) {
     this.postDataService.getComments(postid).update(key, { comment: newComment });
   }
+
   deleteComment(key: string, postid: string) {
     this.postDataService.getComments(postid).remove(key);
+  }
+
+  sendToAuthor(){
+    if (this.post.poster === 'players'){
+      this.router.navigate(['/player/' + this.post.posted_by]);
+    } else if (this.post.poster === 'teams') {
+      this.router.navigate(['/team/' + this.post.posted_by]);
+    } else if (this.post.poster === 'clubs') {
+      this.router.navigate(['/club/' + this.post.posted_by]);
+    }
   }
 
 }

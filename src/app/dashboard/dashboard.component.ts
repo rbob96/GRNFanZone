@@ -3,6 +3,7 @@ import {AngularFire} from 'angularfire2';
 import {PostDataService} from '../services/post-data.service';
 import {AuthService} from '../services/auth.service';
 import {Subject} from 'rxjs/Subject';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-dashboard',
@@ -15,7 +16,7 @@ export class DashboardComponent {
   posts = [];
   currentUserId: string;
 
-  constructor(private postDataService: PostDataService, private authService: AuthService, af: AngularFire) {
+  constructor(private postDataService: PostDataService, private authService: AuthService, private af: AngularFire) {
 
     this.currentUserId = authService.uid;
 
@@ -57,4 +58,5 @@ export class DashboardComponent {
   deleteEverything(postid) {
     this.postDataService.getComments(postid).remove();
   }
+
 }
