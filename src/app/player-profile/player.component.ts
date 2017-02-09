@@ -31,7 +31,13 @@ export class PlayerComponent implements OnInit {
     this.af.auth.subscribe(user => {
       this.currentUserId = user.uid;
       this.af.database.list('users/' + user.uid + '/players_followed').subscribe(players => {
-        this.userFollowing = (players.indexOf(this.playerId) !== -1);
+
+        players.forEach(player => {
+          if (player.$key === this.playerId) {
+            this.userFollowing = true;
+          }
+        });
+
       });
     });
   }
