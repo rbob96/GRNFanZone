@@ -1,10 +1,10 @@
-import { NgModule, isDevMode } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { TranslateModule } from 'ng2-translate';
 import { BrowserModule } from '@angular/platform-browser';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AngularFireModule } from 'angularfire2';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import {MomentModule} from 'angular2-moment';
 
 

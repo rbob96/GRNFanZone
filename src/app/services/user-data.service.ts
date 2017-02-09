@@ -39,7 +39,7 @@ export class UserDataService {
   public followPlayer (userID: string, playerID: string) {
 
     // Creates a promise for the player object, and then pushes the required data to the user's players list
-    this.af.database.object('/players/' + playerID).first().toPromise().then(player => {
+    this.af.database.object('/players/' + playerID).subscribe(player => {
 
       // Defines a new child in the list
       const followed = this.af.database.object('/users/' + userID + '/players_followed/' + playerID);
