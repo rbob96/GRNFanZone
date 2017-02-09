@@ -2,8 +2,6 @@ import { Component} from '@angular/core';
 import {AngularFire} from 'angularfire2';
 import {PostDataService} from '../services/post-data.service';
 import {AuthService} from '../services/auth.service';
-import {Subject} from 'rxjs/Subject';
-import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-dashboard',
