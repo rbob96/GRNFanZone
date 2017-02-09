@@ -50,11 +50,11 @@ export class ProfileComponent implements OnInit {
   }
 
   public sendToPlayer (uid: string) {
-    this.router.navigate(['/players/' + uid]);
+    this.router.navigate(['/player/' + uid]);
   }
 
   public sendToTeam (uid: string) {
-    this.router.navigate(['/teams/' + uid]);
+    this.router.navigate(['/team/' + uid]);
   }
 
   public unfollowPlayer(uid: string) {

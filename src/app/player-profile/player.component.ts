@@ -1,13 +1,57 @@
-import { Component } from '@angular/core';
-import { AuthService } from '../services/auth.service';
+import {Component, OnInit} from '@angular/core';
+import {Router, ActivatedRoute} from '@angular/router';
+import {AngularFire} from 'angularfire2';
 
 @Component({
   selector: 'app-teams',
-  templateUrl: './player-component.html',
-  styleUrls: ['../player-profile/player-component.css']
+  templateUrl: 'player.component.html',
+  styleUrls: ['player.component.css']
 })
 
-export class PlayerComponent {
-  constructor(private af: AuthService) {}
+export class PlayerComponent implements OnInit {
+
+  private sub: any;
+
+  playerId: string;
+
+  playerData: any;
+  playerPosts = [];
+
+  currentUserId: string;
+
+
+  constructor(private af: AngularFire, private router: Router, private route: ActivatedRoute) {
+    this.af.auth.subscribe(user => {
+      this.currentUserId = user.uid;
+    });
+  }
+
+  ngOnInit() {
+    // Activated Route unsubscribed from by router, so not necessary to
+    // implement ngOnDestroy()
+    this.sub = this.route.params.subscribe(params => {
+      this.playerId = params['id'];
+
+      // Get player data
+      this.playerData = this.af.database.object('players/' + this.playerId);
+
+      // and posts
+      this.af.database.list('posts').subscribe( posts => {
+
+        posts.forEach(post => {
+
+          if (post.posted_by === this.playerId) {
+            this.playerPosts.push(post);
+          }
+
+        });
+
+      });
+
+
+
+    });
+
+  }
 
 }

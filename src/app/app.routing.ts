@@ -44,7 +44,7 @@ const appRoutes: Routes = [
       component : TeamComponent
     },
     {
-      path : 'player',
+      path : 'player/:id',
       component : PlayerComponent
     },
     {
