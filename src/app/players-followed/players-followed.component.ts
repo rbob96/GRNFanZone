@@ -1,11 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../services/auth.service';
 import {Router} from '@angular/router';
 import {Player} from '../player';
-import {DataListModule} from 'primeng/primeng';
-import {Header} from 'primeng/primeng';
-import {Footer} from 'primeng/primeng';
-import {Dialog} from 'primeng/primeng';
 import {PlayerDataService} from '../services/player-data.service';
 
 

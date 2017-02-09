@@ -1,0 +1,71 @@
+<div class="container-fluid">
+
+  <div class="panel panel-default">
+    <div class="panel-body">
+
+      <div class="row">
+        <div class="col-md-12 lead">
+          Player Profile
+
+          <button *ngIf="!userFollowing" (click)="followPlayer()" type="button" class="btn btn-sm btn-primary pull-right">Follow</button>
+          <button *ngIf="userFollowing" (click)="unfollowPlayer()" type="button" class="btn btn-sm btn-danger pull-right">Unfollow</button>
+
+          <hr>
+        </div>
+      </div>
+
+      <div class="row">
+
+        <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
+
+          <div class="media">
+            <div class="media-left">
+              <a href="#">
+                <img class="media-object img-circle avatar avatar-original" src="{{(playerData | async)?.avatar}}"
+                     alt="{{(playerData | async)?.first_name}} {{(playerData | async)?.last_name}}">
+              </a>
+            </div>
+            <div class="media-body">
+              <h3 class="media-heading">{{(playerData | async)?.first_name}} {{(playerData | async)?.last_name}}</h3>
+
+              <em> Age:</em> {{(playerData | async)?.age}} <br>
+              <em> Height:</em> {{(playerData | async)?.height}}cm <br>
+              <em> Weight:</em> {{(playerData | async)?.weight}}kg <br>
+              <em> Gender:</em> {{(playerData | async)?.gender}} <br>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <br>
+      <hr>
+
+      <div class="row">
+        <div class ="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+          <h4>Bio:</h4>
+          {{(playerData | async)?.bio}}
+        </div>
+      </div>
+
+      <br>
+      <hr>
+
+      <div class="row">
+        <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+          <h4>Posts:</h4>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          <app-post *ngFor="let post of playerPosts " [post]="post"></app-post>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+

@@ -36,7 +36,6 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-
     // Activated Route unsubscribed from by router, so not necessary to
     // implement ngOnDestroy()
     this.sub = this.route.params.subscribe(params => {
@@ -50,11 +49,11 @@ export class ProfileComponent implements OnInit {
   }
 
   public sendToPlayer (uid: string) {
-    this.router.navigate(['/players/' + uid]);
+    this.router.navigate(['/player/' + uid]);
   }
 
   public sendToTeam (uid: string) {
-    this.router.navigate(['/teams/' + uid]);
+    this.router.navigate(['/team/' + uid]);
   }
 
   public unfollowPlayer(uid: string) {
