@@ -64,7 +64,7 @@
                   <a class="list-group-item active lead text-center"> Teams<span class="badge badge-pill badge-info">{{noTeams}}</span></a>
                   <div *ngFor="let team of followingTeams | async; let i = index" class="list-group-item list-group-item-action">
                     <a (click)="sendToTeam(team.id)" *ngIf="i<11"> {{team.name}} </a>
-                    
+
                     <button *ngIf="currentUser === userId" type="button" class="btn btn-primary btn-xs btn-danger pull-right" (click)="unfollowTeam(team.id)">Unfollow</button>
                   </div>
                 </div>
@@ -90,13 +90,13 @@
             </div>
             <div class="row">
               <div class="col-md-4 text-center" *ngIf="(followingTeams | async)?.length > 0">  <!-- left it at 0 until we populate the lists, so we can see the list -->
-                <a routerLink="/teamsFollowed/{{currentUser}}">See all</a>
+                <a (click)="sendToTeamsList(currentUser)">See all</a>
               </div>
               <div class="col-md-4 text-center" *ngIf="(followingPlayers | async)?.length > 10">
-                <a routerLink="/playersFollowed/{{currentUser}}">See all</a>
+                <a (click)="sendToPlayersList(currentUser)">See all</a>
               </div>
               <div class="col-md-4 text-center" *ngIf="(followingClubs | async)?.length > 10">
-                <a routerLink="/clubsFollowed/{{currentUser}}">See all</a>
+                <a (click)="sendToClubsList(currentUser)">See all</a>
               </div>
             </div>
             <hr>

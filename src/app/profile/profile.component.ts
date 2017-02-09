@@ -82,6 +82,18 @@ export class ProfileComponent implements OnInit {
     this.router.navigate(['/club/' + uid]);
   }
 
+  public sendToTeamsList (uid: string) {
+    this.router.navigate(['/teamsFollowed/' + uid]);
+  }
+
+  public sendToPlayersList (uid: string) {
+    this.router.navigate(['/playersFollowed/' + uid]);
+  }
+
+  public sendToClubsList (uid: string) {
+    this.router.navigate(['/clubsFollowed/' + uid]);
+  }
+
   public unfollowPlayer(uid: string) {
     this.userDataService.unfollowPlayer(this.currentUser, uid);
   }
