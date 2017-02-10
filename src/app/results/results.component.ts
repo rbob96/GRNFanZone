@@ -15,21 +15,19 @@ import {Subject} from 'rxjs/Subject';
 })
 
 export class ResultsComponent implements OnInit{
-
-  // Get filtered results
-  results: FirebaseListObservable<any>;
+  
+  //Get filtered results
   players = [];
-  sub:any;
+  sub: any;
 
   
   // Player uid
-  playerName:string;
+  playerName: string;
   
-
   constructor(
-    private router: Router, 
-    private route: ActivatedRoute, 
-    private af: AngularFire) { }
+    private router: Router,
+    private route: ActivatedRoute,
+    private af: AngularFire) {}
 
 
   ngOnInit(){
