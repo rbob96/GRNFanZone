@@ -16,15 +16,14 @@ import {Subject} from 'rxjs/Subject';
 
 export class SearchComponent{
 
-  query:string;
+  query: string;
   termSubject: Subject<any>;
 
   constructor(
     private _search: PlayerDataService,
     private _router: Router) { }
 
-  search(term: string){
-
+  search(term: string) {
     this.query = term;
     const link = ['/results/' + this.query];
     this._router.navigate(link);
