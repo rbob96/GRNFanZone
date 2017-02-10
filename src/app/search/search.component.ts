@@ -26,7 +26,7 @@ export class SearchComponent{
   search(term: string){
 
     this.query = term;
-    const link = ['/results', this.query];
+    const link = ['/results/' + this.query];
     this._router.navigate(link);
   }
 }
