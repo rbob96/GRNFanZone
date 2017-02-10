@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
+
 import { Player } from '../player';
 
 import { PlayerDataService } from '../services/player-data.service';
 import { Router } from '@angular/router';
+
+import {Subject} from 'rxjs/Subject';
 
 @Component({
   selector: 'app-search',
@@ -14,12 +17,14 @@ import { Router } from '@angular/router';
 export class SearchComponent{
 
   query:string;
+  termSubject: Subject<any>;
 
   constructor(
     private _search: PlayerDataService,
     private _router: Router) { }
 
   search(term: string){
+
     this.query = term;
     const link = ['/results', this.query];
     this._router.navigate(link);

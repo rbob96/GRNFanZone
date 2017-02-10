@@ -6,6 +6,7 @@ import {PlayerDataService} from '../services/player-data.service';
 import {Player} from '../player';
 
 import {Observable} from 'rxjs/Observable';
+import {Subject} from 'rxjs/Subject';
 
 @Component({
   selector: 'app-results',
@@ -13,11 +14,13 @@ import {Observable} from 'rxjs/Observable';
   styleUrls: ['./results.component.css']
 })
 
-export class ResultsComponent implements OnInit {
+export class ResultsComponent implements OnInit{
 
   // Get filtered results
   results: FirebaseListObservable<any>;
   players = [];
+  sub:any;
+
   
   // Player uid
   playerName: string;
@@ -25,21 +28,31 @@ export class ResultsComponent implements OnInit {
   constructor(
     private router: Router, 
     private route: ActivatedRoute, 
-    private playerDataService: PlayerDataService) { 
-    }
+    private af: AngularFire) { }
 
-  ngOnInit() {
-    this.route.params.subscribe(params => {
-      this.playerName = params['query'];
-      this.results = this.playerDataService.getPlayersList(this.playerName);
-    });
-    
-    this.results.subscribe(results => {
-      results.forEach(result => {
-        if(result.first_name.toLowerCase() == this.playerName.toLowerCase()){
-          this.players.push(result);
-        }
+
+  ngOnInit(){
+      
+      this.sub = this.route.params.subscribe(params => {
+        this.playerName = params['query']
       });
-    });
+      
+      const results = this.af.database.list('/players', {
+        query: {
+          orderByChild: 'first_name',
+          equalTo: this.playerName
+        }
+      }).subscribe(results => {
+          results.forEach(result => {
+            this.players.push(result);
+          });
+        });
   }
+
+
+  ngOnDestroy(){
+    this.sub.unsubscribe();
+  }
+  
+    
 }
