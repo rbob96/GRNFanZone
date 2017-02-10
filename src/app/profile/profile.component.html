@@ -68,7 +68,7 @@
                     <button *ngIf="currentUser === userId" type="button" class="btn btn-primary btn-xs btn-danger pull-right" (click)="unfollowTeam(team.id)">Unfollow</button>
                   </div>
                 </div>
-                <div class="col-md-4 text-center" *ngIf="(followingTeams | async)?.length > 0">  <!-- left it at 0 until we populate the lists, so we can see the list -->
+                <div class="col-md-4 pull-right" *ngIf="(followingTeams | async)?.length > 0">  <!-- left it at 0 until we populate the lists, so we can see the list -->
                   <a (click)="sendToTeamsList(currentUser)">See all</a>
                 </div>
               </div>
@@ -80,7 +80,7 @@
                     <button *ngIf="currentUser === userId" type="button" class="btn btn-primary btn-xs btn-danger pull-right" (click)="unfollowPlayer(player.id)">Unfollow</button>
                   </div>
                 </div>
-                <div class="col-md-4 text-center" *ngIf="(followingPlayers | async)?.length > 10">
+                <div class="col-md-4 pull-right" *ngIf="(followingPlayers | async)?.length > 10">
                   <a (click)="sendToPlayersList(currentUser)">See all</a>
                 </div>
               </div>
@@ -92,7 +92,7 @@
                     <button *ngIf="currentUser === userId" type="button" class="btn btn-primary btn-xs btn-danger pull-right" (click)="unfollowClub(club.id)">Unfollow</button>
                   </div>
                 </div>
-                <div class="col-md-4 text-center" *ngIf="(followingClubs | async)?.length > 10">
+                <div class="col-md-4 pull-right" *ngIf="(followingClubs | async)?.length > 10">
                   <a (click)="sendToClubsList(currentUser)">See all</a>
                 </div>
               </div>
