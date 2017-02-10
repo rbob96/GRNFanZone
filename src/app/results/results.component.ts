@@ -23,7 +23,8 @@ export class ResultsComponent implements OnInit{
 
   
   // Player uid
-  playerName: string;
+  playerName:string;
+  
 
   constructor(
     private router: Router, 
@@ -34,9 +35,10 @@ export class ResultsComponent implements OnInit{
   ngOnInit(){
       
       this.sub = this.route.params.subscribe(params => {
-        this.playerName = params['query']
+        const staticPlayerName = params['query'];    
+        this.playerName = staticPlayerName;
       });
-      
+      console.log(this.playerName);
       const results = this.af.database.list('/players', {
         query: {
           orderByChild: 'first_name',
@@ -47,12 +49,5 @@ export class ResultsComponent implements OnInit{
             this.players.push(result);
           });
         });
-  }
-
-
-  ngOnDestroy(){
-    this.sub.unsubscribe();
-  }
-  
-    
+  }  
 }
