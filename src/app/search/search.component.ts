@@ -14,7 +14,7 @@ import {Subject} from 'rxjs/Subject';
   styleUrls: ['./search.component.css']
 })
 
-export class SearchComponent{
+export class SearchComponent {
 
   query: string;
   termSubject: Subject<any>;

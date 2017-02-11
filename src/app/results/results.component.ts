@@ -1,12 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router, ActivatedRoute, RouterModule} from '@angular/router';
 import {AngularFire, FirebaseObjectObservable, FirebaseListObservable} from 'angularfire2';
-import {PlayerDataService} from '../services/player-data.service';
 
-import {Player} from '../player';
-
-import {Observable} from 'rxjs/Observable';
-import {Subject} from 'rxjs/Subject';
 
 @Component({
   selector: 'app-results',
@@ -14,26 +9,26 @@ import {Subject} from 'rxjs/Subject';
   styleUrls: ['./results.component.css']
 })
 
-export class ResultsComponent implements OnInit{
-  
-  //Get filtered results
+export class ResultsComponent implements OnInit {
+
+  // Get filtered results
   players = [];
   sub: any;
 
-  
+
   // Player uid
   playerName: string;
-  
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private af: AngularFire) {}
 
 
-  ngOnInit(){
-      
+  ngOnInit() {
+
       this.sub = this.route.params.subscribe(params => {
-        const staticPlayerName = params['query'];    
+        const staticPlayerName = params['query'];
         this.playerName = staticPlayerName;
       });
       console.log(this.playerName);
@@ -42,10 +37,10 @@ export class ResultsComponent implements OnInit{
           orderByChild: 'first_name',
           equalTo: this.playerName
         }
-      }).subscribe(results => {
-          results.forEach(result => {
+      }).subscribe(serverResults => {
+          serverResults.forEach(result => {
             this.players.push(result);
           });
         });
-  }  
+  }
 }

@@ -4,6 +4,11 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { ResultsComponent } from './results.component';
+import {Router, ActivatedRoute} from '@angular/router';
+import {RouterStub} from '../../testing/router-stubs';
+import {Observable} from 'rxjs';
+import {AngularFire, AngularFireModule} from 'angularfire2';
+import {firebaseConfig} from '../app.module';
 
 describe('ResultsComponent', () => {
   let component: ResultsComponent;
@@ -11,7 +16,17 @@ describe('ResultsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ResultsComponent ]
+      declarations: [
+        ResultsComponent
+      ],
+      providers: [
+        { provide: Router, useClass: RouterStub },
+        { provide: ActivatedRoute, useValue: { 'params': Observable.from([{ 'query': 'Hopkins' }]) } },
+        {provide: AngularFire, useClass: AngularFire}
+      ],
+      imports: [
+        AngularFireModule.initializeApp(firebaseConfig)
+      ]
     })
     .compileComponents();
   }));
