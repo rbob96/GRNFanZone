@@ -21,6 +21,10 @@ export class ProfileComponent implements OnInit {
   profileData: FirebaseObjectObservable<any>;
   followingTeams: FirebaseListObservable<any>;
   followingPlayers: FirebaseListObservable<any>;
+  followingClubs: FirebaseListObservable<any>;
+  noTeams: number;
+  noPlayers: number;
+  noClubs: number;
 
   currentUser: string; // ID
 
@@ -44,7 +48,11 @@ export class ProfileComponent implements OnInit {
       this.profileData = this.userDataService.getUserData(this.userId);
       this.followingTeams = this.userDataService.getUserFollowingTeams(this.userId);
       this.followingPlayers = this.userDataService.getUserFollowingPlayers(this.userId);
+      this.followingClubs = this.userDataService.getUserFollowingClubs(this.userId);
 
+      this.followingTeams.subscribe(result => { this.noTeams = result.length; });
+      this.followingPlayers.subscribe(result => { this.noPlayers = result.length; });
+      this.followingClubs.subscribe(result => { this.noClubs = result.length; });
     });
   }
 
@@ -56,12 +64,32 @@ export class ProfileComponent implements OnInit {
     this.router.navigate(['/team/' + uid]);
   }
 
+  public sendToClub (uid: string) {
+    this.router.navigate(['/club/' + uid]);
+  }
+
+  public sendToTeamsList (uid: string) {
+    this.router.navigate(['/teamsFollowed/' + uid]);
+  }
+
+  public sendToPlayersList (uid: string) {
+    this.router.navigate(['/playersFollowed/' + uid]);
+  }
+
+  public sendToClubsList (uid: string) {
+    this.router.navigate(['/clubsFollowed/' + uid]);
+  }
+
   public unfollowPlayer(uid: string) {
     this.userDataService.unfollowPlayer(this.currentUser, uid);
   }
 
   public unfollowTeam(uid: string) {
     this.userDataService.unfollowTeam(this.currentUser, uid);
+  }
+
+  public unfollowClub(uid: string) {
+    this.userDataService.unfollowClub(this.currentUser, uid);
   }
 
 }

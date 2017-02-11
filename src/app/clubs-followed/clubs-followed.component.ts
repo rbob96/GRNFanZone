@@ -5,12 +5,12 @@ import { AngularFire, FirebaseObjectObservable, FirebaseListObservable } from 'a
 import {UserDataService} from '../services/user-data.service';
 
 @Component({
-  selector: 'app-teams',
-  templateUrl: './teams-followed.html',
-  styleUrls: ['../teams-followed/teams-followed.css']
+  selector: 'app-clubs',
+  templateUrl: './clubs-followed.html',
+  styleUrls: ['./clubs-followed.css']
 })
 
-export class TeamsFollowedComponent implements OnInit {
+export class ClubsFollowedComponent implements OnInit {
   // Subscription to route params
   private sub: any;
 
@@ -19,7 +19,7 @@ export class TeamsFollowedComponent implements OnInit {
 
   // userObject
   profileData: FirebaseObjectObservable<any>;
-  followingTeams: FirebaseListObservable<any>;
+  followingClubs: FirebaseListObservable<any>;
 
   currentUser: string; // ID
 
@@ -41,16 +41,16 @@ export class TeamsFollowedComponent implements OnInit {
       this.userId = params['id'];
       // Get user data
       this.profileData = this.userDataService.getUserData(this.userId);
-      this.followingTeams = this.userDataService.getUserFollowingTeams(this.userId);
+      this.followingClubs = this.userDataService.getUserFollowingClubs(this.userId);
     });
   }
 
-  public sendToTeam (uid: string) {
-    this.router.navigate(['/team/' + uid]);
+  public sendToClub (uid: string) {
+    this.router.navigate(['/club/' + uid]);
   }
 
-  public unfollowTeam(uid: string) {
-    this.userDataService.unfollowTeam(this.currentUser, uid);
+  public unfollowClub(uid: string) {
+    this.userDataService.unfollowClub(this.currentUser, uid);
   }
 
 }
