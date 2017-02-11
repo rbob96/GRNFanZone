@@ -22,6 +22,7 @@ export class PostComponent implements OnInit {
   likes = [];
 
   currentUserId;
+  userData;
 
   constructor ( private af: AngularFire,
                 private authService: AuthService,
@@ -31,6 +32,10 @@ export class PostComponent implements OnInit {
   ngOnInit() {
 
     this.currentUserId = this.authService.uid;
+
+    this.af.database.object('users/' + this.currentUserId).subscribe(user => {
+      this.userData = user;
+    });
 
     if (this.post) {
 
@@ -76,12 +81,20 @@ export class PostComponent implements OnInit {
     this.postDataService.getComments(postid).push({
       comment: newComment,
       commented_at: (new Date().getTime()),
-      author: this.currentUserId
+      author: this.currentUserId,
+      author_name: this.userData.name,
+      author_avatar: this.userData.avatar
     });
   }
 
   updateComment(key: string, newComment: string, postid: string) {
-    this.postDataService.getComments(postid).update(key, { comment: newComment });
+    this.postDataService.getComments(postid).update(key, {
+      comment: newComment,
+      commented_at: (new Date().getTime()),
+      author: this.currentUserId,
+      author_name: this.userData.name,
+      author_avatar: this.userData.avatar
+    });
   }
 
   deleteComment(key: string, postid: string) {

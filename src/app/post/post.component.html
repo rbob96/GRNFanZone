@@ -12,7 +12,7 @@
 
           <div class="media">
             <div class="media-left">
-              <img class="media-object" src="{{post.image}}" alt="Avatar for {{post.name}}">
+              <img class="media-object post-image" src="{{post.image}}" alt="Avatar for {{post.name}}">
             </div>
             <div class="media-body">
               <h4 class="media-heading"> {{post.title}} </h4>
@@ -45,16 +45,27 @@
           <ul class="list-group">
             <li *ngFor="let postComment of comments" class="list-group-item">
 
-              {{postComment.comment}}
+              <div class="media">
+                <div class="media-left">
+                    <img class="media-object comment-image" src="{{postComment.author_avatar}}" alt="{{postComment.author_name}}">
+                </div>
+                <div class="media-body">
 
-              <button type="button" class="btn btn-danger btn-sm pull-right"
-                      (click)="deleteComment(postComment.$key, post.id)">
-                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-              </button>
+                  <strong class="media-heading">{{postComment.author_name}}</strong>
 
-              <br>
+                  <button *ngIf="currentUserId === postComment.author" type="button" class="btn btn-danger btn-sm pull-right"
+                          (click)="deleteComment(postComment.$key, post.id)">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                  </button>
 
-              <small><em>{{postComment.commented_at | amTimeAgo}}</em></small>
+                  <br>
+                  {{postComment.comment}}
+
+                  <br>
+                  <small><em>{{postComment.commented_at | amTimeAgo}}</em></small>
+
+                </div>
+              </div>
 
             </li>
           </ul>
