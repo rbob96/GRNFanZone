@@ -6,7 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AngularFireModule } from 'angularfire2';
 import { RouterModule } from '@angular/router';
 import {MomentModule} from 'angular2-moment';
-
+import {ToastModule} from 'ng2-toastr/ng2-toastr';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -70,7 +70,8 @@ export const firebaseConfig = {
     DataListModule,
     DialogModule,
     RouterModule,
-    MomentModule
+    MomentModule,
+    ToastModule.forRoot()
   ],
   providers: [
     AuthService,
