@@ -54,7 +54,9 @@
                 </div>
                 <div class="media-body">
 
-                  <strong class="media-heading">{{postComment.author_name}}</strong>
+                  <strong class="media-heading">{{postComment.author_name}}
+                    <span class="badge badge-success" *ngIf="currentUserId === postComment.author">Me</span>
+                  </strong>
 
                   <div *ngIf="currentUserId === postComment.author" class="btn-group pull-right" role="group" aria-label="Comment Options">
 
