@@ -115,7 +115,6 @@ export class PostComponent implements OnInit {
   }
 
   setEditComment(comment) {
-    console.log(comment);
     this.editComment = comment;
     this.editedText = comment.comment;
   }
