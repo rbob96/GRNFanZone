@@ -17,73 +17,91 @@
 </head>
 
 <body>
-<br>
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <div class="row">
-            <div class="col-md-12 lead">User profile
-              <hr>
+  <br>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-md-12 lead">User profile
+                <hr>
+
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-md-4 text-center">
-              <img class="img-circle avatar avatar-original" style="-webkit-user-select:none;
+            <div class="row">
+              <div class="col-md-4 text-center">
+
+                <img class="img-circle avatar avatar-original" style="-webkit-user-select:none;
               display:block; margin:auto;" src="{{(profileData | async)?.avatar}}">
-            </div>
-            <div class="col-md-8">
-              <div class="row">
-                <div class="col-md-12">
-                  <h2 class="only-bottom-margin"> {{(profileData | async)?.name}}
-                    <span class="badge badge-success" *ngIf="currentUser === userId">Me</span>
-                  </h2>
-                </div>
               </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <span *ngIf="currentUser === userId" class="text-muted">Email:</span> {{(profileData | async)?.email}}
-                  <br>
+              <div class="col-md-8">
+                <div class="row">
+                  <div class="col-md-12">
+                    <h2 class="only-bottom-margin"> {{(profileData | async)?.name}}
+                      <span class="badge badge-success" *ngIf="currentUser === userId">Me</span>
+                    </h2>
+
+                  </div>
                 </div>
-              </div>
-            </div>
-          </div>
-          <hr>
-          <div class="row">
-            <div class="col-md-12 lead">Following</div>
-          </div>
-          <div class="row">
-            <div class="col-md-6 ">
-              <div class="list-group" *ngIf="followingTeams">
-                <a class="list-group-item active lead text-center"> Teams </a>
-                <div *ngFor="let team of followingTeams | async" class="list-group-item list-group-item-action">
-                  <a (click)="sendToTeam(team.id)"> {{team.name}} </a>
-                  <button *ngIf="currentUser === userId" type="button"
-                          class="btn btn-primary btn-xs btn-danger pull-right" (click)="unfollowTeam(team.id)">Unfollow
-                  </button>
+                <div class="row">
+                  <div class="col-md-6">
+
+                    <span *ngIf="currentUser === userId" class="text-muted">Email:</span> {{(profileData | async)?.email}} <br>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="col-md-6 ">
-              <div class="list-group" *ngIf="followingPlayers">
-                <a class="list-group-item active lead text-center"> Players </a>
-                <div *ngFor="let player of followingPlayers | async" class="list-group-item list-group-item-action">
-                  <a (click)="sendToPlayer(player.id)"> {{player.first_name + " " + player.last_name}} </a>
-                  <button *ngIf="currentUser === userId" type="button"
-                          class="btn btn-primary btn-xs btn-danger pull-right" (click)="unfollowPlayer(player.id)">
-                    Unfollow
-                  </button>
+            <hr>
+            <div class="row">
+
+              <div class="col-md-12 lead">Following</div>
+            </div>
+            <div class="row">
+              <div class="col-md-4 ">
+
+                <div class="list-group" *ngIf="followingTeams">
+                  <a class="list-group-item active lead text-center"> Teams<span class="badge badge-pill badge-info">{{noTeams}}</span></a>
+                  <div *ngFor="let team of followingTeams | async; let i = index">
+                    <div class="list-group-item list-group-item-action" *ngIf="i<10">
+                    <a (click)="sendToTeam(team.id)"> {{team.name}} </a>
+
+                    <button *ngIf="currentUser === userId" type="button" class="btn btn-primary btn-xs btn-danger pull-right" (click)="unfollowTeam(team.id)">Unfollow</button>
+                  </div>
+                </div>
+                  <div class="list-group-item list-group-item-action" *ngIf="(followingTeams | async)?.length > 10"> 
+                    <a (click)="sendToTeamsList(currentUser)">See all</a>
+                </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6 text-center" *ngIf="(followingTeams | async)?.length > 0">
-              <a routerLink="/teamsFollowed">See all</a>
-            </div>
-            <div class="col-md-6 text-center" *ngIf="(followingPlayers | async)?.length > 0">
-              <a routerLink="/playersFollowed">See all</a>
+              <div class="col-md-4 ">
+                <div class="list-group" *ngIf="followingPlayers">
+                  <a class="list-group-item active lead text-center"> Players<span class="badge badge-pill badge-info">{{noPlayers}}</span> </a>
+                  <div *ngFor="let player of followingPlayers | async; let i = index">
+                    <div class="list-group-item list-group-item-action" *ngIf="i<10">
+                    <a (click)="sendToPlayer(player.id)" > {{player.first_name + " " + player.last_name}} </a>
+                    <button *ngIf="currentUser === userId" type="button" class="btn btn-primary btn-xs btn-danger pull-right" (click)="unfollowPlayer(player.id)">Unfollow</button>
+                  </div>
+                </div>
+                  <div class="list-group-item list-group-item-action" *ngIf="(followingPlayers | async)?.length > 10">
+                    <a (click)="sendToPlayersList(currentUser)">See all</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 ">
+                <div class="list-group" *ngIf="followingClubs">
+                  <a class="list-group-item active lead text-center"> Clubs<span class="badge badge-pill badge-info">{{noClubs}}</span> </a>
+                  <div *ngFor="let club of followingClubs | async; let i = index">
+                    <div class="list-group-item list-group-item-action" *ngIf="i<10">
+                    <a (click)="sendToClub(club.id)"> {{club.name}} </a>
+                    <button *ngIf="currentUser === userId" type="button" class="btn btn-primary btn-xs btn-danger pull-right" (click)="unfollowClub(club.id)">Unfollow</button>
+                  </div>
+                </div>
+                  <div class="list-group-item list-group-item-action" *ngIf="(followingClubs | async)?.length > 10">
+                    <a (click)="sendToClubsList(currentUser)">See all</a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <hr>
@@ -91,7 +109,7 @@
       </div>
     </div>
   </div>
-</div>
+
 </body>
 
 </html>
