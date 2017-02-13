@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
-import { AngularFire, AuthMethods, AuthProviders } from 'angularfire2';
-import { Routes } from '@angular/router';
 
 @Injectable()
 
-export class AuthService {
+export class MockAuthService {
   displayName;
   photoURL;
   email;

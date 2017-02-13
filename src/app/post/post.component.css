@@ -1,0 +1,15 @@
+.unlike {
+  color: black;
+}
+
+.post-image {
+  border-radius: 10%;
+  height: 64px;
+  width: 64px;
+}
+
+.comment-image {
+  border-radius: 10%;
+  height: 48px;
+  width: 48px;
+}

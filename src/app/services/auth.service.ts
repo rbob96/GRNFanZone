@@ -12,6 +12,8 @@ export class AuthService {
     uid: null
   };
 
+  uid: string;
+
   authState;
   registered;
 
@@ -25,6 +27,7 @@ export class AuthService {
           this.userDetails.photoURL = null;
           this.userDetails.email = null;
           this.userDetails.uid = null;
+          this.uid = null;
 
           this.registered = false;
 
@@ -36,10 +39,16 @@ export class AuthService {
         this.userDetails.photoURL = authState.auth.photoURL;
         this.userDetails.email = authState.auth.email;
         this.userDetails.uid = authState.auth.uid;
+        this.uid = authState.auth.uid;
         this.registered = true;
 
         });
   }
+
+  currentUser() {
+
+  }
+
   login(from: string) {
     this.af.auth.login( {
       provider: this.getProvider(from),

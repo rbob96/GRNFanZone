@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Makes comments etc wrap their text */
+.list-group-item {
+  word-wrap: break-word;
+}
+
+.avatar {
+  /* This image is 687 wide by 1024 tall, similar to your aspect ratio */
+
+  /* center the image vertically and horizontally */
+  background-position: center;
+
+  /* fill the container, preserving aspect ratio, and cropping to fit */
+  background-size: cover;
+
+  /* round the edges to a circle with border radius 1/2 container size */
+  border-radius: 50%;
+
+  /* make a square container */
+  height: 150px;
+  width: 150px;
+
+}
+
+.badge-success {
+  background-color: #5CB85C
+}

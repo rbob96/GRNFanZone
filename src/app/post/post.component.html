@@ -1,0 +1,124 @@
+<div *ngIf="post">
+
+  <div class="row">
+    <div
+      class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h2 class="panel-title">
+            <a (click)="sendToAuthor()">{{post.name}}</a>
+          </h2>
+        </div>
+        <div class="panel-body">
+
+          <div class="media">
+            <div class="media-left">
+              <img class="media-object post-image" src="{{post.image}}" alt="Avatar for {{post.name}}">
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading"> {{post.title}} </h4>
+              <i>{{(post.created_at | amCalendar)}}</i> <br>
+
+              {{post.text}}
+
+            </div>
+          </div>
+
+          <hr>
+
+          <div class="row">
+            <div class="col-sm-12">
+              <b>{{likes.length}} likes</b>
+
+              <button *ngIf="likes.indexOf(currentUserId) !== -1" type="button"
+                      class="btn btn-primary pull-right btn-sm" (click)="likeToggle(currentUserId)">
+                <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+              </button>
+              <button *ngIf="likes.indexOf(currentUserId) === -1" type="button"
+                      class="btn btn-primary pull-right btn-sm" (click)="likeToggle(currentUserId)">
+                <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+        <div class="panel-footer">
+
+          <ul class="list-group">
+            <li *ngFor="let postComment of comments" class="list-group-item">
+
+              <div class="media">
+                <div class="media-left">
+                  <img class="media-object comment-image" src="{{postComment.author_avatar}}"
+                       alt="{{postComment.author_name}}">
+                </div>
+                <div class="media-body">
+
+                  <strong class="media-heading">{{postComment.author_name}}
+                    <span class="badge badge-success" *ngIf="currentUserId === postComment.author">Me</span>
+                  </strong>
+
+                  <div *ngIf="currentUserId === postComment.author" class="btn-group pull-right" role="group" aria-label="Comment Options">
+
+                    <button type="button" (click)="setEditComment(postComment)" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editModal">
+                      <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                    </button>
+
+                    <div class="modal fade" id="editModal" role="dialog">
+                      <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">{{editComment.author_name}}</h4>
+                          </div>
+                          <div class="modal-body">
+                            <label for="comment">Comment:</label>
+                            <textarea class="form-control" id="comment" [(ngModel)]="editedText"></textarea>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-success" data-dismiss="modal" (click)="updateComment()">Save Changes</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+
+
+                    <button type="button" class="btn btn-danger btn-sm"
+                            (click)="deleteComment(postComment.$key, post.id)">
+                      <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                    </button>
+                  </div>
+
+                  <br>
+                  {{postComment.comment}}
+
+                  <br>
+                  <small><em>{{postComment.commented_at | amCalendar}}</em></small>
+
+                </div>
+              </div>
+
+            </li>
+          </ul>
+
+          <br>
+
+
+          <div class="input-group">
+            <label>Comment:</label><button type="button" class="btn btn-success btn-sm pull-right" (click)="addComment(newComment.value, post.id)">Add</button>
+            <input class="form-control" type="text" #newComment/>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

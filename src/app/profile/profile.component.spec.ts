@@ -1,17 +1,20 @@
 /* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed, inject} from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { ProfileComponent } from './profile.component';
 
 import { Router, ActivatedRoute } from '@angular/router';
-import { ActivatedRouteStub, RouterStub } from '../../testing/router-stubs';
+import { RouterStub } from '../../testing/router-stubs';
 
 import {firebaseConfig} from '../app.module';
 import {Observable} from 'rxjs';
 import {UserDataService} from '../services/user-data.service';
 import {AngularFire, AngularFireModule} from 'angularfire2';
+import {MockAuthService} from '../../testing/mock.auth.service';
+import {AuthService} from '../services/auth.service';
+import {MockUserDataService, testUser} from '../../testing/mock.user-data.service';
 
 describe('ProfileComponent', () => {
   let component: ProfileComponent;
@@ -24,8 +27,9 @@ describe('ProfileComponent', () => {
       ], providers: [
         { provide: Router, useClass: RouterStub },
         { provide: ActivatedRoute, useValue: { 'params': Observable.from([{ 'id': 'h5m9PT4rgdSYDGzoyOLolYgUaUu1' }]) } },
-        { provide: UserDataService, useClass: UserDataService },
-        { provide : AngularFire, useClass: AngularFire }
+        { provide: UserDataService, useClass: MockUserDataService },
+        { provide: AngularFire, useClass: AngularFire },
+        { provide: AuthService, useClass: MockAuthService}
       ],
       imports: [
         AngularFireModule.initializeApp(firebaseConfig)
@@ -42,6 +46,10 @@ describe('ProfileComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should retrieve profile data from user data service', () => {
+    expect( component.profileData ).toEqual( Observable.from([testUser]) );
   });
 
   it('should get id from Router', () => {

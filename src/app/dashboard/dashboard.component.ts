@@ -1,39 +1,62 @@
-import { Component, OnInit, OnDestroy} from '@angular/core';
-import { AngularFire, FirebaseListObservable} from 'angularfire2';
-import {DashboardDataService} from '../services/dashboard-data.service';
+import { Component} from '@angular/core';
+import {AngularFire} from 'angularfire2';
+import {PostDataService} from '../services/post-data.service';
 import {AuthService} from '../services/auth.service';
-import {Subject} from 'rxjs/Subject';
-import {KeysPipe} from './dashboard-component.pipe';
 
 @Component({
   selector: 'app-dashboard',
-  templateUrl: './dashboard-component.html'
-
+  templateUrl: 'dashboard.component.html'
 })
 
 
 export class DashboardComponent {
 
-  posts: FirebaseListObservable<any>;
+  posts = [];
+  currentUserId: string;
 
-  constructor(private dashboardDataService: DashboardDataService, private authService: AuthService) {
-    this.posts = this.dashboardDataService.getDashboardData(this.authService.userDetails.uid);
+  constructor(private postDataService: PostDataService, private authService: AuthService, private af: AngularFire) {
+
+    this.currentUserId = authService.uid;
+
+      af.database.object('users/' + this.currentUserId).subscribe(userData => {
+        af.database.list('posts').subscribe(posts => {
+
+          this.posts = [];
+
+          posts.forEach(post => {
+
+            if (post.posted_by in userData.players_followed) {
+              this.posts.push(post);
+            } else if (post.posted_by in userData.teams_followed) {
+              this.posts.push(post);
+            } else if (post.posted_by in userData.clubs_followed) {
+              this.posts.push(post);
+            }
+
+        });
+
+
+      });
+    });
+
   }
 
   addComment(newComment: string, postid: string ) {
-    this.dashboardDataService.getComments(postid).push({ comment: newComment });
-    this.dashboardDataService.getComments(postid).forEach(comment => {
+    this.postDataService.getComments(postid).push({ comment: newComment });
+    this.postDataService.getComments(postid).forEach(comment => {
       console.log(comment);
     });
   }
   updateComment(key: string, newComment: string, postid: string) {
-    this.dashboardDataService.getComments(postid).update(key, { comment: newComment });
-
+    this.postDataService.getComments(postid).update(key, { comment: newComment });
   }
   deleteComment(key: string, postid: string) {
-    this.dashboardDataService.getComments(postid).remove(key);
+    this.postDataService.getComments(postid).remove(key);
   }
   deleteEverything(postid) {
-    this.dashboardDataService.getComments(postid).remove();
+    this.postDataService.getComments(postid).remove();
   }
+
+
+
 }
