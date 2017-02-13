@@ -63,6 +63,7 @@
           <div *ngFor="let player of teamPlayers">
             <div class="list-group-item list-group-item-action">
               <a (click)="sendToPlayer(player.id)">{{player.first_name + " " + player.last_name}}</a>
+            </div>
           </div>
         </div>
       </div>
