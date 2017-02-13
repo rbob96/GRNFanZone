@@ -1,11 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { Post } from '../post';
 import {AngularFire} from 'angularfire2';
 import Any = jasmine.Any;
 import {AuthService} from '../services/auth.service';
 import {PostDataService} from '../services/post-data.service';
 import {Router} from '@angular/router';
-
 
 
 @Component({
@@ -22,15 +21,32 @@ export class PostComponent implements OnInit {
   likes = [];
 
   currentUserId;
+  userData;
+
+  editComment = {
+    comment: '',
+    author_name: '',
+    author_avatar: '',
+    author: '',
+    commented_at: 0,
+    $key: ''
+  };
+
+  editedText = '';
 
   constructor ( private af: AngularFire,
                 private authService: AuthService,
                 private postDataService: PostDataService,
-                private router: Router ) {}
+                private router: Router
+              ) {}
 
   ngOnInit() {
 
     this.currentUserId = this.authService.uid;
+
+    this.af.database.object('users/' + this.currentUserId).subscribe(user => {
+      this.userData = user;
+    });
 
     if (this.post) {
 
@@ -76,16 +92,31 @@ export class PostComponent implements OnInit {
     this.postDataService.getComments(postid).push({
       comment: newComment,
       commented_at: (new Date().getTime()),
-      author: this.currentUserId
+      author: this.currentUserId,
+      author_name: this.userData.name,
+      author_avatar: this.userData.avatar
     });
-  }
-
-  updateComment(key: string, newComment: string, postid: string) {
-    this.postDataService.getComments(postid).update(key, { comment: newComment });
   }
 
   deleteComment(key: string, postid: string) {
     this.postDataService.getComments(postid).remove(key);
+  }
+
+  updateComment() {
+
+    this.postDataService.getComments(this.post.id).update(this.editComment.$key, {
+      comment: this.editedText,
+      commented_at: this.editComment.commented_at,
+      author: this.editComment.author,
+      author_name: this.editComment.author_name,
+      author_avatar: this.editComment.author_avatar
+    });
+
+  }
+
+  setEditComment(comment) {
+    this.editComment = comment;
+    this.editedText = comment.comment;
   }
 
   sendToAuthor() {

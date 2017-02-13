@@ -1,5 +1,6 @@
 /* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {FormsModule} from '@angular/forms';
 import { AngularFire, AngularFireModule } from 'angularfire2';
 import { AuthService} from '../services/auth.service';
 import { Router } from '@angular/router';
@@ -30,7 +31,8 @@ describe('DashboardComponent', () => {
         ],
         imports: [
           AngularFireModule.initializeApp(firebaseConfig),
-          MomentModule
+          MomentModule,
+          FormsModule
       ]
     })
     .compileComponents();
