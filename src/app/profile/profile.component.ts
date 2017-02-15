@@ -34,6 +34,10 @@ export class ProfileComponent implements OnInit {
                private af: AngularFire) {
 
     this.af.auth.subscribe(user => {
+      if (!user) {
+        this.currentUser = null;
+        return;
+      }
       this.currentUser = user.uid;
     });
 
