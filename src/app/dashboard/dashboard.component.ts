@@ -32,7 +32,7 @@ export class DashboardComponent {
             } else if (post.posted_by in userData.clubs_followed) {
               this.posts.push(post);
             }
-
+          this.posts.sort((a, b) => b.created_at - a.created_at);
         });
 
 
