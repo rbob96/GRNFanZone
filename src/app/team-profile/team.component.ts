@@ -109,4 +109,8 @@ export class TeamComponent implements OnInit {
     this.router.navigate(['/player/' + uid]);
   }
 
+  public sendToClub (uid: string) {
+    this.router.navigate(['/club/' + uid]);
+  }
+
 }

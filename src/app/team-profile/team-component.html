@@ -28,7 +28,7 @@
             <div class="media-body">
               <h3 class="media-heading">{{(teamData | async)?.name}}</h3>
 
-              <em>Club:</em> {{(clubData | async)?.name}}<br>
+              <em>Club:</em> <a (click)="sendToClub(clubId)">{{(clubData | async)?.name}}</a><br>
               <em>Age group:</em> {{(teamData | async)?.age_group}}<br>
               <em>Type:</em> {{(teamData | async)?.type}}<br>
               <em>Gender:</em> {{(teamData | async)?.gender}}<br>
