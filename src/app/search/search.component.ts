@@ -23,9 +23,8 @@ export class SearchComponent {
     private _search: PlayerDataService,
     private _router: Router) { }
 
-  search(term: string) {
-    this.query = term;
-    const link = ['/results/' + this.query];
+  search = (term:string) => {
+    let link = ['/results', term];
     this._router.navigate(link);
   }
 }
