@@ -45,7 +45,7 @@ const appRoutes: Routes = [
       component : ClubsFollowedComponent
     },
     {
-      path : 'team',
+      path : 'team/:id',
       component : TeamComponent
     },
     {

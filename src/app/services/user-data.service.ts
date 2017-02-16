@@ -65,7 +65,7 @@ export class UserDataService {
 
   public followTeam (userID: string, teamID: string) {
 
-    this.af.database.object('/teams/' + teamID).first().toPromise().then(team => {
+    this.af.database.object('/teams/' + teamID).subscribe(team => {
 
       const followed = this.af.database.object('/users/' + userID + '/teams_followed/' + teamID);
       followed.set({

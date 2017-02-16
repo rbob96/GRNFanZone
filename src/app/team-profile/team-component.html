@@ -1,117 +1,99 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title> Team Profile </title>
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" rel="stylesheet"/>
-  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
-          integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
-          crossorigin="anonymous"></script>
-  <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
-  <script src="https://npmcdn.com/bootstrap@4.0.0-alpha.5/dist/js/bootstrap.min.js"></script>
-  <meta charset="UTF-8">
-  <style>
-    .pad {
-      padding: 15px;
-    }
-  </style>
-</head>
-<body>
-<div id="includedContent"></div>
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-sm-6 text-left">
-      <div class="col-md-6 text-left">
-        <img class="img-circle avatar avatar-original" style="-webkit-user-select:none;
-              display:block; margin:auto;" src="http://robohash.org/sitsequiquia.png?size=120x120">
-      </div>
-      <div class="col-sm-6 text-left"></div>
-      <h1>Team Name</h1>
-      <button type="button" class="btn btn-default btn-lg">
-        <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Follow
-      </button>
-    </div>
-    <div class="col-sm-6 text-left">
-    </div>
-  </div>
-</div>
-<br>
-<div class="pad">
-  <div class="card-group">
-    <div class="card">
-      <img class="card-img-top"
-           src="http://www.my-hd-wallpapers.com/wall_format/1409780147_welded-rugbymen-group_facebk.jpg"
-           alt="Card image cap">
-      <div class="card-block">
-        <p class="card-text">Cover Image?</p>
-      </div>
-    </div>
-  </div>
 
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-6 text-left">
-        <div class="card card-default">
-          <div class="card-header">Title</div>
-          <div class="card-block">Content</div>
-        </div>
-        <div class="row">
-          <button class="btn btn-default pull-right" style="text-align:center"><i
-            class="glyphicon glyphicon-thumbs-up"></i></button>
-          <button class="btn btn-default pull-right" style="text-align:center"><i
-            class="glyphicon glyphicon-share-alt"></i></button>
-          <div class="form-group">
-            <label for="comment">Comment:</label>
-            <textarea class="form-control" rows="5" id="comment"></textarea>
-          </div>
-        </div>
-        <br>
-        <div class="card card-default">
-          <div class="card-header">Title</div>
-          <div class="card-block">Content</div>
-        </div>
-        <div class="row">
-          <button class="btn btn-default pull-right" style="text-align:center"><i
-            class="glyphicon glyphicon-thumbs-up"></i></button>
-          <button class="btn btn-default pull-right" style="text-align:center"><i
-            class="glyphicon glyphicon-share-alt"></i></button>
-          <div class="form-group">
-            <label for="comment">Comment:</label>
-            <textarea class="form-control" rows="5" id="comment1"></textarea>
-          </div>
-        </div>
-        <br>
-      </div>
-      <div class="col-sm-6 text-left">
-        <div class="panel panel-primary">
-          <div class="panel-heading">Twitter feed in here</div>
-          <div class="panel-body">Feed. Will extend accordingly.</div>
-        </div>
-        <div class="panel panel-primary">
-          <div class="panel-heading">Facebook feed in here</div>
-          <div class="panel-body">Feed. Will extend accordingly.</div>
+  <div class="panel panel-default">
+    <div class="panel-body">
+
+      <div class="row">
+        <div class="col-md-12 lead">
+          Team Profile
+
+          <button *ngIf="!userFollowing" (click)="followTeam()" type="button" class="btn btn-sm btn-primary pull-right">Follow</button>
+          <button *ngIf="userFollowing" (click)="unfollowTeam()" type="button" class="btn btn-sm btn-danger pull-right">Unfollow</button>
+
+          <hr>
         </div>
       </div>
+
+      <div class="row">
+
+        <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
+
+          <div class="media">
+            <div class="media-left">
+              <a href="#">
+                <img class="media-object img-circle avatar avatar-original" src="{{(teamData | async)?.avatar}}"
+                     alt="{{(teamData | async)?.name}}">
+              </a>
+            </div>
+            <div class="media-body">
+              <h3 class="media-heading">{{(teamData | async)?.name}}</h3>
+
+              <em>Club:</em> {{(clubData | async)?.name}}<br>
+              <em>Age group:</em> {{(teamData | async)?.age_group}}<br>
+              <em>Type:</em> {{(teamData | async)?.type}}<br>
+              <em>Gender:</em> {{(teamData | async)?.gender}}<br>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <br>
+      <hr>
+
+      <div class="row">
+        <div class ="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+          <h4>Description:</h4>
+          {{(teamData | async)?.description}}
+        </div>
+      </div>
+
+      <br>
+      <hr>
+
+      <div class="row">
+        <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+          <h4>Players:</h4>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+          <div *ngFor="let player of teamPlayers">
+            <div class="list-group-item list-group-item-action media">
+              <div class="media-left">
+                <a href="#">
+                  <img class="player-image" src="{{player.avatar}}" alt="{{player.first_name + ' ' + player.last_name}}">
+                </a>
+              </div>
+              <div class="media-body">
+                <a (click)="sendToPlayer(player.id)">{{player.first_name + " " + player.last_name}}</a>
+                <button *ngIf="follows.indexOf(player.id) === -1" (click)="followPlayer(player.id)" type="button" class="btn btn-sm btn-primary pull-right">Follow</button>
+                <button *ngIf="follows.indexOf(player.id) !== -1" (click)="unfollowPlayer(player.id)" type="button" class="btn btn-sm btn-danger pull-right">Unfollow</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br>
+      <hr>
+
+      <div class="row">
+        <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+          <h4>Posts:</h4>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          <app-post *ngFor="let post of teamPosts " [post]="post"></app-post>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
-<div class="container-fluid">
-  <h3> Players</h3>
-  <div class="list-group">
-    <a href="/player" class="list-group-item list-group-item-action">Player 1</a>
-    <a href="#" class="list-group-item list-group-item-action">Player 2</a>
-    <a href="#" class="list-group-item list-group-item-action">Player 3</a>
-    <a href="#" class="list-group-item list-group-item-action disabled">Player 4</a>
-  </div>
-</div>
-<div class="container-fluid">
-  <h3> Sponsors</h3>
-  <ul class="list-group">
-    <li class="list-group-item disabled">Sponsor 1</li>
-    <li class="list-group-item">Sponsor 2</li>
-    <li class="list-group-item">Sponsor 3</li>
-    <li class="list-group-item">Sponsor 4</li>
-  </ul>
-  <h3><a routerLink="/club"> Go to club</a></h3>
-</div>
-</body>
-</html>
+
