@@ -18,13 +18,12 @@ export class TeamComponent implements OnInit {
   private sub: any;
 
   teamId: string;
-
   teamData: any;
   teamPosts = [];
   teamPlayers = [];
 
-  clubData: any;
   clubId: string;
+  clubData: any;
 
   currentUserId: string;
 
@@ -46,7 +45,6 @@ export class TeamComponent implements OnInit {
             this.userFollowing = true;
           }
         });
-
       });
     });
   }
@@ -57,7 +55,6 @@ export class TeamComponent implements OnInit {
 
       this.teamData = this.af.database.object('teams/' + this.teamId);
 
-      // this bit is ugly, how to improve it?
       this.af.database.list('teams').subscribe(teams => {
         teams.forEach(team => {
           if (team.id === this.teamId) {
@@ -101,8 +98,6 @@ export class TeamComponent implements OnInit {
 
   public unfollowPlayer(uid: string) {
     this.userDataService.unfollowPlayer(this.currentUserId, uid);
-    // this.follows.pop(uid);
-
   }
 
   public followPlayer(uid: string) {
