@@ -17,7 +17,7 @@ export class PlayerDataService {
   }
 
   // Get player list
-  public getPlayersList(uid: string) {
+  public getPlayersList() {
     return this.af.database.list('/players/');
   }
 }

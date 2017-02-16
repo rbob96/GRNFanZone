@@ -23,7 +23,7 @@ export class ListComponent {
   constructor(private router: Router, private route: ActivatedRoute, private clubDataService: ClubDataService, private teamDataService: TeamDataService, private playerDataService: PlayerDataService) {
     this.clubs = this.clubDataService.getClubs();
     this.teams = this.teamDataService.getTeams();
-    this.players = this.playerDataService.getPlayers();
+    this.players = this.playerDataService.getPlayersList();
   }
 
 
