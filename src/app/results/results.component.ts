@@ -33,8 +33,8 @@ export class ResultsComponent implements OnInit {
       });
     }
 
-  findPlayers(){
-    let results = this.af.database.list('/players', {
+  findPlayers() {
+    const results = this.af.database.list('/players', {
         query: {
           orderByChild: 'first_name',
           equalTo: this.playerName
