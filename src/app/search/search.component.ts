@@ -23,8 +23,8 @@ export class SearchComponent {
     private _search: PlayerDataService,
     private _router: Router) { }
 
-  search = (term:string) => {
-    let link = ['/results', term];
+  search = (term: string) => {
+    const link = ['/results', term];
     this._router.navigate(link);
   }
 }
