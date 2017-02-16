@@ -27,19 +27,20 @@ import {TeamDataService} from './services/team-data.service';
 import {ClubDataService} from './services/club-data.service';
 import {PlayerDataService} from './services/player-data.service';
 
+
 import {ListComponent} from './list/list.component';
+
 
 
 
 import { routing } from './app.routing';
 import { AuthService } from './services/auth.service';
 import {AuthGuardService} from './services/auth-guard.service';
+import { SearchComponent } from './search/search.component';
+import { ResultsComponent } from './results/results.component';
 
 import {PostDataService} from './services/post-data.service';
 import { PostComponent } from './post/post.component';
-
-import { SearchComponent } from './search/search.component';
-import { ResultsComponent } from './results/results.component';
 
 
 export const firebaseConfig = {
