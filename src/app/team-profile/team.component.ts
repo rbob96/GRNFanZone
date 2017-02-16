@@ -46,6 +46,7 @@ export class TeamComponent implements OnInit {
             this.userFollowing = true;
           }
         });
+
       });
     });
   }
@@ -77,7 +78,7 @@ export class TeamComponent implements OnInit {
       this.af.database.list('users/' + this.currentUserId + '/players_followed').subscribe(players => {
         this.follows = players.map(p => {
           return p.$key;
-        })
+        });
       });
 
       this.af.database.list('posts').subscribe(posts => {
@@ -100,10 +101,13 @@ export class TeamComponent implements OnInit {
 
   public unfollowPlayer(uid: string) {
     this.userDataService.unfollowPlayer(this.currentUserId, uid);
+    // this.follows.pop(uid);
+
   }
 
   public followPlayer(uid: string) {
     this.userDataService.followPlayer(this.currentUserId, uid);
+    this.follows.push(uid);
   }
 
   public sendToPlayer (uid: string) {
