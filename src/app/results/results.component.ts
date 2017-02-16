@@ -28,19 +28,22 @@ export class ResultsComponent implements OnInit {
   ngOnInit() {
 
       this.sub = this.route.params.subscribe(params => {
-        const staticPlayerName = params['query'];
-        this.playerName = staticPlayerName;
+        this.playerName = params['query'];
+        this.findPlayers();
       });
-      console.log(this.playerName);
-      const results = this.af.database.list('/players', {
+    }
+
+  findPlayers(){
+    let results = this.af.database.list('/players', {
         query: {
           orderByChild: 'first_name',
           equalTo: this.playerName
         }
       }).subscribe(serverResults => {
-          serverResults.forEach(result => {
-            this.players.push(result);
-          });
+        this.players = [];
+        serverResults.forEach(result => {
+          this.players.push(result);
         });
-  }
+      });
+    }
 }

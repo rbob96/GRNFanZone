@@ -1,3 +1,9 @@
 .panel{
-    width: 300px;
+    width: 400px;
+    height: auto;
+}
+
+img{
+    width: 4em;
+    height: 4em;
 }
