@@ -53,7 +53,7 @@ const appRoutes: Routes = [
       component : PlayerComponent
     },
     {
-      path : 'club',
+      path : 'club/:id',
       component : ClubComponent
     }
 

@@ -1,39 +1,94 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Club</title>
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" rel="stylesheet"/>
-  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
-          integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
-          crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
-          integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
-          crossorigin="anonymous"></script>
-  <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
-  <script src="https://npmcdn.com/bootstrap@4.0.0-alpha.5/dist/js/bootstrap.min.js"></script>
-  <meta charset="UTF-8">
-</head>
-<p-tabView orientation="left">
-  <p-tabPanel header="Club" [selected]="true">
-    <div class="card">
-      <div class="card-block">
-        Club content.
+<div class="container-fluid">
+
+  <div class="panel panel-default">
+    <div class="panel-body">
+
+      <div class="row">
+        <div class="col-md-12 lead">
+          Club Profile
+
+          <button *ngIf="!userFollowing" (click)="followClub()" type="button" class="btn btn-sm btn-primary pull-right">Follow</button>
+          <button *ngIf="userFollowing" (click)="unfollowClub()" type="button" class="btn btn-sm btn-danger pull-right">Unfollow</button>
+
+          <hr>
+        </div>
       </div>
-    </div>
-  </p-tabPanel>
-  <p-tabPanel header="Teams">
-    <div class="card">
-      <div class="card-block">
-        Teams content.
+
+      <div class="row">
+
+        <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
+
+          <div class="media">
+            <div class="media-left">
+              <a href="#">
+                <img class="media-object img-circle avatar avatar-original" src="{{(clubData | async)?.avatar}}"
+                     alt="{{(clubData | async)?.name}}">
+              </a>
+            </div>
+            <div class="media-body">
+              <h3 class="media-heading">{{(clubData | async)?.name}}</h3>
+
+            </div>
+          </div>
+
+        </div>
+
       </div>
-    </div>
-  </p-tabPanel>
-  <p-tabPanel header="Players">
-    <div class="card">
-      <div class="card-block">
-        Players content.
+
+      <br>
+      <hr>
+
+      <div class="row">
+        <div class ="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+          <h4>Description:</h4>
+          {{(clubData | async)?.description}}
+        </div>
       </div>
+
+      <br>
+      <hr>
+
+      <div class="row">
+        <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+          <h4>Teams:</h4>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+          <div *ngFor="let team of clubTeams">
+            <div class="list-group-item list-group-item-action media">
+              <div class="media-left">
+                <a href="#">
+                  <img class="team-image" src="{{team.avatar}}" alt="{{team.name}}">
+                </a>
+              </div>
+              <div class="media-body">
+                <a (click)="sendToTeam(team.id)">{{team.name}}</a>
+                <button *ngIf="follows.indexOf(team.id) === -1" (click)="followTeam(team.id)" type="button" class="btn btn-sm btn-primary pull-right">Follow</button>
+                <button *ngIf="follows.indexOf(team.id) !== -1" (click)="unfollowTeam(team.id)" type="button" class="btn btn-sm btn-danger pull-right">Unfollow</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br>
+      <hr>
+
+      <div class="row">
+        <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+          <h4>Posts:</h4>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          <app-post *ngFor="let post of clubPosts " [post]="post"></app-post>
+        </div>
+      </div>
+
     </div>
-  </p-tabPanel>
-</p-tabView>
-</html>
+  </div>
+</div>
+
