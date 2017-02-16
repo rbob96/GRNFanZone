@@ -1,3 +1,5 @@
+import 'rxjs/add/operator/map';
+
 import {Component, OnInit} from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
 import {AngularFire} from 'angularfire2';
@@ -8,7 +10,7 @@ import {User} from '../user';
 @Component({
   selector: 'app-team',
   templateUrl: './team-component.html',
-
+  styleUrls: ['./team-component.css']
 })
 
 export class TeamComponent implements OnInit {
@@ -21,9 +23,14 @@ export class TeamComponent implements OnInit {
   teamPosts = [];
   teamPlayers = [];
 
+  clubData: any;
+  clubId: string;
+
   currentUserId: string;
 
   userFollowing = false;
+
+  follows = [];
 
   constructor(private af: AngularFire,
               private router: Router,
@@ -49,9 +56,13 @@ export class TeamComponent implements OnInit {
 
       this.teamData = this.af.database.object('teams/' + this.teamId);
 
-      this.af.database.list('posts').subscribe(posts => {
-        this.teamPosts = posts.filter(p => {
-          return p.posted_by === this.teamId;
+      // this bit is ugly, how to improve it?
+      this.af.database.list('teams').subscribe(teams => {
+        teams.forEach(team => {
+          if (team.id === this.teamId) {
+            this.clubId = team.club_id;
+            this.clubData = this.af.database.object('clubs/' + this.clubId);
+          }
         });
       });
 
@@ -60,6 +71,18 @@ export class TeamComponent implements OnInit {
           if (this.teamId in player.teams) {
             this.teamPlayers.push(player);
           }
+        });
+      });
+
+      this.af.database.list('users/' + this.currentUserId + '/players_followed').subscribe(players => {
+        this.follows = players.map(p => {
+          return p.$key;
+        })
+      });
+
+      this.af.database.list('posts').subscribe(posts => {
+        this.teamPosts = posts.filter(p => {
+          return p.posted_by === this.teamId;
         });
       });
     });
@@ -73,6 +96,14 @@ export class TeamComponent implements OnInit {
   public followTeam() {
     this.userDataService.followTeam(this.currentUserId, this.teamId);
     this.userFollowing = true;
+  }
+
+  public unfollowPlayer(uid: string) {
+    this.userDataService.unfollowPlayer(this.currentUserId, uid);
+  }
+
+  public followPlayer(uid: string) {
+    this.userDataService.followPlayer(this.currentUserId, uid);
   }
 
   public sendToPlayer (uid: string) {
