@@ -28,6 +28,8 @@
             <div class="media-body">
               <h3 class="media-heading">{{(playerData | async)?.first_name}} {{(playerData | async)?.last_name}}</h3>
 
+              <em> Team:</em> {{(teamData | async)?.name}} <br>
+              <em> Club:</em> {{(clubData | async)?.name}} <br>
               <em> Age:</em> {{(playerData | async)?.age}} <br>
               <em> Height:</em> {{(playerData | async)?.height}}cm <br>
               <em> Weight:</em> {{(playerData | async)?.weight}}kg <br>
@@ -68,4 +70,3 @@
     </div>
   </div>
 </div>
-
