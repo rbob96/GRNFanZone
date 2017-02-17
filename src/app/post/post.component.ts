@@ -54,9 +54,9 @@ export class PostComponent implements OnInit {
     if (this.post) {
 
       const comms = this.postDataService.getComments(this.post.id).subscribe(resComms => {
-          resComms.forEach(com =>{
+          resComms.forEach(com => {
             this.showBtn.push(com);
-          })
+          });
         });
 
       this.af.database.list('posts/' + this.post.id + '/comments', {
@@ -144,7 +144,7 @@ export class PostComponent implements OnInit {
     }
   }
 
-  showMore(term: number){
+  showMore(term: number) {
     this.commentsLimit += term;
     this.af.database.list('posts/' + this.post.id + '/comments', {
         query: {
