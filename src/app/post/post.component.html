@@ -17,7 +17,7 @@
             </div>
             <div class="media-body">
               <h4 class="media-heading"> {{post.title}} </h4>
-              <i>{{(post.created_at | amCalendar)}}</i> <br>
+              <i>{{(post.created_at | amCalendar:{sameElse:'D MMMM, YYYY [at] h:mm a'})}}</i> <br>
 
               {{post.text}}
 
@@ -97,7 +97,7 @@
                   {{postComment.comment}}
 
                   <br>
-                  <small><em>{{postComment.commented_at | amCalendar}}</em></small>
+                  <small><em>{{(postComment.commented_at | amCalendar:{sameElse:'D MMMM, YYYY [at] h:mm a'})}}</em></small>
 
                 </div>
               </div>
