@@ -18,7 +18,10 @@ export class PostComponent implements OnInit {
   post: Post;
 
   comments;
+  commentsLimit = 2;
+  showBtn = [];
   likes = [];
+  currentComLen;
 
   currentUserId;
   userData;
@@ -50,8 +53,20 @@ export class PostComponent implements OnInit {
 
     if (this.post) {
 
-      this.af.database.list('posts/' + this.post.id + '/comments').subscribe(comments => {
+      const comms = this.postDataService.getComments(this.post.id).subscribe(resComms => {
+          resComms.forEach(com =>{
+            this.showBtn.push(com);
+          })
+        });
+
+      this.af.database.list('posts/' + this.post.id + '/comments', {
+        query: {
+          orderByChild: 'commented_at',
+          limitToFirst: this.commentsLimit
+        }
+      }).subscribe(comments => {
         this.comments = comments;
+        this.currentComLen = this.comments.length;
       });
 
       this.af.database.list('posts/' + this.post.id + '/likes').subscribe(likes => {
@@ -127,6 +142,20 @@ export class PostComponent implements OnInit {
     } else if (this.post.poster === 'clubs') {
       this.router.navigate(['/club/' + this.post.posted_by]);
     }
+  }
+
+  showMore(term: number){
+    this.commentsLimit += term;
+    this.af.database.list('posts/' + this.post.id + '/comments', {
+        query: {
+          orderByChild: 'commented_at',
+          startAt: 0,
+          limitToFirst: this.commentsLimit
+        }
+      }).subscribe(comments => {
+        this.comments = comments;
+        this.currentComLen = this.comments.length;
+      });
   }
 
 }
