@@ -70,7 +70,6 @@ export class PostComponent implements OnInit {
       });
 
       this.af.database.list('posts/' + this.post.id + '/likes').subscribe(likes => {
-
         this.likes = likes.map(l => {
             return l.$key;
         });
