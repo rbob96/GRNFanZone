@@ -51,7 +51,7 @@ export class ResultsComponent implements OnInit {
       });
     }
 
-  findUsers(){
+  findUsers() {
     const users = this.af.database.list('/users', {
       query: {
         orderByChild: 'name',

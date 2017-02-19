@@ -38,7 +38,7 @@
               <div class="col-md-8">
                 <div class="row">
                   <div class="col-md-12">
-                    <h2 class="only-bottom-margin"> {{user.name}}
+                    <h2 class="only-bottom-margin"> {{(profileData | async)?.name}}
                       <span class="badge badge-success" *ngIf="currentUser === userId">Me</span>
                     </h2>
 
