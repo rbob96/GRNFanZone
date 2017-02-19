@@ -28,20 +28,30 @@
             <div class="media-body">
               <h3 class="media-heading">{{(playerData | async)?.first_name}} {{(playerData | async)?.last_name}}</h3>
 
-              <em> Team:</em> {{(teamData | async)?.name}} <br>
-              <em> Club:</em> {{(clubData | async)?.name}} <br>
               <em> Age:</em> {{(playerData | async)?.age}} <br>
               <em> Height:</em> {{(playerData | async)?.height}}cm <br>
               <em> Weight:</em> {{(playerData | async)?.weight}}kg <br>
               <em> Gender:</em> {{(playerData | async)?.gender}} <br>
-
+              <em> Teams:</em> <br>
+              <div class="col-sm-5">
+          <div *ngFor="let team of playerTeams">
+            <div class="list-group-item list-group-item-action media">
+              <div class="media-left">
+                <a href="#">
+                  <img class="team-image" src="{{(getTeam(team.$key))?.avatar}}" alt="{{(getTeam(team.$key))?.name}}">
+                </a>
+              </div>
+              <div class="media-body">
+                <a (click)="sendToTeam(team.$key)">{{(getTeam(team.$key))?.name}}</a>
+              </div>
             </div>
           </div>
-
         </div>
-
+      </div>
       </div>
 
+</div>
+</div>
       <br>
       <hr>
 
