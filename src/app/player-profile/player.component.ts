@@ -96,4 +96,19 @@ export class PlayerComponent implements OnInit {
   return theTeam;
   }
 
+  public getClub (uid: string) {
+    const item = this.af.database.object('teams/' + uid);
+    let clubId = 0;
+    item.subscribe(team => {
+      clubId = team.club_id;
+    });
+
+    const club = this.af.database.object('clubs/' + clubId);
+    let theClub = 0;
+    club.subscribe( c => {
+      theClub = c;
+    });
+    console.log(theClub);
+    return theClub;
+}
 }

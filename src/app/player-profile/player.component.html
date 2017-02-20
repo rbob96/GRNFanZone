@@ -42,7 +42,7 @@
                 </a>
               </div>
               <div class="media-body">
-                <a (click)="sendToTeam(team.$key)">{{(getTeam(team.$key))?.name}}</a>
+                <a (click)="sendToTeam(team.$key)">{{(getTeam(team.$key))?.name}}, {{getClub(team.$key)?.name}}</a>
               </div>
             </div>
           </div>
