@@ -26,7 +26,7 @@ export class ListComponent {
               private playerDataService: PlayerDataService) {
     this.clubs = this.clubDataService.getClubs();
     this.teams = this.teamDataService.getTeams();
-    this.players = this.playerDataService.getPlayers();
+    this.players = this.playerDataService.getPlayersList();
   }
 
 

@@ -89,7 +89,7 @@ export class UserDataService {
 
   public followClub (userID: string, clubID: string) {
 
-    this.af.database.object('/clubs/' + clubID).first().toPromise().then(club => {
+    this.af.database.object('/clubs/' + clubID).subscribe(club => {
       const followed = this.af.database.object('/users/' + userID + '/clubs_followed/' + clubID);
       followed.set({
         name: club.name,

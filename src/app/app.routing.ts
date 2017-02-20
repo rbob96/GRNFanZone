@@ -13,6 +13,7 @@ import {PlayerComponent} from './player-profile/player.component';
 import {ClubComponent} from './club-profile/club.component';
 import {ListComponent} from './list/list.component';
 import {AuthGuardService} from './services/auth-guard.service';
+import {ResultsComponent} from './results/results.component';
 
 const appRoutes: Routes = [
     {
@@ -53,10 +54,13 @@ const appRoutes: Routes = [
       component : PlayerComponent
     },
     {
-      path : 'club',
+      path : 'club/:id',
       component : ClubComponent
-    }
-
+    },
+      {
+        path: 'results/:query',
+        component: ResultsComponent
+      }
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
