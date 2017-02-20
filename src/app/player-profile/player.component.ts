@@ -87,6 +87,10 @@ export class PlayerComponent implements OnInit {
     this.router.navigate(['/team/' + uid]);
   }
 
+  public sendToClub (uid: string) {
+    this.router.navigate(['/club/' + uid]);
+  }
+
   public getTeam (uid: string) {
   const item = this.af.database.object('teams/' + uid);
   let theTeam = 0;
