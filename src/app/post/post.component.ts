@@ -23,6 +23,8 @@ export class PostComponent implements OnInit {
   likes = [];
   currentComLen;
 
+  newComment = '';
+
   currentUserId;
   userData;
 
@@ -103,12 +105,14 @@ export class PostComponent implements OnInit {
   }
 
   addComment(newComment: string, postid: string ) {
-    this.postDataService.getComments(postid).push({
-      comment: newComment,
+    this.postDataService.getComments(this.post.id).push({
+      comment: this.newComment,
       commented_at: (new Date().getTime()),
       author: this.currentUserId,
       author_name: this.userData.name,
       author_avatar: this.userData.avatar
+    }).then( _ => {
+      this.newComment = '';
     });
   }
 

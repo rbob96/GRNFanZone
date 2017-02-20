@@ -13,9 +13,11 @@ export class ResultsComponent implements OnInit {
   teams = [];
   clubs = [];
   users = [];
+
   sub: any;
   // Player uid
   searchTerm: string;
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -49,6 +51,7 @@ export class ResultsComponent implements OnInit {
         });
       });
   }
+
   findTeams() {
     const teams = this.af.database.list('/teams').subscribe(serverResults => {
       this.teams = [];

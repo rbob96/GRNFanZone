@@ -58,9 +58,11 @@
                     <span class="badge badge-success" *ngIf="currentUserId === postComment.author">Me</span>
                   </strong>
 
-                  <div *ngIf="currentUserId === postComment.author" class="btn-group pull-right" role="group" aria-label="Comment Options">
+                  <div *ngIf="currentUserId === postComment.author" class="btn-group pull-right" role="group"
+                       aria-label="Comment Options">
 
-                    <button type="button" (click)="setEditComment(postComment)" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editModal">
+                    <button type="button" (click)="setEditComment(postComment)" class="btn btn-primary btn-sm"
+                            data-toggle="modal" data-target="#editModal">
                       <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                     </button>
 
@@ -78,7 +80,9 @@
                             <textarea class="form-control" id="comment" [(ngModel)]="editedText"></textarea>
                           </div>
                           <div class="modal-footer">
-                            <button type="button" class="btn btn-success" data-dismiss="modal" (click)="updateComment()">Save Changes</button>
+                            <button type="button" class="btn btn-success" data-dismiss="modal"
+                                    (click)="updateComment()">Save Changes
+                            </button>
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                           </div>
                         </div>
@@ -97,7 +101,8 @@
                   {{postComment.comment}}
 
                   <br>
-                  <small><em>{{(postComment.commented_at | amCalendar:{sameElse:'D MMMM, YYYY [at] h:mm a'})}}</em></small>
+                  <small><em>{{(postComment.commented_at | amCalendar:{sameElse:'D MMMM, YYYY [at] h:mm a'})}}</em>
+                  </small>
 
                 </div>
               </div>
@@ -105,13 +110,26 @@
             </li>
           </ul>
 
+          <div class="row">
+            <div class="col-md-12">
+              <button *ngIf="(this.showBtn.length > 2) && (this.currentComLen != this.showBtn.length)" type="button"
+                      class="btn btn-info btn-sm" (click)="showMore(2)">Show more
+              </button>
+            </div>
+          </div>
+
+
           <br>
 
 
           <div class="input-group">
-            <label>Comment:</label><button type="button" class="btn btn-success btn-sm pull-right" (click)="addComment(newComment.value, post.id)">Add</button>
-            <button *ngIf="(this.showBtn.length > 2) && (this.currentComLen != this.showBtn.length)" type="button" class="btn btn-success btn-sm pull-right show" (click)="showMore(2)">Show more</button>
-            <input class="form-control" type="text" #newComment/>
+            <input [(ngModel)]="newComment" class="form-control" type="text" placeholder="Comment..."/>
+            <span class="input-group-btn">
+              <button [disabled]="newComment === ''" type="button" class="btn btn-success"
+                      (click)="addComment()">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+              </button>
+            </span>
           </div>
 
         </div>
