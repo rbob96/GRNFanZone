@@ -110,6 +110,7 @@
 
           <div class="input-group">
             <label>Comment:</label><button type="button" class="btn btn-success btn-sm pull-right" (click)="addComment(newComment.value, post.id)">Add</button>
+            <button *ngIf="(this.showBtn.length > 2) && (this.currentComLen != this.showBtn.length)" type="button" class="btn btn-success btn-sm pull-right show" (click)="showMore(2)">Show more</button>
             <input class="form-control" type="text" #newComment/>
           </div>
 
