@@ -14,12 +14,14 @@ export class ResultsComponent implements OnInit {
   // Get filtered results
   userData: FirebaseListObservable<any>;
   players = [];
+  teams = [];
   users = [];
+
   sub: any;
 
 
   // Player uid
-  playerName: string;
+  searchTerm: string;
 
   constructor(
     private router: Router,
@@ -28,42 +30,45 @@ export class ResultsComponent implements OnInit {
 
 
   ngOnInit() {
-
       this.sub = this.route.params.subscribe(params => {
-        this.playerName = params['query'];
+        this.searchTerm = params['query'];
         this.findPlayers();
         this.findUsers();
+        this.findTeams();
       });
     }
 
   findPlayers() {
-    const results = this.af.database.list('/players', {
-        query: {
-          orderByChild: 'first_name',
-          startAt: this.playerName,
-          endAt: this.playerName + '\uf8ff'
-        }
-      }).subscribe(serverResults => {
+    const results = this.af.database.list('/players').subscribe(serverResults => {
         this.players = [];
         serverResults.forEach(result => {
-          this.players.push(result);
+          if (((result.first_name + ' ' + result.last_name).toLowerCase()).includes(this.searchTerm.toLowerCase())) {
+            this.players.push(result);
+          }
         });
       });
     }
 
   findUsers() {
-    const users = this.af.database.list('/users', {
-      query: {
-        orderByChild: 'name',
-        startAt: this.playerName,
-        endAt: this.playerName + '\uf8ff'
-      }
-    }).subscribe(serverResults => {
+    const users = this.af.database.list('/users').subscribe(serverResults => {
         this.users = [];
         serverResults.forEach(result => {
-          console.log(result);
-          this.users.push(result);
+          if ((result.name.toLowerCase()).includes(this.searchTerm.toLowerCase())) {
+            this.users.push(result);
+          }
         });
       });
   }
+
+  findTeams() {
+    const teams = this.af.database.list('/teams').subscribe(serverResults => {
+      this.teams = [];
+      serverResults.forEach(result => {
+        if ((result.name.toLowerCase()).includes(this.searchTerm.toLowerCase())) {
+          this.teams.push(result);
+        }
+      });
+    });
+  }
+
 }
