@@ -12,7 +12,9 @@ import {AngularFire, FirebaseObjectObservable, FirebaseListObservable} from 'ang
 export class ResultsComponent implements OnInit {
 
   // Get filtered results
+  userData: FirebaseListObservable<any>;
   players = [];
+  users = [];
   sub: any;
 
 
@@ -30,6 +32,7 @@ export class ResultsComponent implements OnInit {
       this.sub = this.route.params.subscribe(params => {
         this.playerName = params['query'];
         this.findPlayers();
+        this.findUsers();
       });
     }
 
@@ -37,7 +40,8 @@ export class ResultsComponent implements OnInit {
     const results = this.af.database.list('/players', {
         query: {
           orderByChild: 'first_name',
-          equalTo: this.playerName
+          startAt: this.playerName,
+          endAt: this.playerName + '\uf8ff'
         }
       }).subscribe(serverResults => {
         this.players = [];
@@ -46,4 +50,20 @@ export class ResultsComponent implements OnInit {
         });
       });
     }
+
+  findUsers() {
+    const users = this.af.database.list('/users', {
+      query: {
+        orderByChild: 'name',
+        startAt: this.playerName,
+        endAt: this.playerName + '\uf8ff'
+      }
+    }).subscribe(serverResults => {
+        this.users = [];
+        serverResults.forEach(result => {
+          console.log(result);
+          this.users.push(result);
+        });
+      });
+  }
 }
