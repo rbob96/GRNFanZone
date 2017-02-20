@@ -32,14 +32,46 @@
               <em> Height:</em> {{(playerData | async)?.height}}cm <br>
               <em> Weight:</em> {{(playerData | async)?.weight}}kg <br>
               <em> Gender:</em> {{(playerData | async)?.gender}} <br>
-
+              <em> Teams:</em> <br>
+              <br>
+          <div *ngFor="let team of playerTeams">
+            <div class="list-group-item list-group-item-action media">
+              <div class="media-left">
+                <a href="#">
+                  <img class="team-image" src="{{(getTeam(team.$key))?.avatar}}" alt="{{(getTeam(team.$key))?.name}}">
+                </a>
+              </div>
+              <div class="media-body">
+                <a (click)="sendToTeam(team.$key)">{{(getTeam(team.$key))?.name}}</a>
+                <button *ngIf="followTeams.indexOf((getTeam(team.$key))?.id) === -1" (click)="followTeam((getTeam(team.$key))?.id)" type="button" class="btn btn-sm btn-primary pull-right">Follow</button>
+                <button *ngIf="followTeams.indexOf((getTeam(team.$key))?.id) !== -1" (click)="unfollowTeam((getTeam(team.$key))?.id)" type="button" class="btn btn-sm btn-danger pull-right">Unfollow</button>
+              </div>
             </div>
           </div>
-
-        </div>
-
+          <br>
+          <em> Clubs:</em> <br>
+          <br>
+          <div *ngFor="let team of playerTeams">
+            <div *ngIf="(getClub(team.$key))?.name != null"> <!--- only display if the team belongs to a club --->
+            <div class="list-group-item list-group-item-action media">
+              <div class="media-left">
+                <a href="#">
+                  <img class="team-image" src="{{(getClub(team.$key))?.avatar}}" alt="{{(getClub(team.$key))?.name}}">
+                </a>
+              </div>
+              <div class="media-body">
+                <a (click)="sendToClub(getClub(team.$key)?.id)">{{(getClub(team.$key))?.name}}</a>
+                <button *ngIf="followClubs.indexOf((getClub(team.$key))?.id) === -1" (click)="followClub((getClub(team.$key))?.id)" type="button" class="btn btn-sm btn-primary pull-right">Follow</button>
+                <button *ngIf="followClubs.indexOf((getClub(team.$key))?.id) !== -1" (click)="unfollowClub((getClub(team.$key))?.id)" type="button" class="btn btn-sm btn-danger pull-right">Unfollow</button>
+              </div>
+            </div>
+            </div>
+          </div>
+      </div>
       </div>
 
+</div>
+</div>
       <br>
       <hr>
 
@@ -68,4 +100,3 @@
     </div>
   </div>
 </div>
-
