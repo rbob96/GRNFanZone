@@ -24,6 +24,8 @@ export class PlayerComponent implements OnInit {
   currentUserId: string;
 
   userFollowing = false;
+  followTeams = [];
+  followClubs = [];
 
 
   constructor(private af: AngularFire,
@@ -59,6 +61,18 @@ export class PlayerComponent implements OnInit {
           this.playerTeams = teams;
         }
       );
+
+      this.af.database.list('users/' + this.currentUserId + '/teams_followed').subscribe(teams => {
+        this.followTeams = teams.map(t => {
+          return t.$key;
+        });
+      });
+
+      this.af.database.list('users/' + this.currentUserId + '/clubs_followed').subscribe(clubs => {
+        this.followClubs = clubs.map(c => {
+          return c.$key;
+        });
+      });
 
       // and posts
       this.af.database.list('posts').subscribe( posts => {
@@ -114,4 +128,24 @@ export class PlayerComponent implements OnInit {
     });
     return theClub;
 }
+
+public unfollowClub(uid: string) {
+  this.userDataService.unfollowClub(this.currentUserId, uid);
+}
+
+public followClub(uid: string) {
+  this.userDataService.followClub(this.currentUserId, uid);
+  this.followClubs.push(uid);
+}
+
+public unfollowTeam(uid: string) {
+  this.userDataService.unfollowTeam(this.currentUserId, uid);
+}
+
+public followTeam(uid: string) {
+  this.userDataService.followTeam(this.currentUserId, uid);
+  this.followTeams.push(uid);
+}
+
+
 }
