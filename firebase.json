@@ -2,14 +2,32 @@
   "database": {
     "rules": {
       "posts": {
-        ".indexOn": "created_at"
+        ".indexOn": "created_at",
+        ".read": true,
+        ".write": true
       },
       "users": {
-          "$uid": {
-            ".read": "auth != null",
-            ".write": "$uid === auth.uid"
-          }
+        "$uid": {
+          ".read": "auth != null",
+          ".write": "$uid === auth.uid"
         },
+        ".indexOn": "name"
+      },
+      "players": {
+        ".indexOn": "first_name",
+        ".read": true,
+        ".write": false
+      },
+      "teams": {
+        ".indexOn": "name",
+        ".read": true,
+        ".write": false
+      },
+      "clubs": {
+        ".indexOn": "name",
+        ".read": true,
+        ".write": false
+      },
       "rules": {
         ".read": "auth != null",
         ".write": "auth != null"
@@ -18,9 +36,11 @@
   },
   "hosting": {
     "public": "dist",
-    "rewrites": [{
-      "source": "**",
-      "destination": "/index.html"
-    }]
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
   }
 }
