@@ -108,7 +108,6 @@ export class PlayerComponent implements OnInit {
     club.subscribe( c => {
       theClub = c;
     });
-    console.log(theClub);
     return theClub;
 }
 }
