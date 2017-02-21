@@ -8,13 +8,21 @@
 
 </head>
 <body>
+
 <app-navbar></app-navbar>
+<div class="row">
+  		<div class="col-md-6">
+        </div>
+        <div class="col-md-6 text-right">
+    		<button type="button" (click)="translate.setDefaultLang('en')" class="btn btn-warning custom-button-width .navbar-right">English</button>
+			  <button type="button" (click)="translate.setDefaultLang('ro')" class="btn btn-danger custom-button-width .navbar-right">Română</button>
+        <button type="button" (click)="translate.setDefaultLang('jp')" class="btn btn-danger custom-button-width .navbar-right">日本語</button>
+    	</div>
+    </div>
 
 <div class="container">
 
   <router-outlet></router-outlet>
-
 </div>
-
 </body>
 </html>

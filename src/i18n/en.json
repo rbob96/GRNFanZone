@@ -1,0 +1,11 @@
+{
+  "LogInPage":{
+    "Title":"Sign In"
+  },
+  "NavBar":{
+    "Dashboard":"Dashboard",
+    "List":"List",
+    "Logout":"Logout"
+  }
+
+}

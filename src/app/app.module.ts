@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import {MomentModule} from 'angular2-moment';
 import {ToastModule} from 'ng2-toastr/ng2-toastr';
 
+
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -84,7 +85,8 @@ export const firebaseConfig = {
     DialogModule,
     RouterModule,
     MomentModule,
-    ToastModule.forRoot()
+    ToastModule.forRoot(),
+    TranslateModule.forRoot()
   ],
   providers: [
     AuthService,
@@ -93,7 +95,7 @@ export const firebaseConfig = {
     PlayerDataService,
     TeamDataService,
     ClubDataService,
-    PostDataService,
+    PostDataService
   ],
   bootstrap: [ AppComponent ]
 })

@@ -13,8 +13,8 @@
     <div class="collapse navbar-collapse" id="navbar-collapse-1">
       <app-search></app-search>
       <ul class="nav navbar-nav navbar-right" [hidden]="!authService.registered">
-        <li><a routerLink="/">Dashboard</a></li>
-        <li><a routerLink="/list">List</a></li>
+        <li><a routerLink="/">{{"NavBar.Dashboard" | translate}}</a></li>
+        <li><a routerLink="/list">{{"NavBar.List" | translate}}</a></li>
         <li>
           <a routerLink="/user/{{currentUser.uid}}">
             <img class="user" src="{{currentUser.photoURL}}">{{currentUser.displayName}}
@@ -22,7 +22,7 @@
         </li>
         <li>
           <button type="button" class="btn btn-default navbar-btn" (click)="authService.logout()">
-            Logout
+            {{"NavBar.Logout" | translate}}
           </button>
         </li>
       </ul>
