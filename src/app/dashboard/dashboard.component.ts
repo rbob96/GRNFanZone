@@ -12,8 +12,8 @@ import {AuthService} from '../services/auth.service';
 export class DashboardComponent {
 
   posts = [];
-  postsLimit = 10;
-  shownPostAmount = this.postsLimit;
+  postsLimit = 2;
+  shownPostAmount = 0;
   shownPosts = [];
   currentUserId: string;
 
@@ -37,6 +37,10 @@ export class DashboardComponent {
             }
         });
         this.posts.sort((a, b) => b.created_at - a.created_at);
+        if (this.posts.length >= this.postsLimit)
+          this.shownPostAmount += this.postsLimit;
+        else
+          this.shownPostAmount = this.posts.length;
         this.shownPosts = this.posts.slice(0, this.shownPostAmount);
       });
     });
@@ -58,8 +62,11 @@ export class DashboardComponent {
   deleteEverything(postid) {
     this.postDataService.getComments(postid).remove();
   }
-  showMore(amount: number){
-    this.shownPostAmount += this.postsLimit;
+  showMore(){
+    if(this.posts.length - this.shownPostAmount >= this.postsLimit)
+      this.shownPostAmount += this.postsLimit;
+    else
+      this.shownPostAmount = this.posts.length;
     this.shownPosts = this.posts.slice(0, this.shownPostAmount);
   }
 
