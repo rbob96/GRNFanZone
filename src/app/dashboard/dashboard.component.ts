@@ -12,6 +12,9 @@ import {AuthService} from '../services/auth.service';
 export class DashboardComponent {
 
   posts = [];
+  postsLimit = 10;
+  shownPostAmount = this.postsLimit;
+  shownPosts = [];
   currentUserId: string;
 
   constructor(private postDataService: PostDataService, private authService: AuthService, private af: AngularFire) {
@@ -32,10 +35,9 @@ export class DashboardComponent {
             } else if (post.posted_by in userData.clubs_followed) {
               this.posts.push(post);
             }
-          this.posts.sort((a, b) => b.created_at - a.created_at);
         });
-
-
+        this.posts.sort((a, b) => b.created_at - a.created_at);
+        this.shownPosts = this.posts.slice(0, this.shownPostAmount);
       });
     });
 
@@ -56,7 +58,10 @@ export class DashboardComponent {
   deleteEverything(postid) {
     this.postDataService.getComments(postid).remove();
   }
-
+  showMore(amount: number){
+    this.shownPostAmount += this.postsLimit;
+    this.shownPosts = this.posts.slice(0, this.shownPostAmount);
+  }
 
 
 }
