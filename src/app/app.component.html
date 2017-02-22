@@ -15,14 +15,16 @@
   		<div class="col-md-6">
         </div>
         <div class="col-md-6 text-right">
-    		<button type="button" (click)="translate.setDefaultLang('en')" class="btn btn-warning custom-button-width .navbar-right">English</button>
-			  <button type="button" (click)="translate.setDefaultLang('ro')" class="btn btn-danger custom-button-width .navbar-right">Română</button>
-        <button type="button" (click)="translate.setDefaultLang('jp')" class="btn btn-danger custom-button-width .navbar-right">日本語</button>
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-secondary" (click)="translate.setDefaultLang('en')"><span class="flag-icon flag-icon-gb"></span></button>
+            <button type="button" class="btn btn-secondary" (click)="translate.setDefaultLang('ro')"><span class="flag-icon flag-icon-ro"></span></button>
+            <button type="button" class="btn btn-secondary" (click)="translate.setDefaultLang('jp')"><span class="flag-icon flag-icon-jp"></span></button>
+          </div>
     	</div>
     </div>
 
   <router-outlet></router-outlet>
-  
+
 </div>
 </body>
 </html>
