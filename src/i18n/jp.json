@@ -1,29 +1,29 @@
 {
 
-  "Follow": "FollowJP",
-  "Unfollow": "UnfollowJP",
-  "Me": "MeJP",
+  "Follow": "フォローする",
+  "Unfollow": "フォロー中",
+  "Me": "私",
 
   "ClubProfile": {
-    "ClubProfile": "Club ProfileJP",
-    "Description": "DescriptionJP",
-    "Teams": "TeamsJP",
-    "Posts": "PostsJP"
+    "ClubProfile": "クラブプロフィール",
+    "Description": "説明",
+    "Teams": "チーム",
+    "Posts": "投稿"
   },
 
   "ClubsFollowed": {
-    "Clubs": "ClubsJP"
+    "Clubs": "クラブ"
   },
 
   "Dashboard": {
-    "Dashboard": "DashboardJP",
-    "ShowMore": "Show MoreJP"
+    "Dashboard": "ニュースフィード",
+    "ShowMore": "もっと見る"
   },
 
   "List": {
-    "Clubs": "ClubsJP",
-    "Teams": "TeamsJP",
-    "Players": "PlayersJP"
+    "Clubs": "クラブ",
+    "Teams": "チーム",
+    "Players": "選手"
   },
 
   "Login": {
@@ -31,65 +31,66 @@
   },
 
   "NavBar": {
-    "Dashboard": "計器盤",
+    "Dashboard": "ニュースフィード",
     "List": "名鑑",
     "Logout": "ログアウト"
   },
 
   "PlayerProfile": {
-    "PlayerProfile": "Player ProfileJP",
-    "Age": "AgeJP",
-    "Height": "HeightJP",
-    "Weight": "WeightJP",
-    "Gender": "GenderJP",
-    "Teams": "TeamsJP",
-    "Clubs": "ClubsJP",
-    "Biography": "BioJP"
+    "PlayerProfile": "選手のプロフィール",
+    "Age": "年齢",
+    "Height": "高さ",
+    "Weight": "重さ",
+    "Gender": "ジェンダー",
+    "Teams": "チーム",
+    "Clubs": "クラブ",
+    "Biography": "伝記",
+    "Posts":"投稿"
   },
 
   "PlayersFollowed": {
-    "Players": "PlayersJP"
+    "Players": "選手"
   },
 
   "Post": {
-    "likes": "likesJP",
-    "SaveChanges": "Save ChangesJP",
-    "Close": "CloseJP",
-    "ShowMore": "Show MoreJP",
-    "Comment": "CommentJP"
+    "likes": "ライク",
+    "SaveChanges": "変更を保存",
+    "Close": "閉じる",
+    "ShowMore": "もっと見る",
+    "Comment": "コメントする"
   },
 
   "UserProfile": {
-    "UserProfile": "User ProfileJP",
-    "Email": "EmailJP",
-    "Following": "FollowingJP",
-    "SeeAll": "See allJP",
-    "Players": "PlayersJP",
-    "Teams": "TeamsJP",
-    "Clubs": "ClubsJP"
+    "UserProfile": "ユーザープロフィール",
+    "Email": "Eメール",
+    "Following": "フォロー",
+    "SeeAll": "すべて見る",
+    "Players": "選手",
+    "Teams": "チーム",
+    "Clubs": "クラブ"
   },
 
   "Results": {
-    "Location": "LocationJP",
-    "Age": "AgeJP",
-    "AgeGroup": "Age GroupJP"
+    "Location": "ロケーション",
+    "Age": "年齢",
+    "AgeGroup": "年齢層"
   },
 
   "Search": {},
 
   "TeamProfile": {
-    "TeamProfile": "Team ProfileJP",
-    "Club": "ClubJP",
-    "AgeGroup": "Age GroupJP",
-    "Type": "TypeJP",
-    "Gender": "Gender",
-    "Description": "DescriptionJP",
-    "Players": "PlayersJP",
-    "Posts": "PostsJP"
+    "TeamProfile": "チームプロフィール",
+    "Club": "クラブ",
+    "AgeGroup": "年齢層",
+    "Type": "タイプ",
+    "Gender": "ジェンダー",
+    "Description": "説明",
+    "Players": "選手",
+    "Posts": "投稿"
   },
 
   "TeamsFollowed": {
-    "TeamsFollowed": "Teams FollowedJP"
+    "TeamsFollowed": "チームフォロー"
   }
 
 }
