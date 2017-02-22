@@ -63,7 +63,10 @@
     "UserProfile":"User Profile",
     "Email": "Email",
     "Following": "Following",
-    "SeeAll": "See all"
+    "SeeAll": "See all",
+    "Players": "Players",
+    "Teams": "Teams",
+    "Clubs": "Clubs"
   },
 
   "Results": {

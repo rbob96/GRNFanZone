@@ -17,10 +17,8 @@ import {PostComponent} from '../post/post.component';
 import {MomentModule} from 'angular2-moment';
 import {FormsModule} from '@angular/forms';
 import {
-  TranslateModule, TranslateService, TranslateStaticLoader, TranslateLoader,
-  TranslateParser
+  TranslateModule, TranslateService, TranslateLoader, TranslateParser
 } from 'ng2-translate';
-import {Http} from "@angular/http";
 
 describe('TeamComponent', () => {
   let component: TeamComponent;

@@ -1,29 +1,29 @@
 {
 
-  "Follow": "Follow",
-  "Unfollow": "Unfollow",
-  "Me": "Me",
+  "Follow": "FollowJP",
+  "Unfollow": "UnfollowJP",
+  "Me": "MeJP",
 
   "ClubProfile": {
-    "ClubProfile": "Club Profile",
-    "Description": "Description",
-    "Teams": "Teams",
-    "Posts": "Posts"
+    "ClubProfile": "Club ProfileJP",
+    "Description": "DescriptionJP",
+    "Teams": "TeamsJP",
+    "Posts": "PostsJP"
   },
 
   "ClubsFollowed": {
-    "Clubs": "Clubs"
+    "Clubs": "ClubsJP"
   },
 
   "Dashboard": {
-    "Dashboard": "Dashboard",
-    "ShowMore": "Show More"
+    "Dashboard": "DashboardJP",
+    "ShowMore": "Show MoreJP"
   },
 
   "List": {
-    "Clubs": "Clubs",
-    "Teams": "Teams",
-    "Players": "Players"
+    "Clubs": "ClubsJP",
+    "Teams": "TeamsJP",
+    "Players": "PlayersJP"
   },
 
   "Login": {
@@ -37,56 +37,59 @@
   },
 
   "PlayerProfile": {
-    "PlayerProfile": "Player Profile",
-    "Age": "Age",
-    "Height": "Height",
-    "Weight": "Weight",
-    "Gender": "Gender",
-    "Teams": "Teams",
-    "Clubs": "Clubs",
-    "Biography": "Bio"
+    "PlayerProfile": "Player ProfileJP",
+    "Age": "AgeJP",
+    "Height": "HeightJP",
+    "Weight": "WeightJP",
+    "Gender": "GenderJP",
+    "Teams": "TeamsJP",
+    "Clubs": "ClubsJP",
+    "Biography": "BioJP"
   },
 
   "PlayersFollowed": {
-    "Players": "Players"
+    "Players": "PlayersJP"
   },
 
   "Post": {
-    "likes": "likes",
-    "SaveChanges": "Save Changes",
-    "Close": "Close",
-    "ShowMore": "Show More",
-    "Comment": "Comment"
+    "likes": "likesJP",
+    "SaveChanges": "Save ChangesJP",
+    "Close": "CloseJP",
+    "ShowMore": "Show MoreJP",
+    "Comment": "CommentJP"
   },
 
   "UserProfile": {
-    "UserProfile": "User Profile",
-    "Email": "Email",
-    "Following": "Following",
-    "SeeAll": "See all"
+    "UserProfile": "User ProfileJP",
+    "Email": "EmailJP",
+    "Following": "FollowingJP",
+    "SeeAll": "See allJP",
+    "Players": "PlayersJP",
+    "Teams": "TeamsJP",
+    "Clubs": "ClubsJP"
   },
 
   "Results": {
-    "Location": "Location",
-    "Age": "Age",
-    "AgeGroup": "Age Group"
+    "Location": "LocationJP",
+    "Age": "AgeJP",
+    "AgeGroup": "Age GroupJP"
   },
 
   "Search": {},
 
   "TeamProfile": {
-    "TeamProfile": "Team Profile",
-    "Club": "Club",
-    "AgeGroup": "Age Group",
-    "Type": "Type",
+    "TeamProfile": "Team ProfileJP",
+    "Club": "ClubJP",
+    "AgeGroup": "Age GroupJP",
+    "Type": "TypeJP",
     "Gender": "Gender",
-    "Description": "Description",
-    "Players": "Players",
-    "Posts": "Posts"
+    "Description": "DescriptionJP",
+    "Players": "PlayersJP",
+    "Posts": "PostsJP"
   },
 
   "TeamsFollowed": {
-    "TeamsFollowed": "Teams Followed"
+    "TeamsFollowed": "Teams FollowedJP"
   }
 
 }

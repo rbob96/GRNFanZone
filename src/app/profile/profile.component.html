@@ -61,7 +61,7 @@
               <div class="col-md-4 ">
 
                 <div class="list-group" *ngIf="followingTeams">
-                  <a class="list-group-item active lead text-center"> Teams<span class="badge badge-pill badge-info">{{noTeams}}</span></a>
+                  <a class="list-group-item active lead text-center"> {{"UserProfile.Teams" | translate}}<span class="badge badge-pill badge-info">{{noTeams}}</span></a>
                   <div *ngFor="let team of followingTeams | async; let i = index">
                     <div class="list-group-item list-group-item-action" *ngIf="i<10">
                     <a (click)="sendToTeam(team.id)"> {{team.name}} </a>
@@ -76,7 +76,7 @@
               </div>
               <div class="col-md-4 ">
                 <div class="list-group" *ngIf="followingPlayers">
-                  <a class="list-group-item active lead text-center"> Players<span class="badge badge-pill badge-info">{{noPlayers}}</span> </a>
+                  <a class="list-group-item active lead text-center"> {{"UserProfile.Players" | translate}}<span class="badge badge-pill badge-info">{{noPlayers}}</span> </a>
                   <div *ngFor="let player of followingPlayers | async; let i = index">
                     <div class="list-group-item list-group-item-action" *ngIf="i<10">
                     <a (click)="sendToPlayer(player.id)" > {{player.first_name + " " + player.last_name}} </a>
@@ -90,7 +90,7 @@
               </div>
               <div class="col-md-4 ">
                 <div class="list-group" *ngIf="followingClubs">
-                  <a class="list-group-item active lead text-center"> Clubs<span class="badge badge-pill badge-info">{{noClubs}}</span> </a>
+                  <a class="list-group-item active lead text-center"> {{"UserProfile.Clubs" | translate}}<span class="badge badge-pill badge-info">{{noClubs}}</span> </a>
                   <div *ngFor="let club of followingClubs | async; let i = index">
                     <div class="list-group-item list-group-item-action" *ngIf="i<10">
                     <a (click)="sendToClub(club.id)"> {{club.name}} </a>
