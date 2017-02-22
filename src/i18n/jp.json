@@ -1,10 +1,92 @@
 {
-  "LogInPage":{
-    "Title":"サインイン"
+
+  "Follow": "Follow",
+  "Unfollow": "Unfollow",
+  "Me": "Me",
+
+  "ClubProfile": {
+    "ClubProfile": "Club Profile",
+    "Description": "Description",
+    "Teams": "Teams",
+    "Posts": "Posts"
   },
-  "NavBar":{
-    "Dashboard":"計器盤",
-    "List":"名鑑",
-    "Logout":"ログアウト"
+
+  "ClubsFollowed": {
+    "Clubs": "Clubs"
+  },
+
+  "Dashboard": {
+    "Dashboard": "Dashboard",
+    "ShowMore": "Show More"
+  },
+
+  "List": {
+    "Clubs": "Clubs",
+    "Teams": "Teams",
+    "Players": "Players"
+  },
+
+  "Login": {
+    "Title": "サインイン"
+  },
+
+  "NavBar": {
+    "Dashboard": "計器盤",
+    "List": "名鑑",
+    "Logout": "ログアウト"
+  },
+
+  "PlayerProfile": {
+    "PlayerProfile": "Player Profile",
+    "Age": "Age",
+    "Height": "Height",
+    "Weight": "Weight",
+    "Gender": "Gender",
+    "Teams": "Teams",
+    "Clubs": "Clubs",
+    "Biography": "Bio"
+  },
+
+  "PlayersFollowed": {
+    "Players": "Players"
+  },
+
+  "Post": {
+    "likes": "likes",
+    "SaveChanges": "Save Changes",
+    "Close": "Close",
+    "ShowMore": "Show More",
+    "Comment": "Comment"
+  },
+
+  "UserProfile": {
+    "UserProfile": "User Profile",
+    "Email": "Email",
+    "Following": "Following",
+    "SeeAll": "See all"
+  },
+
+  "Results": {
+    "Location": "Location",
+    "Age": "Age",
+    "AgeGroup": "Age Group"
+  },
+
+  "Search": {},
+
+  "TeamProfile": {
+    "TeamProfile": "Team Profile",
+    "Club": "Club",
+    "AgeGroup": "Age Group",
+    "Type": "Type",
+    "Gender": "Gender",
+    "Description": "Description",
+    "Players": "Players",
+    "Posts": "Posts"
+  },
+
+  "TeamsFollowed": {
+    "TeamsFollowed": "Teams Followed"
   }
+
 }

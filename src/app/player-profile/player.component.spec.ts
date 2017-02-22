@@ -16,6 +16,7 @@ import {MockUserDataService, testUser} from '../../testing/mock.user-data.servic
 import {PostComponent} from '../post/post.component';
 import {MomentModule} from 'angular2-moment';
 import {FormsModule} from '@angular/forms';
+import {TranslateLoader, TranslateService, TranslateParser, TranslateModule} from 'ng2-translate';
 
 describe('PlayerComponent', () => {
   let component: PlayerComponent;
@@ -30,12 +31,16 @@ describe('PlayerComponent', () => {
         { provide: Router, useClass: RouterStub },
         { provide: ActivatedRoute, useValue: { 'params': Observable.from([{ 'id': 'h5m9PT4rgdSYDGzoyOLolYgUaUu1' }]) } },
         { provide: AngularFire, useClass: AngularFire },
-        { provide: UserDataService, useClass: MockUserDataService}
+        { provide: UserDataService, useClass: MockUserDataService},
+        TranslateLoader,
+        TranslateService,
+        TranslateParser
         ],
       imports: [
         AngularFireModule.initializeApp(firebaseConfig),
         MomentModule,
-        FormsModule
+        FormsModule,
+        TranslateModule
       ]
     })
     .compileComponents();
