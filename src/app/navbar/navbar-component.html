@@ -13,7 +13,6 @@
     <div class="collapse navbar-collapse" id="navbar-collapse-1">
       <app-search></app-search>
       <ul class="nav navbar-nav navbar-right" [hidden]="!authService.registered">
-        <li><a routerLink="/">{{"NavBar.Dashboard" | translate}}</a></li>
         <li><a routerLink="/list">{{"NavBar.List" | translate}}</a></li>
         <li>
           <a routerLink="/user/{{currentUser.uid}}">
