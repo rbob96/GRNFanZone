@@ -1,0 +1,96 @@
+{
+
+  "Follow": "Sekti",
+  "Unfollow": "Nustoti sekti",
+  "Me": "Aš",
+
+  "ClubProfile": {
+    "ClubProfile": "Klubo profilis",
+    "Description": "Aprašymas",
+    "Teams": "Komandos",
+    "Posts": "Įrašai"
+  },
+
+  "ClubsFollowed": {
+    "Clubs": "Klubai"
+  },
+
+  "Dashboard": {
+    "Dashboard": "Įrašų lenta",
+    "ShowMore": "Rodyti daugiau"
+  },
+
+  "List": {
+    "Clubs": "Klubai",
+    "Teams": "Komandos",
+    "Players": "Žaidėjai"
+  },
+
+  "Login": {
+    "Title":"Titulas"
+  },
+
+  "NavBar": {
+    "Dashboard":"Įrašų lenta",
+    "List":"Sąrašas",
+    "Logout":"Atsijungti"
+  },
+
+  "PlayerProfile": {
+    "PlayerProfile": "Žaidėjo profilis",
+    "Age": "Amžius",
+    "Height": "Ūgis",
+    "Weight": "Svoris",
+    "Gender": "Lytis",
+    "Teams": "Komandos",
+    "Clubs": "Klubai",
+    "Biography": "Biografija",
+    "Posts": "Įrašai"
+  },
+
+  "PlayersFollowed": {
+    "Players": "Žaidėjai"
+  },
+
+  "Post": {
+    "likes": "Teigiami įvertinimai",
+    "SaveChanges": "Išsaugoti pokyčius",
+    "Close": "Uždaryti",
+    "ShowMore": "Rodyti daugiau",
+    "Comment": "Komentuoti"
+  },
+
+  "UserProfile": {
+    "UserProfile": "Vartotojo profilis",
+    "Email": "Email",
+    "Following": "Sekami profiliai",
+    "SeeAll": "Rodyti visus",
+    "Players": "Žaidėjai",
+    "Teams": "Komandos",
+    "Clubs": "Klubai"
+  },
+
+  "Results": {
+    "Location": "Vieta",
+    "Age": "Amžius",
+    "AgeGroup": "Amžiaus grupė"
+  },
+
+  "Search": {},
+
+  "TeamProfile": {
+    "TeamProfile": "Komandos profilis",
+    "Club": "Klubas",
+    "AgeGroup": "Amžiaus grupė",
+    "Type": "Tipas",
+    "Gender": "Lytis",
+    "Description": "Aprašymas",
+    "Players": "Žaidėjai",
+    "Posts": "Įrašai"
+  },
+
+  "TeamsFollowed": {
+    "TeamsFollowed": "Sekamos komandos"
+  }
+
+}
