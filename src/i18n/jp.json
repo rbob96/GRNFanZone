@@ -1,0 +1,10 @@
+{
+  "LogInPage":{
+    "Title":"サインイン"
+  },
+  "NavBar":{
+    "Dashboard":"計器盤",
+    "List":"名鑑",
+    "Logout":"ログアウト"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "LogInPage":{
+    "Title":"Conectează-te"
+  },
+  "NavBar":{
+    "Dashboard":"Dashboard",
+    "List":"Listează",
+    "Logout":"Deconectare"
+  }
+}

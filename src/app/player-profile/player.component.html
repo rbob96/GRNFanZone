@@ -35,6 +35,7 @@
               <em> Teams:</em> <br>
               <br>
           <div *ngFor="let team of playerTeams">
+            <div *ngIf="(getTeam(team.$key))?.name != null">
             <div class="list-group-item list-group-item-action media">
               <div class="media-left">
                 <a href="#">
@@ -47,6 +48,7 @@
                 <button *ngIf="followTeams.indexOf((getTeam(team.$key))?.id) !== -1" (click)="unfollowTeam((getTeam(team.$key))?.id)" type="button" class="btn btn-sm btn-danger pull-right">Unfollow</button>
               </div>
             </div>
+          </div>
           </div>
           <br>
           <em> Clubs:</em> <br>
