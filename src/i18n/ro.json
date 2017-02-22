@@ -1,29 +1,29 @@
 {
 
-  "Follow": "FollowRO",
-  "Unfollow": "UnfollowRO",
-  "Me": "MeRO",
+  "Follow": "Urmărește",
+  "Unfollow": "Nu mai urmări",
+  "Me": "Eu",
 
   "ClubProfile": {
-    "ClubProfile": "Club ProfileRO",
-    "Description": "DescriptionRO",
-    "Teams": "TeamsRO",
-    "Posts": "PostsRO"
+    "ClubProfile": "Profilul Clubului",
+    "Description": "Descriere",
+    "Teams": "Echipe",
+    "Posts": "Postări"
   },
 
   "ClubsFollowed": {
-    "Clubs": "ClubsRO"
+    "Clubs": "Cluburi"
   },
 
   "Dashboard": {
-    "Dashboard": "DashboardRO",
-    "ShowMore": "Show MoreRO"
+    "Dashboard": "Dashboard",
+    "ShowMore": "Mai multe"
   },
 
   "List": {
-    "Clubs": "ClubsRO",
-    "Teams": "TeamsRO",
-    "Players": "PlayersRO"
+    "Clubs": "Cluburi",
+    "Teams": "Echipe",
+    "Players": "Jucători"
   },
 
   "Login": {
@@ -37,59 +37,60 @@
   },
 
   "PlayerProfile": {
-    "PlayerProfile": "Player ProfileRO",
-    "Age": "AgeRO",
-    "Height": "HeightRO",
-    "Weight": "WeightRO",
-    "Gender": "GenderRO",
-    "Teams": "TeamsRO",
-    "Clubs": "ClubsRO",
-    "Biography": "BioRO"
+    "PlayerProfile": "Profilul Jucătorului",
+    "Age": "Vârstă",
+    "Height": "Înălțime",
+    "Weight": "Greutate",
+    "Gender": "Gen",
+    "Teams": "Echipe",
+    "Clubs": "Cluburi",
+    "Biography": "Biografie",
+    "Posts": "Postări"
   },
 
   "PlayersFollowed": {
-    "Players": "PlayersRO"
+    "Players": "Jucători"
   },
 
   "Post": {
-    "likes": "likesRO",
-    "SaveChanges": "Save ChangesRO",
-    "Close": "CloseRO",
-    "ShowMore": "Show MoreRO",
-    "Comment": "CommentRO"
+    "likes": "aprecieri",
+    "SaveChanges": "Salvează Schimbări",
+    "Close": "Închide",
+    "ShowMore": "Mai multe",
+    "Comment": "Comentează"
   },
 
   "UserProfile": {
-    "UserProfile": "User ProfileRO",
-    "Email": "EmailRO",
-    "Following": "FollowingRO",
-    "SeeAll": "See allRO",
-    "Players": "PlayersRO",
-    "Teams": "TeamsRO",
-    "Clubs": "ClubsRO"
+    "UserProfile": "Profilul Utilizatorului",
+    "Email": "Email",
+    "Following": "Urmărește",
+    "SeeAll": "Vezi tot",
+    "Players": "Jucători",
+    "Teams": "Echipe",
+    "Clubs": "Cluburi"
   },
 
   "Results": {
-    "Location": "LocationRO",
-    "Age": "AgeRO",
-    "AgeGroup": "Age GroupRO"
+    "Location": "Locație",
+    "Age": "Vârstă",
+    "AgeGroup": "Grup de vârstă"
   },
 
   "Search": {},
 
   "TeamProfile": {
-    "TeamProfile": "Team ProfileRO",
-    "Club": "ClubRO",
-    "AgeGroup": "Age GroupRO",
-    "Type": "TypeRO",
-    "Gender": "GenderRO",
-    "Description": "DescriptionRO",
-    "Players": "PlayersRO",
-    "Posts": "PostsRO"
+    "TeamProfile": "Profilul Echipei",
+    "Club": "Club",
+    "AgeGroup": "Grup de vârstă",
+    "Type": "Tip",
+    "Gender": "Gen",
+    "Description": "Descriere",
+    "Players": "Jucători",
+    "Posts": "Postări"
   },
 
   "TeamsFollowed": {
-    "TeamsFollowed": "Teams FollowedRO"
+    "TeamsFollowed": "Echipe Urmărite"
   }
 
 }
