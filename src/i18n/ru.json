@@ -1,0 +1,96 @@
+{
+
+  "Follow": "Подписаться",
+  "Unfollow": "Отписаться",
+  "Me": "Это я",
+
+  "ClubProfile": {
+    "ClubProfile": "Профиль клуба",
+    "Description": "Описание",
+    "Teams": "Команды",
+    "Posts": "Публикации"
+  },
+
+  "ClubsFollowed": {
+    "Clubs": "Клубы"
+  },
+
+  "Dashboard": {
+    "Dashboard": "Лента",
+    "ShowMore": "Показать больше"
+  },
+
+  "List": {
+    "Clubs": "Клубы",
+    "Teams": "Команды",
+    "Players": "Игроки"
+  },
+
+  "Login": {
+    "Title": "Вход"
+  },
+
+  "NavBar": {
+    "Dashboard": "Лента",
+    "List": "Список",
+    "Logout": "Выйти"
+  },
+
+  "PlayerProfile": {
+    "PlayerProfile": "Профиль игрока",
+    "Age": "Возраст",
+    "Height": "Рост",
+    "Weight": "Вес",
+    "Gender": "Пол",
+    "Teams": "Команды",
+    "Clubs": "Клубы",
+    "Biography": "Биография",
+    "Posts": "Публикации"
+  },
+
+  "PlayersFollowed": {
+    "Players": "Игроки"
+  },
+
+  "Post": {
+    "likes": "\"нравится\"",
+    "SaveChanges": "Сохранить изменения",
+    "Close": "Закрыть",
+    "ShowMore": "Показать больше",
+    "Comment": "Комментировать"
+  },
+
+  "UserProfile": {
+    "UserProfile": "Профиль пользователя",
+    "Email": "Эл. почта",
+    "Following": "Подписки",
+    "SeeAll": "Просмотреть все",
+    "Players": "Игроки",
+    "Teams": "Команды",
+    "Clubs": "Клубы"
+  },
+
+  "Results": {
+    "Location": "Местонахождение",
+    "Age": "Возраст",
+    "AgeGroup": "Возрастная группа"
+  },
+
+  "Search": {},
+
+  "TeamProfile": {
+    "TeamProfile": "Профиль команды",
+    "Club": "Клуб",
+    "AgeGroup": "Возрастная группа",
+    "Type": "Тип",
+    "Gender": "Пол",
+    "Description": "Описание",
+    "Players": "Игроки",
+    "Posts": "Публикации"
+  },
+
+  "TeamsFollowed": {
+    "TeamsFollowed": "Команды"
+  }
+
+}
