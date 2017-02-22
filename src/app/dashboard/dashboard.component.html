@@ -1,7 +1,7 @@
 
 <br>
 <div style="text-align:center">
-  <h1>Dashboard</h1>
+  <h1>{{"Dashboard.Dashboard" | translate}}</h1>
 </div>
 <hr>
 <br>
@@ -10,7 +10,7 @@
 <div class="row">
     <div class="col-md-12 text-center">
 		<button *ngIf="(this.shownPostAmount != this.posts.length)" type="button"
-            class="btn btn-info btn-sm" (click)="showMore()">Show more
+            class="btn btn-info btn-sm" (click)="showMore()">{{"Dashboard.ShowMore" | translate}}
         </button>
     </div>
 </div>

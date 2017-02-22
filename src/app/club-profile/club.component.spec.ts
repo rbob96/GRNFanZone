@@ -2,6 +2,8 @@
 import {async, ComponentFixture, TestBed, inject} from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
+import {TranslateModule, TranslateLoader, TranslateService, TranslateParser} from 'ng2-translate';
+
 
 import {ClubComponent} from './club.component';
 
@@ -30,12 +32,16 @@ describe('ClubComponent', () => {
         { provide: Router, useClass: RouterStub },
         { provide: ActivatedRoute, useValue: { 'params': Observable.from([{ 'id': 'h5m9PT4rgdSYDGzoyOLolYgUaUu1' }]) } },
         { provide: AngularFire, useClass: AngularFire },
-        { provide: UserDataService, useClass: MockUserDataService}
+        { provide: UserDataService, useClass: MockUserDataService},
+        TranslateLoader,
+        TranslateService,
+        TranslateParser
         ],
       imports: [
         AngularFireModule.initializeApp(firebaseConfig),
         MomentModule,
-        FormsModule
+        FormsModule,
+        TranslateModule
       ]
     })
     .compileComponents();

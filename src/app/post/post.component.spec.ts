@@ -13,6 +13,7 @@ import {AuthService} from '../services/auth.service';
 import {RouterStub} from '../../testing/router-stubs';
 import {Router} from '@angular/router';
 import {PostDataService} from '../services/post-data.service';
+import {TranslateParser, TranslateLoader, TranslateService, TranslateModule} from 'ng2-translate';
 
 describe('PostComponent', () => {
   let component: PostComponent;
@@ -27,12 +28,16 @@ describe('PostComponent', () => {
         { provide : AngularFire, useClass: AngularFire },
         { provide: AuthService, useClass: AuthService },
         { provide: Router, useClass: RouterStub },
-        { provide: PostDataService, useClass: PostDataService }
+        { provide: PostDataService, useClass: PostDataService },
+        TranslateLoader,
+        TranslateService,
+        TranslateParser
       ],
       imports: [
         AngularFireModule.initializeApp(firebaseConfig),
         MomentModule,
-        FormsModule
+        FormsModule,
+        TranslateModule
       ]
     })
     .compileComponents();

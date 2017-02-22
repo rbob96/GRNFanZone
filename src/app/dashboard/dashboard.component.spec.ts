@@ -12,6 +12,7 @@ import {firebaseConfig} from '../app.module';
 import { DashboardComponent } from './dashboard.component';
 import {PostDataService} from '../services/post-data.service';
 import {PostComponent} from '../post/post.component';
+import {TranslateLoader, TranslateService, TranslateParser, TranslateModule} from 'ng2-translate';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -27,12 +28,16 @@ describe('DashboardComponent', () => {
         { provide : AngularFire, useClass: AngularFire },
         { provide: AuthService, useClass: AuthService},
         { provide: Router, useClass: RouterStub },
-        { provide: PostDataService, useClass: PostDataService}
+        { provide: PostDataService, useClass: PostDataService},
+        TranslateLoader,
+        TranslateService,
+        TranslateParser
         ],
         imports: [
           AngularFireModule.initializeApp(firebaseConfig),
           MomentModule,
-          FormsModule
+          FormsModule,
+          TranslateModule
       ]
     })
     .compileComponents();

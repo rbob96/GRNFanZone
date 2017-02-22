@@ -5,10 +5,10 @@
 
       <div class="row">
         <div class="col-md-12 lead">
-          Team Profile
+          {{"TeamProfile.TeamProfile"| translate}}
 
-          <button *ngIf="!userFollowing" (click)="followTeam()" type="button" class="btn btn-sm btn-primary pull-right">Follow</button>
-          <button *ngIf="userFollowing" (click)="unfollowTeam()" type="button" class="btn btn-sm btn-danger pull-right">Unfollow</button>
+          <button *ngIf="!userFollowing" (click)="followTeam()" type="button" class="btn btn-sm btn-primary pull-right">{{"Follow"| translate}}</button>
+          <button *ngIf="userFollowing" (click)="unfollowTeam()" type="button" class="btn btn-sm btn-danger pull-right">{{"Unfollow"| translate}}</button>
 
           <hr>
         </div>
@@ -28,10 +28,10 @@
             <div class="media-body">
               <h3 class="media-heading">{{(teamData | async)?.name}}</h3>
 
-              <em>Club:</em> <a (click)="sendToClub(clubId)">{{(clubData | async)?.name}}</a><br>
-              <em>Age group:</em> {{(teamData | async)?.age_group}}<br>
-              <em>Type:</em> {{(teamData | async)?.type}}<br>
-              <em>Gender:</em> {{(teamData | async)?.gender}}<br>
+              <em>{{"TeamProfile.Club"| translate}}:</em> <a (click)="sendToClub(clubId)">{{(clubData | async)?.name}}</a><br>
+              <em>{{"TeamProfile.AgeGroup"| translate}}:</em> {{(teamData | async)?.age_group}}<br>
+              <em>{{"TeamProfile.Type"| translate}}:</em> {{(teamData | async)?.type}}<br>
+              <em>{{"TeamProfile.Gender"| translate}}:</em> {{(teamData | async)?.gender}}<br>
 
             </div>
           </div>
@@ -45,7 +45,7 @@
 
       <div class="row">
         <div class ="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
-          <h4>Description:</h4>
+          <h4>{{"TeamProfile.Description"| translate}}:</h4>
           {{(teamData | async)?.description}}
         </div>
       </div>
@@ -55,7 +55,7 @@
 
       <div class="row">
         <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
-          <h4>Players:</h4>
+          <h4>{{"TeamProfile.Players"| translate}}:</h4>
         </div>
       </div>
 
@@ -70,8 +70,8 @@
               </div>
               <div class="media-body">
                 <a (click)="sendToPlayer(player.id)">{{player.first_name + " " + player.last_name}}</a>
-                <button *ngIf="follows.indexOf(player.id) === -1" (click)="followPlayer(player.id)" type="button" class="btn btn-sm btn-primary pull-right">Follow</button>
-                <button *ngIf="follows.indexOf(player.id) !== -1" (click)="unfollowPlayer(player.id)" type="button" class="btn btn-sm btn-danger pull-right">Unfollow</button>
+                <button *ngIf="follows.indexOf(player.id) === -1" (click)="followPlayer(player.id)" type="button" class="btn btn-sm btn-primary pull-right">{{"Follow"| translate}}</button>
+                <button *ngIf="follows.indexOf(player.id) !== -1" (click)="unfollowPlayer(player.id)" type="button" class="btn btn-sm btn-danger pull-right">{{"Unfollow"| translate}}</button>
               </div>
             </div>
           </div>
@@ -83,7 +83,7 @@
 
       <div class="row">
         <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
-          <h4>Posts:</h4>
+          <h4>{{"TeamProfile.Posts"| translate}}:</h4>
         </div>
       </div>
 

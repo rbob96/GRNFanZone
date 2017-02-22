@@ -28,7 +28,7 @@
 
           <div class="row">
             <div class="col-sm-12">
-              <b>{{likes.length}} likes</b>
+              <b>{{likes.length}} {{"Post.likes" | translate}}</b>
 
               <button *ngIf="likes.indexOf(currentUserId) !== -1" type="button"
                       class="btn btn-primary pull-right btn-sm" (click)="likeToggle(currentUserId)">
@@ -55,7 +55,7 @@
                 <div class="media-body">
 
                   <strong class="media-heading">{{postComment.author_name}}
-                    <span class="badge badge-success" *ngIf="currentUserId === postComment.author">Me</span>
+                    <span class="badge badge-success" *ngIf="currentUserId === postComment.author">{{"Me" | translate}}</span>
                   </strong>
 
                   <div *ngIf="currentUserId === postComment.author" class="btn-group pull-right" role="group"
@@ -76,14 +76,14 @@
                             <h4 class="modal-title">{{editComment.author_name}}</h4>
                           </div>
                           <div class="modal-body">
-                            <label for="comment">Comment:</label>
+                            <label for="comment">{{"Post.Comment" | translate}}:</label>
                             <textarea class="form-control" id="comment" [(ngModel)]="editedText"></textarea>
                           </div>
                           <div class="modal-footer">
                             <button type="button" class="btn btn-success" data-dismiss="modal"
-                                    (click)="updateComment()">Save Changes
+                                    (click)="updateComment()">{{"Post.SaveChanges" | translate}}
                             </button>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">{{"Post.Close" | translate}}</button>
                           </div>
                         </div>
 
@@ -113,7 +113,7 @@
           <div class="row">
             <div class="col-md-12">
               <button *ngIf="(this.showBtn.length > 2) && (this.currentComLen != this.showBtn.length)" type="button"
-                      class="btn btn-info btn-sm" (click)="showMore(2)">Show more
+                      class="btn btn-info btn-sm" (click)="showMore(2)">{{"Post.ShowMore" | translate}}
               </button>
             </div>
           </div>
@@ -123,7 +123,7 @@
 
 
           <div class="input-group">
-            <input [(ngModel)]="newComment" class="form-control" type="text" placeholder="Comment..."/>
+            <input [(ngModel)]="newComment" class="form-control" type="text" placeholder="{{'Post.Comment' | translate}}..."/>
             <span class="input-group-btn">
               <button [disabled]="newComment === ''" type="button" class="btn btn-success"
                       (click)="addComment()">

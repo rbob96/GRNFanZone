@@ -1,10 +1,95 @@
 {
-  "LogInPage":{
+
+  "Follow": "FollowRO",
+  "Unfollow": "UnfollowRO",
+  "Me": "MeRO",
+
+  "ClubProfile": {
+    "ClubProfile": "Club ProfileRO",
+    "Description": "DescriptionRO",
+    "Teams": "TeamsRO",
+    "Posts": "PostsRO"
+  },
+
+  "ClubsFollowed": {
+    "Clubs": "ClubsRO"
+  },
+
+  "Dashboard": {
+    "Dashboard": "DashboardRO",
+    "ShowMore": "Show MoreRO"
+  },
+
+  "List": {
+    "Clubs": "ClubsRO",
+    "Teams": "TeamsRO",
+    "Players": "PlayersRO"
+  },
+
+  "Login": {
     "Title":"Conectează-te"
   },
-  "NavBar":{
+
+  "NavBar": {
     "Dashboard":"Dashboard",
     "List":"Listează",
     "Logout":"Deconectare"
+  },
+
+  "PlayerProfile": {
+    "PlayerProfile": "Player ProfileRO",
+    "Age": "AgeRO",
+    "Height": "HeightRO",
+    "Weight": "WeightRO",
+    "Gender": "GenderRO",
+    "Teams": "TeamsRO",
+    "Clubs": "ClubsRO",
+    "Biography": "BioRO"
+  },
+
+  "PlayersFollowed": {
+    "Players": "PlayersRO"
+  },
+
+  "Post": {
+    "likes": "likesRO",
+    "SaveChanges": "Save ChangesRO",
+    "Close": "CloseRO",
+    "ShowMore": "Show MoreRO",
+    "Comment": "CommentRO"
+  },
+
+  "UserProfile": {
+    "UserProfile": "User ProfileRO",
+    "Email": "EmailRO",
+    "Following": "FollowingRO",
+    "SeeAll": "See allRO",
+    "Players": "PlayersRO",
+    "Teams": "TeamsRO",
+    "Clubs": "ClubsRO"
+  },
+
+  "Results": {
+    "Location": "LocationRO",
+    "Age": "AgeRO",
+    "AgeGroup": "Age GroupRO"
+  },
+
+  "Search": {},
+
+  "TeamProfile": {
+    "TeamProfile": "Team ProfileRO",
+    "Club": "ClubRO",
+    "AgeGroup": "Age GroupRO",
+    "Type": "TypeRO",
+    "Gender": "GenderRO",
+    "Description": "DescriptionRO",
+    "Players": "PlayersRO",
+    "Posts": "PostsRO"
+  },
+
+  "TeamsFollowed": {
+    "TeamsFollowed": "Teams FollowedRO"
   }
+
 }

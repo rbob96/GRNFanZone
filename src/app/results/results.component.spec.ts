@@ -9,6 +9,7 @@ import {RouterStub} from '../../testing/router-stubs';
 import {Observable} from 'rxjs';
 import {AngularFire, AngularFireModule} from 'angularfire2';
 import {firebaseConfig} from '../app.module';
+import {TranslateLoader, TranslateService, TranslateParser, TranslateModule} from 'ng2-translate';
 
 describe('ResultsComponent', () => {
   let component: ResultsComponent;
@@ -22,10 +23,14 @@ describe('ResultsComponent', () => {
       providers: [
         { provide: Router, useClass: RouterStub },
         { provide: ActivatedRoute, useValue: { 'params': Observable.from([{ 'query': 'Hopkins' }]) } },
-        {provide: AngularFire, useClass: AngularFire}
+        {provide: AngularFire, useClass: AngularFire},
+        TranslateLoader,
+        TranslateService,
+        TranslateParser
       ],
       imports: [
-        AngularFireModule.initializeApp(firebaseConfig)
+        AngularFireModule.initializeApp(firebaseConfig),
+        TranslateModule
       ]
     })
     .compileComponents();

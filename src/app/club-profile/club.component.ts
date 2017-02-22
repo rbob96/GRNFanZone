@@ -5,6 +5,8 @@ import {Router, ActivatedRoute} from '@angular/router';
 import {AngularFire} from 'angularfire2';
 import {UserDataService} from '../services/user-data.service';
 import {User} from '../user';
+import {TranslateService} from 'ng2-translate';
+
 
 
 @Component({
