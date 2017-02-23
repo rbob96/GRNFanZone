@@ -54,6 +54,7 @@
 
   "Post": {
     "likes": "likes",
+    "like": "like",
     "SaveChanges": "Save Changes",
     "Close": "Close",
     "ShowMore": "Show More",
