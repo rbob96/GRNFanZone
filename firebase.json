@@ -11,7 +11,8 @@
           ".read": "auth != null",
           ".write": "$uid === auth.uid"
         },
-        ".indexOn": "name"
+        ".indexOn": "name",
+        ".read": true
       },
       "players": {
         ".indexOn": "first_name",

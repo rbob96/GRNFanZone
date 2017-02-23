@@ -72,4 +72,20 @@ export class ResultsComponent implements OnInit {
       });
     });
   }
+
+  public sendToClub (uid: string) {
+    this.router.navigate(['/club/' + uid]);
+  }
+
+  public sendToTeam (uid: string) {
+    this.router.navigate(['/team/' + uid]);
+  }
+
+  public sendToPlayer (uid: string) {
+    this.router.navigate(['/player/' + uid]);
+  }
+
+  public sendToUser (uid: string) {
+    this.router.navigate(['/user/' + uid]);
+  }
 }
