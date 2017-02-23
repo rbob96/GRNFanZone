@@ -2,7 +2,9 @@
   <div *ngFor="let player of players" class="col-sm-3 col-md-offset-1 col-md-5 col-md-offset-1 col-lg-5 col-lg-offset-1">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">{{player.first_name}} {{player.last_name}}</h3>
+        <a (click)="sendToPlayer(player.id)">
+          <h3 class="panel-title">{{player.first_name}} {{player.last_name}}</h3>
+        </a>
       </div>
 
       <div class="panel-body">
@@ -22,7 +24,9 @@
   <div *ngFor="let team of teams" class="col-md-5 col-md-offset-1">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">{{team.name}}</h3>
+        <a (click)="sendToTeam(team.id)">
+          <h3 class="panel-title">{{team.name}}</h3>
+        </a>
       </div>
       <div class="panel-body">
         <div class="col-md-4">
@@ -41,7 +45,9 @@
   <div *ngFor="let user of users" class="col-md-5 col-md-offset-1">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">{{user.name}}</h3>
+        <a (click)="sendToUser(user.$key)">
+          <h3 class="panel-title">{{user.name}}</h3>
+        </a>
       </div>
       <div class="panel-body">
         <div class="col-md-4">
@@ -50,10 +56,13 @@
       </div>
     </div>
   </div>
+
   <div *ngFor="let club of clubs" class="col-md-5 col-md-offset-1">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">{{club.name}}</h3>
+        <a (click)="sendToClub(club.id)">
+          <h3 class="panel-title">{{club.name}}</h3>
+        </a>
       </div>
       <div class="panel-body">
         <div class="col-md-4">
