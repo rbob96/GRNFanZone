@@ -1,26 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Players Followed</title>
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" rel="stylesheet"/>
-  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-  <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
-  <script src="https://npmcdn.com/bootstrap@4.0.0-alpha.5/dist/js/bootstrap.min.js"></script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7" />
-</head>
-<body>
-  <div class="container-fluid">
-    <div class="list-group">
-      <a class="list-group-item active lead text-center"> {{"PlayersFollowed.Players" | translate}} </a>
-      <div *ngFor="let player of followingPlayers | async" class="list-group-item list-group-item-action">
-        <div class="row">
+<div class="container-fluid">
+  <div class="list-group">
+    <a class="list-group-item active lead text-center"> {{"PlayersFollowed.Players" | translate}} </a>
+    <div *ngFor="let player of followingPlayers | async" class="list-group-item list-group-item-action">
+      <div class="row">
         <a (click)="sendToPlayer(player.id)"> {{player.first_name + " " + player.last_name}} </a>
         <button *ngIf="currentUser === userId" type="button" class="btn btn-primary btn-xs btn-danger pull-right" (click)="unfollowPlayer(player.id)">{{"Unfollow" | translate}}</button>
       </div>
-      </div>
     </div>
   </div>
-</body>
-</html>
+</div>
