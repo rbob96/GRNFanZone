@@ -45,7 +45,7 @@
   <div *ngFor="let user of users" class="col-md-5 col-md-offset-1">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <a (click)="sendToUser(user.id)">
+        <a (click)="sendToUser(user.$key)">
           <h3 class="panel-title">{{user.name}}</h3>
         </a>
       </div>
