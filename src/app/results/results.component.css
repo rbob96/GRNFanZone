@@ -1,0 +1,13 @@
+.panel {
+  height: auto;
+  width: 400px;
+}
+
+img {
+  height: 4em;
+  width: 4em;
+}
+
+.clearfix {
+  clear: left;
+}

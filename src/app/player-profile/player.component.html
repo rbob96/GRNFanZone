@@ -5,10 +5,10 @@
 
       <div class="row">
         <div class="col-md-12 lead">
-          Player Profile
+          {{"PlayerProfile.PlayerProfile" | translate}}
 
-          <button *ngIf="!userFollowing" (click)="followPlayer()" type="button" class="btn btn-sm btn-primary pull-right">Follow</button>
-          <button *ngIf="userFollowing" (click)="unfollowPlayer()" type="button" class="btn btn-sm btn-danger pull-right">Unfollow</button>
+          <button *ngIf="!userFollowing" (click)="followPlayer()" type="button" class="btn btn-sm btn-primary pull-right">{{"Follow" | translate}}</button>
+          <button *ngIf="userFollowing" (click)="unfollowPlayer()" type="button" class="btn btn-sm btn-danger pull-right">{{"Unfollow" | translate}}</button>
 
           <hr>
         </div>
@@ -28,24 +28,58 @@
             <div class="media-body">
               <h3 class="media-heading">{{(playerData | async)?.first_name}} {{(playerData | async)?.last_name}}</h3>
 
-              <em> Age:</em> {{(playerData | async)?.age}} <br>
-              <em> Height:</em> {{(playerData | async)?.height}}cm <br>
-              <em> Weight:</em> {{(playerData | async)?.weight}}kg <br>
-              <em> Gender:</em> {{(playerData | async)?.gender}} <br>
-
+              <em> {{"PlayerProfile.Age" | translate}}:</em> {{(playerData | async)?.age}} <br>
+              <em> {{"PlayerProfile.Height" | translate}}:</em> {{(playerData | async)?.height}}cm <br>
+              <em> {{"PlayerProfile.Weight" | translate}}:</em> {{(playerData | async)?.weight}}kg <br>
+              <em> {{"PlayerProfile.Gender" | translate}}:</em> {{(playerData | async)?.gender}} <br>
+              <em> {{"PlayerProfile.Teams" | translate}}:</em> <br>
+              <br>
+          <div *ngFor="let team of playerTeams">
+            <div *ngIf="(getTeam(team.$key))?.name != null">
+            <div class="list-group-item list-group-item-action media">
+              <div class="media-left">
+                <a href="#">
+                  <img class="team-image" src="{{(getTeam(team.$key))?.avatar}}" alt="{{(getTeam(team.$key))?.name}}">
+                </a>
+              </div>
+              <div class="media-body">
+                <a (click)="sendToTeam(team.$key)">{{(getTeam(team.$key))?.name}}</a>
+                <button *ngIf="followTeams.indexOf((getTeam(team.$key))?.id) === -1" (click)="followTeam((getTeam(team.$key))?.id)" type="button" class="btn btn-sm btn-primary pull-right">{{"Follow" | translate}}</button>
+                <button *ngIf="followTeams.indexOf((getTeam(team.$key))?.id) !== -1" (click)="unfollowTeam((getTeam(team.$key))?.id)" type="button" class="btn btn-sm btn-danger pull-right">{{"Unfollow" | translate}}</button>
+              </div>
             </div>
           </div>
-
-        </div>
-
+          </div>
+          <br>
+          <em> {{"PlayerProfile.Clubs" | translate}}:</em> <br>
+          <br>
+          <div *ngFor="let team of playerTeams">
+            <div *ngIf="(getClub(team.$key))?.name != null"> <!--- only display if the team belongs to a club --->
+            <div class="list-group-item list-group-item-action media">
+              <div class="media-left">
+                <a href="#">
+                  <img class="team-image" src="{{(getClub(team.$key))?.avatar}}" alt="{{(getClub(team.$key))?.name}}">
+                </a>
+              </div>
+              <div class="media-body">
+                <a (click)="sendToClub(getClub(team.$key)?.id)">{{(getClub(team.$key))?.name}}</a>
+                <button *ngIf="followClubs.indexOf((getClub(team.$key))?.id) === -1" (click)="followClub((getClub(team.$key))?.id)" type="button" class="btn btn-sm btn-primary pull-right">{{"Follow" | translate}}</button>
+                <button *ngIf="followClubs.indexOf((getClub(team.$key))?.id) !== -1" (click)="unfollowClub((getClub(team.$key))?.id)" type="button" class="btn btn-sm btn-danger pull-right">{{"Unfollow" | translate}}</button>
+              </div>
+            </div>
+            </div>
+          </div>
+      </div>
       </div>
 
+</div>
+</div>
       <br>
       <hr>
 
       <div class="row">
         <div class ="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
-          <h4>Bio:</h4>
+          <h4>{{"PlayerProfile.Biography" | translate}}:</h4>
           {{(playerData | async)?.bio}}
         </div>
       </div>
@@ -55,7 +89,7 @@
 
       <div class="row">
         <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
-          <h4>Posts:</h4>
+          <h4>{{"PlayerProfile.Posts" | translate}}:</h4>
         </div>
       </div>
 
@@ -68,4 +102,3 @@
     </div>
   </div>
 </div>
-

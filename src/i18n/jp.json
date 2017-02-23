@@ -1,0 +1,96 @@
+{
+
+  "Follow": "フォローする",
+  "Unfollow": "フォロー中",
+  "Me": "私",
+
+  "ClubProfile": {
+    "ClubProfile": "クラブプロフィール",
+    "Description": "説明",
+    "Teams": "チーム",
+    "Posts": "投稿"
+  },
+
+  "ClubsFollowed": {
+    "Clubs": "クラブ"
+  },
+
+  "Dashboard": {
+    "Dashboard": "ニュースフィード",
+    "ShowMore": "もっと見る"
+  },
+
+  "List": {
+    "Clubs": "クラブ",
+    "Teams": "チーム",
+    "Players": "選手"
+  },
+
+  "Login": {
+    "Title": "サインイン"
+  },
+
+  "NavBar": {
+    "Dashboard": "ニュースフィード",
+    "List": "名鑑",
+    "Logout": "ログアウト"
+  },
+
+  "PlayerProfile": {
+    "PlayerProfile": "選手のプロフィール",
+    "Age": "年齢",
+    "Height": "高さ",
+    "Weight": "重さ",
+    "Gender": "ジェンダー",
+    "Teams": "チーム",
+    "Clubs": "クラブ",
+    "Biography": "伝記",
+    "Posts":"投稿"
+  },
+
+  "PlayersFollowed": {
+    "Players": "選手"
+  },
+
+  "Post": {
+    "likes": "ライク",
+    "SaveChanges": "変更を保存",
+    "Close": "閉じる",
+    "ShowMore": "もっと見る",
+    "Comment": "コメントする"
+  },
+
+  "UserProfile": {
+    "UserProfile": "ユーザープロフィール",
+    "Email": "Eメール",
+    "Following": "フォロー",
+    "SeeAll": "すべて見る",
+    "Players": "選手",
+    "Teams": "チーム",
+    "Clubs": "クラブ"
+  },
+
+  "Results": {
+    "Location": "ロケーション",
+    "Age": "年齢",
+    "AgeGroup": "年齢層"
+  },
+
+  "Search": {},
+
+  "TeamProfile": {
+    "TeamProfile": "チームプロフィール",
+    "Club": "クラブ",
+    "AgeGroup": "年齢層",
+    "Type": "タイプ",
+    "Gender": "ジェンダー",
+    "Description": "説明",
+    "Players": "選手",
+    "Posts": "投稿"
+  },
+
+  "TeamsFollowed": {
+    "TeamsFollowed": "チームフォロー"
+  }
+
+}

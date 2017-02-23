@@ -1,0 +1,93 @@
+<div class="container-fluid">
+
+  <div class="panel panel-default">
+    <div class="panel-body">
+
+      <div class="row">
+        <div class="col-md-12 lead">
+          {{"ClubProfile.ClubProfile" | translate}}
+
+          <button *ngIf="!userFollowing" (click)="followClub()" type="button" class="btn btn-sm btn-primary pull-right">{{"Follow" | translate}}</button>
+          <button *ngIf="userFollowing" (click)="unfollowClub()" type="button" class="btn btn-sm btn-danger pull-right">{{"Unfollow" | translate}}</button>
+
+          <hr>
+        </div>
+      </div>
+
+      <div class="row">
+
+        <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
+
+          <div class="media">
+            <div class="media-left">
+              <a href="#">
+                <img class="media-object img-circle avatar avatar-original" src="{{(clubData | async)?.avatar}}"
+                     alt="{{(clubData | async)?.name}}">
+              </a>
+            </div>
+            <div class="media-body">
+              <h3 class="media-heading">{{(clubData | async)?.name}}</h3>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <br>
+      <hr>
+
+      <div class="row">
+        <div class ="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+          <h4>{{"ClubProfile.Description" | translate}}:</h4>
+          {{(clubData | async)?.description}}
+        </div>
+      </div>
+
+      <br>
+      <hr>
+
+      <div class="row">
+        <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+          <h4>{{"ClubProfile.Teams" | translate}}:</h4>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+          <div *ngFor="let team of clubTeams">
+            <div class="list-group-item list-group-item-action media">
+              <div class="media-left">
+                <a href="#">
+                  <img class="team-image" src="{{team.avatar}}" alt="{{team.name}}">
+                </a>
+              </div>
+              <div class="media-body">
+                <a (click)="sendToTeam(team.id)">{{team.name}}</a>
+                <button *ngIf="follows.indexOf(team.id) === -1" (click)="followTeam(team.id)" type="button" class="btn btn-sm btn-primary pull-right">{{"Follow" | translate}}</button>
+                <button *ngIf="follows.indexOf(team.id) !== -1" (click)="unfollowTeam(team.id)" type="button" class="btn btn-sm btn-danger pull-right">{{"Unfollow" | translate}}</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br>
+      <hr>
+
+      <div class="row">
+        <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+          <h4>{{"ClubProfile.Posts" | translate}}:</h4>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          <app-post *ngFor="let post of clubPosts " [post]="post"></app-post>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+

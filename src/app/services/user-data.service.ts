@@ -65,7 +65,7 @@ export class UserDataService {
 
   public followTeam (userID: string, teamID: string) {
 
-    this.af.database.object('/teams/' + teamID).first().toPromise().then(team => {
+    this.af.database.object('/teams/' + teamID).subscribe(team => {
 
       const followed = this.af.database.object('/users/' + userID + '/teams_followed/' + teamID);
       followed.set({
@@ -89,7 +89,7 @@ export class UserDataService {
 
   public followClub (userID: string, clubID: string) {
 
-    this.af.database.object('/clubs/' + clubID).first().toPromise().then(club => {
+    this.af.database.object('/clubs/' + clubID).subscribe(club => {
       const followed = this.af.database.object('/users/' + userID + '/clubs_followed/' + clubID);
       followed.set({
         name: club.name,

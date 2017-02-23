@@ -15,6 +15,7 @@ import {AngularFire, AngularFireModule} from 'angularfire2';
 import {MockAuthService} from '../../testing/mock.auth.service';
 import {AuthService} from '../services/auth.service';
 import {MockUserDataService, testUser} from '../../testing/mock.user-data.service';
+import {TranslateLoader, TranslateService, TranslateParser, TranslateModule} from 'ng2-translate';
 
 describe('ProfileComponent', () => {
   let component: ProfileComponent;
@@ -29,10 +30,14 @@ describe('ProfileComponent', () => {
         { provide: ActivatedRoute, useValue: { 'params': Observable.from([{ 'id': 'h5m9PT4rgdSYDGzoyOLolYgUaUu1' }]) } },
         { provide: UserDataService, useClass: MockUserDataService },
         { provide: AngularFire, useClass: AngularFire },
-        { provide: AuthService, useClass: MockAuthService}
+        { provide: AuthService, useClass: MockAuthService},
+        TranslateLoader,
+        TranslateService,
+        TranslateParser
       ],
       imports: [
-        AngularFireModule.initializeApp(firebaseConfig)
+        AngularFireModule.initializeApp(firebaseConfig),
+        TranslateModule
       ]
     })
     .compileComponents();

@@ -1,0 +1,96 @@
+{
+
+  "Follow": "Urmărește",
+  "Unfollow": "Nu mai urmări",
+  "Me": "Eu",
+
+  "ClubProfile": {
+    "ClubProfile": "Profilul Clubului",
+    "Description": "Descriere",
+    "Teams": "Echipe",
+    "Posts": "Postări"
+  },
+
+  "ClubsFollowed": {
+    "Clubs": "Cluburi"
+  },
+
+  "Dashboard": {
+    "Dashboard": "Noutăți",
+    "ShowMore": "Mai multe"
+  },
+
+  "List": {
+    "Clubs": "Cluburi",
+    "Teams": "Echipe",
+    "Players": "Jucători"
+  },
+
+  "Login": {
+    "Title":"Conectează-te"
+  },
+
+  "NavBar": {
+    "Dashboard":"Dashboard",
+    "List":"Listează",
+    "Logout":"Deconectare"
+  },
+
+  "PlayerProfile": {
+    "PlayerProfile": "Profilul Jucătorului",
+    "Age": "Vârstă",
+    "Height": "Înălțime",
+    "Weight": "Greutate",
+    "Gender": "Gen",
+    "Teams": "Echipe",
+    "Clubs": "Cluburi",
+    "Biography": "Biografie",
+    "Posts": "Postări"
+  },
+
+  "PlayersFollowed": {
+    "Players": "Jucători"
+  },
+
+  "Post": {
+    "likes": "aprecieri",
+    "SaveChanges": "Salvează Schimbări",
+    "Close": "Închide",
+    "ShowMore": "Mai multe",
+    "Comment": "Comentează"
+  },
+
+  "UserProfile": {
+    "UserProfile": "Profilul Utilizatorului",
+    "Email": "Email",
+    "Following": "Urmărește",
+    "SeeAll": "Vezi tot",
+    "Players": "Jucători",
+    "Teams": "Echipe",
+    "Clubs": "Cluburi"
+  },
+
+  "Results": {
+    "Location": "Locație",
+    "Age": "Vârstă",
+    "AgeGroup": "Grup de vârstă"
+  },
+
+  "Search": {},
+
+  "TeamProfile": {
+    "TeamProfile": "Profilul Echipei",
+    "Club": "Club",
+    "AgeGroup": "Grup de vârstă",
+    "Type": "Tip",
+    "Gender": "Gen",
+    "Description": "Descriere",
+    "Players": "Jucători",
+    "Posts": "Postări"
+  },
+
+  "TeamsFollowed": {
+    "TeamsFollowed": "Echipe Urmărite"
+  }
+
+}

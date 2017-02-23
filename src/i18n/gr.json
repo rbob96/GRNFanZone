@@ -1,0 +1,96 @@
+{
+
+  "Follow": "Ακολουθήστε",
+  "Unfollow": "Μήν ακολουθείτε",
+  "Me": "Εγώ",
+
+  "ClubProfile": {
+    "ClubProfile": "Προφίλ Συλλόγων",
+    "Description": "Περιγραφή",
+    "Teams": "Ομάδες",
+    "Posts": "Δημοσιεύσεις"
+  },
+
+  "ClubsFollowed": {
+    "Clubs": "Σύλλογοι"
+  },
+
+  "Dashboard": {
+    "Dashboard":"Τοίχος",
+    "ShowMore": "Περισσότερα"
+  },
+
+  "List": {
+    "Clubs": "Σύλλογοι",
+    "Teams": "Ομάδες",
+    "Players": "Παίκτες"
+  },
+
+  "Login": {
+    "Title":"Συνδεθείτε"
+  },
+
+  "NavBar": {
+    "Dashboard":"Τοίχος",
+    "List":"Λίστα",
+    "Logout":"Αποσυνδέση"
+  },
+
+  "PlayerProfile": {
+    "PlayerProfile": "Προφίλ Παίκτη",
+    "Age": "Ηλικία",
+    "Height": "Υψος",
+    "Weight": "Βάρος",
+    "Gender": "Γένος",
+    "Teams": "Ομάδες",
+    "Clubs": "Σύλλογοι",
+    "Biography": "Βιογραφία",
+    "Posts": "Δημοσιεύσεις"
+  },
+
+  "PlayersFollowed": {
+    "Players": "Παίκτες"
+  },
+
+  "Post": {
+    "likes": "Άρεσε σε",
+    "SaveChanges": "Αποθήκευση Αλλαγών",
+    "Close": "Ακύρωσε",
+    "ShowMore": "Περισσότερα",
+    "Comment": "Σχόλιο"
+  },
+
+  "UserProfile": {
+    "UserProfile":"Προφίλ Χρήστη",
+    "Email": "Ηλεκτρονική Διεύθυνση",
+    "Following": "Ακολουθείτε",
+    "SeeAll": "Προβολή Όλων",
+    "Players": "Παίκτες",
+    "Teams": "Ομάδες",
+    "Clubs": "Σύλλογοι"
+  },
+
+  "Results": {
+    "Location": "Τοποθεσία",
+    "Age": "Ηλικία",
+    "AgeGroup": "Ηλικιακή ομάδα"
+  },
+
+  "Search": {},
+
+  "TeamProfile": {
+    "TeamProfile": "Προφίλ Ομάδας ",
+    "Club": "Σύλλογος",
+    "AgeGroup": "Ηλικιακή ομάδα",
+    "Type": "Τύπος",
+    "Gender": "Γένος",
+    "Description": "Περιγραφή",
+    "Players": "Παίκτες",
+    "Posts": "Δημοσιεύσεις"
+  },
+
+  "TeamsFollowed": {
+    "TeamsFollowed": "Ομάδες που Ακολουθείτε"
+  }
+
+}

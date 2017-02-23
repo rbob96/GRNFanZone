@@ -17,7 +17,7 @@
             </div>
             <div class="media-body">
               <h4 class="media-heading"> {{post.title}} </h4>
-              <i>{{(post.created_at | amCalendar)}}</i> <br>
+              <i>{{(post.created_at | amCalendar:{sameElse:'D MMMM, YYYY [at] h:mm a'})}}</i> <br>
 
               {{post.text}}
 
@@ -28,7 +28,7 @@
 
           <div class="row">
             <div class="col-sm-12">
-              <b>{{likes.length}} likes</b>
+              <b>{{likes.length}} {{"Post.likes" | translate}}</b>
 
               <button *ngIf="likes.indexOf(currentUserId) !== -1" type="button"
                       class="btn btn-primary pull-right btn-sm" (click)="likeToggle(currentUserId)">
@@ -55,12 +55,14 @@
                 <div class="media-body">
 
                   <strong class="media-heading">{{postComment.author_name}}
-                    <span class="badge badge-success" *ngIf="currentUserId === postComment.author">Me</span>
+                    <span class="badge badge-success" *ngIf="currentUserId === postComment.author">{{"Me" | translate}}</span>
                   </strong>
 
-                  <div *ngIf="currentUserId === postComment.author" class="btn-group pull-right" role="group" aria-label="Comment Options">
+                  <div *ngIf="currentUserId === postComment.author" class="btn-group pull-right" role="group"
+                       aria-label="Comment Options">
 
-                    <button type="button" (click)="setEditComment(postComment)" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editModal">
+                    <button type="button" (click)="setEditComment(postComment)" class="btn btn-primary btn-sm"
+                            data-toggle="modal" data-target="#editModal">
                       <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                     </button>
 
@@ -74,12 +76,14 @@
                             <h4 class="modal-title">{{editComment.author_name}}</h4>
                           </div>
                           <div class="modal-body">
-                            <label for="comment">Comment:</label>
+                            <label for="comment">{{"Post.Comment" | translate}}:</label>
                             <textarea class="form-control" id="comment" [(ngModel)]="editedText"></textarea>
                           </div>
                           <div class="modal-footer">
-                            <button type="button" class="btn btn-success" data-dismiss="modal" (click)="updateComment()">Save Changes</button>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-success" data-dismiss="modal"
+                                    (click)="updateComment()">{{"Post.SaveChanges" | translate}}
+                            </button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">{{"Post.Close" | translate}}</button>
                           </div>
                         </div>
 
@@ -97,7 +101,8 @@
                   {{postComment.comment}}
 
                   <br>
-                  <small><em>{{postComment.commented_at | amCalendar}}</em></small>
+                  <small><em>{{(postComment.commented_at | amCalendar:{sameElse:'D MMMM, YYYY [at] h:mm a'})}}</em>
+                  </small>
 
                 </div>
               </div>
@@ -105,12 +110,26 @@
             </li>
           </ul>
 
+          <div class="row">
+            <div class="col-md-12">
+              <button *ngIf="(this.showBtn.length > 2) && (this.currentComLen != this.showBtn.length)" type="button"
+                      class="btn btn-info btn-sm" (click)="showMore(2)">{{"Post.ShowMore" | translate}}
+              </button>
+            </div>
+          </div>
+
+
           <br>
 
 
           <div class="input-group">
-            <label>Comment:</label><button type="button" class="btn btn-success btn-sm pull-right" (click)="addComment(newComment.value, post.id)">Add</button>
-            <input class="form-control" type="text" #newComment/>
+            <input [(ngModel)]="newComment" class="form-control" type="text" placeholder="{{'Post.Comment' | translate}}..."/>
+            <span class="input-group-btn">
+              <button [disabled]="newComment === ''" type="button" class="btn btn-success"
+                      (click)="addComment()">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+              </button>
+            </span>
           </div>
 
         </div>
@@ -118,7 +137,3 @@
     </div>
   </div>
 </div>
-
-
-
-

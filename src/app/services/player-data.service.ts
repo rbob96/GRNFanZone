@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
-import { AngularFire } from 'angularfire2';
+import { AngularFire, FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2';
+import { Observable } from 'rxjs/Observable';
+
+import { Player } from '../player';
 
 @Injectable()
 
@@ -9,13 +12,12 @@ export class PlayerDataService {
   constructor(private af: AngularFire) {}
 
   // Gets all players
-  public getPlayers () {
-    return this.af.database.list('/players');
+  public getPlayers(): Observable<Player[]> {
+    return this.af.database.list('/players/');
   }
 
-  // Gets a player by UID
-  public getPlayerData (uid: string) {
-    return this.af.database.object('/players/' + uid);
+  // Get player list
+  public getPlayersList() {
+    return this.af.database.list('/players/');
   }
-
 }

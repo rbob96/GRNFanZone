@@ -1,0 +1,79 @@
+<div>
+  <div *ngFor="let player of players" class="col-sm-3 col-md-offset-1 col-md-5 col-md-offset-1 col-lg-5 col-lg-offset-1">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a (click)="sendToPlayer(player.id)">
+          <h3 class="panel-title">{{player.first_name}} {{player.last_name}}</h3>
+        </a>
+      </div>
+
+      <div class="panel-body">
+        <div class="col-md-4">
+          <img src="{{player.avatar}}" class="as-banner"/>
+        </div>
+        <div class="col-md-8">
+          <ul class="list-unstyled">
+            <li class="list-goup-item">{{"Results.Location"| translate}}: {{player?.location.city}}</li>
+            <li class="list-goup-item">{{"Results.Age"| translate}}: {{player?.age}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngFor="let team of teams" class="col-md-5 col-md-offset-1">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a (click)="sendToTeam(team.id)">
+          <h3 class="panel-title">{{team.name}}</h3>
+        </a>
+      </div>
+      <div class="panel-body">
+        <div class="col-md-4">
+          <img src="{{team.avatar}}" class="as-banner"/>
+        </div>
+        <div class="col-md-8">
+          <ul class="list-unstyled">
+            <li class="list-goup-item">{{"Results.Location"| translate}}: {{team?.location.city}}</li>
+            <li class="list-goup-item">{{"Results.AgeGroup"| translate}}: {{team?.age_group}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngFor="let user of users" class="col-md-5 col-md-offset-1">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a (click)="sendToUser(user.$key)">
+          <h3 class="panel-title">{{user.name}}</h3>
+        </a>
+      </div>
+      <div class="panel-body">
+        <div class="col-md-4">
+          <img src="{{user.avatar}}" class="as-banner"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngFor="let club of clubs" class="col-md-5 col-md-offset-1">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a (click)="sendToClub(club.id)">
+          <h3 class="panel-title">{{club.name}}</h3>
+        </a>
+      </div>
+      <div class="panel-body">
+        <div class="col-md-4">
+          <img src="{{club.avatar}}" class="as-banner"/>
+        </div>
+        <div class="col-md-8">
+          <ul class="list-unstyled">
+            <li class="list-goup-item">{{"Results.Location" | translate}}: {{club?.location.city}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

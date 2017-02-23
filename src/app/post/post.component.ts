@@ -18,7 +18,12 @@ export class PostComponent implements OnInit {
   post: Post;
 
   comments;
+  commentsLimit = 2;
+  showBtn = [];
   likes = [];
+  currentComLen;
+
+  newComment = '';
 
   currentUserId;
   userData;
@@ -50,12 +55,23 @@ export class PostComponent implements OnInit {
 
     if (this.post) {
 
-      this.af.database.list('posts/' + this.post.id + '/comments').subscribe(comments => {
+      const comms = this.postDataService.getComments(this.post.id).subscribe(resComms => {
+          resComms.forEach(com => {
+            this.showBtn.push(com);
+          });
+        });
+
+      this.af.database.list('posts/' + this.post.id + '/comments', {
+        query: {
+          orderByChild: 'commented_at',
+          limitToFirst: this.commentsLimit
+        }
+      }).subscribe(comments => {
         this.comments = comments;
+        this.currentComLen = this.comments.length;
       });
 
       this.af.database.list('posts/' + this.post.id + '/likes').subscribe(likes => {
-
         this.likes = likes.map(l => {
             return l.$key;
         });
@@ -89,12 +105,14 @@ export class PostComponent implements OnInit {
   }
 
   addComment(newComment: string, postid: string ) {
-    this.postDataService.getComments(postid).push({
-      comment: newComment,
+    this.postDataService.getComments(this.post.id).push({
+      comment: this.newComment,
       commented_at: (new Date().getTime()),
       author: this.currentUserId,
       author_name: this.userData.name,
       author_avatar: this.userData.avatar
+    }).then( _ => {
+      this.newComment = '';
     });
   }
 
@@ -127,6 +145,20 @@ export class PostComponent implements OnInit {
     } else if (this.post.poster === 'clubs') {
       this.router.navigate(['/club/' + this.post.posted_by]);
     }
+  }
+
+  showMore(term: number) {
+    this.commentsLimit += term;
+    this.af.database.list('posts/' + this.post.id + '/comments', {
+        query: {
+          orderByChild: 'commented_at',
+          startAt: 0,
+          limitToFirst: this.commentsLimit
+        }
+      }).subscribe(comments => {
+        this.comments = comments;
+        this.currentComLen = this.comments.length;
+      });
   }
 
 }

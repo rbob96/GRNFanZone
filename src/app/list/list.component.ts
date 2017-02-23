@@ -1,4 +1,3 @@
-/* tslint:disable:max-line-length */
 import {Component} from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
 import {FirebaseListObservable} from 'angularfire2';
@@ -20,23 +19,27 @@ export class ListComponent {
   clubs: FirebaseListObservable<any>;
   teams: FirebaseListObservable<any>;
   players: FirebaseListObservable<any>;
-  constructor(private router: Router, private route: ActivatedRoute, private clubDataService: ClubDataService, private teamDataService: TeamDataService, private playerDataService: PlayerDataService) {
+  constructor(private router: Router,
+              private route: ActivatedRoute,
+              private clubDataService: ClubDataService,
+              private teamDataService: TeamDataService,
+              private playerDataService: PlayerDataService) {
     this.clubs = this.clubDataService.getClubs();
     this.teams = this.teamDataService.getTeams();
-    this.players = this.playerDataService.getPlayers();
+    this.players = this.playerDataService.getPlayersList();
   }
 
 
   public sendToPlayer (uid: string) {
-    this.router.navigate(['/players/' + uid]);
+    this.router.navigate(['/player/' + uid]);
   }
 
   public sendToTeam (uid: string) {
-    this.router.navigate(['/teams/' + uid]);
+    this.router.navigate(['/team/' + uid]);
   }
 
   public sendToClub (uid: string) {
-    this.router.navigate(['/clubs/' + uid]);
+    this.router.navigate(['/club/' + uid]);
   }
 
 }
