@@ -72,6 +72,10 @@
   },
 
   "Results": {
+    "Clubs": "Klubai",
+    "Teams": "Komandos",
+    "Players": "Žaidėjai",
+    "Users": "Users",
     "Location": "Vieta",
     "Age": "Amžius",
     "AgeGroup": "Amžiaus grupė"

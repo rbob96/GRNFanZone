@@ -72,6 +72,10 @@
   },
 
   "Results": {
+    "Clubs": "Cluburi",
+    "Teams": "Echipe",
+    "Players": "Jucători",
+    "Users": "Utilizatori",
     "Location": "Locație",
     "Age": "Vârstă",
     "AgeGroup": "Grup de vârstă"

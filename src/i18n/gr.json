@@ -72,6 +72,10 @@
   },
 
   "Results": {
+    "Clubs": "Σύλλογοι",
+    "Teams": "Ομάδες",
+    "Players": "Παίκτες",
+    "Users": "Users",
     "Location": "Τοποθεσία",
     "Age": "Ηλικία",
     "AgeGroup": "Ηλικιακή ομάδα"

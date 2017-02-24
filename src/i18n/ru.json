@@ -72,6 +72,10 @@
   },
 
   "Results": {
+    "Clubs": "Клубы",
+    "Teams": "Команды",
+    "Players": "Игроки",
+    "Users": "Users",
     "Location": "Местонахождение",
     "Age": "Возраст",
     "AgeGroup": "Возрастная группа"
