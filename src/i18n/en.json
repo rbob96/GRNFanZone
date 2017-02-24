@@ -72,6 +72,10 @@
   },
 
   "Results": {
+    "Players": "Players",
+    "Teams": "Teams",
+    "Clubs": "Clubs",
+    "Users":"Users",
     "Location": "Location",
     "Age": "Age",
     "AgeGroup": "Age Group"
