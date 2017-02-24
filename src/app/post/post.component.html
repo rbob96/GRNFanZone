@@ -27,8 +27,10 @@
           <hr>
 
           <div class="row">
-            <div class="col-sm-12">
-              <b>{{likes.length}} {{"Post.likes" | translate}}</b>
+            <div class="col-sm-12" [ngSwitch]="likes.length">
+              
+                <b *ngSwitchCase="1">{{likes.length}} {{"Post.like" | translate}}</b>
+                <b *ngSwitchDefault>{{likes.length}} {{"Post.likes" | translate}}</b>
 
               <button *ngIf="likes.indexOf(currentUserId) !== -1" type="button"
                       class="btn btn-primary pull-right btn-sm" (click)="likeToggle(currentUserId)">
