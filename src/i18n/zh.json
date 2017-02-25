@@ -6,7 +6,7 @@
 
   "ClubProfile": {
     "ClubProfile": "俱乐部 Profile",
-    "Description": "Description",
+    "Description": "描述",
     "Teams": "队们",
     "Posts": "Posts"
   },
@@ -27,13 +27,13 @@
   },
 
   "Login": {
-    "Title":"Sign In"
+    "Title":"登录"
   },
 
   "NavBar": {
     "Dashboard":"Dashboard",
-    "List":"list",
-    "Logout":"Logout"
+    "List":"清单",
+    "Logout":"退出"
   },
 
   "PlayerProfile": {
