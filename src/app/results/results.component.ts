@@ -139,11 +139,11 @@ export class ResultsComponent implements OnInit {
   }
 
   public unfollowPlayer(uid: string) {
-    this.userDataService.unfollowTeam(this.currentUserId, uid);
+    this.userDataService.unfollowPlayer(this.currentUserId, uid);
   }
 
   public followPlayer(uid: string) {
-    this.userDataService.followTeam(this.currentUserId, uid);
+    this.userDataService.followPlayer(this.currentUserId, uid);
     this.followPlayers.push(uid);
   }
 }
