@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component} from '@angular/core';
 import {AngularFire} from 'angularfire2';
 import {PostDataService} from '../services/post-data.service';
 import {Router} from '@angular/router';
@@ -10,7 +10,7 @@ import {AuthService} from '../services/auth.service';
 })
 
 
-export class DashboardComponent implements OnInit {
+export class DashboardComponent {
 
   posts = [];
   postsLimit = 2;
@@ -24,10 +24,15 @@ export class DashboardComponent implements OnInit {
               private af: AngularFire,
               private router: Router) {
 
+          this.af.database.object('users/' + authService.uid).subscribe(userData => {
+            console.log('user ret');
+            this.userData = userData;
+          });
+
           af.database.list('posts').subscribe(posts => {
 
             this.posts = [];
-            console.log("posts ret");
+            console.log('posts ret');
             posts.forEach(post => {
               if (this.userData.players_followed != null &&
                   post.posted_by in this.userData.players_followed) {
@@ -54,12 +59,6 @@ export class DashboardComponent implements OnInit {
 
   }
 
-  ngOnInit() {
-    this.af.database.object('users/' + this.authService.uid).subscribe(userData => {
-      console.log("user ret");
-      this.userData = userData;
-    });
-  }
 
   addComment(newComment: string, postid: string ) {
     this.postDataService.getComments(postid).push({ comment: newComment });
