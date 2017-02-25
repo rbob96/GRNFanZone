@@ -20,6 +20,9 @@ after_script:
 # Testing #
 lint_src:
   stage: test
+  except:
+    - dev
+    - master
   script:
     - gulp vet-html
     - gulp vet-js
@@ -33,6 +36,9 @@ lint_src:
 
 test_src:
   stage: test
+  except:
+    - dev
+    - master
   script:
     - ng test --code-coverage --single-run
     - cat ./coverage/summary.txt

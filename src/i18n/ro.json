@@ -33,7 +33,8 @@
   "NavBar": {
     "Dashboard":"Dashboard",
     "List":"Listează",
-    "Logout":"Deconectare"
+    "Logout":"Deconectare",
+    "Language": "Limba"
   },
 
   "PlayerProfile": {
@@ -54,6 +55,7 @@
 
   "Post": {
     "likes": "aprecieri",
+    "like": "apreciere",
     "SaveChanges": "Salvează Schimbări",
     "Close": "Închide",
     "ShowMore": "Mai multe",
@@ -71,6 +73,10 @@
   },
 
   "Results": {
+    "Clubs": "Cluburi",
+    "Teams": "Echipe",
+    "Players": "Jucători",
+    "Users": "Utilizatori",
     "Location": "Locație",
     "Age": "Vârstă",
     "AgeGroup": "Grup de vârstă"

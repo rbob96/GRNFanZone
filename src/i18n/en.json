@@ -32,7 +32,8 @@
 
   "NavBar": {
     "Dashboard":"Dashboard",
-    "List":"List",
+    "List": "List",
+    "Language": "Language",
     "Logout":"Logout"
   },
 
@@ -54,6 +55,7 @@
 
   "Post": {
     "likes": "likes",
+    "like": "like",
     "SaveChanges": "Save Changes",
     "Close": "Close",
     "ShowMore": "Show More",
@@ -71,6 +73,10 @@
   },
 
   "Results": {
+    "Players": "Players",
+    "Teams": "Teams",
+    "Clubs": "Clubs",
+    "Users":"Users",
     "Location": "Location",
     "Age": "Age",
     "AgeGroup": "Age Group"

@@ -33,6 +33,7 @@
   "NavBar": {
     "Dashboard": "Лента",
     "List": "Список",
+    "Language": "Язык",
     "Logout": "Выйти"
   },
 
@@ -54,6 +55,7 @@
 
   "Post": {
     "likes": "\"нравится\"",
+    "like": "like",
     "SaveChanges": "Сохранить изменения",
     "Close": "Закрыть",
     "ShowMore": "Показать больше",
@@ -71,6 +73,10 @@
   },
 
   "Results": {
+    "Clubs": "Клубы",
+    "Teams": "Команды",
+    "Players": "Игроки",
+    "Users": "Users",
     "Location": "Местонахождение",
     "Age": "Возраст",
     "AgeGroup": "Возрастная группа"

@@ -33,7 +33,8 @@
   "NavBar": {
     "Dashboard": "ニュースフィード",
     "List": "名鑑",
-    "Logout": "ログアウト"
+    "Logout": "ログアウト",
+    "Language": "言語"
   },
 
   "PlayerProfile": {
@@ -54,6 +55,7 @@
 
   "Post": {
     "likes": "ライク",
+    "like": "ライク",
     "SaveChanges": "変更を保存",
     "Close": "閉じる",
     "ShowMore": "もっと見る",
@@ -71,6 +73,10 @@
   },
 
   "Results": {
+    "Clubs": "クラブ",
+    "Teams": "チーム",
+    "Players": "選手",
+    "Users": "ユーザー",
     "Location": "ロケーション",
     "Age": "年齢",
     "AgeGroup": "年齢層"

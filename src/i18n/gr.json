@@ -33,6 +33,7 @@
   "NavBar": {
     "Dashboard":"Τοίχος",
     "List":"Λίστα",
+    "Language": "Γλώσσα",
     "Logout":"Αποσυνδέση"
   },
 
@@ -54,6 +55,7 @@
 
   "Post": {
     "likes": "Άρεσε σε",
+    "like": "like",
     "SaveChanges": "Αποθήκευση Αλλαγών",
     "Close": "Ακύρωσε",
     "ShowMore": "Περισσότερα",
@@ -71,6 +73,10 @@
   },
 
   "Results": {
+    "Clubs": "Σύλλογοι",
+    "Teams": "Ομάδες",
+    "Players": "Παίκτες",
+    "Users": "Users",
     "Location": "Τοποθεσία",
     "Age": "Ηλικία",
     "AgeGroup": "Ηλικιακή ομάδα"

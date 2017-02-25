@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Router, ActivatedRoute, RouterModule} from '@angular/router';
 import {AngularFire, FirebaseObjectObservable, FirebaseListObservable} from 'angularfire2';
+import {UserDataService} from '../services/user-data.service';
+import {User} from '../user';
 @Component({
   selector: 'app-results',
   templateUrl: './results.component.html',
@@ -14,6 +16,12 @@ export class ResultsComponent implements OnInit {
   clubs = [];
   users = [];
 
+  currentUserId: string;
+
+  followTeams = [];
+  followClubs = [];
+  followPlayers = [];
+
   sub: any;
   // Player uid
   searchTerm: string;
@@ -21,7 +29,12 @@ export class ResultsComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private af: AngularFire) {}
+    private af: AngularFire,
+    private userDataService: UserDataService) {
+      this.af.auth.subscribe(user => {
+      this.currentUserId = user.uid;
+    });
+  }
   ngOnInit() {
       this.sub = this.route.params.subscribe(params => {
         this.searchTerm = params['query'];
@@ -30,7 +43,25 @@ export class ResultsComponent implements OnInit {
         this.findTeams();
         this.findClubs();
       });
+      this.af.database.list('users/' + this.currentUserId + '/teams_followed').subscribe(teams => {
+        this.followTeams = teams.map(t => {
+          return t.$key;
+        });
+      });
+
+      this.af.database.list('users/' + this.currentUserId + '/clubs_followed').subscribe(clubs => {
+        this.followClubs = clubs.map(c => {
+          return c.$key;
+        });
+      });
+
+      this.af.database.list('users/' + this.currentUserId + '/players_followed').subscribe(players => {
+        this.followPlayers = players.map(p => {
+          return p.$key;
+        });
+      });
     }
+
   findPlayers() {
     const results = this.af.database.list('/players').subscribe(serverResults => {
         this.players = [];
@@ -71,5 +102,48 @@ export class ResultsComponent implements OnInit {
         }
       });
     });
+  }
+
+  public sendToClub (uid: string) {
+    this.router.navigate(['/club/' + uid]);
+  }
+
+  public sendToTeam (uid: string) {
+    this.router.navigate(['/team/' + uid]);
+  }
+
+  public sendToPlayer (uid: string) {
+    this.router.navigate(['/player/' + uid]);
+  }
+
+  public sendToUser (uid: string) {
+    this.router.navigate(['/user/' + uid]);
+  }
+
+  public unfollowClub(uid: string) {
+    this.userDataService.unfollowClub(this.currentUserId, uid);
+  }
+
+  public followClub(uid: string) {
+    this.userDataService.followClub(this.currentUserId, uid);
+    this.followClubs.push(uid);
+  }
+
+  public unfollowTeam(uid: string) {
+    this.userDataService.unfollowTeam(this.currentUserId, uid);
+  }
+
+  public followTeam(uid: string) {
+    this.userDataService.followTeam(this.currentUserId, uid);
+    this.followTeams.push(uid);
+  }
+
+  public unfollowPlayer(uid: string) {
+    this.userDataService.unfollowPlayer(this.currentUserId, uid);
+  }
+
+  public followPlayer(uid: string) {
+    this.userDataService.followPlayer(this.currentUserId, uid);
+    this.followPlayers.push(uid);
   }
 }
