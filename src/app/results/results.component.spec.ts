@@ -11,6 +11,7 @@ import {AngularFire, AngularFireModule} from 'angularfire2';
 import {firebaseConfig} from '../app.module';
 import {TranslateLoader, TranslateService, TranslateParser, TranslateModule} from 'ng2-translate';
 import {UserDataService} from '../services/user-data.service';
+import {MockUserDataService, testUser} from '../../testing/mock.user-data.service';
 
 describe('ResultsComponent', () => {
   let component: ResultsComponent;
@@ -25,6 +26,7 @@ describe('ResultsComponent', () => {
         { provide: Router, useClass: RouterStub },
         { provide: ActivatedRoute, useValue: { 'params': Observable.from([{ 'query': 'Hopkins' }]) } },
         {provide: AngularFire, useClass: AngularFire},
+        { provide: UserDataService, useClass: MockUserDataService},
         TranslateLoader,
         TranslateService,
         TranslateParser
