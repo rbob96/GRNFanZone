@@ -1,7 +1,7 @@
 import { Component} from '@angular/core';
 import {AngularFire} from 'angularfire2';
 import {PostDataService} from '../services/post-data.service';
-import {Router} from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
 import {AuthService} from '../services/auth.service';
 
 @Component({
@@ -21,7 +21,8 @@ export class DashboardComponent {
   constructor(private postDataService: PostDataService,
               private authService: AuthService,
               private af: AngularFire,
-              private router: Router) {
+              private router: Router,
+              private route: ActivatedRoute) {
 
     this.currentUserId = authService.uid;
       af.database.object('users/' + this.currentUserId).subscribe(userData => {
@@ -42,8 +43,8 @@ export class DashboardComponent {
                 this.posts.push(post);
               }
             });
-            if (this.posts.length === 0) {
-              this.router.navigate(['results']);
+            if (this.posts.length === 0 && router.url === '/') {
+              router.navigate(['results']);
             }
             this.posts.sort((a, b) => b.created_at - a.created_at);
             if (this.posts.length >= this.postsLimit) {
