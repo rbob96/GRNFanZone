@@ -1,0 +1,102 @@
+{
+
+  "Follow": "Follow",
+  "Unfollow": "Unfollow",
+  "Me": "Me",
+
+  "ClubProfile": {
+    "ClubProfile": "Club Profile",
+    "Description": "Description",
+    "Teams": "Teams",
+    "Posts": "Posts"
+  },
+
+  "ClubsFollowed": {
+    "Clubs": "Clubs"
+  },
+
+  "Dashboard": {
+    "Dashboard":"Dashboard",
+    "ShowMore": "Show More"
+  },
+
+  "List": {
+    "Clubs": "Clubs",
+    "Teams": "Teams",
+    "Players": "Players"
+  },
+
+  "Login": {
+    "Title":"Sign In"
+  },
+
+  "NavBar": {
+    "Dashboard":"Dashboard",
+    "List": "List",
+    "Language": "Language",
+    "Logout":"Logout"
+  },
+
+  "PlayerProfile": {
+    "PlayerProfile": "Player Profile",
+    "Age": "Age",
+    "Height": "Height",
+    "Weight": "Weight",
+    "Gender": "Gender",
+    "Teams": "Teams",
+    "Clubs": "Clubs",
+    "Biography": "Bio",
+    "Posts": "Posts"
+  },
+
+  "PlayersFollowed": {
+    "Players": "Players"
+  },
+
+  "Post": {
+    "likes": "likes",
+    "like": "like",
+    "SaveChanges": "Save Changes",
+    "Close": "Close",
+    "ShowMore": "Show More",
+    "Comment": "Comment"
+  },
+
+  "UserProfile": {
+    "UserProfile":"User Profile",
+    "Email": "Email",
+    "Following": "Following",
+    "SeeAll": "See all",
+    "Players": "Players",
+    "Teams": "Teams",
+    "Clubs": "Clubs"
+  },
+
+  "Results": {
+    "Players": "Players",
+    "Teams": "Teams",
+    "Clubs": "Clubs",
+    "Users":"Users",
+    "Location": "Location",
+    "Age": "Age",
+    "AgeGroup": "Age Group"
+  },
+
+  "Search": {},
+
+  "TeamProfile": {
+    "TeamProfile": "Team Profile",
+    "Club": "Club",
+    "AgeGroup": "Age Group",
+    "Type": "Type",
+    "Gender": "Gender",
+    "Description": "Description",
+    "Players": "Players",
+    "Posts": "Posts"
+  },
+
+  "TeamsFollowed": {
+    "TeamsFollowed": "Teams Followed"
+  }
+
+}
