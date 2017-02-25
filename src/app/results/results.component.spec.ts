@@ -10,6 +10,7 @@ import {Observable} from 'rxjs';
 import {AngularFire, AngularFireModule} from 'angularfire2';
 import {firebaseConfig} from '../app.module';
 import {TranslateLoader, TranslateService, TranslateParser, TranslateModule} from 'ng2-translate';
+import {UserDataService} from '../services/user-data.service';
 
 describe('ResultsComponent', () => {
   let component: ResultsComponent;
