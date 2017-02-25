@@ -32,7 +32,8 @@
 
   "NavBar": {
     "Dashboard":"Dashboard",
-    "List":"List",
+    "List": "List",
+    "Language": "Language",
     "Logout":"Logout"
   },
 

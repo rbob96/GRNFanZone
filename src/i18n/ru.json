@@ -33,6 +33,7 @@
   "NavBar": {
     "Dashboard": "Лента",
     "List": "Список",
+    "Language": "Язык",
     "Logout": "Выйти"
   },
 
