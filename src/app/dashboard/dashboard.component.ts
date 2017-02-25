@@ -17,14 +17,18 @@ export class DashboardComponent {
   shownPostAmount = 0;
   shownPosts = [];
   currentUserId: string;
-  userData;
+  userData = null;
 
   constructor(private postDataService: PostDataService,
               private authService: AuthService,
               private af: AngularFire,
               private router: Router) {
 
-          this.af.database.object('users/' + authService.uid).subscribe(userData => {
+          this.af.auth.subscribe(user =>{
+            this.currentUserId = user.uid;
+          })
+
+          this.af.database.object('users/' + this.currentUserId).subscribe(userData => {
             console.log('user ret');
             this.userData = userData;
           });
@@ -33,18 +37,20 @@ export class DashboardComponent {
 
             this.posts = [];
             console.log('posts ret');
-            posts.forEach(post => {
-              if (this.userData.players_followed != null &&
-                  post.posted_by in this.userData.players_followed) {
-                this.posts.push(post);
-              } else if (this.userData.teams_followed != null &&
-                         post.posted_by in this.userData.teams_followed) {
-                this.posts.push(post);
-              } else if (this.userData.clubs_followed != null &&
-                         post.posted_by in this.userData.clubs_followed) {
-                this.posts.push(post);
-              }
-            });
+            if(this.userData != null) {
+              posts.forEach(post => {
+                if (this.userData.players_followed != null &&
+                    post.posted_by in this.userData.players_followed) {
+                  this.posts.push(post);
+                } else if (this.userData.teams_followed != null &&
+                          post.posted_by in this.userData.teams_followed) {
+                  this.posts.push(post);
+                } else if (this.userData.clubs_followed != null &&
+                          post.posted_by in this.userData.clubs_followed) {
+                  this.posts.push(post);
+                }
+              });
+            }
             if (this.posts.length === 0 && this.router.url === '/') {
               this.router.navigate(['results']);
             }
