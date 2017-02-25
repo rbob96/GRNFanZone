@@ -15,18 +15,18 @@
   </ul>
   <br>
   <div class="tab-content">
-    <div id="players" class="tab-pane active" role="tabpanel">
+    <div id="players" class="tab-pane" role="tabpanel">
   <div *ngFor="let player of players" class=" col-sm-3 col-md-offset-1 col-md-5 col-md-offset-1 col-lg-5 col-lg-offset-1 ">
     <div class="panel panel-default">
       <div class="panel-heading">
         <a (click)="sendToPlayer(player.id)">
-          <h3 class="panel-title">{{player.first_name}} {{player.last_name}}</h3>
+          <h3 class="panel-title">{{player?.first_name}} {{player?.last_name}}</h3>
           </a>
           </div>
 
       <div class="panel-body">
         <div class="col-xs-6 col-md-3">
-          <img src="{{player.avatar}}" class="as-banner"/>
+          <img src="{{player?.avatar}}" class="as-banner"/>
         </div>
         <div class="col-xs-12 col-md-5">
           <ul class="list-unstyled">
@@ -35,8 +35,8 @@
           </ul>
         </div>
         <div class="col-xs-12 col-md-4">
-          <button *ngIf="followPlayers.indexOf(player.id) === -1" (click)="followPlayer(player.id)" type="button" class="btn btn-sm btn-primary pull-right">{{"Follow" | translate}}</button>
-          <button *ngIf="followPlayers.indexOf(player.id) !== -1" (click)="unfollowPlayer(player.id)" type="button" class="btn btn-sm btn-danger pull-right">{{"Unfollow" | translate}}</button>
+          <button *ngIf="followPlayers.indexOf(player?.id) === -1" (click)="followPlayer(player?.id)" type="button" class="btn btn-sm btn-primary pull-right">{{"Follow" | translate}}</button>
+          <button *ngIf="followPlayers.indexOf(player?.id) !== -1" (click)="unfollowPlayer(player?.id)" type="button" class="btn btn-sm btn-danger pull-right">{{"Unfollow" | translate}}</button>
         </div>
       </div>
     </div>
@@ -46,13 +46,13 @@
   <div *ngFor="let team of teams" class="col-md-5 col-md-offset-1">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <a (click)="sendToTeam(team.id)">
-          <h3 class="panel-title">{{team.name}}</h3>
+        <a (click)="sendToTeam(team?.id)">
+          <h3 class="panel-title">{{team?.name}}</h3>
         </a>
       </div>
       <div class="panel-body">
         <div class="col-xs-6 col-md-3">
-          <img src="{{team.avatar}}" class="as-banner"/>
+          <img src="{{team?.avatar}}" class="as-banner"/>
         </div>
         <div class="col-xs-12 col-md-5">
           <ul class="list-unstyled">
@@ -61,8 +61,8 @@
           </ul>
         </div>
         <div class="col-xs-12 col-md-4">
-          <button *ngIf="followTeams.indexOf(team.id) === -1" (click)="followTeam(team.id)" type="button" class="btn btn-sm btn-primary pull-right">{{"Follow" | translate}}</button>
-          <button *ngIf="followTeams.indexOf(team.id) !== -1" (click)="unfollowTeam(team.id)" type="button" class="btn btn-sm btn-danger pull-right">{{"Unfollow" | translate}}</button>
+          <button *ngIf="followTeams.indexOf(team?.id) === -1" (click)="followTeam(team?.id)" type="button" class="btn btn-sm btn-primary pull-right">{{"Follow" | translate}}</button>
+          <button *ngIf="followTeams.indexOf(team?.id) !== -1" (click)="unfollowTeam(team?.id)" type="button" class="btn btn-sm btn-danger pull-right">{{"Unfollow" | translate}}</button>
       </div>
     </div>
   </div>
@@ -73,12 +73,12 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <a (click)="sendToUser(user.$key)">
-          <h3 class="panel-title">{{user.name}}</h3>
+          <h3 class="panel-title">{{user?.name}}</h3>
         </a>
       </div>
       <div class="panel-body">
         <div class="col-xs-6 col-md-4">
-          <img src="{{user.avatar}}" class="as-banner"/>
+          <img src="{{user?.avatar}}" class="as-banner"/>
         </div>
       </div>
     </div>
@@ -88,13 +88,13 @@
   <div *ngFor="let club of clubs" class="col-md-5 col-md-offset-1">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <a (click)="sendToClub(club.id)">
-          <h3 class="panel-title">{{club.name}}</h3>
+        <a (click)="sendToClub(club?.id)">
+          <h3 class="panel-title">{{club?.name}}</h3>
         </a>
       </div>
       <div class="panel-body">
         <div class="col-xs-6 col-md-3">
-          <img src="{{club.avatar}}" class="as-banner"/>
+          <img src="{{club?.avatar}}" class="as-banner"/>
         </div>
         <div class="col-xs-12 col-md-5">
           <ul class="list-unstyled">
@@ -102,8 +102,8 @@
           </ul>
         </div>
         <div class="col-xs-12 col-md-4">
-          <button *ngIf="followClubs.indexOf(club.id) === -1" (click)="followClub(club.id)" type="button" class="btn btn-sm btn-primary pull-right">{{"Follow" | translate}}</button>
-          <button *ngIf="followClubs.indexOf(club.id) !== -1" (click)="unfollowClub(club.id)" type="button" class="btn btn-sm btn-danger pull-right">{{"Unfollow" | translate}}</button>
+          <button *ngIf="followClubs.indexOf(club?.id) === -1" (click)="followClub(club?.id)" type="button" class="btn btn-sm btn-primary pull-right">{{"Follow" | translate}}</button>
+          <button *ngIf="followClubs.indexOf(club?.id) !== -1" (click)="unfollowClub(club?.id)" type="button" class="btn btn-sm btn-danger pull-right">{{"Unfollow" | translate}}</button>
         </div>
       </div>
     </div>
