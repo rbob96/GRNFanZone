@@ -27,7 +27,7 @@ export class DashboardComponent implements OnInit {
           af.database.list('posts').subscribe(posts => {
 
             this.posts = [];
-            
+            console.log("posts ret");
             posts.forEach(post => {
               if (this.userData.players_followed != null &&
                   post.posted_by in this.userData.players_followed) {
@@ -56,6 +56,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.af.database.object('users/' + this.authService.uid).subscribe(userData => {
+      console.log("user ret");
       this.userData = userData;
     });
   }
