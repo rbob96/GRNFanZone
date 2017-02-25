@@ -10,7 +10,7 @@ import {AuthService} from '../services/auth.service';
 })
 
 
-export class DashboardComponent{
+export class DashboardComponent implements OnInit {
 
   posts = [];
   postsLimit = 2;
@@ -43,7 +43,7 @@ export class DashboardComponent{
             });
             if (this.posts.length === 0 && this.router.url === '/') {
               this.router.navigate(['results']);
-            }     
+            }
             this.posts.sort((a, b) => b.created_at - a.created_at);
             if (this.posts.length >= this.postsLimit) {
               this.shownPostAmount += this.postsLimit;
@@ -55,7 +55,7 @@ export class DashboardComponent{
 
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.af.database.object('users/' + this.currentUserId).subscribe(userData => {
       this.userData = userData;
     });
