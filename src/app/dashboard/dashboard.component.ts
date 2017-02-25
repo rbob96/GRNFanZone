@@ -1,6 +1,7 @@
-import { Component} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import {AngularFire} from 'angularfire2';
 import {PostDataService} from '../services/post-data.service';
+import {Router} from '@angular/router';
 import {AuthService} from '../services/auth.service';
 
 @Component({
@@ -9,43 +10,55 @@ import {AuthService} from '../services/auth.service';
 })
 
 
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
 
   posts = [];
   postsLimit = 2;
   shownPostAmount = 0;
   shownPosts = [];
   currentUserId: string;
+  userData;
 
-  constructor(private postDataService: PostDataService, private authService: AuthService, private af: AngularFire) {
+  constructor(private postDataService: PostDataService,
+              private authService: AuthService,
+              private af: AngularFire,
+              private router: Router) {
 
     this.currentUserId = authService.uid;
+          af.database.list('posts').subscribe(posts => {
 
-      af.database.object('users/' + this.currentUserId).subscribe(userData => {
-        af.database.list('posts').subscribe(posts => {
+            this.posts = [];
 
-          this.posts = [];
-
-          posts.forEach(post => {
-
-            if (post.posted_by in userData.players_followed) {
-              this.posts.push(post);
-            } else if (post.posted_by in userData.teams_followed) {
-              this.posts.push(post);
-            } else if (post.posted_by in userData.clubs_followed) {
-              this.posts.push(post);
+            posts.forEach(post => {
+              if (this.userData.players_followed != null &&
+                  post.posted_by in this.userData.players_followed) {
+                this.posts.push(post);
+              } else if (this.userData.teams_followed != null &&
+                         post.posted_by in this.userData.teams_followed) {
+                this.posts.push(post);
+              } else if (this.userData.clubs_followed != null &&
+                         post.posted_by in this.userData.clubs_followed) {
+                this.posts.push(post);
+              }
+            });
+            if (this.posts.length === 0 && this.router.url === '/') {
+              this.router.navigate(['results']);
             }
-        });
-        this.posts.sort((a, b) => b.created_at - a.created_at);
-        if (this.posts.length >= this.postsLimit) {
-          this.shownPostAmount += this.postsLimit;
-        } else {
-          this.shownPostAmount = this.posts.length;
-        }
-        this.shownPosts = this.posts.slice(0, this.shownPostAmount);
-      });
-    });
+            this.posts.sort((a, b) => b.created_at - a.created_at);
+            if (this.posts.length >= this.postsLimit) {
+              this.shownPostAmount += this.postsLimit;
+            } else {
+              this.shownPostAmount = this.posts.length;
+            }
+            this.shownPosts = this.posts.slice(0, this.shownPostAmount);
+          });
 
+  }
+
+  ngOnInit() {
+    this.af.database.object('users/' + this.currentUserId).subscribe(userData => {
+      this.userData = userData;
+    });
   }
 
   addComment(newComment: string, postid: string ) {

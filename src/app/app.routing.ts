@@ -60,6 +60,10 @@ const appRoutes: Routes = [
       {
         path: 'results/:query',
         component: ResultsComponent
+      },
+      {
+        path: 'results',
+        component: ResultsComponent
       }
 ];
 
