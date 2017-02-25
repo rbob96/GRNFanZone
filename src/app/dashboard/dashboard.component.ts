@@ -1,7 +1,7 @@
 import { Component} from '@angular/core';
 import {AngularFire} from 'angularfire2';
 import {PostDataService} from '../services/post-data.service';
-import {Router, ActivatedRoute} from '@angular/router';
+import {Router} from '@angular/router';
 import {AuthService} from '../services/auth.service';
 
 @Component({
@@ -21,8 +21,7 @@ export class DashboardComponent {
   constructor(private postDataService: PostDataService,
               private authService: AuthService,
               private af: AngularFire,
-              private router: Router,
-              private route: ActivatedRoute) {
+              private router: Router) {
 
     this.currentUserId = authService.uid;
       af.database.object('users/' + this.currentUserId).subscribe(userData => {
@@ -38,7 +37,7 @@ export class DashboardComponent {
               } else if (userData.teams_followed != null &&
                          post.posted_by in userData.teams_followed) {
                 this.posts.push(post);
-              } else if (userData.clubs_followed != null && 
+              } else if (userData.clubs_followed != null &&
                          post.posted_by in userData.clubs_followed) {
                 this.posts.push(post);
               }
