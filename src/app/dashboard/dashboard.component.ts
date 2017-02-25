@@ -24,7 +24,6 @@ export class DashboardComponent {
               private router: Router) {
 
     this.currentUserId = authService.uid;
-
       af.database.object('users/' + this.currentUserId).subscribe(userData => {
           af.database.list('posts').subscribe(posts => {
 
@@ -52,10 +51,6 @@ export class DashboardComponent {
             this.shownPosts = this.posts.slice(0, this.shownPostAmount);
           });
       });
-
-  }
-
-  ngOnInit(){
 
   }
 

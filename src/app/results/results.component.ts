@@ -37,7 +37,11 @@ export class ResultsComponent implements OnInit {
   }
   ngOnInit() {
       this.sub = this.route.params.subscribe(params => {
-        this.searchTerm = params['query'];
+        if ('query' in params) {
+          this.searchTerm = params['query'];
+        } else {
+          this.searchTerm = '';
+        }
         this.findPlayers();
         this.findUsers();
         this.findTeams();
