@@ -1,8 +1,5 @@
 <app-post *ngFor="let post of shownPosts " [post]="post"></app-post>
-<div class="row">
-    <div class="col-md-12 text-center">
-		<button *ngIf="(this.shownPostAmount != this.posts.length)" type="button"
-            class="btn btn-info btn-sm" (click)="showMore()">{{"Dashboard.ShowMore" | translate}}
-        </button>
-    </div>
+<div class="row"
+    infinite-scroll
+    (scrolled)="showMore()">
 </div>

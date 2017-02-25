@@ -7,6 +7,7 @@ import { AngularFireModule } from 'angularfire2';
 import { RouterModule } from '@angular/router';
 import {MomentModule} from 'angular2-moment';
 import {ToastModule} from 'ng2-toastr/ng2-toastr';
+import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 
 
 import { AppComponent } from './app.component';
@@ -86,7 +87,8 @@ export const firebaseConfig = {
     RouterModule,
     MomentModule,
     ToastModule.forRoot(),
-    TranslateModule.forRoot()
+    TranslateModule.forRoot(),
+    InfiniteScrollModule
   ],
   providers: [
     AuthService,
