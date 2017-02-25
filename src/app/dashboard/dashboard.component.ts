@@ -24,11 +24,10 @@ export class DashboardComponent implements OnInit {
               private af: AngularFire,
               private router: Router) {
 
-    this.currentUserId = authService.uid;
           af.database.list('posts').subscribe(posts => {
 
             this.posts = [];
-
+            
             posts.forEach(post => {
               if (this.userData.players_followed != null &&
                   post.posted_by in this.userData.players_followed) {
@@ -56,7 +55,7 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.af.database.object('users/' + this.currentUserId).subscribe(userData => {
+    this.af.database.object('users/' + this.authService.uid).subscribe(userData => {
       this.userData = userData;
     });
   }
