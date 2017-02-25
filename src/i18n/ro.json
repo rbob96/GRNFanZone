@@ -33,7 +33,8 @@
   "NavBar": {
     "Dashboard":"Dashboard",
     "List":"Listează",
-    "Logout":"Deconectare"
+    "Logout":"Deconectare",
+    "Language": "Limba"
   },
 
   "PlayerProfile": {
