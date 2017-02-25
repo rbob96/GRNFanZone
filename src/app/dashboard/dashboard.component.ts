@@ -42,6 +42,9 @@ export class DashboardComponent {
                 this.posts.push(post);
               }
             });
+            if (this.posts.length === 0) {
+              this.router.navigate(['results']);
+            }
             this.posts.sort((a, b) => b.created_at - a.created_at);
             if (this.posts.length >= this.postsLimit) {
               this.shownPostAmount += this.postsLimit;
