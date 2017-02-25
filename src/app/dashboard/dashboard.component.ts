@@ -24,9 +24,9 @@ export class DashboardComponent {
               private af: AngularFire,
               private router: Router) {
 
-          this.af.auth.subscribe(user =>{
+          this.af.auth.subscribe(user => {
             this.currentUserId = user.uid;
-          })
+          });
 
           this.af.database.object('users/' + this.currentUserId).subscribe(userData => {
             console.log('user ret');
@@ -37,7 +37,7 @@ export class DashboardComponent {
 
             this.posts = [];
             console.log('posts ret');
-            if(this.userData != null) {
+            if (this.userData != null) {
               posts.forEach(post => {
                 if (this.userData.players_followed != null &&
                     post.posted_by in this.userData.players_followed) {
