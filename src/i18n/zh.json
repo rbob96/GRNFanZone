@@ -1,0 +1,96 @@
+{
+
+  "Follow": "Follow",
+  "Unfollow": "Unfollow",
+  "Me": "我",
+
+  "ClubProfile": {
+    "ClubProfile": "俱乐部 Profile",
+    "Description": "Description",
+    "Teams": "队们",
+    "Posts": "Posts"
+  },
+
+  "ClubsFollowed": {
+    "Clubs": "俱乐部门"
+  },
+
+  "Dashboard": {
+    "Dashboard":"Dashboard",
+    "ShowMore": "多看"
+  },
+
+  "List": {
+    "Clubs": "俱乐部门",
+    "Teams": "队们",
+    "Players": "球员们"
+  },
+
+  "Login": {
+    "Title":"Sign In"
+  },
+
+  "NavBar": {
+    "Dashboard":"Dashboard",
+    "List":"list",
+    "Logout":"Logout"
+  },
+
+  "PlayerProfile": {
+    "PlayerProfile": "球员 Profile",
+    "Age": "年龄",
+    "Height": "身高",
+    "Weight": "体重",
+    "Gender": "性别",
+    "Teams": "队们",
+    "Clubs": "俱乐部门",
+    "Biography": "传记",
+    "Posts": "Posts"
+  },
+
+  "PlayersFollowed": {
+    "Players": "球员们"
+  },
+
+  "Post": {
+    "likes": "喜欢",
+    "SaveChanges": "Save Changes",
+    "Close": "Close",
+    "ShowMore": "多看",
+    "Comment": "Comment"
+  },
+
+  "UserProfile": {
+    "UserProfile":"使用者",
+    "Email": "电子邮件地址",
+    "Following": "Following",
+    "SeeAll": "See all",
+    "Players": "球员们",
+    "Teams": "队们",
+    "Clubs": "俱乐部门"
+  },
+
+  "Results": {
+    "Location": "地方",
+    "Age": "年龄",
+    "AgeGroup": "年龄段"
+  },
+
+  "Search": {},
+
+  "TeamProfile": {
+    "TeamProfile": "队 Profile",
+    "Club": "俱乐部",
+    "AgeGroup": "年龄段",
+    "Type": "Type",
+    "Gender": "性别",
+    "Description": "Description",
+    "Players": "球员们",
+    "Posts": "Posts"
+  },
+
+  "TeamsFollowed": {
+    "TeamsFollowed": "队 Followed"
+  }
+
+}
