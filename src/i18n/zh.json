@@ -1,29 +1,30 @@
 {
 
-  "Follow": "Follow",
-  "Unfollow": "Unfollow",
+
+  "Follow": "关注",
+  "Unfollow": "不关注",
   "Me": "我",
 
   "ClubProfile": {
-    "ClubProfile": "俱乐部 Profile",
-    "Description": "描述",
-    "Teams": "队们",
-    "Posts": "Posts"
+    "ClubProfile": "俱乐部资料",
+    "Description": "简介",
+    "Teams": "球队",
+    "Posts": "发帖"
   },
 
   "ClubsFollowed": {
-    "Clubs": "俱乐部门"
+    "Clubs": "俱乐部"
   },
 
   "Dashboard": {
-    "Dashboard":"Dashboard",
-    "ShowMore": "多看"
+    "Dashboard":"新动态",
+    "ShowMore": "显示更多"
   },
 
   "List": {
-    "Clubs": "俱乐部门",
-    "Teams": "队们",
-    "Players": "球员们"
+    "Clubs": "俱乐部",
+    "Teams": "球队",
+    "Players": "球员"
   },
 
   "Login": {
@@ -32,65 +33,68 @@
 
   "NavBar": {
     "Dashboard":"Dashboard",
-    "List":"清单",
+    "Language": "语言",
+    "List":"列表",
     "Logout":"退出"
   },
 
   "PlayerProfile": {
-    "PlayerProfile": "球员 Profile",
+    "PlayerProfile": "球员资料",
     "Age": "年龄",
     "Height": "身高",
     "Weight": "体重",
     "Gender": "性别",
-    "Teams": "队们",
-    "Clubs": "俱乐部门",
-    "Biography": "传记",
-    "Posts": "Posts"
+    "Teams": "球队",
+    "Clubs": "俱乐部",
+    "Biography": "档案",
+    "Posts": "发帖"
   },
 
   "PlayersFollowed": {
-    "Players": "球员们"
+    "Players": "球员"
   },
 
   "Post": {
     "likes": "喜欢",
-    "SaveChanges": "Save Changes",
-    "Close": "Close",
-    "ShowMore": "多看",
-    "Comment": "Comment"
+    "SaveChanges": "保存更改",
+    "Close": "关闭",
+    "ShowMore": "显示更多",
+    "Comment": "评论"
   },
 
   "UserProfile": {
-    "UserProfile":"使用者",
+    "UserProfile":"用户资料",
     "Email": "电子邮件地址",
-    "Following": "Following",
-    "SeeAll": "See all",
-    "Players": "球员们",
-    "Teams": "队们",
-    "Clubs": "俱乐部门"
+    "Following": "正在关注",
+    "SeeAll": "显示全部",
+    "Players": "球员",
+    "Teams": "球队",
+    "Clubs": "俱乐部"
   },
 
   "Results": {
-    "Location": "地方",
+    "Location": "居住地",
     "Age": "年龄",
     "AgeGroup": "年龄段"
   },
 
-  "Search": {},
+  "Search": {
+    "Search": "搜索"
+  },
 
   "TeamProfile": {
-    "TeamProfile": "队 Profile",
+    "TeamProfile": "球队资料",
     "Club": "俱乐部",
     "AgeGroup": "年龄段",
-    "Type": "Type",
+    "Type": "类型",
     "Gender": "性别",
-    "Description": "Description",
-    "Players": "球员们",
-    "Posts": "Posts"
+    "Description": "简介",
+    "Players": "球员",
+    "Posts": "发帖"
   },
 
   "TeamsFollowed": {
-    "TeamsFollowed": "队 Followed"
+    "TeamsFollowed": "已关注球队"
   }
-
 }
+
