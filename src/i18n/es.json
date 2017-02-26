@@ -1,14 +1,14 @@
 {
 
-  "Follow": "Follow",
-  "Unfollow": "Unfollow",
-  "Me": "Me",
+  "Follow": "Seguir",
+  "Unfollow": "Dejar de seguir",
+  "Me": "Yo",
 
   "ClubProfile": {
-    "ClubProfile": "Club Profile",
-    "Description": "Description",
-    "Teams": "Teams",
-    "Posts": "Posts"
+    "ClubProfile": "Perfil del club",
+    "Description": "Descripión",
+    "Teams": "Equipos",
+    "Posts": "Post"
   },
 
   "ClubsFollowed": {
@@ -16,87 +16,87 @@
   },
 
   "Dashboard": {
-    "Dashboard":"Dashboard",
-    "ShowMore": "Show More"
+    "Dashboard":"Tablón",
+    "ShowMore": "Mostrar más"
   },
 
   "List": {
     "Clubs": "Clubs",
-    "Teams": "Teams",
-    "Players": "Players"
+    "Teams": "Equipos",
+    "Players": "Jugadores"
   },
 
   "Login": {
-    "Title":"Sign In"
+    "Title":"Entrar"
   },
 
   "NavBar": {
-    "Dashboard":"Dashboard",
-    "List": "List",
-    "Language": "Language",
-    "Logout":"Logout"
+    "Dashboard":"Tablón",
+    "List": "Lista",
+    "Language": "Idioma",
+    "Logout":"Salir"
   },
 
   "PlayerProfile": {
-    "PlayerProfile": "Player Profile",
-    "Age": "Age",
-    "Height": "Height",
-    "Weight": "Weight",
-    "Gender": "Gender",
-    "Teams": "Teams",
+    "PlayerProfile": "Perfil del jugador",
+    "Age": "Edad",
+    "Height": "Altura",
+    "Weight": "Peso",
+    "Gender": "Sexo",
+    "Teams": "Equipos",
     "Clubs": "Clubs",
-    "Biography": "Bio",
+    "Biography": "Biografía",
     "Posts": "Posts"
   },
 
   "PlayersFollowed": {
-    "Players": "Players"
+    "Players": "Jugadores"
   },
 
   "Post": {
     "likes": "likes",
     "like": "like",
-    "SaveChanges": "Save Changes",
-    "Close": "Close",
-    "ShowMore": "Show More",
-    "Comment": "Comment"
+    "SaveChanges": "Guardar cambios",
+    "Close": "Cerrar",
+    "ShowMore": "Mostrar Más",
+    "Comment": "Comentar"
   },
 
   "UserProfile": {
-    "UserProfile":"User Profile",
+    "UserProfile":"Perfil de usuario",
     "Email": "Email",
-    "Following": "Following",
-    "SeeAll": "See all",
-    "Players": "Players",
-    "Teams": "Teams",
+    "Following": "Siguiendo",
+    "SeeAll": "Ver todos",
+    "Players": "Jugadores",
+    "Teams": "Equipos",
     "Clubs": "Clubs"
   },
 
   "Results": {
-    "Players": "Players",
-    "Teams": "Teams",
+    "Players": "Jugadores",
+    "Teams": "Equipos",
     "Clubs": "Clubs",
-    "Users":"Users",
-    "Location": "Location",
-    "Age": "Age",
-    "AgeGroup": "Age Group"
+    "Users":"Usuarios",
+    "Location": "Ubicación",
+    "Age": "Edad",
+    "AgeGroup": "Grupo de edad"
   },
 
   "Search": {},
 
   "TeamProfile": {
-    "TeamProfile": "Team Profile",
+    "TeamProfile": "Perfil del equipo",
     "Club": "Club",
-    "AgeGroup": "Age Group",
-    "Type": "Type",
-    "Gender": "Gender",
+    "AgeGroup": "Grupo de edad",
+    "Type": "Tipo",
+    "Gender": "Sexo",
     "Description": "Description",
-    "Players": "Players",
+    "Players": "Jugadores",
     "Posts": "Posts"
   },
 
   "TeamsFollowed": {
-    "TeamsFollowed": "Teams Followed"
+    "TeamsFollowed": "Equipos seguidos"
   }
 
 }
