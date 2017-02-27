@@ -51,6 +51,8 @@ deploy_staging:
   only:
     - dev
   script:
+    - ng test --code-coverage --single-run
+    - cat ./coverage/summary.txt
     - firebase use --add grnfanzone-staging staging
     - firebase use --token $FIREBASE_TOKEN grnfanzone-staging staging
     - ng build -dev
@@ -63,6 +65,8 @@ deploy_production:
   only:
     - master
   script:
+    - ng test --code-coverage --single-run
+    - cat ./coverage/summary.txt
     - firebase use --add grnfanzone production
     - firebase use --token $FIREBASE_TOKEN grnfanzone production
     - ng build -prod

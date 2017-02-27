@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1"
@@ -25,6 +25,7 @@
             <li><a (click)="translate.setDefaultLang('gr')"><span class="flag-icon flag-icon-gr"></span> Ελληνικά </a></li>
             <li><a (click)="translate.setDefaultLang('ro')"><span class="flag-icon flag-icon-ro"></span> Română</a></li>
             <li><a (click)="translate.setDefaultLang('lt')"><span class="flag-icon flag-icon-lt"></span> Lietuvių</a></li>
+            <li><a (click)="translate.setDefaultLang('zh')"><span class="flag-icon flag-icon-cn"></span> 汉语</a></li>
             <li><a (click)="translate.setDefaultLang('es')"><span class="flag-icon flag-icon-es"></span> Español</a></li>
           </ul>
         </li>
@@ -34,7 +35,7 @@
           </a>
         </li>
         <li>
-          <button type="button" class="btn btn-primary navbar-btn" (click)="authService.logout()">
+          <button type="button" class="btn btn-default navbar-btn" (click)="authService.logout()">
             {{"NavBar.Logout" | translate}}
           </button>
         </li>
