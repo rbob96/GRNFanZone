@@ -125,7 +125,8 @@
 
 
           <div class="input-group">
-            <input [(ngModel)]="newComment" class="form-control" type="text" placeholder="{{'Post.Comment' | translate}}..."/>
+            <input #box [(ngModel)]="newComment" class="form-control" type="text" placeholder="{{'Post.Comment' | translate}}..."
+              (keyup.enter)="addComment(box.value)"/>
             <span class="input-group-btn">
               <button [disabled]="newComment === ''" type="button" class="btn btn-success"
                       (click)="addComment()">
