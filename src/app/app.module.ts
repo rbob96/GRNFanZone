@@ -28,6 +28,7 @@ import {UserDataService} from './services/user-data.service';
 import {TeamDataService} from './services/team-data.service';
 import {ClubDataService} from './services/club-data.service';
 import {PlayerDataService} from './services/player-data.service';
+import {SponsorsComponent} from './sponsors/sponsors.component';
 
 
 import {ListComponent} from './list/list.component';
@@ -72,7 +73,8 @@ export const firebaseConfig = {
     ListComponent,
     PostComponent,
     SearchComponent,
-    ResultsComponent
+    ResultsComponent,
+    SponsorsComponent
   ],
   imports: [
     BrowserModule,
