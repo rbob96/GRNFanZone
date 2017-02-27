@@ -1,6 +1,5 @@
 {
 
-
   "Follow": "关注",
   "Unfollow": "不关注",
   "Me": "我",
@@ -32,7 +31,7 @@
   },
 
   "NavBar": {
-    "Dashboard":"Dashboard",
+    "Dashboard":"新动态",
     "Language": "语言",
     "List":"列表",
     "Logout":"退出"
@@ -73,6 +72,10 @@
   },
 
   "Results": {
+    "Players": "球员",
+    "Teams": "球队",
+    "Clubs": "俱乐部",
+    "Users":"用户",
     "Location": "居住地",
     "Age": "年龄",
     "AgeGroup": "年龄段"
