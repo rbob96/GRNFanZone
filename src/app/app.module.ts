@@ -9,7 +9,6 @@ import {MomentModule} from 'angular2-moment';
 import {ToastModule} from 'ng2-toastr/ng2-toastr';
 import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 
-
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -28,12 +27,6 @@ import {UserDataService} from './services/user-data.service';
 import {TeamDataService} from './services/team-data.service';
 import {ClubDataService} from './services/club-data.service';
 import {PlayerDataService} from './services/player-data.service';
-
-
-import {ListComponent} from './list/list.component';
-
-
-
 
 import { routing } from './app.routing';
 import { AuthService } from './services/auth.service';
@@ -69,7 +62,6 @@ export const firebaseConfig = {
     TeamComponent,
     PlayerComponent,
     ClubComponent,
-    ListComponent,
     PostComponent,
     SearchComponent,
     ResultsComponent
