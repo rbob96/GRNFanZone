@@ -13,7 +13,6 @@
     <div class="collapse navbar-collapse" id="navbar-collapse-1">
       <app-search></app-search>
       <ul class="nav navbar-nav navbar-right" [hidden]="!authService.registered">
-        <li><a routerLink="/list">{{"NavBar.List" | translate}}</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
             {{"NavBar.Language" | translate}} <span class="caret"></span>
