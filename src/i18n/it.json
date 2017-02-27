@@ -1,0 +1,101 @@
+{
+
+  "Follow": "Segui",
+  "Unfollow": "Smetti di seguire",
+  "Me": "Me",
+
+  "ClubProfile": {
+    "ClubProfile": "Profilo del Club",
+    "Description": "Descrizione",
+    "Teams": "Squadra",
+    "Posts": "Post"
+  },
+
+  "ClubsFollowed": {
+    "Clubs": "Club"
+  },
+
+  "Dashboard": {
+    "Dashboard":"Bacheca",
+    "ShowMore": "Mostra di piú"
+  },
+
+  "List": {
+    "Clubs": "Club",
+    "Teams": "Squadra",
+    "Players": "Giocatori"
+  },
+
+  "Login": {
+    "Title":"Entra"
+  },
+
+  "NavBar": {
+    "Dashboard":"Bacheca",
+    "List": "Liste",
+    "Language": "Lingue",
+    "Logout":"Esci"
+  },
+
+  "PlayerProfile": {
+    "PlayerProfile": "Profilo del giocatore",
+    "Age": "Etá",
+    "Height": "Altezza",
+    "Weight": "Peso",
+    "Gender": "Genere",
+    "Teams": "Squadre",
+    "Clubs": "Club",
+    "Biography": "Biografia",
+    "Posts": "Posts"
+  },
+
+  "PlayersFollowed": {
+    "Players": "Giocatori"
+  },
+
+  "Post": {
+    "likes": "Mi piace",
+    "like": "mi piace",
+    "SaveChanges": "Salva le modifiche",
+    "Close": "Chiudi",
+    "ShowMore": "Mostra di piú",
+    "Comment": "Commenta"
+  },
+
+  "UserProfile": {
+    "UserProfile":"Profilo",
+    "Email": "E-mail",
+    "Following": "Seguiti",
+    "SeeAll": "Mostra tutti",
+    "Players": "Giocatori",
+    "Teams": "Squadre",
+    "Clubs": "Club"
+  },
+
+  "Results": {
+    "Players": "Giocatori",
+    "Teams": "Squadre",
+    "Clubs": "Club",
+    "Users":"Utenti",
+    "Location": "Localitá",
+    "Age": "Etá",
+    "AgeGroup": "Gruppi di etá"
+  },
+
+  "Search": {},
+
+  "TeamProfile": {
+    "TeamProfile": "Profilo della squadra",
+    "Club": "Club",
+    "AgeGroup": "Gruppi di etá",
+    "Type": "Tipo",
+    "Gender": "Genere",
+    "Description": "Descrizione",
+    "Players": "Giocatori",
+    "Posts": "Post"
+  },
+
+  "TeamsFollowed": {
+    "TeamsFollowed": "Squadre Seguite"
+  }
+}
