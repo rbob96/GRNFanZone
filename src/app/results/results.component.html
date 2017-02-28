@@ -16,7 +16,7 @@
   <br>
   <div class="tab-content">
     <div id="players" class="tab-pane" role="tabpanel">
-  <div *ngFor="let player of players" class=" col-sm-3 col-md-offset-1 col-md-5 col-md-offset-1 col-lg-5 col-lg-offset-1 ">
+  <div *ngFor="let player of players" class="col-md-5 col-md-offset-1">
     <div class="panel panel-default">
       <div class="panel-heading">
         <a (click)="sendToPlayer(player.id)">
