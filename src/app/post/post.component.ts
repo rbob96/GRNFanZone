@@ -18,8 +18,9 @@ export class PostComponent implements OnInit {
   post: Post;
 
   comments;
-  commentsLimit = 2;
+  commentsLimit = -3;
   showBtn = [];
+  shownComs = [];
   likes = [];
   currentComLen;
 
@@ -59,17 +60,8 @@ export class PostComponent implements OnInit {
           resComms.forEach(com => {
             this.showBtn.push(com);
           });
+          this.shownComs = this.showBtn.slice(this.commentsLimit);
         });
-
-      this.af.database.list('posts/' + this.post.id + '/comments', {
-        query: {
-          orderByChild: 'commented_at',
-          limitToFirst: this.commentsLimit
-        }
-      }).subscribe(comments => {
-        this.comments = comments;
-        this.currentComLen = this.comments.length;
-      });
 
       this.af.database.list('posts/' + this.post.id + '/likes').subscribe(likes => {
         this.likes = likes.map(l => {
@@ -148,17 +140,8 @@ export class PostComponent implements OnInit {
   }
 
   showMore(term: number) {
-    this.commentsLimit += term;
-    this.af.database.list('posts/' + this.post.id + '/comments', {
-        query: {
-          orderByChild: 'commented_at',
-          startAt: 0,
-          limitToFirst: this.commentsLimit
-        }
-      }).subscribe(comments => {
-        this.comments = comments;
-        this.currentComLen = this.comments.length;
-      });
+    this.commentsLimit -= term;
+    this.shownComs = this.showBtn.slice(this.commentsLimit);
   }
-
 }
+

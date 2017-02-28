@@ -44,10 +44,22 @@
           </div>
 
         </div>
+
+
         <div class="panel-footer">
+          
+          <div class="row">
+            <div class="col-md-12">
+              <button *ngIf="(this.showBtn.length > 3) && (this.shownComs.length != this.showBtn.length)" type="button"
+                      class="btn btn-info btn-sm" (click)="showMore(2)">{{"Post.ShowMore" | translate}}
+              </button>
+            </div>
+          </div>
+
+          <br>
 
           <ul class="list-group">
-            <li *ngFor="let postComment of comments" class="list-group-item">
+            <li *ngFor="let postComment of shownComs" class="list-group-item">
 
               <div class="media">
                 <div class="media-left">
@@ -59,6 +71,7 @@
                   <strong class="media-heading">{{postComment.author_name}}
                     <span class="badge badge-success" *ngIf="currentUserId === postComment.author">{{"Me" | translate}}</span>
                   </strong>
+
 
                   <div *ngIf="currentUserId === postComment.author" class="btn-group pull-right" role="group"
                        aria-label="Comment Options">
@@ -92,7 +105,6 @@
                       </div>
                     </div>
 
-
                     <button type="button" class="btn btn-danger btn-sm"
                             (click)="deleteComment(postComment.$key, post.id)">
                       <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
@@ -112,17 +124,7 @@
             </li>
           </ul>
 
-          <div class="row">
-            <div class="col-md-12">
-              <button *ngIf="(this.showBtn.length > 2) && (this.currentComLen != this.showBtn.length)" type="button"
-                      class="btn btn-info btn-sm" (click)="showMore(2)">{{"Post.ShowMore" | translate}}
-              </button>
-            </div>
-          </div>
-
-
           <br>
-
 
           <div class="input-group">
             <input [(ngModel)]="newComment" class="form-control" type="text" placeholder="{{'Post.Comment' | translate}}..."/>
