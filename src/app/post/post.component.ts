@@ -22,7 +22,6 @@ export class PostComponent implements OnInit {
   showBtn = [];
   shownComs = [];
   likes = [];
-  currentComLen;
 
   newComment = '';
 
@@ -44,7 +43,7 @@ export class PostComponent implements OnInit {
                 private authService: AuthService,
                 private postDataService: PostDataService,
                 private router: Router
-              ) {}
+              ) { }
 
   ngOnInit() {
 
@@ -144,4 +143,3 @@ export class PostComponent implements OnInit {
     this.shownComs = this.showBtn.slice(this.commentsLimit);
   }
 }
-
