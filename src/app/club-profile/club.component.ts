@@ -36,14 +36,18 @@ export class ClubComponent implements OnInit {
               private userDataService: UserDataService) {
 
     this.af.auth.subscribe(user => {
-      this.currentUserId = user.uid;
-      this.af.database.list('users/' + user.uid + '/clubs_followed').subscribe(clubs => {
-        clubs.forEach(club => {
-          if (club.$key === this.clubId) {
-            this.userFollowing = true;
-          }
+      if (user) {
+        this.currentUserId = user.uid;
+        this.af.database.list('users/' + user.uid + '/clubs_followed').subscribe(clubs => {
+          clubs.forEach(club => {
+            if (club.$key === this.clubId) {
+              this.userFollowing = true;
+            }
+          });
         });
-      });
+      } else {
+        this.currentUserId = null;
+      }
     });
   }
 

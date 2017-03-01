@@ -34,16 +34,20 @@ export class PlayerComponent implements OnInit {
               private userDataService: UserDataService) {
 
     this.af.auth.subscribe(user => {
-      this.currentUserId = user.uid;
-      this.af.database.list('users/' + user.uid + '/players_followed').subscribe(players => {
+      if (user) {
+        this.currentUserId = user.uid;
+        this.af.database.list('users/' + user.uid + '/players_followed').subscribe(players => {
 
-        players.forEach(player => {
-          if (player.$key === this.playerId) {
-            this.userFollowing = true;
-          }
+          players.forEach(player => {
+            if (player.$key === this.playerId) {
+              this.userFollowing = true;
+            }
+          });
+
         });
-
-      });
+      } else {
+        this.currentUserId = null;
+      }
     });
   }
 
