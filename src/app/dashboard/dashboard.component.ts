@@ -27,8 +27,7 @@ export class DashboardComponent {
           this.af.auth.subscribe(user => {
             if (user) {
               this.currentUserId = user.uid;
-            }
-            else {
+            } else {
               this.currentUserId = null;
             }
           });
