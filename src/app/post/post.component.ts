@@ -19,10 +19,10 @@ export class PostComponent implements OnInit {
 
   comments;
   commentsLimit = -3;
-  showBtn = [];
+  expandComs = -3;
   shownComs = [];
   likes = [];
-
+  showBtn = [];
   newComment = '';
 
   currentUserId;
@@ -55,12 +55,14 @@ export class PostComponent implements OnInit {
 
     if (this.post) {
 
-      const comms = this.postDataService.getComments(this.post.id).subscribe(resComms => {
+      let comms = this.postDataService.getComments(this.post.id).subscribe(resComms => {
           resComms.forEach(com => {
             this.showBtn.push(com);
           });
           this.shownComs = this.showBtn.slice(this.commentsLimit);
+          
         });
+      
 
       this.af.database.list('posts/' + this.post.id + '/likes').subscribe(likes => {
         this.likes = likes.map(l => {
@@ -104,11 +106,13 @@ export class PostComponent implements OnInit {
       author_avatar: this.userData.avatar
     }).then( _ => {
       this.newComment = '';
+      this.commentsLimit -= 1;
     });
   }
 
   deleteComment(key: string, postid: string) {
     this.postDataService.getComments(postid).remove(key);
+    this.commentsLimit += 1;
   }
 
   updateComment() {
@@ -139,7 +143,8 @@ export class PostComponent implements OnInit {
   }
 
   showMore(term: number) {
+    this.expandComs -= term;
     this.commentsLimit -= term;
-    this.shownComs = this.showBtn.slice(this.commentsLimit);
+    this.shownComs = this.showBtn.slice(this.expandComs);
   }
 }
