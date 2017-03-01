@@ -32,8 +32,12 @@ export class ResultsComponent implements OnInit {
     private af: AngularFire,
     private userDataService: UserDataService) {
       this.af.auth.subscribe(user => {
-      this.currentUserId = user.uid;
-    });
+        if (user) {
+          this.currentUserId = user.uid;
+        } else {
+          this.currentUserId = null;
+        }
+      });
   }
   ngOnInit() {
       this.sub = this.route.params.subscribe(params => {

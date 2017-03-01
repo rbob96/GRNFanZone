@@ -25,7 +25,12 @@ export class DashboardComponent {
               private router: Router) {
 
           this.af.auth.subscribe(user => {
-            this.currentUserId = user.uid;
+            if (user) {
+              this.currentUserId = user.uid;
+            }
+            else {
+              this.currentUserId = null;
+            }
           });
 
           this.af.database.object('users/' + this.currentUserId).subscribe(userData => {
