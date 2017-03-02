@@ -26,39 +26,48 @@ const appRoutes: Routes = [
     },
     {
       path : 'user/:id',
-      component : ProfileComponent
+      component : ProfileComponent,
+      canActivate: [ AuthGuardService ]
     },
     {
       path : 'teamsFollowed/:id',
-      component : TeamsFollowedComponent
+      component : TeamsFollowedComponent,
+      canActivate: [ AuthGuardService ]
     },
     {
       path : 'playersFollowed/:id',
-      component : PlayersFollowedComponent
+      component : PlayersFollowedComponent,
+      canActivate: [ AuthGuardService ]
     },
     {
       path : 'clubsFollowed/:id',
-      component : ClubsFollowedComponent
+      component : ClubsFollowedComponent,
+      canActivate: [ AuthGuardService ]
     },
     {
       path : 'team/:id',
-      component : TeamComponent
+      component : TeamComponent,
+      canActivate: [ AuthGuardService ]
     },
     {
       path : 'player/:id',
-      component : PlayerComponent
+      component : PlayerComponent,
+      canActivate: [ AuthGuardService ]
     },
     {
       path : 'club/:id',
-      component : ClubComponent
+      component : ClubComponent,
+      canActivate: [ AuthGuardService ]
     },
       {
         path: 'results/:query',
-        component: ResultsComponent
+        component: ResultsComponent,
+        canActivate: [ AuthGuardService ]
       },
       {
         path: 'results',
-        component: ResultsComponent
+        component: ResultsComponent,
+        canActivate: [ AuthGuardService ]
       }
 ];
 
