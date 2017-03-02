@@ -38,6 +38,7 @@ import { ResultsComponent } from './results/results.component';
 import {PostDataService} from './services/post-data.service';
 import { PostComponent } from './post/post.component';
 import { FixtureComponent } from './fixture/fixture.component';
+import { AgmCoreModule } from 'angular2-google-maps/core';
 
 
 export const firebaseConfig = {
@@ -84,7 +85,10 @@ export const firebaseConfig = {
     MomentModule,
     ToastModule.forRoot(),
     TranslateModule.forRoot(),
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCaEJBv9cnWruEEq1gyWOJgxZbD_F7nu_I'
+    })
   ],
   providers: [
     AuthService,

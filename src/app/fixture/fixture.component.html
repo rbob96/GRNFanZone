@@ -1,6 +1,12 @@
 <div class="panel panel-default">
   <div class="panel-body">
 
+    <div class="row">
+      <div class="col-md-12 lead">
+        Fixture
+        <hr>
+      </div>
+    </div>
 
     <div class="row">
 
@@ -14,8 +20,8 @@
         </div>
         <div clas="row">
           <div class="col-md-12">
-            <h2>{{(homeTeam)?.name}}</h2>
-            <h2 *ngIf="fixtureData?.kickoff < getTime()">{{fixtureData?.home_score}}</h2>
+            <a (click)="sendToTeam(fixtureData.home_team_id)"><h2>{{(fixtureData)?.home_team}}</h2></a>
+            <h3 *ngIf="fixtureData?.kickoff < getTime()">{{fixtureData?.home_score}}</h3>
           </div>
         </div>
       </div>
@@ -30,16 +36,41 @@
         </div>
         <div clas="row">
           <div class="col-md-12">
-            <h2>{{(awayTeam)?.name}}</h2>
-            <h2 *ngIf="(fixtureData?.kickoff < getTime())">{{fixtureData?.away_score}}</h2>
+            <a (click)="sendToTeam(fixtureData.away_team_id)"><h2>{{(fixtureData)?.away_team}}</h2></a>
+            <h3 *ngIf="(fixtureData?.kickoff < getTime())">{{fixtureData?.away_score}}</h3>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="well">
+    <div [hidden]="!(fixtureData)" class="well">
 
-      
+      <h4>
+        {{fixtureData?.location.address}}
+      </h4>
+
+      <em>
+        {{fixtureData?.kickoff | amDateFormat:'LL'}} <br>
+        {{fixtureData?.kickoff | amDateFormat:'hh:MM'}}
+      </em>
+
+
+      <br> <br>
+      <sebm-google-map *ngIf="fixtureData"
+                       [latitude]="fixtureData.location.latitude"
+                       [longitude]="fixtureData.location.longitude"
+                       [zoom]="10"
+      >
+        <sebm-google-map-marker [latitude]="fixtureData.location.latitude"
+                                [longitude]="fixtureData?.location.longitude">
+          <sebm-google-map-info-window [disableAutoPan]="true">
+            {{fixtureData.location.address}} <br>
+            <em>{{fixtureData?.kickoff | amDateFormat:'LL'}} <br>
+            {{fixtureData?.kickoff | amDateFormat:'hh:MM'}}</em>
+          </sebm-google-map-info-window>
+        </sebm-google-map-marker>
+
+      </sebm-google-map>
 
     </div>
 

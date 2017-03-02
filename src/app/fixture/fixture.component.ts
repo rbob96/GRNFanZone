@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AngularFire} from 'angularfire2';
-import {templateVisitAll} from "@angular/compiler";
+import {AgmCoreModule} from 'angular2-google-maps/core';
 
 @Component({
   selector: 'app-fixture',
@@ -17,7 +17,7 @@ export class FixtureComponent implements OnInit {
 
   constructor(private af: AngularFire,
               private router: Router,
-              private route: ActivatedRoute,) {
+              private route: ActivatedRoute) {
 
   }
 
@@ -46,6 +46,10 @@ export class FixtureComponent implements OnInit {
 
   getTime() {
     return new Date().getTime();
+  }
+
+  sendToTeam(uid: string) {
+    this.router.navigate(['/team/' + uid]);
   }
 
 }
