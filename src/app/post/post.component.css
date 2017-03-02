@@ -8,12 +8,20 @@
   width: 64px;
 }
 
+.post-text {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
 .comment-image {
   border-radius: 10%;
   height: 48px;
   width: 48px;
 }
 
+
+
 .show {
   margin-right: 10px;
 }
+

@@ -37,6 +37,7 @@ import { ResultsComponent } from './results/results.component';
 
 import {PostDataService} from './services/post-data.service';
 import { PostComponent } from './post/post.component';
+import { FixtureComponent } from './fixture/fixture.component';
 
 
 export const firebaseConfig = {
@@ -66,7 +67,8 @@ export const firebaseConfig = {
     PostComponent,
     SearchComponent,
     ResultsComponent,
-    SponsorsComponent
+    SponsorsComponent,
+    FixtureComponent
   ],
   imports: [
     BrowserModule,
