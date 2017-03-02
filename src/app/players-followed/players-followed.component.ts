@@ -30,7 +30,11 @@ export class PlayersFollowedComponent implements OnInit {
                private af: AngularFire) {
 
     this.af.auth.subscribe(user => {
-      this.currentUser = user.uid;
+      if (user) {
+        this.currentUser = user.uid;
+      } else {
+        this.currentUser = null;
+      }
     });
   }
 

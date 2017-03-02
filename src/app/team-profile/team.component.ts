@@ -37,15 +37,19 @@ export class TeamComponent implements OnInit {
               private userDataService: UserDataService) {
 
     this.af.auth.subscribe(user => {
-      this.currentUserId = user.uid;
-      this.af.database.list('users/' + user.uid + '/teams_followed').subscribe(teams => {
+      if (user) {
+        this.currentUserId = user.uid;
+        this.af.database.list('users/' + user.uid + '/teams_followed').subscribe(teams => {
 
-        teams.forEach(team => {
-          if (team.$key === this.teamId) {
-            this.userFollowing = true;
-          }
+          teams.forEach(team => {
+            if (team.$key === this.teamId) {
+              this.userFollowing = true;
+            }
+          });
         });
-      });
+      } else {
+        this.currentUserId = null;
+      }
     });
   }
 
