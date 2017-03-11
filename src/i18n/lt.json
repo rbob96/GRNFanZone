@@ -20,6 +20,12 @@
     "ShowMore": "Rodyti daugiau"
   },
 
+  "Fixture": {
+    "Fixture": "Fixture",
+    "Home": "Home",
+    "Away": "Away"
+  },
+
   "List": {
     "Clubs": "Klubai",
     "Teams": "Komandos",
@@ -92,7 +98,9 @@
     "Gender": "Lytis",
     "Description": "Aprašymas",
     "Players": "Žaidėjai",
-    "Posts": "Įrašai"
+    "Posts": "Įrašai",
+    "UpcomingFixtures": "Upcoming Fixtures",
+    "RecentFixtures": "Recent Fixtures"
   },
 
   "TeamsFollowed": {

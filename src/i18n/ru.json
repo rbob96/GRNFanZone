@@ -20,6 +20,12 @@
     "ShowMore": "Показать больше"
   },
 
+  "Fixture": {
+    "Fixture": "Fixture",
+    "Home": "Home",
+    "Away": "Away"
+  },
+
   "List": {
     "Clubs": "Клубы",
     "Teams": "Команды",
@@ -92,7 +98,9 @@
     "Gender": "Пол",
     "Description": "Описание",
     "Players": "Игроки",
-    "Posts": "Публикации"
+    "Posts": "Публикации",
+    "UpcomingFixtures": "Upcoming Fixtures",
+    "RecentFixtures": "Recent Fixtures"
   },
 
   "TeamsFollowed": {

@@ -20,6 +20,12 @@
     "ShowMore": "もっと見る"
   },
 
+  "Fixture": {
+    "Fixture": "Fixture",
+    "Home": "Home",
+    "Away": "Away"
+  },
+
   "List": {
     "Clubs": "クラブ",
     "Teams": "チーム",
@@ -92,7 +98,9 @@
     "Gender": "ジェンダー",
     "Description": "説明",
     "Players": "選手",
-    "Posts": "投稿"
+    "Posts": "投稿",
+    "UpcomingFixtures": "Upcoming Fixtures",
+    "RecentFixtures": "Recent Fixtures"
   },
 
   "TeamsFollowed": {

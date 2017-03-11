@@ -1,3 +1,4 @@
+<script src="fixture.component.ts"></script>
 <div class="panel panel-default">
   <div class="panel-body">
 
@@ -21,7 +22,8 @@
         <div clas="row">
           <div class="col-md-12">
             <a (click)="sendToTeam(fixtureData.home_team_id)"><h2>{{(fixtureData)?.home_team}}</h2></a>
-            <h3 *ngIf="fixtureData?.kickoff < getTime()">{{fixtureData?.home_score}}</h3>
+            <h3>Home</h3>
+            <h4 *ngIf="fixtureData?.kickoff < getTime()">{{fixtureData?.home_score}}</h4>
           </div>
         </div>
       </div>
@@ -37,7 +39,8 @@
         <div clas="row">
           <div class="col-md-12">
             <a (click)="sendToTeam(fixtureData.away_team_id)"><h2>{{(fixtureData)?.away_team}}</h2></a>
-            <h3 *ngIf="(fixtureData?.kickoff < getTime())">{{fixtureData?.away_score}}</h3>
+            <h3>Away</h3>
+            <h4 *ngIf="(fixtureData?.kickoff < getTime())">{{fixtureData?.away_score}}</h4>
           </div>
         </div>
       </div>
@@ -61,10 +64,10 @@
                        [longitude]="fixtureData.location.longitude"
                        [zoom]="10"
       >
-        <sebm-google-map-marker [latitude]="fixtureData.location.latitude"
+        <sebm-google-map-marker [latitude]="fixtureData?.location.latitude"
                                 [longitude]="fixtureData?.location.longitude">
           <sebm-google-map-info-window [disableAutoPan]="true">
-            {{fixtureData.location.address}} <br>
+            {{fixtureData?.location.address}} <br>
             <em>{{fixtureData?.kickoff | amDateFormat:'LL'}} <br>
             {{fixtureData?.kickoff | amDateFormat:'hh:MM'}}</em>
           </sebm-google-map-info-window>

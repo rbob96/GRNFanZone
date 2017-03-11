@@ -20,6 +20,12 @@
     "ShowMore": "Mostrar más"
   },
 
+  "Fixture": {
+    "Fixture": "Fixture",
+    "Home": "Home",
+    "Away": "Away"
+  },
+
   "List": {
     "Clubs": "Clubs",
     "Teams": "Equipos",
@@ -92,7 +98,9 @@
     "Gender": "Sexo",
     "Description": "Description",
     "Players": "Jugadores",
-    "Posts": "Posts"
+    "Posts": "Posts",
+    "UpcomingFixtures": "Upcoming Fixtures",
+    "RecentFixtures": "Recent Fixtures"
   },
 
   "TeamsFollowed": {

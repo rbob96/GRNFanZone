@@ -20,6 +20,12 @@
     "ShowMore": "Περισσότερα"
   },
 
+  "Fixture": {
+    "Fixture": "Fixture",
+    "Home": "Home",
+    "Away": "Away"
+  },
+
   "List": {
     "Clubs": "Σύλλογοι",
     "Teams": "Ομάδες",
@@ -92,7 +98,9 @@
     "Gender": "Γένος",
     "Description": "Περιγραφή",
     "Players": "Παίκτες",
-    "Posts": "Δημοσιεύσεις"
+    "Posts": "Δημοσιεύσεις",
+    "UpcomingFixtures": "Upcoming Fixtures",
+    "RecentFixtures": "Recent Fixtures"
   },
 
   "TeamsFollowed": {

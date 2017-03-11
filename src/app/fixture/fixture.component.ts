@@ -31,12 +31,10 @@ export class FixtureComponent implements OnInit {
 
       this.af.database.object('teams/' + this.fixtureData.home_team_id).subscribe(team => {
         this.homeTeam = team;
-        console.log(team);
       });
 
       this.af.database.object('teams/' + this.fixtureData.away_team_id).subscribe(team => {
         this.awayTeam = team;
-        console.log(team);
       });
 
     });

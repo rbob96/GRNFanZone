@@ -20,6 +20,12 @@
     "ShowMore": "Mai multe"
   },
 
+  "Fixture": {
+    "Fixture": "Fixture",
+    "Home": "Home",
+    "Away": "Away"
+  },
+
   "List": {
     "Clubs": "Cluburi",
     "Teams": "Echipe",
@@ -92,7 +98,9 @@
     "Gender": "Gen",
     "Description": "Descriere",
     "Players": "Jucători",
-    "Posts": "Postări"
+    "Posts": "Postări",
+    "UpcomingFixtures": "Upcoming Fixtures",
+    "RecentFixtures": "Recent Fixtures"
   },
 
   "TeamsFollowed": {

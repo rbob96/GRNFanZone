@@ -31,6 +31,9 @@ export class TeamComponent implements OnInit {
 
   follows = [];
 
+  upcomingFixtures = [];
+  recentFixtures = [];
+
   constructor(private af: AngularFire,
               private router: Router,
               private route: ActivatedRoute,
@@ -83,6 +86,21 @@ export class TeamComponent implements OnInit {
           return p.posted_by === this.teamId;
         });
       });
+
+      this.af.database.list('fixtures').subscribe(fixtures => {
+        // 604800000 == 1 week in milliseconds (1000*60*60*24*7)
+        let d = new Date;
+
+        this.upcomingFixtures = fixtures.filter(f => {
+          return (f.kickoff < d.getTime() + 604800000) && (f.kickoff > d.getTime());
+        });
+
+        this.recentFixtures = fixtures.filter(f => {
+          return (f.kickoff > d.getTime() - 604800000) && (f.kickoff < d.getTime());
+        });
+
+      });
+
     });
   }
 
@@ -111,6 +129,10 @@ export class TeamComponent implements OnInit {
 
   public sendToClub (uid: string) {
     this.router.navigate(['/club/' + uid]);
+  }
+
+  public sendToFixture (uid: string) {
+    this.router.navigate(['/fixture/' + uid]);
   }
 
 }

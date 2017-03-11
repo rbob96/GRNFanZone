@@ -20,6 +20,12 @@
     "ShowMore": "显示更多"
   },
 
+  "Fixture": {
+    "Fixture": "Fixture",
+    "Home": "Home",
+    "Away": "Away"
+  },
+
   "List": {
     "Clubs": "俱乐部",
     "Teams": "球队",
@@ -93,7 +99,9 @@
     "Gender": "性别",
     "Description": "简介",
     "Players": "球员",
-    "Posts": "发帖"
+    "Posts": "发帖",
+    "UpcomingFixtures": "Upcoming Fixtures",
+    "RecentFixtures": "Recent Fixtures"
   },
 
   "TeamsFollowed": {
