@@ -33,14 +33,12 @@ export class DashboardComponent {
           });
 
           this.af.database.object('users/' + this.currentUserId).subscribe(userData => {
-            console.log('user ret');
             this.userData = userData;
           });
 
           af.database.list('posts').subscribe(posts => {
 
             this.posts = [];
-            console.log('posts ret');
             if (this.userData != null) {
               posts.forEach(post => {
                 if (this.userData.players_followed != null &&
@@ -72,9 +70,6 @@ export class DashboardComponent {
 
   addComment(newComment: string, postid: string ) {
     this.postDataService.getComments(postid).push({ comment: newComment });
-    this.postDataService.getComments(postid).forEach(comment => {
-      console.log(comment);
-    });
   }
   updateComment(key: string, newComment: string, postid: string) {
     this.postDataService.getComments(postid).update(key, { comment: newComment });
