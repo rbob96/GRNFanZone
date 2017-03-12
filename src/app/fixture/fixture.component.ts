@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AngularFire} from 'angularfire2';
 import {AgmCoreModule} from 'angular2-google-maps/core';
+import {SendtoService} from '../services/sendto.service';
 
 @Component({
   selector: 'app-fixture',
@@ -15,9 +16,12 @@ export class FixtureComponent implements OnInit {
   homeTeam: any;
   awayTeam: any;
 
+  sendToTeam = this.sendto.team;
+
   constructor(private af: AngularFire,
               private router: Router,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private sendto: SendtoService) {
 
   }
 
@@ -39,15 +43,10 @@ export class FixtureComponent implements OnInit {
 
     });
 
-
   }
 
   getTime() {
     return new Date().getTime();
-  }
-
-  sendToTeam(uid: string) {
-    this.router.navigate(['/team/' + uid]);
   }
 
 }

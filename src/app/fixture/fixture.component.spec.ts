@@ -10,7 +10,8 @@ import {AngularFire, AngularFireModule} from 'angularfire2';
 import {Observable} from 'rxjs';
 import {MomentModule} from 'angular2-moment';
 import {AgmCoreModule} from 'angular2-google-maps/core';
-import {firebaseConfig} from '../app.module';
+import {firebaseConfig, googleMapsConfig} from '../app.module';
+import {SendtoService} from '../services/sendto.service';
 
 describe('FixtureComponent', () => {
   let component: FixtureComponent;
@@ -22,15 +23,14 @@ describe('FixtureComponent', () => {
       providers: [
         { provide: Router, useClass: RouterStub },
         { provide: ActivatedRoute, useValue: { 'params': Observable.from([{ 'id': 'h5m9PT4rgdSYDGzoyOLolYgUaUu1' }]) } },
-        { provide: AngularFire, useClass: AngularFire }
-      ],
+        { provide: AngularFire, useClass: AngularFire },
+        { provide: SendtoService, useClass: SendtoService}
+        ],
       imports: [
         AngularFireModule.initializeApp(firebaseConfig),
         RouterModule,
         MomentModule,
-        AgmCoreModule.forRoot({
-          apiKey: 'AIzaSyCaEJBv9cnWruEEq1gyWOJgxZbD_F7nu_I'
-        })
+        AgmCoreModule.forRoot(googleMapsConfig)
       ]
     })
     .compileComponents();

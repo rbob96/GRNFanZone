@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router, ActivatedRoute, RouterModule} from '@angular/router';
 import {AngularFire, FirebaseObjectObservable, FirebaseListObservable} from 'angularfire2';
 import {UserDataService} from '../services/user-data.service';
-import {User} from '../user';
+import {SendtoService} from '../services/sendto.service';
 @Component({
   selector: 'app-results',
   templateUrl: './results.component.html',
@@ -26,11 +26,18 @@ export class ResultsComponent implements OnInit {
   // Player uid
   searchTerm: string;
 
+  public sendToClub = this.sendto.club;
+  public sendToTeam = this.sendto.team;
+  public sendToPlayer = this.sendto.player;
+  public sendToUser = this.sendto.user;
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private af: AngularFire,
-    private userDataService: UserDataService) {
+    private userDataService: UserDataService,
+    private sendto: SendtoService) {
+
       this.af.auth.subscribe(user => {
         if (user) {
           this.currentUserId = user.uid;
@@ -38,6 +45,7 @@ export class ResultsComponent implements OnInit {
           this.currentUserId = null;
         }
       });
+
   }
   ngOnInit() {
       this.sub = this.route.params.subscribe(params => {
@@ -110,22 +118,6 @@ export class ResultsComponent implements OnInit {
         }
       });
     });
-  }
-
-  public sendToClub (uid: string) {
-    this.router.navigate(['/club/' + uid]);
-  }
-
-  public sendToTeam (uid: string) {
-    this.router.navigate(['/team/' + uid]);
-  }
-
-  public sendToPlayer (uid: string) {
-    this.router.navigate(['/player/' + uid]);
-  }
-
-  public sendToUser (uid: string) {
-    this.router.navigate(['/user/' + uid]);
   }
 
   public unfollowClub(uid: string) {
