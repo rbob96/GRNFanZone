@@ -14,11 +14,13 @@ import {ClubComponent} from './club-profile/club.component';
 import {AuthGuardService} from './services/auth-guard.service';
 import {ResultsComponent} from './results/results.component';
 import {FixtureComponent} from './fixture/fixture.component';
+import {UnauthGuardService} from './services/unauth-guard.service';
 
 const appRoutes: Routes = [
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate: [UnauthGuardService]
   },
   {
     path: '',

@@ -134,7 +134,7 @@ export class ResultsComponent implements OnInit {
           (result.away_team.toLowerCase()).includes(this.searchTerm.toLowerCase())) {
           this.fixtures.push(result);
         }
-      })
+      });
     });
   }
 

@@ -40,6 +40,7 @@ import { PostComponent } from './post/post.component';
 import { FixtureComponent } from './fixture/fixture.component';
 import { AgmCoreModule } from 'angular2-google-maps/core';
 import {SendtoService} from './services/sendto.service';
+import {UnauthGuardService} from './services/unauth-guard.service';
 
 
 export const firebaseConfig = {
@@ -97,6 +98,7 @@ export const googleMapsConfig = {
     AuthService,
     UserDataService,
     AuthGuardService,
+    UnauthGuardService,
     PlayerDataService,
     TeamDataService,
     ClubDataService,
