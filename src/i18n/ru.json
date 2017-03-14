@@ -21,9 +21,9 @@
   },
 
   "Fixture": {
-    "Fixture": "Fixture",
-    "Home": "Home",
-    "Away": "Away"
+    "Fixture": "Матч",
+    "Home": "Хозяева",
+    "Away": "Гости"
   },
 
   "List": {
@@ -61,7 +61,7 @@
 
   "Post": {
     "likes": "\"нравится\"",
-    "like": "like",
+    "like": "\"нравится\"",
     "SaveChanges": "Сохранить изменения",
     "Close": "Закрыть",
     "ShowMore": "Показать больше",
@@ -82,8 +82,8 @@
     "Clubs": "Клубы",
     "Teams": "Команды",
     "Players": "Игроки",
-    "Users": "Users",
-    "Fixtures": "Fixtures",
+    "Users": "Пользователи",
+    "Fixtures": "Матчи",
     "Location": "Местонахождение",
     "Age": "Возраст",
     "AgeGroup": "Возрастная группа"
@@ -100,8 +100,8 @@
     "Description": "Описание",
     "Players": "Игроки",
     "Posts": "Публикации",
-    "UpcomingFixtures": "Upcoming Fixtures",
-    "RecentFixtures": "Recent Fixtures"
+    "UpcomingFixtures": "Предстоящие матчи",
+    "RecentFixtures": "Недавние матчи"
   },
 
   "TeamsFollowed": {

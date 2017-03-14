@@ -4,7 +4,7 @@
 
     <div class="row">
       <div class="col-md-12 lead">
-        Fixture
+        {{"Fixture.Fixture" | translate}}
         <hr>
       </div>
     </div>
@@ -22,7 +22,7 @@
         <div clas="row">
           <div class="col-md-12">
             <a (click)="sendToTeam(fixtureData.home_team_id)"><h2>{{(fixtureData)?.home_team}}</h2></a>
-            <h3>Home</h3>
+            <h3>{{"Fixture.Home" | translate}}</h3>
             <h4 *ngIf="fixtureData?.kickoff < getTime()">{{fixtureData?.home_score}}</h4>
           </div>
         </div>
@@ -39,7 +39,7 @@
         <div clas="row">
           <div class="col-md-12">
             <a (click)="sendToTeam(fixtureData.away_team_id)"><h2>{{(fixtureData)?.away_team}}</h2></a>
-            <h3>Away</h3>
+            <h3>{{"Fixture.Away" | translate}}</h3>
             <h4 *ngIf="(fixtureData?.kickoff < getTime())">{{fixtureData?.away_score}}</h4>
           </div>
         </div>
