@@ -8,6 +8,12 @@
   width: 64px;
 }
 
+.post-content {
+  max-height: 12em;
+  overflow-y: scroll;
+  white-space: pre-wrap;
+}
+
 .comment-image {
   border-radius: 10%;
   height: 48px;

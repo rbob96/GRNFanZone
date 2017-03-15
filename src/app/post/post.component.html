@@ -19,7 +19,7 @@
               <h4 class="media-heading"> {{post.title}} </h4>
               <i>{{(post.created_at | amCalendar:{sameElse:'D MMMM, YYYY [at] h:mm a'})}}</i> <br>
 
-              {{post.text}}
+              <div class="post-content">{{post.text}}</div>
 
             </div>
           </div>
