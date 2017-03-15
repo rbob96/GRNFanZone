@@ -6,6 +6,8 @@ import {AuthService} from '../services/auth.service';
 import {PostDataService} from '../services/post-data.service';
 import {Router} from '@angular/router';
 
+import { Comment } from '../comment';
+
 
 @Component({
   selector: 'app-post',
@@ -17,10 +19,11 @@ export class PostComponent implements OnInit {
   @Input()
   post: Post;
 
-  comments;
+  comments: any = [];
   commentsLimit = 2;
   showBtn = [];
   likes = [];
+  commentsLikes = [];
   currentComLen;
 
   newComment = '';
@@ -78,6 +81,15 @@ export class PostComponent implements OnInit {
 
       });
 
+
+      // might need to remove this anw
+      this.af.database.list('posts/' + this.post.id + '/comments').subscribe(like => {
+        this.commentsLikes = like.map(l => {
+          return l.$key;
+        });
+
+      });
+
     }
 
   }
@@ -89,7 +101,7 @@ export class PostComponent implements OnInit {
       // Check if uid in likes
       if (this.likes.indexOf(uid) === -1) {
 
-        // Create the like
+       // Create the like
         observable.set({
           liked_at: (new Date().getTime())
         });
@@ -103,6 +115,11 @@ export class PostComponent implements OnInit {
     }
 
   }
+
+  likeComments(uid: string) {
+    
+  }
+
 
   addComment(newComment: string, postid: string ) {
     this.postDataService.getComments(this.post.id).push({
