@@ -21,9 +21,9 @@
   },
 
   "Fixture": {
-    "Fixture": "Fixture",
-    "Home": "Home",
-    "Away": "Away"
+    "Fixture": "Meci",
+    "Home": "Acasă",
+    "Away": "Vizită"
   },
 
   "List": {

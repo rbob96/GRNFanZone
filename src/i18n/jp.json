@@ -21,9 +21,9 @@
   },
 
   "Fixture": {
-    "Fixture": "Fixture",
-    "Home": "Home",
-    "Away": "Away"
+    "Fixture": "試合スケジュール",
+    "Home": "ホーム",
+    "Away": "離れた"
   },
 
   "List": {
