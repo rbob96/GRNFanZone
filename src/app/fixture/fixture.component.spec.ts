@@ -12,6 +12,7 @@ import {MomentModule} from 'angular2-moment';
 import {AgmCoreModule} from 'angular2-google-maps/core';
 import {firebaseConfig, googleMapsConfig} from '../app.module';
 import {SendtoService} from '../services/sendto.service';
+import {TranslateLoader, TranslateService, TranslateParser, TranslateModule} from 'ng2-translate';
 
 describe('FixtureComponent', () => {
   let component: FixtureComponent;
@@ -24,13 +25,17 @@ describe('FixtureComponent', () => {
         { provide: Router, useClass: RouterStub },
         { provide: ActivatedRoute, useValue: { 'params': Observable.from([{ 'id': 'h5m9PT4rgdSYDGzoyOLolYgUaUu1' }]) } },
         { provide: AngularFire, useClass: AngularFire },
-        { provide: SendtoService, useClass: SendtoService}
+        { provide: SendtoService, useClass: SendtoService},
+        TranslateLoader,
+        TranslateService,
+        TranslateParser
         ],
       imports: [
         AngularFireModule.initializeApp(firebaseConfig),
         RouterModule,
         MomentModule,
-        AgmCoreModule.forRoot(googleMapsConfig)
+        AgmCoreModule.forRoot(googleMapsConfig),
+        TranslateModule
       ]
     })
     .compileComponents();
