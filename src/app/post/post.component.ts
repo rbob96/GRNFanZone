@@ -24,6 +24,8 @@ export class PostComponent implements OnInit {
   showBtn = [];
   likes = [];
   testLikes = [];
+  commentLikes = [];
+  users = [];
 
   currentComLen;
   newComment = '';
@@ -84,10 +86,10 @@ export class PostComponent implements OnInit {
         this.testLikes = likes.map(l => {
           return l.$key;
         });
-      })
+      });
     }
-
   }
+ 
 
   likeToggle(uid: string) {
     if (this.post) {
@@ -113,18 +115,18 @@ export class PostComponent implements OnInit {
 
   likeComments(uid: string) {
 
-    const obs = this.af.database.object('users/' + this.currentUserId + '/likes/' + uid);
-
-    if (this.testLikes.indexOf(uid) === -1) {
-      obs.set({
-        liked_at: (new Date().getTime())
-      });
-    } else {
-      obs.remove();
+    if(this.post) {
+      const obs = this.af.database.object('users/' + this.currentUserId + '/likes/' + uid);
+      
+      if (this.testLikes.indexOf(uid) === -1) {
+        obs.set({
+          liked_at: (new Date().getTime())
+        });
+      } else {
+        obs.remove();
+      }
     }
-
   }
-
 
   addComment(newComment: string, postid: string ) {
     this.postDataService.getComments(this.post.id).push({

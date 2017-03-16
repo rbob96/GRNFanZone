@@ -108,12 +108,12 @@
 
 
                   <a *ngIf="testLikes.indexOf(postComment.$key) === -1"
-                    style="margin-left: 20px;"><small
+                    style="margin-left: 20px; cursor: pointer;"><small
                     (click)="likeComments(postComment.$key)">Like</small>
                   </a>
 
                   <a *ngIf="testLikes.indexOf(postComment.$key) !== -1" 
-                    style="margin-left: 20px;"><small
+                    style="margin-left: 20px; cursor: pointer"><small
                     (click)="likeComments(postComment.$key)">Unlike</small>
                   </a>
 
