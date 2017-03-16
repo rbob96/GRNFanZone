@@ -72,23 +72,26 @@ export class ResultsComponent implements OnInit {
 
   findPlayers() {
     const results = this.af.database.list('/players').subscribe(serverResults => {
-        this.players = [];
-        serverResults.forEach(result => {
-          if (((result.first_name + ' ' + result.last_name).toLowerCase()).includes(this.searchTerm.toLowerCase())) {
-            this.players.push(result);
-          }
-        });
+      this.players = [];
+      serverResults.forEach(result => {
+        if (((result.first_name + ' ' + result.last_name).toLowerCase()).includes(this.searchTerm.toLowerCase())) {
+          this.players.push(result);
+        } else if ((result.location.city.toLowerCase()).includes(this.searchTerm.toLowerCase())) {
+          this.players.push(result);
+        }
       });
-    }
+    });
+  }
+
   findUsers() {
     const users = this.af.database.list('/users').subscribe(serverResults => {
-        this.users = [];
-        serverResults.forEach(result => {
-          if ((result.name.toLowerCase()).includes(this.searchTerm.toLowerCase())) {
-            this.users.push(result);
-          }
-        });
+      this.users = [];
+      serverResults.forEach(result => {
+        if ((result.name.toLowerCase()).includes(this.searchTerm.toLowerCase())) {
+          this.users.push(result);
+        }
       });
+    });
   }
 
   findTeams() {
@@ -96,6 +99,8 @@ export class ResultsComponent implements OnInit {
       this.teams = [];
       serverResults.forEach(result => {
         if ((result.name.toLowerCase()).includes(this.searchTerm.toLowerCase())) {
+          this.teams.push(result);
+        } else if ((result.location.city.toLowerCase()).includes(this.searchTerm.toLowerCase())) {
           this.teams.push(result);
         }
       });
@@ -106,6 +111,8 @@ export class ResultsComponent implements OnInit {
       this.clubs = [];
       serverResults.forEach(result => {
         if ((result.name.toLowerCase()).includes(this.searchTerm.toLowerCase())) {
+          this.clubs.push(result);
+        } else if ((result.location.city.toLowerCase()).includes(this.searchTerm.toLowerCase())) {
           this.clubs.push(result);
         }
       });
