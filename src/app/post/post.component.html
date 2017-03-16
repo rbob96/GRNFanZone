@@ -54,7 +54,7 @@
                   <img class="media-object comment-image" src="{{postComment.author_avatar}}"
                        alt="{{postComment.author_name}}">
                 </div>
-                <div class="media-body">
+                <div class="media-body" [ngSwitch]="testLikes.length">
 
                   <strong class="media-heading">{{postComment.author_name}}
                     <span class="badge badge-success" *ngIf="currentUserId === postComment.author">{{"Me" | translate}}</span>
@@ -107,17 +107,18 @@
                   </small>
 
 
-                  <!-- SHOULD CREATE A DIRECTIVE AND INPUT THE COMMENT INTERFACE -->
-
-                  <!--<a *ngIf="" 
-                    style="margin-left: 20px;"><small 
-                    (click)="likeComments(postComment.$key)">Unlike</small>
-                  </a>-->
-
-                  <!--<a *ngIf="this.testLikes.indexOf(currentUserId) !== -1" 
-                    style="margin-left: 20px;"><small 
+                  <a *ngIf="testLikes.indexOf(postComment.$key) === -1"
+                    style="margin-left: 20px;"><small
                     (click)="likeComments(postComment.$key)">Like</small>
-                  </a>-->
+                  </a>
+
+                  <a *ngIf="testLikes.indexOf(postComment.$key) !== -1" 
+                    style="margin-left: 20px;"><small
+                    (click)="likeComments(postComment.$key)">Unlike</small>
+                  </a>
+
+                  
+                  
                   
 
                 </div>

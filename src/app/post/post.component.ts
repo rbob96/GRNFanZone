@@ -23,7 +23,6 @@ export class PostComponent implements OnInit {
 
   showBtn = [];
   likes = [];
-  
   testLikes = [];
 
   currentComLen;
@@ -80,6 +79,12 @@ export class PostComponent implements OnInit {
           return l.$key;
         });
       });
+
+      this.af.database.list('users/' + this.currentUserId + '/likes').subscribe(likes => {
+        this.testLikes = likes.map(l => {
+          return l.$key;
+        });
+      })
     }
 
   }
@@ -108,6 +113,15 @@ export class PostComponent implements OnInit {
 
   likeComments(uid: string) {
 
+    const obs = this.af.database.object('users/' + this.currentUserId + '/likes/' + uid);
+
+    if (this.testLikes.indexOf(uid) === -1) {
+      obs.set({
+        liked_at: (new Date().getTime())
+      });
+    } else {
+      obs.remove();
+    }
 
   }
 
