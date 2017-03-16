@@ -6,7 +6,6 @@ import {AuthService} from '../services/auth.service';
 import {PostDataService} from '../services/post-data.service';
 import {Router} from '@angular/router';
 
-import { Comment } from '../comment';
 
 
 @Component({
@@ -21,11 +20,13 @@ export class PostComponent implements OnInit {
 
   comments: any = [];
   commentsLimit = 2;
+
   showBtn = [];
   likes = [];
-  commentsLikes = [];
-  currentComLen;
+  
+  testLikes = [];
 
+  currentComLen;
   newComment = '';
 
   currentUserId;
@@ -76,20 +77,9 @@ export class PostComponent implements OnInit {
 
       this.af.database.list('posts/' + this.post.id + '/likes').subscribe(likes => {
         this.likes = likes.map(l => {
-            return l.$key;
-        });
-
-      });
-
-
-      // might need to remove this anw
-      this.af.database.list('posts/' + this.post.id + '/comments').subscribe(like => {
-        this.commentsLikes = like.map(l => {
           return l.$key;
         });
-
       });
-
     }
 
   }
@@ -117,7 +107,8 @@ export class PostComponent implements OnInit {
   }
 
   likeComments(uid: string) {
-    
+
+
   }
 
 
