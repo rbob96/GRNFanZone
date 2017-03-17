@@ -9,13 +9,10 @@
 }
 
 .post-text {
-  text-align: justify;
-  text-justify: inter-word;
-}
-
-.post-content {
   max-height: 12em;
   overflow-y: scroll;
+  text-align: justify;
+  text-justify: inter-word;
   white-space: pre-wrap;
 }
 
