@@ -24,8 +24,10 @@ export class PostComponent implements OnInit {
   showBtn = [];
   likes = [];
   testLikes = [];
-  commentLikes = [];
   users = [];
+  likeLength = 0;
+
+  liked;
 
   currentComLen;
   newComment = '';
@@ -39,7 +41,9 @@ export class PostComponent implements OnInit {
     author_avatar: '',
     author: '',
     commented_at: 0,
-    $key: ''
+    $key: '',
+    likes: [],
+    noLikes: 0
   };
 
   editedText = '';
@@ -89,7 +93,7 @@ export class PostComponent implements OnInit {
       });
     }
   }
- 
+
 
   likeToggle(uid: string) {
     if (this.post) {
@@ -113,20 +117,34 @@ export class PostComponent implements OnInit {
 
   }
 
-  likeComments(uid: string) {
+  commentLikeToggle(commentid: string, postid: string, uid: string) {
 
-    if(this.post) {
-      const obs = this.af.database.object('users/' + this.currentUserId + '/likes/' + uid);
-      
-      if (this.testLikes.indexOf(uid) === -1) {
-        obs.set({
+    let commentLikes = [];
+
+    if (commentid) {
+
+      this.af.database.list('posts/' + postid + '/comments/' + commentid + '/likes').subscribe(likes => {
+        commentLikes = likes.map(l => {
+          return l.$key;
+        });
+      });
+      const observable = this.af.database.object('posts/' + postid + '/comments/' + commentid + '/likes/' + uid);
+      const likeObs = this.af.database.object('posts/' + postid + '/comments/' + commentid + '/noLikes');
+    if (commentLikes.indexOf(uid) === -1) {
+        observable.set({
           liked_at: (new Date().getTime())
         });
-      } else {
-        obs.remove();
-      }
+        likeObs.$ref.transaction(function(currentCount) {
+          return currentCount + 1;
+});
+    } else {
+      observable.remove();
+      likeObs.$ref.transaction(function(currentCount) {
+        return currentCount - 1;
+});
     }
   }
+}
 
   addComment(newComment: string, postid: string ) {
     this.postDataService.getComments(this.post.id).push({
@@ -134,7 +152,9 @@ export class PostComponent implements OnInit {
       commented_at: (new Date().getTime()),
       author: this.currentUserId,
       author_name: this.userData.name,
-      author_avatar: this.userData.avatar
+      author_avatar: this.userData.avatar,
+      likes: [],
+      noLikes: 0
     }).then( _ => {
       this.newComment = '';
     });
@@ -151,7 +171,9 @@ export class PostComponent implements OnInit {
       commented_at: this.editComment.commented_at,
       author: this.editComment.author,
       author_name: this.editComment.author_name,
-      author_avatar: this.editComment.author_avatar
+      author_avatar: this.editComment.author_avatar,
+      likes: this.editComment.likes,
+      noLikes: this.editComment.noLikes
     });
 
   }

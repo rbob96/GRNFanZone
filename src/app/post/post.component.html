@@ -28,7 +28,7 @@
 
           <div class="row">
             <div class="col-sm-12" [ngSwitch]="likes.length">
-              
+
                 <b *ngSwitchCase="1">{{likes.length}} {{"Post.like" | translate}}</b>
                 <b *ngSwitchDefault>{{likes.length}} {{"Post.likes" | translate}}</b>
 
@@ -54,7 +54,6 @@
                   <img class="media-object comment-image" src="{{postComment.author_avatar}}"
                        alt="{{postComment.author_name}}">
                 </div>
-                <div class="media-body" [ngSwitch]="testLikes.length">
 
                   <strong class="media-heading">{{postComment.author_name}}
                     <span class="badge badge-success" *ngIf="currentUserId === postComment.author">{{"Me" | translate}}</span>
@@ -107,21 +106,19 @@
                   </small>
 
 
-                  <a *ngIf="testLikes.indexOf(postComment.$key) === -1"
-                    style="margin-left: 20px; cursor: pointer;"><small
-                    (click)="likeComments(postComment.$key)">Like</small>
-                  </a>
+                  <div class="row">
+                    <div *ngIf="postComment.noLikes != null">
+                    <div class="col-sm-12" [ngSwitch]="postComment.noLikes">
+                        <b *ngSwitchCase="1">{{postComment.noLikes}} {{"Post.like" | translate}}</b>
+                        <b *ngSwitchDefault>{{postComment.noLikes}} {{"Post.likes" | translate}}</b>
+                        </div>
+                      </div>
+                      <button type="button"
+                              class="btn btn-default pull-right btn-sm" (click)="commentLikeToggle(postComment.$key, post.id,currentUserId)">
+                        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+                      </button>
+                  </div>
 
-                  <a *ngIf="testLikes.indexOf(postComment.$key) !== -1" 
-                    style="margin-left: 20px; cursor: pointer"><small
-                    (click)="likeComments(postComment.$key)">Unlike</small>
-                  </a>
-
-                  
-                  
-                  
-
-                </div>
               </div>
 
             </li>
@@ -132,6 +129,7 @@
                 <button *ngIf="(this.showBtn.length > 2) && (this.currentComLen != this.showBtn.length)" type="button"
                     class="btn btn-info btn-sm" (click)="showMore(2)">{{"Post.ShowMore" | translate}}
                 </button>
+
             </div>
           </div>
 
