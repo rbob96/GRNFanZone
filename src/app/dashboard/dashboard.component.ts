@@ -34,7 +34,7 @@ export class DashboardComponent {
 
           af.database.list('posts').subscribe(posts => {
             // Dashboard should only be reloaded when new posts have been made
-            if (posts.length != this.posts.length){
+            if (posts.length !== this.posts.length) {
               this.posts = [];
               if (this.userData != null) {
                 posts.forEach(post => {
