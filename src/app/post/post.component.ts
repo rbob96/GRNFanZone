@@ -5,6 +5,7 @@ import Any = jasmine.Any;
 import {AuthService} from '../services/auth.service';
 import {PostDataService} from '../services/post-data.service';
 import {Router} from '@angular/router';
+import {SendtoService} from '../services/sendto.service';
 
 
 @Component({
@@ -42,8 +43,9 @@ export class PostComponent implements OnInit {
   constructor ( private af: AngularFire,
                 private authService: AuthService,
                 private postDataService: PostDataService,
-                private router: Router
-              ) { }
+                private router: Router,
+                private sendto: SendtoService
+              ) {}
 
   ngOnInit() {
 
@@ -130,11 +132,11 @@ export class PostComponent implements OnInit {
 
   sendToAuthor() {
     if (this.post.poster === 'players') {
-      this.router.navigate(['/player/' + this.post.posted_by]);
+      return this.sendto.player(this.post.posted_by);
     } else if (this.post.poster === 'teams') {
-      this.router.navigate(['/team/' + this.post.posted_by]);
+      return this.sendto.team(this.post.posted_by);
     } else if (this.post.poster === 'clubs') {
-      this.router.navigate(['/club/' + this.post.posted_by]);
+      return this.sendto.club(this.post.posted_by);
     }
   }
 

@@ -19,7 +19,9 @@
               <h4 class="media-heading"> {{post.title}} </h4>
               <i>{{(post.created_at | amCalendar:{sameElse:'D MMMM, YYYY [at] h:mm a'})}}</i> <br>
 
+              <div class="post-text">
               {{post.text}}
+              </div>
 
             </div>
           </div>
@@ -28,7 +30,7 @@
 
           <div class="row">
             <div class="col-sm-12" [ngSwitch]="likes.length">
-              
+
                 <b *ngSwitchCase="1">{{likes.length}} {{"Post.like" | translate}}</b>
                 <b *ngSwitchDefault>{{likes.length}} {{"Post.likes" | translate}}</b>
 
@@ -113,7 +115,6 @@
 
                   <br>
                   {{postComment.comment}}
-
                   <br>
                   <small><em>{{(postComment.commented_at | amCalendar:{sameElse:'D MMMM, YYYY [at] h:mm a'})}}</em>
                   </small>
@@ -127,7 +128,8 @@
           <br>
 
           <div class="input-group">
-            <input [(ngModel)]="newComment" class="form-control" type="text" placeholder="{{'Post.Comment' | translate}}..."/>
+            <input #box [(ngModel)]="newComment" class="form-control" type="text" placeholder="{{'Post.Comment' | translate}}..."
+              (keyup.enter)="addComment(box.value)"/>
             <span class="input-group-btn">
               <button [disabled]="newComment === ''" type="button" class="btn btn-success"
                       (click)="addComment()">

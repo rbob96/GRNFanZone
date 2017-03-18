@@ -1,11 +1,10 @@
 import 'rxjs/add/operator/map';
 
 import {Component, OnInit} from '@angular/core';
-import {Router, ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {AngularFire} from 'angularfire2';
 import {UserDataService} from '../services/user-data.service';
-import {User} from '../user';
-import {TranslateService} from 'ng2-translate';
+import {SendtoService} from '../services/sendto.service';
 
 
 
@@ -30,20 +29,27 @@ export class ClubComponent implements OnInit {
 
   follows = [];
 
+  public sendToTeam = this.sendto.team;
+
   constructor(private af: AngularFire,
-              private router: Router,
               private route: ActivatedRoute,
-              private userDataService: UserDataService) {
+              private userDataService: UserDataService,
+              private sendto: SendtoService,
+              private router: Router) {
 
     this.af.auth.subscribe(user => {
-      this.currentUserId = user.uid;
-      this.af.database.list('users/' + user.uid + '/clubs_followed').subscribe(clubs => {
-        clubs.forEach(club => {
-          if (club.$key === this.clubId) {
-            this.userFollowing = true;
-          }
+      if (user) {
+        this.currentUserId = user.uid;
+        this.af.database.list('users/' + user.uid + '/clubs_followed').subscribe(clubs => {
+          clubs.forEach(club => {
+            if (club.$key === this.clubId) {
+              this.userFollowing = true;
+            }
+          });
         });
-      });
+      } else {
+        this.currentUserId = null;
+      }
     });
   }
 
@@ -93,9 +99,4 @@ export class ClubComponent implements OnInit {
     this.userDataService.followTeam(this.currentUserId, uid);
     this.follows.push(uid);
   }
-
-  public sendToTeam (uid: string) {
-    this.router.navigate(['/team/' + uid]);
-  }
-
 }

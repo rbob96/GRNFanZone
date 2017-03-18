@@ -25,7 +25,11 @@ export class DashboardComponent {
               private router: Router) {
 
           this.af.auth.subscribe(user => {
-            this.currentUserId = user.uid;
+            if (user) {
+              this.currentUserId = user.uid;
+            } else {
+              this.currentUserId = null;
+            }
           });
 
           this.af.database.object('users/' + this.currentUserId).subscribe(userData => {
@@ -68,9 +72,6 @@ export class DashboardComponent {
 
   /*addComment(newComment: string, postid: string ) {
     this.postDataService.getComments(postid).push({ comment: newComment });
-    this.postDataService.getComments(postid).forEach(comment => {
-      console.log(comment);
-    });
   }
   updateComment(key: string, newComment: string, postid: string) {
     this.postDataService.getComments(postid).update(key, { comment: newComment });

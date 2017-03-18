@@ -15,16 +15,17 @@
       </div>
 
       <div class="row">
-
-        <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
-
           <div class="media">
+            <div class="col-xs-12 col-md-3">
             <div class="media-left">
               <a href="#">
                 <img class="media-object img-circle avatar avatar-original" src="{{(playerData | async)?.avatar}}"
                      alt="{{(playerData | async)?.first_name}} {{(playerData | async)?.last_name}}">
               </a>
             </div>
+            <br>
+          </div>
+          <div class="col-xs-12 col-md-9">
             <div class="media-body">
               <h3 class="media-heading">{{(playerData | async)?.first_name}} {{(playerData | async)?.last_name}}</h3>
 
