@@ -120,7 +120,6 @@ export class PostComponent implements OnInit {
   commentLikeToggle(commentid: string, postid: string, uid: string) {
 
     let commentLikes = [];
-
     if (commentid) {
 
       this.af.database.list('posts/' + postid + '/comments/' + commentid + '/likes').subscribe(likes => {
@@ -128,8 +127,10 @@ export class PostComponent implements OnInit {
           return l.$key;
         });
       });
+
       const observable = this.af.database.object('posts/' + postid + '/comments/' + commentid + '/likes/' + uid);
       const likeObs = this.af.database.object('posts/' + postid + '/comments/' + commentid + '/noLikes');
+
     if (commentLikes.indexOf(uid) === -1) {
         observable.set({
           liked_at: (new Date().getTime())

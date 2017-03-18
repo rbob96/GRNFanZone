@@ -107,16 +107,17 @@
 
 
                   <div class="row">
-                    <div *ngIf="postComment.noLikes != null">
-                    <div class="col-sm-12" [ngSwitch]="postComment.noLikes">
+                    <div class="col-sm-9" [ngSwitch]="postComment.noLikes">
                         <b *ngSwitchCase="1">{{postComment.noLikes}} {{"Post.like" | translate}}</b>
                         <b *ngSwitchDefault>{{postComment.noLikes}} {{"Post.likes" | translate}}</b>
-                        </div>
+                        <b *ngSwitchCase="null">0 likes</b>
                       </div>
+                      <div class="col-sm-3">
                       <button type="button"
                               class="btn btn-default pull-right btn-sm" (click)="commentLikeToggle(postComment.$key, post.id,currentUserId)">
-                        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+                              Like
                       </button>
+                    </div>
                   </div>
 
               </div>
