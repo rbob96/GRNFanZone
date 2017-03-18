@@ -17,6 +17,7 @@ import {PostComponent} from '../post/post.component';
 import {MomentModule} from 'angular2-moment';
 import {FormsModule} from '@angular/forms';
 import {TranslateLoader, TranslateService, TranslateParser, TranslateModule} from 'ng2-translate';
+import {SendtoService} from '../services/sendto.service';
 
 describe('PlayerComponent', () => {
   let component: PlayerComponent;
@@ -34,7 +35,8 @@ describe('PlayerComponent', () => {
         { provide: UserDataService, useClass: MockUserDataService},
         TranslateLoader,
         TranslateService,
-        TranslateParser
+        TranslateParser,
+        SendtoService
         ],
       imports: [
         AngularFireModule.initializeApp(firebaseConfig),

@@ -18,6 +18,7 @@ import {MockUserDataService, testUser} from '../../testing/mock.user-data.servic
 import {PostComponent} from '../post/post.component';
 import {MomentModule} from 'angular2-moment';
 import {FormsModule} from '@angular/forms';
+import {SendtoService} from '../services/sendto.service';
 
 describe('ClubComponent', () => {
   let component: ClubComponent;
@@ -35,7 +36,8 @@ describe('ClubComponent', () => {
         { provide: UserDataService, useClass: MockUserDataService},
         TranslateLoader,
         TranslateService,
-        TranslateParser
+        TranslateParser,
+        SendtoService
         ],
       imports: [
         AngularFireModule.initializeApp(firebaseConfig),

@@ -37,6 +37,10 @@ import { ResultsComponent } from './results/results.component';
 
 import {PostDataService} from './services/post-data.service';
 import { PostComponent } from './post/post.component';
+import { FixtureComponent } from './fixture/fixture.component';
+import { AgmCoreModule } from 'angular2-google-maps/core';
+import {SendtoService} from './services/sendto.service';
+import {UnauthGuardService} from './services/unauth-guard.service';
 
 
 export const firebaseConfig = {
@@ -45,6 +49,10 @@ export const firebaseConfig = {
   databaseURL: 'https://grnfanzone.firebaseio.com',
   storageBucket: 'grnfanzone.appspot.com',
   messagingSenderId: '90265713781'
+};
+
+export const googleMapsConfig = {
+  apiKey: 'AIzaSyCaEJBv9cnWruEEq1gyWOJgxZbD_F7nu_I'
 };
 
 
@@ -66,7 +74,8 @@ export const firebaseConfig = {
     PostComponent,
     SearchComponent,
     ResultsComponent,
-    SponsorsComponent
+    SponsorsComponent,
+    FixtureComponent
   ],
   imports: [
     BrowserModule,
@@ -82,16 +91,19 @@ export const firebaseConfig = {
     MomentModule,
     ToastModule.forRoot(),
     TranslateModule.forRoot(),
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    AgmCoreModule.forRoot(googleMapsConfig)
   ],
   providers: [
     AuthService,
     UserDataService,
     AuthGuardService,
+    UnauthGuardService,
     PlayerDataService,
     TeamDataService,
     ClubDataService,
-    PostDataService
+    PostDataService,
+    SendtoService
   ],
   bootstrap: [ AppComponent ]
 })

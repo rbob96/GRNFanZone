@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../services/auth.service';
-import {Router, ActivatedRoute} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 import { AngularFire, FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2';
 import {UserDataService} from '../services/user-data.service';
+import {SendtoService} from '../services/sendto.service';
 
 @Component({
   selector: 'app-clubs',
@@ -23,10 +23,12 @@ export class ClubsFollowedComponent implements OnInit {
 
   currentUser: string; // ID
 
-  constructor( private router: Router,
-               private route: ActivatedRoute,
+  public sendToClub = this.sendto.club;
+
+  constructor( private route: ActivatedRoute,
                private userDataService: UserDataService,
-               private af: AngularFire) {
+               private af: AngularFire,
+               private sendto: SendtoService) {
 
     this.af.auth.subscribe(user => {
       if (user) {
@@ -47,10 +49,6 @@ export class ClubsFollowedComponent implements OnInit {
       this.profileData = this.userDataService.getUserData(this.userId);
       this.followingClubs = this.userDataService.getUserFollowingClubs(this.userId);
     });
-  }
-
-  public sendToClub (uid: string) {
-    this.router.navigate(['/club/' + uid]);
   }
 
   public unfollowClub(uid: string) {

@@ -12,102 +12,135 @@
     <li class="nav-item">
       <a class="nav-link" data-toggle="tab" href="#users" role="tab">{{"Results.Users"| translate}}</a>
     </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#fixtures" role="tab">{{"Results.Fixtures"| translate}}</a>
+    </li>
   </ul>
   <br>
   <div class="tab-content">
     <div id="players" class="tab-pane" role="tabpanel">
-  <div *ngFor="let player of players" class="col-md-5 col-md-offset-1">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <a (click)="sendToPlayer(player.id)">
-          <h3 class="panel-title">{{player?.first_name}} {{player?.last_name}}</h3>
-          </a>
+      <div *ngFor="let player of players" class="col-md-5 col-md-offset-1">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <a (click)="sendToPlayer(player.id)">
+              <h3 class="panel-title">{{player?.first_name}} {{player?.last_name}}</h3>
+            </a>
           </div>
 
-      <div class="panel-body">
-        <div class="col-xs-6 col-md-3">
-          <img src="{{player?.avatar}}" class="as-banner"/>
+          <div class="panel-body">
+            <div class="col-xs-6 col-md-3">
+              <img src="{{player?.avatar}}" class="as-banner"/>
+            </div>
+            <div class="col-xs-12 col-md-5">
+              <ul class="list-unstyled">
+                <li class="list-goup-item">{{"Results.Location"| translate}}: {{player?.location.city}}</li>
+                <li class="list-goup-item">{{"Results.Age"| translate}}: {{player?.age}}</li>
+              </ul>
+            </div>
+            <div class="col-xs-12 col-md-4">
+              <button *ngIf="followPlayers.indexOf(player?.id) === -1" (click)="followPlayer(player?.id)" type="button"
+                      class="btn btn-sm btn-primary pull-right">{{"Follow" | translate}}
+              </button>
+              <button *ngIf="followPlayers.indexOf(player?.id) !== -1" (click)="unfollowPlayer(player?.id)"
+                      type="button" class="btn btn-sm btn-danger pull-right">{{"Unfollow" | translate}}
+              </button>
+            </div>
+          </div>
         </div>
-        <div class="col-xs-12 col-md-5">
-          <ul class="list-unstyled">
-            <li class="list-goup-item">{{"Results.Location"| translate}}: {{player?.location.city}}</li>
-            <li class="list-goup-item">{{"Results.Age"| translate}}: {{player?.age}}</li>
-          </ul>
+      </div>
+    </div>
+    <div id="teams" class="tab-pane" role="tabpanel">
+      <div *ngFor="let team of teams" class="col-md-5 col-md-offset-1">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <a (click)="sendToTeam(team?.id)">
+              <h3 class="panel-title">{{team?.name}}</h3>
+            </a>
+          </div>
+          <div class="panel-body">
+            <div class="col-xs-6 col-md-3">
+              <img src="{{team?.avatar}}" class="as-banner"/>
+            </div>
+            <div class="col-xs-12 col-md-5">
+              <ul class="list-unstyled">
+                <li class="list-goup-item">{{"Results.Location"| translate}}: {{team?.location.city}}</li>
+                <li class="list-goup-item">{{"Results.AgeGroup"| translate}}: {{team?.age_group}}</li>
+              </ul>
+            </div>
+            <div class="col-xs-12 col-md-4">
+              <button *ngIf="followTeams.indexOf(team?.id) === -1" (click)="followTeam(team?.id)" type="button"
+                      class="btn btn-sm btn-primary pull-right">{{"Follow" | translate}}
+              </button>
+              <button *ngIf="followTeams.indexOf(team?.id) !== -1" (click)="unfollowTeam(team?.id)" type="button"
+                      class="btn btn-sm btn-danger pull-right">{{"Unfollow" | translate}}
+              </button>
+            </div>
+          </div>
         </div>
-        <div class="col-xs-12 col-md-4">
-          <button *ngIf="followPlayers.indexOf(player?.id) === -1" (click)="followPlayer(player?.id)" type="button" class="btn btn-sm btn-primary pull-right">{{"Follow" | translate}}</button>
-          <button *ngIf="followPlayers.indexOf(player?.id) !== -1" (click)="unfollowPlayer(player?.id)" type="button" class="btn btn-sm btn-danger pull-right">{{"Unfollow" | translate}}</button>
+      </div>
+    </div>
+    <div id="users" class="tab-pane" role="tabpanel">
+      <div *ngFor="let user of users" class="col-md-5 col-md-offset-1">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <a (click)="sendToUser(user.$key)">
+              <h3 class="panel-title">{{user?.name}}</h3>
+            </a>
+          </div>
+          <div class="panel-body">
+            <div class="col-xs-6 col-md-4">
+              <img src="{{user?.avatar}}" class="as-banner"/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="clubs" class="tab-pane active" role="tabpanel">
+      <div *ngFor="let club of clubs" class="col-md-5 col-md-offset-1">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <a (click)="sendToClub(club?.id)">
+              <h3 class="panel-title">{{club?.name}}</h3>
+            </a>
+          </div>
+          <div class="panel-body">
+            <div class="col-xs-6 col-md-3">
+              <img src="{{club?.avatar}}" class="as-banner"/>
+            </div>
+            <div class="col-xs-12 col-md-5">
+              <ul class="list-unstyled">
+                <li class="list-goup-item">{{"Results.Location" | translate}}: {{club?.location.city}}</li>
+              </ul>
+            </div>
+            <div class="col-xs-12 col-md-4">
+              <button *ngIf="followClubs.indexOf(club?.id) === -1" (click)="followClub(club?.id)" type="button"
+                      class="btn btn-sm btn-primary pull-right">{{"Follow" | translate}}
+              </button>
+              <button *ngIf="followClubs.indexOf(club?.id) !== -1" (click)="unfollowClub(club?.id)" type="button"
+                      class="btn btn-sm btn-danger pull-right">{{"Unfollow" | translate}}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="fixtures" class="tab-pane" role="tabpanel">
+      <div *ngFor="let fixture of fixtures" class="col-md-5 col-md-offset-1">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <a (click)="sendToFixture(fixture?.$key)">
+              <h3 class="panel-title">{{fixture?.home_team}} vs {{fixture?.away_team}}</h3>
+            </a>
+          </div>
+          <div class="panel-body">
+            <div class="col-xs-12 col-md-12">
+              <ul class="list-unstyled">
+                <li class="list-goup-item">{{"Results.Location" | translate}}: {{fixture?.location.address}}, {{fixture?.location.city}}</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-<div id="teams" class="tab-pane" role="tabpanel">
-  <div *ngFor="let team of teams" class="col-md-5 col-md-offset-1">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <a (click)="sendToTeam(team?.id)">
-          <h3 class="panel-title">{{team?.name}}</h3>
-        </a>
-      </div>
-      <div class="panel-body">
-        <div class="col-xs-6 col-md-3">
-          <img src="{{team?.avatar}}" class="as-banner"/>
-        </div>
-        <div class="col-xs-12 col-md-5">
-          <ul class="list-unstyled">
-            <li class="list-goup-item">{{"Results.Location"| translate}}: {{team?.location.city}}</li>
-            <li class="list-goup-item">{{"Results.AgeGroup"| translate}}: {{team?.age_group}}</li>
-          </ul>
-        </div>
-        <div class="col-xs-12 col-md-4">
-          <button *ngIf="followTeams.indexOf(team?.id) === -1" (click)="followTeam(team?.id)" type="button" class="btn btn-sm btn-primary pull-right">{{"Follow" | translate}}</button>
-          <button *ngIf="followTeams.indexOf(team?.id) !== -1" (click)="unfollowTeam(team?.id)" type="button" class="btn btn-sm btn-danger pull-right">{{"Unfollow" | translate}}</button>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-<div id="users" class="tab-pane" role="tabpanel">
-  <div *ngFor="let user of users" class="col-md-5 col-md-offset-1">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <a (click)="sendToUser(user.$key)">
-          <h3 class="panel-title">{{user?.name}}</h3>
-        </a>
-      </div>
-      <div class="panel-body">
-        <div class="col-xs-6 col-md-4">
-          <img src="{{user?.avatar}}" class="as-banner"/>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div id="clubs" class="tab-pane active" role="tabpanel">
-  <div *ngFor="let club of clubs" class="col-md-5 col-md-offset-1">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <a (click)="sendToClub(club?.id)">
-          <h3 class="panel-title">{{club?.name}}</h3>
-        </a>
-      </div>
-      <div class="panel-body">
-        <div class="col-xs-6 col-md-3">
-          <img src="{{club?.avatar}}" class="as-banner"/>
-        </div>
-        <div class="col-xs-12 col-md-5">
-          <ul class="list-unstyled">
-            <li class="list-goup-item">{{"Results.Location" | translate}}: {{club?.location.city}}</li>
-          </ul>
-        </div>
-        <div class="col-xs-12 col-md-4">
-          <button *ngIf="followClubs.indexOf(club?.id) === -1" (click)="followClub(club?.id)" type="button" class="btn btn-sm btn-primary pull-right">{{"Follow" | translate}}</button>
-          <button *ngIf="followClubs.indexOf(club?.id) !== -1" (click)="unfollowClub(club?.id)" type="button" class="btn btn-sm btn-danger pull-right">{{"Unfollow" | translate}}</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
 </div>

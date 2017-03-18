@@ -20,6 +20,12 @@
     "ShowMore": "Mostra di piú"
   },
 
+  "Fixture": {
+    "Fixture": "Fixture",
+    "Home": "Home",
+    "Away": "Away"
+  },
+
   "List": {
     "Clubs": "Club",
     "Teams": "Squadra",
@@ -77,6 +83,7 @@
     "Teams": "Squadre",
     "Clubs": "Club",
     "Users":"Utenti",
+    "Fixtures": "Fixtures",
     "Location": "Localitá",
     "Age": "Etá",
     "AgeGroup": "Gruppi di etá"
@@ -92,7 +99,9 @@
     "Gender": "Genere",
     "Description": "Descrizione",
     "Players": "Giocatori",
-    "Posts": "Post"
+    "Posts": "Post",
+    "UpcomingFixtures": "Upcoming Fixtures",
+    "RecentFixtures": "Recent Fixtures"
   },
 
   "TeamsFollowed": {

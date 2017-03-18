@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
 import {AngularFire} from 'angularfire2';
 import {UserDataService} from '../services/user-data.service';
-import {User} from '../user';
+import {SendtoService} from '../services/sendto.service';
 
 @Component({
   selector: 'app-teams',
@@ -27,11 +27,14 @@ export class PlayerComponent implements OnInit {
   followTeams = [];
   followClubs = [];
 
+  public sendToTeam = this.sendto.team;
+  public sendToClub = this.sendto.club;
 
   constructor(private af: AngularFire,
               private router: Router,
               private route: ActivatedRoute,
-              private userDataService: UserDataService) {
+              private userDataService: UserDataService,
+              private sendto: SendtoService) {
 
     this.af.auth.subscribe(user => {
       if (user) {
@@ -101,21 +104,13 @@ export class PlayerComponent implements OnInit {
     this.userFollowing = true;
   }
 
-  public sendToTeam (uid: string) {
-    this.router.navigate(['/team/' + uid]);
-  }
-
-  public sendToClub (uid: string) {
-    this.router.navigate(['/club/' + uid]);
-  }
-
   public getTeam (uid: string) {
-  const item = this.af.database.object('teams/' + uid);
-  let theTeam = 0;
-  item.subscribe(team => {
-    theTeam = team;
-  });
-  return theTeam;
+    const item = this.af.database.object('teams/' + uid);
+    let theTeam = 0;
+    item.subscribe(team => {
+      theTeam = team;
+    });
+    return theTeam;
   }
 
   public getClub (uid: string) {
