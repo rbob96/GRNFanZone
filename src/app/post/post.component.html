@@ -19,7 +19,9 @@
               <h4 class="media-heading"> {{post.title}} </h4>
               <i>{{(post.created_at | amCalendar:{sameElse:'D MMMM, YYYY [at] h:mm a'})}}</i> <br>
 
-              <div class="post-content">{{post.text}}</div>
+              <div class="post-text">
+              {{post.text}}
+              </div>
 
             </div>
           </div>
@@ -28,7 +30,7 @@
 
           <div class="row">
             <div class="col-sm-12" [ngSwitch]="likes.length">
-              
+
                 <b *ngSwitchCase="1">{{likes.length}} {{"Post.like" | translate}}</b>
                 <b *ngSwitchDefault>{{likes.length}} {{"Post.likes" | translate}}</b>
 
@@ -64,11 +66,11 @@
                        aria-label="Comment Options">
 
                     <button type="button" (click)="setEditComment(postComment)" class="btn btn-primary btn-sm"
-                            data-toggle="modal" data-target="#editModal">
+                            data-toggle="modal" [attr.data-target]="'#'+post.id">
                       <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                     </button>
 
-                    <div class="modal fade" id="editModal" role="dialog">
+                    <div class="modal fade" [attr.id]="post.id" role="dialog">
                       <div class="modal-dialog">
 
                         <!-- Modal content-->
@@ -101,7 +103,6 @@
 
                   <br>
                   {{postComment.comment}}
-
                   <br>
                   <small><em>{{(postComment.commented_at | amCalendar:{sameElse:'D MMMM, YYYY [at] h:mm a'})}}</em>
                   </small>

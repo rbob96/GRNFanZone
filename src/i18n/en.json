@@ -20,6 +20,12 @@
     "ShowMore": "Show More"
   },
 
+  "Fixture": {
+    "Fixture": "Fixture",
+    "Home": "Home",
+    "Away": "Away"
+  },
+
   "List": {
     "Clubs": "Clubs",
     "Teams": "Teams",
@@ -77,6 +83,7 @@
     "Teams": "Teams",
     "Clubs": "Clubs",
     "Users":"Users",
+    "Fixtures": "Fixtures",
     "Location": "Location",
     "Age": "Age",
     "AgeGroup": "Age Group"
@@ -92,7 +99,9 @@
     "Gender": "Gender",
     "Description": "Description",
     "Players": "Players",
-    "Posts": "Posts"
+    "Posts": "Posts",
+    "UpcomingFixtures": "Upcoming Fixtures",
+    "RecentFixtures": "Recent Fixtures"
   },
 
   "TeamsFollowed": {

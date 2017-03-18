@@ -3,6 +3,7 @@ import { AuthService } from '../services/auth.service';
 import {Router, ActivatedRoute} from '@angular/router';
 import { AngularFire, FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2';
 import {UserDataService} from '../services/user-data.service';
+import {SendtoService} from '../services/sendto.service';
 
 @Component({
   selector: 'app-teams',
@@ -23,10 +24,13 @@ export class TeamsFollowedComponent implements OnInit {
 
   currentUser: string; // ID
 
+  public sendToTeam = this.sendto.team;
+
   constructor( private router: Router,
                private route: ActivatedRoute,
                private userDataService: UserDataService,
-               private af: AngularFire) {
+               private af: AngularFire,
+               private sendto: SendtoService) {
 
     this.af.auth.subscribe(user => {
       if (user) {
@@ -47,10 +51,6 @@ export class TeamsFollowedComponent implements OnInit {
       this.profileData = this.userDataService.getUserData(this.userId);
       this.followingTeams = this.userDataService.getUserFollowingTeams(this.userId);
     });
-  }
-
-  public sendToTeam (uid: string) {
-    this.router.navigate(['/team/' + uid]);
   }
 
   public unfollowTeam(uid: string) {

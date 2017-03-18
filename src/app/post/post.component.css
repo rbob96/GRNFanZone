@@ -8,9 +8,11 @@
   width: 64px;
 }
 
-.post-content {
+.post-text {
   max-height: 12em;
   overflow-y: scroll;
+  text-align: justify;
+  text-justify: inter-word;
   white-space: pre-wrap;
 }
 
@@ -19,6 +21,7 @@
   height: 48px;
   width: 48px;
 }
+
 
 .show {
   margin-right: 10px;

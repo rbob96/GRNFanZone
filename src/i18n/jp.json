@@ -20,6 +20,12 @@
     "ShowMore": "もっと見る"
   },
 
+  "Fixture": {
+    "Fixture": "試合スケジュール",
+    "Home": "ホーム",
+    "Away": "離れた"
+  },
+
   "List": {
     "Clubs": "クラブ",
     "Teams": "チーム",
@@ -77,6 +83,7 @@
     "Teams": "チーム",
     "Players": "選手",
     "Users": "ユーザー",
+    "Fixtures": "Fixtures",
     "Location": "ロケーション",
     "Age": "年齢",
     "AgeGroup": "年齢層"
@@ -92,7 +99,9 @@
     "Gender": "ジェンダー",
     "Description": "説明",
     "Players": "選手",
-    "Posts": "投稿"
+    "Posts": "投稿",
+    "UpcomingFixtures": "Upcoming Fixtures",
+    "RecentFixtures": "Recent Fixtures"
   },
 
   "TeamsFollowed": {

@@ -1,0 +1,81 @@
+<script src="fixture.component.ts"></script>
+<div class="panel panel-default">
+  <div class="panel-body">
+
+    <div class="row">
+      <div class="col-md-12 lead">
+        {{"Fixture.Fixture" | translate}}
+        <hr>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <!-- Home Team -->
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-12">
+            <img class="img-circle avatar avatar-original" src="{{homeTeam?.avatar}}"
+                 alt="{{(homeTeam)?.name}}">
+          </div>
+        </div>
+        <div clas="row">
+          <div class="col-md-12">
+            <a (click)="sendToTeam(fixtureData.home_team_id)"><h2>{{(fixtureData)?.home_team}}</h2></a>
+            <h3>{{"Fixture.Home" | translate}}</h3>
+            <h4 *ngIf="fixtureData?.kickoff < getTime()">{{fixtureData?.home_score}}</h4>
+          </div>
+        </div>
+      </div>
+
+      <!-- Away -->
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-12">
+            <img class="img-circle avatar avatar-original" src="{{awayTeam?.avatar}}"
+                 alt="{{(awayTeam)?.name}}">
+          </div>
+        </div>
+        <div clas="row">
+          <div class="col-md-12">
+            <a (click)="sendToTeam(fixtureData.away_team_id)"><h2>{{(fixtureData)?.away_team}}</h2></a>
+            <h3>{{"Fixture.Away" | translate}}</h3>
+            <h4 *ngIf="(fixtureData?.kickoff < getTime())">{{fixtureData?.away_score}}</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div [hidden]="!(fixtureData)" class="well">
+
+      <h4>
+        {{fixtureData?.location.address}}
+      </h4>
+
+      <em>
+        {{fixtureData?.kickoff | amDateFormat:'LL'}} <br>
+        {{fixtureData?.kickoff | amDateFormat:'hh:MM'}}
+      </em>
+
+
+      <br> <br>
+      <sebm-google-map *ngIf="fixtureData"
+                       [latitude]="fixtureData.location.latitude"
+                       [longitude]="fixtureData.location.longitude"
+                       [zoom]="10"
+      >
+        <sebm-google-map-marker [latitude]="fixtureData?.location.latitude"
+                                [longitude]="fixtureData?.location.longitude">
+          <sebm-google-map-info-window [disableAutoPan]="true">
+            {{fixtureData?.location.address}} <br>
+            <em>{{fixtureData?.kickoff | amDateFormat:'LL'}} <br>
+            {{fixtureData?.kickoff | amDateFormat:'hh:MM'}}</em>
+          </sebm-google-map-info-window>
+        </sebm-google-map-marker>
+
+      </sebm-google-map>
+
+    </div>
+
+  </div>
+</div>

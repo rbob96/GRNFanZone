@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-
-import { Player } from '../player';
-
 import { PlayerDataService } from '../services/player-data.service';
 import { Router } from '@angular/router';
 
