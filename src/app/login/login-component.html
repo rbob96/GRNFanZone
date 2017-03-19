@@ -1,7 +1,9 @@
-<div class="g-row sign-in">
-  <div class="g-col">
-    <h1 class="sign-in__heading">{{'Login.Title' | translate}}</h1>
-    <button class="sign-in__button" (click)="af.login('facebook')" type="button">Facebook</button>
-    <button class="sign-in__button" (click)="af.login('google')" type="button">Google</button>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <h1>{{'Login.Title' | translate}}</h1>
+      <button class="btn btn-primary btn-block" (click)="af.login('facebook')" type="button">Facebook</button>
+      <button class="btn btn-primary btn-block" (click)="af.login('google')" type="button">Google</button>
+    </div>
   </div>
 </div>

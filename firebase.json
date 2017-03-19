@@ -29,6 +29,11 @@
         ".read": true,
         ".write": false
       },
+      "fixtures": {
+        ".indexOn": "home_team",
+        ".read": true,
+        ".write": false
+      },
       "rules": {
         ".read": "auth != null",
         ".write": "auth != null"

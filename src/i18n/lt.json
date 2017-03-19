@@ -20,6 +20,12 @@
     "ShowMore": "Rodyti daugiau"
   },
 
+  "Fixture": {
+    "Fixture": "Fixture",
+    "Home": "Home",
+    "Away": "Away"
+  },
+
   "List": {
     "Clubs": "Klubai",
     "Teams": "Komandos",
@@ -33,6 +39,7 @@
   "NavBar": {
     "Dashboard":"Įrašų lenta",
     "List":"Sąrašas",
+    "Language":"Kalba",
     "Logout":"Atsijungti"
   },
 
@@ -54,6 +61,7 @@
 
   "Post": {
     "likes": "\"Patinka\"",
+    "like": "like",
     "SaveChanges": "Išsaugoti pokyčius",
     "Close": "Uždaryti",
     "ShowMore": "Rodyti daugiau",
@@ -71,6 +79,11 @@
   },
 
   "Results": {
+    "Clubs": "Klubai",
+    "Teams": "Komandos",
+    "Players": "Žaidėjai",
+    "Users": "Users",
+    "Fixtures": "Fixtures",
     "Location": "Vieta",
     "Age": "Amžius",
     "AgeGroup": "Amžiaus grupė"
@@ -86,7 +99,9 @@
     "Gender": "Lytis",
     "Description": "Aprašymas",
     "Players": "Žaidėjai",
-    "Posts": "Įrašai"
+    "Posts": "Įrašai",
+    "UpcomingFixtures": "Upcoming Fixtures",
+    "RecentFixtures": "Recent Fixtures"
   },
 
   "TeamsFollowed": {

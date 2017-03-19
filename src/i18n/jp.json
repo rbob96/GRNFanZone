@@ -20,6 +20,12 @@
     "ShowMore": "もっと見る"
   },
 
+  "Fixture": {
+    "Fixture": "試合スケジュール",
+    "Home": "ホーム",
+    "Away": "離れた"
+  },
+
   "List": {
     "Clubs": "クラブ",
     "Teams": "チーム",
@@ -33,7 +39,8 @@
   "NavBar": {
     "Dashboard": "ニュースフィード",
     "List": "名鑑",
-    "Logout": "ログアウト"
+    "Logout": "ログアウト",
+    "Language": "言語"
   },
 
   "PlayerProfile": {
@@ -54,6 +61,7 @@
 
   "Post": {
     "likes": "ライク",
+    "like": "ライク",
     "SaveChanges": "変更を保存",
     "Close": "閉じる",
     "ShowMore": "もっと見る",
@@ -71,6 +79,11 @@
   },
 
   "Results": {
+    "Clubs": "クラブ",
+    "Teams": "チーム",
+    "Players": "選手",
+    "Users": "ユーザー",
+    "Fixtures": "Fixtures",
     "Location": "ロケーション",
     "Age": "年齢",
     "AgeGroup": "年齢層"
@@ -86,7 +99,9 @@
     "Gender": "ジェンダー",
     "Description": "説明",
     "Players": "選手",
-    "Posts": "投稿"
+    "Posts": "投稿",
+    "UpcomingFixtures": "Upcoming Fixtures",
+    "RecentFixtures": "Recent Fixtures"
   },
 
   "TeamsFollowed": {

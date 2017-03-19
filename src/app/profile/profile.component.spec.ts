@@ -16,6 +16,7 @@ import {MockAuthService} from '../../testing/mock.auth.service';
 import {AuthService} from '../services/auth.service';
 import {MockUserDataService, testUser} from '../../testing/mock.user-data.service';
 import {TranslateLoader, TranslateService, TranslateParser, TranslateModule} from 'ng2-translate';
+import {SendtoService} from '../services/sendto.service';
 
 describe('ProfileComponent', () => {
   let component: ProfileComponent;
@@ -33,7 +34,8 @@ describe('ProfileComponent', () => {
         { provide: AuthService, useClass: MockAuthService},
         TranslateLoader,
         TranslateService,
-        TranslateParser
+        TranslateParser,
+        SendtoService
       ],
       imports: [
         AngularFireModule.initializeApp(firebaseConfig),

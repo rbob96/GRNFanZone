@@ -1,0 +1,112 @@
+{
+
+  "Follow": "关注",
+  "Unfollow": "不关注",
+  "Me": "我",
+
+  "ClubProfile": {
+    "ClubProfile": "俱乐部资料",
+    "Description": "简介",
+    "Teams": "球队",
+    "Posts": "发帖"
+  },
+
+  "ClubsFollowed": {
+    "Clubs": "俱乐部"
+  },
+
+  "Dashboard": {
+    "Dashboard":"新动态",
+    "ShowMore": "显示更多"
+  },
+
+  "Fixture": {
+    "Fixture": "Fixture",
+    "Home": "Home",
+    "Away": "Away"
+  },
+
+  "List": {
+    "Clubs": "俱乐部",
+    "Teams": "球队",
+    "Players": "球员"
+  },
+
+  "Login": {
+    "Title":"登录"
+  },
+
+  "NavBar": {
+    "Dashboard":"新动态",
+    "Language": "语言",
+    "List":"列表",
+    "Logout":"退出"
+  },
+
+  "PlayerProfile": {
+    "PlayerProfile": "球员资料",
+    "Age": "年龄",
+    "Height": "身高",
+    "Weight": "体重",
+    "Gender": "性别",
+    "Teams": "球队",
+    "Clubs": "俱乐部",
+    "Biography": "档案",
+    "Posts": "发帖"
+  },
+
+  "PlayersFollowed": {
+    "Players": "球员"
+  },
+
+  "Post": {
+    "likes": "喜欢",
+    "SaveChanges": "保存更改",
+    "Close": "关闭",
+    "ShowMore": "显示更多",
+    "Comment": "评论"
+  },
+
+  "UserProfile": {
+    "UserProfile":"用户资料",
+    "Email": "电子邮件地址",
+    "Following": "正在关注",
+    "SeeAll": "显示全部",
+    "Players": "球员",
+    "Teams": "球队",
+    "Clubs": "俱乐部"
+  },
+
+  "Results": {
+    "Players": "球员",
+    "Teams": "球队",
+    "Clubs": "俱乐部",
+    "Users":"用户",
+    "Fixtures": "Fixtures",
+    "Location": "居住地",
+    "Age": "年龄",
+    "AgeGroup": "年龄段"
+  },
+
+  "Search": {
+    "Search": "搜索"
+  },
+
+  "TeamProfile": {
+    "TeamProfile": "球队资料",
+    "Club": "俱乐部",
+    "AgeGroup": "年龄段",
+    "Type": "类型",
+    "Gender": "性别",
+    "Description": "简介",
+    "Players": "球员",
+    "Posts": "发帖",
+    "UpcomingFixtures": "Upcoming Fixtures",
+    "RecentFixtures": "Recent Fixtures"
+  },
+
+  "TeamsFollowed": {
+    "TeamsFollowed": "已关注球队"
+  }
+}
+

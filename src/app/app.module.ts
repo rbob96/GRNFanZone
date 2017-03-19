@@ -7,7 +7,7 @@ import { AngularFireModule } from 'angularfire2';
 import { RouterModule } from '@angular/router';
 import {MomentModule} from 'angular2-moment';
 import {ToastModule} from 'ng2-toastr/ng2-toastr';
-
+import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -27,12 +27,7 @@ import {UserDataService} from './services/user-data.service';
 import {TeamDataService} from './services/team-data.service';
 import {ClubDataService} from './services/club-data.service';
 import {PlayerDataService} from './services/player-data.service';
-
-
-import {ListComponent} from './list/list.component';
-
-
-
+import {SponsorsComponent} from './sponsors/sponsors.component';
 
 import { routing } from './app.routing';
 import { AuthService } from './services/auth.service';
@@ -42,6 +37,10 @@ import { ResultsComponent } from './results/results.component';
 
 import {PostDataService} from './services/post-data.service';
 import { PostComponent } from './post/post.component';
+import { FixtureComponent } from './fixture/fixture.component';
+import { AgmCoreModule } from 'angular2-google-maps/core';
+import {SendtoService} from './services/sendto.service';
+import {UnauthGuardService} from './services/unauth-guard.service';
 
 
 export const firebaseConfig = {
@@ -50,6 +49,10 @@ export const firebaseConfig = {
   databaseURL: 'https://grnfanzone.firebaseio.com',
   storageBucket: 'grnfanzone.appspot.com',
   messagingSenderId: '90265713781'
+};
+
+export const googleMapsConfig = {
+  apiKey: 'AIzaSyCaEJBv9cnWruEEq1gyWOJgxZbD_F7nu_I'
 };
 
 
@@ -68,10 +71,11 @@ export const firebaseConfig = {
     TeamComponent,
     PlayerComponent,
     ClubComponent,
-    ListComponent,
     PostComponent,
     SearchComponent,
-    ResultsComponent
+    ResultsComponent,
+    SponsorsComponent,
+    FixtureComponent
   ],
   imports: [
     BrowserModule,
@@ -86,16 +90,20 @@ export const firebaseConfig = {
     RouterModule,
     MomentModule,
     ToastModule.forRoot(),
-    TranslateModule.forRoot()
+    TranslateModule.forRoot(),
+    InfiniteScrollModule,
+    AgmCoreModule.forRoot(googleMapsConfig)
   ],
   providers: [
     AuthService,
     UserDataService,
     AuthGuardService,
+    UnauthGuardService,
     PlayerDataService,
     TeamDataService,
     ClubDataService,
-    PostDataService
+    PostDataService,
+    SendtoService
   ],
   bootstrap: [ AppComponent ]
 })

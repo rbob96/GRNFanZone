@@ -20,6 +20,12 @@
     "ShowMore": "Mai multe"
   },
 
+  "Fixture": {
+    "Fixture": "Meci",
+    "Home": "Acasă",
+    "Away": "În deplasare"
+  },
+
   "List": {
     "Clubs": "Cluburi",
     "Teams": "Echipe",
@@ -33,7 +39,8 @@
   "NavBar": {
     "Dashboard":"Dashboard",
     "List":"Listează",
-    "Logout":"Deconectare"
+    "Logout":"Deconectare",
+    "Language": "Limba"
   },
 
   "PlayerProfile": {
@@ -54,6 +61,7 @@
 
   "Post": {
     "likes": "aprecieri",
+    "like": "apreciere",
     "SaveChanges": "Salvează Schimbări",
     "Close": "Închide",
     "ShowMore": "Mai multe",
@@ -71,6 +79,11 @@
   },
 
   "Results": {
+    "Clubs": "Cluburi",
+    "Teams": "Echipe",
+    "Players": "Jucători",
+    "Users": "Utilizatori",
+    "Fixtures": "Fixtures",
     "Location": "Locație",
     "Age": "Vârstă",
     "AgeGroup": "Grup de vârstă"
@@ -86,7 +99,9 @@
     "Gender": "Gen",
     "Description": "Descriere",
     "Players": "Jucători",
-    "Posts": "Postări"
+    "Posts": "Postări",
+    "UpcomingFixtures": "Upcoming Fixtures",
+    "RecentFixtures": "Recent Fixtures"
   },
 
   "TeamsFollowed": {

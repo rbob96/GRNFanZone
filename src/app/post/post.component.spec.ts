@@ -14,6 +14,7 @@ import {RouterStub} from '../../testing/router-stubs';
 import {Router} from '@angular/router';
 import {PostDataService} from '../services/post-data.service';
 import {TranslateParser, TranslateLoader, TranslateService, TranslateModule} from 'ng2-translate';
+import {SendtoService} from '../services/sendto.service';
 
 describe('PostComponent', () => {
   let component: PostComponent;
@@ -31,7 +32,8 @@ describe('PostComponent', () => {
         { provide: PostDataService, useClass: PostDataService },
         TranslateLoader,
         TranslateService,
-        TranslateParser
+        TranslateParser,
+        SendtoService
       ],
       imports: [
         AngularFireModule.initializeApp(firebaseConfig),

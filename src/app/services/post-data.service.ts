@@ -27,5 +27,4 @@ export class PostDataService {
     return this.af.database.list('/posts/' + postid + '/comments');
   }
 
-
 }

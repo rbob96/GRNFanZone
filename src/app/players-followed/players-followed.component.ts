@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../services/auth.service';
 import {Router, ActivatedRoute} from '@angular/router';
 import { AngularFire, FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2';
 import {UserDataService} from '../services/user-data.service';
+import {SendtoService} from '../services/sendto.service';
 
 
 @Component({
@@ -24,13 +24,20 @@ export class PlayersFollowedComponent implements OnInit {
 
   currentUser: string; // ID
 
+  public sendToPlayer = this.sendto.player;
+
   constructor( private router: Router,
                private route: ActivatedRoute,
                private userDataService: UserDataService,
-               private af: AngularFire) {
+               private af: AngularFire,
+               private sendto: SendtoService) {
 
     this.af.auth.subscribe(user => {
-      this.currentUser = user.uid;
+      if (user) {
+        this.currentUser = user.uid;
+      } else {
+        this.currentUser = null;
+      }
     });
   }
 
@@ -44,10 +51,6 @@ export class PlayersFollowedComponent implements OnInit {
       this.profileData = this.userDataService.getUserData(this.userId);
       this.followingPlayers = this.userDataService.getUserFollowingPlayers(this.userId);
     });
-  }
-
-  public sendToPlayer (uid: string) {
-    this.router.navigate(['/player/' + uid]);
   }
 
   public unfollowPlayer(uid: string) {

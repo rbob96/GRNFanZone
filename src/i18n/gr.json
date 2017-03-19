@@ -20,6 +20,12 @@
     "ShowMore": "Περισσότερα"
   },
 
+  "Fixture": {
+    "Fixture": "Fixture",
+    "Home": "Home",
+    "Away": "Away"
+  },
+
   "List": {
     "Clubs": "Σύλλογοι",
     "Teams": "Ομάδες",
@@ -33,6 +39,7 @@
   "NavBar": {
     "Dashboard":"Τοίχος",
     "List":"Λίστα",
+    "Language": "Γλώσσα",
     "Logout":"Αποσυνδέση"
   },
 
@@ -54,6 +61,7 @@
 
   "Post": {
     "likes": "Άρεσε σε",
+    "like": "Μου Αρέσει",
     "SaveChanges": "Αποθήκευση Αλλαγών",
     "Close": "Ακύρωσε",
     "ShowMore": "Περισσότερα",
@@ -71,6 +79,11 @@
   },
 
   "Results": {
+    "Clubs": "Σύλλογοι",
+    "Teams": "Ομάδες",
+    "Players": "Παίκτες",
+    "Users": "Users",
+    "Fixtures": "Fixtures",
     "Location": "Τοποθεσία",
     "Age": "Ηλικία",
     "AgeGroup": "Ηλικιακή ομάδα"
@@ -86,7 +99,9 @@
     "Gender": "Γένος",
     "Description": "Περιγραφή",
     "Players": "Παίκτες",
-    "Posts": "Δημοσιεύσεις"
+    "Posts": "Δημοσιεύσεις",
+    "UpcomingFixtures": "Upcoming Fixtures",
+    "RecentFixtures": "Recent Fixtures"
   },
 
   "TeamsFollowed": {

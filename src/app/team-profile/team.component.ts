@@ -4,7 +4,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
 import {AngularFire} from 'angularfire2';
 import {UserDataService} from '../services/user-data.service';
-import {User} from '../user';
+import {SendtoService} from '../services/sendto.service';
 
 
 @Component({
@@ -31,21 +31,25 @@ export class TeamComponent implements OnInit {
 
   follows = [];
 
+  upcomingFixtures = [];
+  recentFixtures = [];
+
+  public sendToPlayer = this.sendto.player;
+  public sendToClub = this.sendto.club;
+  public sendToFixture = this.sendto.fixture;
+
   constructor(private af: AngularFire,
               private router: Router,
               private route: ActivatedRoute,
-              private userDataService: UserDataService) {
+              private userDataService: UserDataService,
+              private sendto: SendtoService) {
 
     this.af.auth.subscribe(user => {
-      this.currentUserId = user.uid;
-      this.af.database.list('users/' + user.uid + '/teams_followed').subscribe(teams => {
-
-        teams.forEach(team => {
-          if (team.$key === this.teamId) {
-            this.userFollowing = true;
-          }
-        });
-      });
+      if (user) {
+        this.currentUserId = user.uid;
+      } else {
+        this.currentUserId = null;
+      }
     });
   }
 
@@ -54,6 +58,14 @@ export class TeamComponent implements OnInit {
       this.teamId = params['id'];
 
       this.teamData = this.af.database.object('teams/' + this.teamId);
+
+      this.af.database.list('users/' + this.currentUserId + '/teams_followed').subscribe(teams => {
+        teams.forEach(team => {
+          if (team.$key === this.teamId) {
+            this.userFollowing = true;
+          }
+        });
+      });
 
       this.af.database.list('teams').subscribe(teams => {
         teams.forEach(team => {
@@ -83,6 +95,21 @@ export class TeamComponent implements OnInit {
           return p.posted_by === this.teamId;
         });
       });
+
+      this.af.database.list('fixtures').subscribe(fixtures => {
+        // 604800000 == 1 week in milliseconds (1000*60*60*24*7)
+        const d = new Date;
+
+        this.upcomingFixtures = fixtures.filter(f => {
+          return (f.kickoff < d.getTime() + 604800000) && (f.kickoff > d.getTime());
+        });
+
+        this.recentFixtures = fixtures.filter(f => {
+          return (f.kickoff > d.getTime() - 604800000) && (f.kickoff < d.getTime());
+        });
+
+      });
+
     });
   }
 
@@ -105,12 +132,5 @@ export class TeamComponent implements OnInit {
     this.follows.push(uid);
   }
 
-  public sendToPlayer (uid: string) {
-    this.router.navigate(['/player/' + uid]);
-  }
-
-  public sendToClub (uid: string) {
-    this.router.navigate(['/club/' + uid]);
-  }
 
 }
