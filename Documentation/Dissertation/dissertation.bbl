@@ -1,5 +1,18 @@
 \begin{thebibliography}{1}
 
+\bibitem{agileprinciples}
+Mike Beedle, Arie~van Bennekum, Alistair Cockburn, Ward Cunningham, Martin
+  Fowler, Jim Highsmith, Andrew Hunt, Ron Jeffries, Jon Kern, Brian Marick,
+  Martin~C. Martin, Ken Schwaber, Jeff Sutherland, and Dave Thomas.
+\newblock Principles behind the agile manifesto.
+\newblock \url{http://agilemanifesto.org/principles.html}.
+\newblock Accessed: 2017-03-19.
+
+\bibitem{fowler2006continuous}
+Martin Fowler and Matthew Foemmel.
+\newblock Continuous integration.
+\newblock {\em (Thought-Works)}, page 122, 2006.
+
 \bibitem{meyer2014continuous}
 Mathias Meyer.
 \newblock Continuous integration and its tools.
