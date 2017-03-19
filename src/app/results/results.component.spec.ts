@@ -12,6 +12,7 @@ import {firebaseConfig} from '../app.module';
 import {TranslateLoader, TranslateService, TranslateParser, TranslateModule} from 'ng2-translate';
 import {UserDataService} from '../services/user-data.service';
 import {MockUserDataService, testUser} from '../../testing/mock.user-data.service';
+import {SendtoService} from '../services/sendto.service';
 
 describe('ResultsComponent', () => {
   let component: ResultsComponent;
@@ -29,7 +30,8 @@ describe('ResultsComponent', () => {
         { provide: UserDataService, useClass: MockUserDataService},
         TranslateLoader,
         TranslateService,
-        TranslateParser
+        TranslateParser,
+        SendtoService
       ],
       imports: [
         AngularFireModule.initializeApp(firebaseConfig),

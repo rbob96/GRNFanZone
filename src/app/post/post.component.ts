@@ -5,6 +5,7 @@ import Any = jasmine.Any;
 import {AuthService} from '../services/auth.service';
 import {PostDataService} from '../services/post-data.service';
 import {Router} from '@angular/router';
+import {SendtoService} from '../services/sendto.service';
 
 
 
@@ -18,16 +19,12 @@ export class PostComponent implements OnInit {
   @Input()
   post: Post;
 
-  comments: any = [];
-  commentsLimit = 2;
-
-  showBtn = [];
+  comments;
+  commentsLimit = -3;
+  expandComs = -3;
+  shownComs = [];
   likes = [];
-  testLikes = [];
-  users = [];
-  likeLength = 0;
-
-  currentComLen;
+  showBtn = [];
   newComment = '';
 
   currentUserId;
@@ -50,7 +47,8 @@ export class PostComponent implements OnInit {
   constructor ( private af: AngularFire,
                 private authService: AuthService,
                 private postDataService: PostDataService,
-                private router: Router
+                private router: Router,
+                private sendto: SendtoService
               ) {}
 
   ngOnInit() {
@@ -62,34 +60,19 @@ export class PostComponent implements OnInit {
     });
 
     if (this.post) {
-
-      const comms = this.postDataService.getComments(this.post.id).subscribe(resComms => {
+      this.postDataService.getComments(this.post.id).subscribe(resComms => {
+          this.showBtn = [];
           resComms.forEach(com => {
             this.showBtn.push(com);
           });
+          this.shownComs = this.showBtn.slice(this.commentsLimit);
         });
-
-      this.af.database.list('posts/' + this.post.id + '/comments', {
-        query: {
-          orderByChild: 'commented_at',
-          limitToFirst: this.commentsLimit
-        }
-      }).subscribe(comments => {
-        this.comments = comments;
-        this.currentComLen = this.comments.length;
-      });
-
       this.af.database.list('posts/' + this.post.id + '/likes').subscribe(likes => {
         this.likes = likes.map(l => {
           return l.$key;
         });
       });
 
-      this.af.database.list('users/' + this.currentUserId + '/likes').subscribe(likes => {
-        this.testLikes = likes.map(l => {
-          return l.$key;
-        });
-      });
     }
   }
 
@@ -165,11 +148,13 @@ export class PostComponent implements OnInit {
       likedBy: ''
     }).then( _ => {
       this.newComment = '';
+      this.commentsLimit -= 1;
     });
   }
 
   deleteComment(key: string, postid: string) {
     this.postDataService.getComments(postid).remove(key);
+    this.commentsLimit += 1;
   }
 
   updateComment() {
@@ -194,26 +179,17 @@ export class PostComponent implements OnInit {
 
   sendToAuthor() {
     if (this.post.poster === 'players') {
-      this.router.navigate(['/player/' + this.post.posted_by]);
+      return this.sendto.player(this.post.posted_by);
     } else if (this.post.poster === 'teams') {
-      this.router.navigate(['/team/' + this.post.posted_by]);
+      return this.sendto.team(this.post.posted_by);
     } else if (this.post.poster === 'clubs') {
-      this.router.navigate(['/club/' + this.post.posted_by]);
+      return this.sendto.club(this.post.posted_by);
     }
   }
 
   showMore(term: number) {
-    this.commentsLimit += term;
-    this.af.database.list('posts/' + this.post.id + '/comments', {
-        query: {
-          orderByChild: 'commented_at',
-          startAt: 0,
-          limitToFirst: this.commentsLimit
-        }
-      }).subscribe(comments => {
-        this.comments = comments;
-        this.currentComLen = this.comments.length;
-      });
+    this.expandComs -= term;
+    this.commentsLimit -= term;
+    this.shownComs = this.showBtn.slice(this.expandComs);
   }
-
 }

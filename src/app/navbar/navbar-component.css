@@ -8,3 +8,9 @@
 a:hover {
   cursor: pointer;
 }
+.navbar-brand {
+  padding: 5px;
+}
+.navbar-brand:hover {
+  filter: brightness(0) invert(1);
+}

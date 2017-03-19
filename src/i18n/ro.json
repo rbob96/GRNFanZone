@@ -20,6 +20,12 @@
     "ShowMore": "Mai multe"
   },
 
+  "Fixture": {
+    "Fixture": "Meci",
+    "Home": "Acasă",
+    "Away": "În deplasare"
+  },
+
   "List": {
     "Clubs": "Cluburi",
     "Teams": "Echipe",
@@ -77,6 +83,7 @@
     "Teams": "Echipe",
     "Players": "Jucători",
     "Users": "Utilizatori",
+    "Fixtures": "Fixtures",
     "Location": "Locație",
     "Age": "Vârstă",
     "AgeGroup": "Grup de vârstă"
@@ -92,7 +99,9 @@
     "Gender": "Gen",
     "Description": "Descriere",
     "Players": "Jucători",
-    "Posts": "Postări"
+    "Posts": "Postări",
+    "UpcomingFixtures": "Upcoming Fixtures",
+    "RecentFixtures": "Recent Fixtures"
   },
 
   "TeamsFollowed": {

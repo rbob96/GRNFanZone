@@ -19,6 +19,7 @@ import {FormsModule} from '@angular/forms';
 import {
   TranslateModule, TranslateService, TranslateLoader, TranslateParser
 } from 'ng2-translate';
+import {SendtoService} from '../services/sendto.service';
 
 describe('TeamComponent', () => {
   let component: TeamComponent;
@@ -36,7 +37,8 @@ describe('TeamComponent', () => {
         { provide: UserDataService, useClass: MockUserDataService},
         TranslateLoader,
         TranslateService,
-        TranslateParser
+        TranslateParser,
+        SendtoService
         ],
       imports: [
         AngularFireModule.initializeApp(firebaseConfig),
