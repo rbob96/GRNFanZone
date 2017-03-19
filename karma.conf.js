@@ -22,7 +22,8 @@ module.exports = function (config) {
       reports: {
         'lcovonly': './coverage/coverage.lcov',
         'text-summary': './coverage/summary.txt',
-        'text': './coverage/text.txt'
+        'text': './coverage/text.txt',
+        'html': 'coverage'
       }
     },
     angularCli: {

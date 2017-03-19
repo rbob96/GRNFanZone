@@ -1,5 +1,5 @@
 % This example An LaTeX document showing how to use the l3proj class to
-% write your report. Use pdflatex and bibtex to process the file, creating 
+% write your report. Use pdflatex and bibtex to process the file, creating
 % a PDF file as output (there is no need to use dvips when using pdflatex).
 
 
@@ -34,9 +34,9 @@ The abstract goes here
 %==============================================================================
 \section{Introduction}
 
-Software engineering 
+Software engineering
 
-This paper presents a case study of... 
+This paper presents a case study of...
 
 
 %% Final paragraph.
@@ -49,8 +49,9 @@ arose during the project...
 
 %==============================================================================
 \section{Case Study Background}
+\label{sec:background}
 
-Include details of 
+Include details of
 
 \begin{itemize}
 \item The customer organisation and background.
@@ -184,31 +185,45 @@ see, so many out-of-the- way things had happened lately, that Alice
 had begun to think that very few things indeed were really impossible.
 
 %==============================================================================
+\section{Continuous Integration and Continuous Deployment Considerations}
+\label{sec:CICD}
 
-\section{Choice of Colours}
-\label{design}
+The project used a multitude of Continuous Integration (CI) and Continuous
+ Deployment (CD) techniques. A CI server's purpose "is to check the code
+ repository for changes, check out the code if it spots any, and run a
+ list of commands to trigger the build."\cite{meyer2014continuous} A build is "ideally more than just
+ compiling—it should also include a thorough test suite to help verify that the code
+ still works with every change."\cite{meyer2014continuous} This gives a development
+ team a quick, automated way of checking their code works, follows a style guide and
+ doesn't break any other work.
 
-The following diagrams (especially figure \ref{fig:alice}) illustrate the
-process...
+\subsection{Continuous Integration}
+\label{sec:CICD/CI}
+
+%TODO: Finish description of gitlab CI
+Our CI and CD was operated using Gitlab's integrated CI system. This uses docker to
+ run a set of instructions defined in the 'gitlab-ci.yml' file. Instructions
+ are separated into tasks. Tasks belong to stages - in our project, these were
+ "test" and "deploy". The tasks are run as builds within a pipeline.
+
+%TODO: Describe Linting task
+%TODO: Describe testing task
+
+\subsection{Continuous Deployment}
+\label{sec:CICD/CD}
+
+%TODO: Describe deployment (staging) task
+%TODO: Describe deployment (prod) task
+
+
+%TODO: Add images of pipeline running, describe test coverage,
+% consider how it helped us and how it could have been improved
 
 %==============================================================================
-\section{Managing Dress Sense}
-\label{managing}
 
-In this chapter, we describe how the implemented the system.
-
-%------------------------------------------------------------------------------
-\section{Kangaroo Practices}
-
-
-
-% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-\section{Knots and Bundles}
-\label{sec:managing}
-
-
-%------------------------------------------------------------------------------
 \section{Conclusions}
+\label{sec:conclusion}
+
 
 Explain the wider lessons that you learned about software engineering,
 based on the specific issues discussed in previous sections.  Reflect

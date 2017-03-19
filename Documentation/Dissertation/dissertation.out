@@ -1,8 +1,7 @@
 \BOOKMARK [1][-]{section.1}{Introduction}{}% 1
 \BOOKMARK [1][-]{section.2}{Case Study Background}{}% 2
 \BOOKMARK [1][-]{section.3}{Alice}{}% 3
-\BOOKMARK [1][-]{section.4}{Choice of Colours}{}% 4
-\BOOKMARK [1][-]{section.5}{Managing Dress Sense}{}% 5
-\BOOKMARK [1][-]{section.6}{Kangaroo Practices}{}% 6
-\BOOKMARK [1][-]{section.7}{Knots and Bundles}{}% 7
-\BOOKMARK [1][-]{section.8}{Conclusions}{}% 8
+\BOOKMARK [1][-]{section.4}{Continuous Integration and Continuous Deployment Considerations}{}% 4
+\BOOKMARK [2][-]{subsection.4.1}{Continuous Integration}{section.4}% 5
+\BOOKMARK [2][-]{subsection.4.2}{Continuous Deployment}{section.4}% 6
+\BOOKMARK [1][-]{section.5}{Conclusions}{}% 7
