@@ -126,10 +126,10 @@
                         <b *ngSwitchCase="null">0 likes</b>
                       </div>
                       <div class="col-sm-3">
-                      <button *ngIf="postComment.likedBy.includes(currentUserId) === false" type="button"
+                      <button *ngIf="postComment.likedBy?.includes(currentUserId) === false" type="button"
                               class="btn btn-default pull-right btn-sm" (click)="commentLikeToggle(postComment.$key, post.id,currentUserId)"> Like
                       </button>
-                      <button *ngIf="postComment.likedBy.includes(currentUserId) === true" type="button"
+                      <button *ngIf="postComment.likedBy?.includes(currentUserId) === true" type="button"
                               class="btn btn-default pull-right btn-sm" (click)="commentLikeToggle(postComment.$key, post.id,currentUserId)"> Unlike
                       </button>
                     </div>
