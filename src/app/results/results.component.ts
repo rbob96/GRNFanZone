@@ -88,6 +88,8 @@ export class ResultsComponent implements OnInit {
       serverResults.forEach(result => {
         if (((result.first_name + ' ' + result.last_name).toLowerCase()).includes(this.searchTerm.toLowerCase())) {
           this.players.push(result);
+        } else if ((result.location.city.toLowerCase()).includes(this.searchTerm.toLowerCase())) {
+          this.players.push(result);
         }
       });
     });
@@ -110,6 +112,8 @@ export class ResultsComponent implements OnInit {
       serverResults.forEach(result => {
         if ((result.name.toLowerCase()).includes(this.searchTerm.toLowerCase())) {
           this.teams.push(result);
+        } else if ((result.location.city.toLowerCase()).includes(this.searchTerm.toLowerCase())) {
+          this.teams.push(result);
         }
       });
     });
@@ -120,6 +124,8 @@ export class ResultsComponent implements OnInit {
       this.clubs = [];
       serverResults.forEach(result => {
         if ((result.name.toLowerCase()).includes(this.searchTerm.toLowerCase())) {
+          this.clubs.push(result);
+        } else if ((result.location.city.toLowerCase()).includes(this.searchTerm.toLowerCase())) {
           this.clubs.push(result);
         }
       });
