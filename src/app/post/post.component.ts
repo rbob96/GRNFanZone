@@ -19,11 +19,11 @@ export class PostComponent implements OnInit {
   post: Post;
 
   comments;
-  commentsLimit = 2;
-  showBtn = [];
+  commentsLimit = -3;
+  expandComs = -3;
+  shownComs = [];
   likes = [];
-  currentComLen;
-
+  showBtn = [];
   newComment = '';
 
   currentUserId;
@@ -56,23 +56,13 @@ export class PostComponent implements OnInit {
     });
 
     if (this.post) {
-
-      const comms = this.postDataService.getComments(this.post.id).subscribe(resComms => {
+      this.postDataService.getComments(this.post.id).subscribe(resComms => {
+          this.showBtn = [];
           resComms.forEach(com => {
             this.showBtn.push(com);
           });
+          this.shownComs = this.showBtn.slice(this.commentsLimit);
         });
-
-      this.af.database.list('posts/' + this.post.id + '/comments', {
-        query: {
-          orderByChild: 'commented_at',
-          limitToFirst: this.commentsLimit
-        }
-      }).subscribe(comments => {
-        this.comments = comments;
-        this.currentComLen = this.comments.length;
-      });
-
       this.af.database.list('posts/' + this.post.id + '/likes').subscribe(likes => {
         this.likes = likes.map(l => {
             return l.$key;
@@ -115,11 +105,13 @@ export class PostComponent implements OnInit {
       author_avatar: this.userData.avatar
     }).then( _ => {
       this.newComment = '';
+      this.commentsLimit -= 1;
     });
   }
 
   deleteComment(key: string, postid: string) {
     this.postDataService.getComments(postid).remove(key);
+    this.commentsLimit += 1;
   }
 
   updateComment() {
@@ -150,17 +142,8 @@ export class PostComponent implements OnInit {
   }
 
   showMore(term: number) {
-    this.commentsLimit += term;
-    this.af.database.list('posts/' + this.post.id + '/comments', {
-        query: {
-          orderByChild: 'commented_at',
-          startAt: 0,
-          limitToFirst: this.commentsLimit
-        }
-      }).subscribe(comments => {
-        this.comments = comments;
-        this.currentComLen = this.comments.length;
-      });
+    this.expandComs -= term;
+    this.commentsLimit -= term;
+    this.shownComs = this.showBtn.slice(this.expandComs);
   }
-
 }
