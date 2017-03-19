@@ -57,6 +57,7 @@ export class PostComponent implements OnInit {
 
     if (this.post) {
       this.postDataService.getComments(this.post.id).subscribe(resComms => {
+          this.showBtn = [];
           resComms.forEach(com => {
             this.showBtn.push(com);
           });
