@@ -49,7 +49,7 @@
 
 
         <div class="panel-footer">
-          
+
           <div class="row">
             <div class="col-md-12">
               <button *ngIf="(this.showBtn.length > 3) && (this.shownComs.length != this.showBtn.length)" type="button"
@@ -68,7 +68,6 @@
                   <img class="media-object comment-image" src="{{postComment.author_avatar}}"
                        alt="{{postComment.author_name}}">
                 </div>
-                <div class="media-body">
 
                   <strong class="media-heading">{{postComment.author_name}}
                     <span class="badge badge-success" *ngIf="currentUserId === postComment.author">{{"Me" | translate}}</span>
@@ -119,7 +118,23 @@
                   <small><em>{{(postComment.commented_at | amCalendar:{sameElse:'D MMMM, YYYY [at] h:mm a'})}}</em>
                   </small>
 
-                </div>
+
+                  <div class="row">
+                    <div class="col-sm-9" [ngSwitch]="postComment.noLikes">
+                        <b *ngSwitchCase="1">{{postComment.noLikes}} {{"Post.like" | translate}}</b>
+                        <b *ngSwitchDefault>{{postComment.noLikes}} {{"Post.likes" | translate}}</b>
+                        <b *ngSwitchCase="null">0 likes</b>
+                      </div>
+                      <div class="col-sm-3">
+                      <button *ngIf="postComment.likedBy?.includes(currentUserId) === false" type="button"
+                              class="btn btn-default pull-right btn-sm" (click)="commentLikeToggle(postComment.$key, post.id,currentUserId)"> Like
+                      </button>
+                      <button *ngIf="postComment.likedBy?.includes(currentUserId) === true" type="button"
+                              class="btn btn-default pull-right btn-sm" (click)="commentLikeToggle(postComment.$key, post.id,currentUserId)"> Unlike
+                      </button>
+                    </div>
+                  </div>
+
               </div>
 
             </li>
