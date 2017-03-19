@@ -27,8 +27,6 @@ export class PostComponent implements OnInit {
   users = [];
   likeLength = 0;
 
-  liked;
-
   currentComLen;
   newComment = '';
 
@@ -43,7 +41,8 @@ export class PostComponent implements OnInit {
     commented_at: 0,
     $key: '',
     likes: [],
-    noLikes: 0
+    noLikes: 0,
+    likedBy: ''
   };
 
   editedText = '';
@@ -130,7 +129,7 @@ export class PostComponent implements OnInit {
 
       const observable = this.af.database.object('posts/' + postid + '/comments/' + commentid + '/likes/' + uid);
       const likeObs = this.af.database.object('posts/' + postid + '/comments/' + commentid + '/noLikes');
-
+      const likedByObs = this.af.database.object('posts/' + postid + '/comments/' + commentid + '/likedBy');
     if (commentLikes.indexOf(uid) === -1) {
         observable.set({
           liked_at: (new Date().getTime())
@@ -138,10 +137,17 @@ export class PostComponent implements OnInit {
         likeObs.$ref.transaction(function(currentCount) {
           return currentCount + 1;
 });
+      likedByObs.$ref.transaction(function(text){
+        return text + ' ' + uid;
+      });
     } else {
       observable.remove();
       likeObs.$ref.transaction(function(currentCount) {
         return currentCount - 1;
+});
+    likedByObs.$ref.transaction(function (text) {
+        const str = text.replace(uid, '');
+        return str;
 });
     }
   }
@@ -155,7 +161,8 @@ export class PostComponent implements OnInit {
       author_name: this.userData.name,
       author_avatar: this.userData.avatar,
       likes: [],
-      noLikes: 0
+      noLikes: 0,
+      likedBy: ''
     }).then( _ => {
       this.newComment = '';
     });
@@ -174,7 +181,8 @@ export class PostComponent implements OnInit {
       author_name: this.editComment.author_name,
       author_avatar: this.editComment.author_avatar,
       likes: this.editComment.likes,
-      noLikes: this.editComment.noLikes
+      noLikes: this.editComment.noLikes,
+      likedBy: this.editComment.likedBy
     });
 
   }
