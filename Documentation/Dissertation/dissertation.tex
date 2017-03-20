@@ -51,7 +51,7 @@ The rest of the case study is structured as follows.  Section
 \ref{sec:background} presents the background of the case study
 discussed, describing the customer and project context, aims and
 objectives and project state at the time of writing.  Sections
-\ref{sec:alice} through Section \ref{sec:managing} discuss issues that
+\ref{sec:cicd} through Section \ref{sec:frontend} discuss issues that
 arose during the project...
 
 %==============================================================================
@@ -71,14 +71,15 @@ Include details of
 %\label{sec:alice}
 %\input{figures/alice}
 %==============================================================================
+\newpage
 \section{Continuous Integration and Continuous Deployment Considerations}
-\label{sec:CICD}
+\label{sec:cicd}
 
 The project used a multitude of Continuous Integration (CI) and Continuous
  Deployment (sometimes Delivery) (CD) techniques. A CI server's purpose "is to check the code
- repository for changes, check out the code if it spots any, and run a
+ repository for changes, check out the code if it spots any [changes], and run a
  list of commands to trigger the build."\cite{meyer2014continuous} A build is "ideally more than just
- compiling—it should also include a thorough test suite to help verify that the code
+ compiling - it should also include a thorough test suite to help verify that the code
  still works with every change."\cite{meyer2014continuous} This gives a development
  team a quick, automated way of checking their code works, follows a style guide and
  doesn't break any other work. 
@@ -97,8 +98,6 @@ Another hurdle at which we fell was getting into the habit of writing tests for 
  2006 paper on CI, he says: "Imperfect tests, run frequently, are much better than perfect tests 
  that are never written at all."\cite{fowler2006continuous}
  
- %TODO: COVERAGE PICTURE
-
 Continuous Deployment is the practice of continually deploying working builds to production
  as often as possible. It adheres to the Agile principles of:
  \begin{itemize}
@@ -113,7 +112,7 @@ Continuous Deployment is the practice of continually deploying working builds to
  \end{itemize}
  In our project, as soon as a new feature is merged into the dev branch,
  tests are run, and then the changes are deployed to a staging server, hosted by firebase. Similarly,
- as soon as dev is merged into master, master is pushed to our production server, also hosted by firebase.
+ as soon as dev is merged into master, master is pushed to our production server, also hosted by Firebase.
  The dev branch was typically merged into master once a week, allowing time for any changes to be made 
  to features that weren't quite perfect, and to iron out any bugs that were found after time in dev.
  
@@ -128,7 +127,6 @@ Our CI and CD was operated using Gitlab's integrated CI system. This uses docker
  running \texttt{npm install} every time docker span up a new instance. Running tests typically took under
  a minute after this.
  
- %TODO: Times Figure
  \input{figures/cicd_build_duration}
 
 
@@ -161,7 +159,7 @@ Merging these two tasks was considered, but left aside for now. The tasks take 5
 % Describe deployment tasks
 The Continuous deployment tasks were both essentially the same, but related to which branch was being 
  committed to. As both dev and master can only be merged into instead of committed to, these tasks can 
- be run only on merge commits to them. The tasks run tests (to allow coverage reports for the branches) 
+ be run only on merge commits to dev or master. The tasks run tests (to allow coverage reports for the branches) 
  and then deploy to our live servers. The dev branch deploys to the staging zone, and 
  master to our production site. 
  
@@ -180,27 +178,71 @@ The CI and CD processes helped us by keeping our code of high quality, preventin
  readable, reducing time wasted understanding the code.
 
 %==============================================================================
+\newpage
 \section{Frontend Technology Considerations}
-\label{sec:Frontend}
+\label{sec:frontend}
 
 At the start of the project, GRN chose to give us a set of technologies they 
  wanted us to use. These included defining Angular 2 as our frontend framework.
  Angular is a framework maintained by google, which has been gaining popularity
- over the last 8 years. The framework uses typescript, 
+ over the last 8 years\cite{angularjsoverview}. The framework uses typescript, 
  a type safe flavour of javascript. It focuses on being portable, high performance
- and easy to write. Many of the contributors to Angular are from Google, but 
- the project is open source under the MIT license and anyone can commit to it. 
+ and easy to write\cite{angular_features}. Many of the contributors to Angular are from Google, but 
+ the project is open source under the MIT license and anyone can commit to 
+ it\cite{angularjsoverview}. Angular is built on top of NodeJS, providing 
+ easy access to a wide range of external components.
  
+Angular embeds code in html, and uses a "controller" to define component behaviour. This
+ "component" object is the basis of most Angular development. Angular also tries 
+ to minimise the logic in controllers, by either abstracting it to other components
+ or building "services" - shared libraries of code snippets. The final piece of the puzzle
+ is a "module" which co-ordinates resource injection into controllers from one 
+ file. A project may have more than one module for it's subsections, but we stuck to
+ one file. We made use of several services, and many components.
+  
  % Pros and cons of ng-cli
- 
+Angular provides a CLI that makes it easy to start projects, and provides 
+ templates for components, services and modules. This allows a "quick start"
+ option. The basis of the project was generated in under a minute, which set up
+ testing frameworks, a basic starter app and a \texttt{package.json} file for NPM.
+ When generating a new component, a html template, CSS styles file, karma 
+ jasmine test file as well as the typescript controller. These were populated
+ with template code to allow easy starts. This helped ensure we could get to 
+ the business logic of the component or service quickly, without wasting time 
+ on the configurational nightmare javascript and typescript development has
+ become.
+  
+ \input{figures/frontend_components}   
+  
  % Why we liked it (easy to maintain, works out the box, good documentation)
+Angular gave us a huge advantage when working on this project. Components provide
+ an easy way of separating concerns, and reducing code duplication. Generating new
+ code is easy with the CLI, and entire projects can be started off and be running
+ in hours. The documentation for Angular is also excellent. Maintained by google,
+ it is kept up-to-date with the regular releases Angular receives.
  
  % why we disliked it (steep learning curve) 
+The most significant barrier to using Angular was our own inexperience. 
+ Thus far, our formal education has not involved developing webapps in
+ javascript based frameworks. Beyond this, typescript was new to every
+ member of the team. This meant that there was a steep learning curve for
+ the team to deal with and adapt to. This caused some issues early on, 
+ before we had a good grasp of how to use the actual features Angular
+ provides.
  
  % How easy it was to test
+One of Angular's benefits is that its developers have thoughtfully
+ considered testing. Software testing has long been an important
+ aspect of software development, and this has only become more true
+ in recent years \cite{tuteja2012testing}. The Angular CLI generates
+ a functional karma file, which has been configured for Angular. The
+ Angular CLI also provides an interface for running tests. Parameters 
+ range from single/constant runs of the test suite to enabling code
+ coverage reporting. In spite of this, it was found to be very 
+ difficult to mock our services which used angularfire to generate
+ good tests (please see section \ref{sec:testing} for more on this).
  
- % Key concepts of angular that fit well with agile
-
+\input{figures/frontend_ng_cli}
 
 %==============================================================================
 
