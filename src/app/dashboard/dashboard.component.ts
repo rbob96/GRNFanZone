@@ -82,6 +82,7 @@ export class DashboardComponent {
   deleteEverything(postid) {
     this.postDataService.getComments(postid).remove();
   }*/
+
   showMore() {
     if (this.posts.length - this.shownPostAmount >= this.postsLimit) {
       this.shownPostAmount += this.postsLimit;
