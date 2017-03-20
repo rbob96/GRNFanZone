@@ -5,9 +5,12 @@
 /.tmp
 *dissertation.aux
 *dissertation.log
-Documentation/Dissertation/dissertation.out
-Documentation/Dissertation/dissertation.pdf
-Documentation/Dissertation/dissertation.synctex.gz
+*dissertation.bbl
+*dissertation.blg
+*dissertation.out
+*dissertation.pdf
+*dissertation.synctex.gz
+
 
 # dependencies
 /node_modules
