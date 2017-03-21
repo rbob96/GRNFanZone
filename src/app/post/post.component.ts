@@ -121,7 +121,7 @@ export class PostComponent implements OnInit {
           return currentCount + 1;
 });
       likedByObs.$ref.transaction(function(text){
-        return text + ' ' + uid;
+        return text + ',' + uid;
       });
     } else {
       observable.remove();
@@ -129,7 +129,7 @@ export class PostComponent implements OnInit {
         return currentCount - 1;
 });
     likedByObs.$ref.transaction(function (text) {
-        const str = text.replace(uid, '');
+        const str = text.replace(',' + uid, '');
         return str;
 });
     }
