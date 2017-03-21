@@ -123,7 +123,7 @@
                     <div class="col-sm-9" [ngSwitch]="postComment.noLikes">
                         <b *ngSwitchCase="1">{{postComment.noLikes}} {{"Post.like" | translate}}</b>
                         <b *ngSwitchDefault>{{postComment.noLikes}} {{"Post.likes" | translate}}</b>
-                        <b *ngSwitchCase="null">0 likes</b>
+                        <b *ngSwitchCase="null">0 {{postComment.noLikes}} {{"Post.likes" | translate}}</b>
                       </div>
                       <div class="col-sm-3">
                       <button *ngIf="postComment.likedBy?.includes(currentUserId) === false" type="button"
