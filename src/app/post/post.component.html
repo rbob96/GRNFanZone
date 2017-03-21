@@ -9,7 +9,7 @@
           </h2>
         </div>
         <div class="panel-body">
-          <div class="media ">
+          <div class="media">
             <div class="media-left">
               <img class="media-object post-image" src="{{post.image}}" alt="Avatar for {{post.name}}">
             </div>
@@ -53,20 +53,13 @@
                   <img class="media-object comment-image" src="{{postComment.author_avatar}}"
                        alt="{{postComment.author_name}}">
                 </div>
+                <div class="media-body">
                   <strong class="media-heading">{{postComment.author_name}}
                     <span class="badge badge-success" *ngIf="currentUserId === postComment.author">{{"Me" | translate}}</span>
                   </strong>
-                  <div class="btn-group pull-right" role="group"
+                  <div *ngIf="currentUserId === postComment.author" class="btn-group pull-right" role="group"
                        aria-label="Comment Options">
-                       <button *ngIf="postComment.likedBy?.includes(currentUserId) === false" type="button"
-                               class="btn btn-default btn-sm" (click)="commentLikeToggle(postComment.$key, post.id,currentUserId)">
-                               <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
-                       </button>
-                       <button *ngIf="postComment.likedBy?.includes(currentUserId) === true" type="button"
-                               class="btn btn-success btn-sm" (click)="commentLikeToggle(postComment.$key, post.id,currentUserId)">
-                               <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
-                       </button>
-                    <button *ngIf="currentUserId === postComment.author" type="button" (click)="setEditComment(postComment)" class="btn btn-primary btn-sm"
+                    <button type="button" (click)="setEditComment(postComment)" class="btn btn-primary btn-sm"
                             data-toggle="modal" [attr.data-target]="'#'+post.id">
                       <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                     </button>
@@ -91,7 +84,7 @@
                         </div>
                       </div>
                     </div>
-                    <button *ngIf="currentUserId === postComment.author" type="button" class="btn btn-danger btn-sm"
+                    <button type="button" class="btn btn-danger btn-sm"
                             (click)="deleteComment(postComment.$key, post.id)">
                       <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                     </button>
@@ -102,15 +95,21 @@
                   <small><em>{{(postComment.commented_at | amCalendar:{sameElse:'D MMMM, YYYY [at] h:mm a'})}}</em>
                   </small>
                   <div class="row">
-                    <div class="col-sm-9" [ngSwitch]="postComment.noLikes">
-                        <b *ngSwitchCase="1">{{postComment.noLikes}} {{"Post.like" | translate}}</b>
-                        <b *ngSwitchDefault>{{postComment.noLikes}} {{"Post.likes" | translate}}</b>
-                        <b *ngSwitchCase="null">0 likes</b>
-                      </div>
-                      <div class="col-sm-3">
-
-                    </div>
+                    <div class="col-sm-1">
+                    <a *ngIf="postComment.likedBy?.includes(currentUserId) === false" class="pull-left"
+                            (click)="commentLikeToggle(postComment.$key, post.id,currentUserId)"> Like
+                    </a>
+                    <a *ngIf="postComment.likedBy?.includes(currentUserId) === true" class="pull-left"
+                     (click)="commentLikeToggle(postComment.$key, post.id,currentUserId)"> Unlike
+                    </a>
                   </div>
+                    <div class="col-sm-11" [ngSwitch]="postComment.noLikes">
+                      <span class="glyphicon glyphicon-thumbs-up"></span>
+                        <b *ngSwitchDefault>{{postComment.noLikes}} </b>
+                        <b *ngSwitchCase="null">0 </b>
+                      </div>
+                  </div>
+                </div>
               </div>
             </li>
           </ul>
