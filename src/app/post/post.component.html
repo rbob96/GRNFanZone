@@ -92,8 +92,21 @@
                   <br>
                   {{postComment.comment}}
                   <br>
-                  <small><em>{{(postComment.commented_at | amCalendar:{sameElse:'D MMMM, YYYY [at] h:mm a'})}}</em>
+                  <div class="row">
+                    <div class="col-sm-2">
+                  <small class="pull-left"><em>{{(postComment.commented_at | amCalendar:{sameElse:'D MMMM, YYYY [at] h:mm a'})}}</em>
                   </small>
+                </div>
+                <div class="col-sm-10">
+                  <small>
+                    <div [ngSwitch]="postComment.noLikes" class="pull-left">
+                      <span class="glyphicon glyphicon-thumbs-up"></span>
+                        <em *ngSwitchDefault>{{postComment.noLikes}} </em>
+                        <em *ngSwitchCase="null">0 </em>
+                      </div>
+                  </small>
+                </div>
+                </div>
                   <div class="row">
                     <div class="col-sm-1">
                     <a *ngIf="postComment.likedBy?.includes(currentUserId) === false" class="pull-left"
@@ -103,10 +116,7 @@
                      (click)="commentLikeToggle(postComment.$key, post.id,currentUserId)"> Unlike
                     </a>
                   </div>
-                    <div class="col-sm-11" [ngSwitch]="postComment.noLikes">
-                      <span class="glyphicon glyphicon-thumbs-up"></span>
-                        <b *ngSwitchDefault>{{postComment.noLikes}} </b>
-                        <b *ngSwitchCase="null">0 </b>
+                    <div class="col-sm-11">
                       </div>
                   </div>
                 </div>
