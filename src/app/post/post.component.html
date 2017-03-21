@@ -73,11 +73,8 @@
                     <span class="badge badge-success" *ngIf="currentUserId === postComment.author">{{"Me" | translate}}</span>
                   </strong>
 
-
-                  <div *ngIf="currentUserId === postComment.author" class="btn-group pull-right" role="group"
-                       aria-label="Comment Options">
-
-                    <button type="button" (click)="setEditComment(postComment)" class="btn btn-primary btn-sm"
+                  <div  class="btn-group pull-right" role="group" aria-label="Comment Options">
+                    <button *ngIf="currentUserId === postComment.author" type="button" (click)="setEditComment(postComment)" class="btn btn-primary btn-sm"
                             data-toggle="modal" [attr.data-target]="'#'+post.id">
                       <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                     </button>
@@ -106,11 +103,20 @@
                       </div>
                     </div>
 
-                    <button type="button" class="btn btn-danger btn-sm"
+                    <button *ngIf="currentUserId === postComment.author" type="button" class="btn btn-danger btn-sm"
                             (click)="deleteComment(postComment.$key, post.id)">
                       <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                     </button>
-                  </div>
+                  <button *ngIf="postComment.likedBy?.includes(currentUserId) === false" type="button"
+                          class="btn btn-default btn-sm" (click)="commentLikeToggle(postComment.$key, post.id,currentUserId)">
+                          <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+                  </button>
+                  <button *ngIf="postComment.likedBy?.includes(currentUserId) === true" type="button"
+                          class="btn btn-default btn-sm" (click)="commentLikeToggle(postComment.$key, post.id,currentUserId)">
+                          <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+                  </button>
+
+                </div>
 
                   <br>
                   {{postComment.comment}}
@@ -125,14 +131,6 @@
                         <b *ngSwitchDefault>{{postComment.noLikes}} {{"Post.likes" | translate}}</b>
                         <b *ngSwitchCase="null">0 likes</b>
                       </div>
-                      <div class="col-sm-3">
-                      <button *ngIf="postComment.likedBy?.includes(currentUserId) === false" type="button"
-                              class="btn btn-default pull-right btn-sm" (click)="commentLikeToggle(postComment.$key, post.id,currentUserId)"> Like
-                      </button>
-                      <button *ngIf="postComment.likedBy?.includes(currentUserId) === true" type="button"
-                              class="btn btn-default pull-right btn-sm" (click)="commentLikeToggle(postComment.$key, post.id,currentUserId)"> Unlike
-                      </button>
-                    </div>
                   </div>
 
               </div>
