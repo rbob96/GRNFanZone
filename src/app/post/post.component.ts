@@ -160,7 +160,7 @@ export class PostComponent implements OnInit {
   updateComment() {
 
     this.postDataService.getComments(this.post.id).update(this.editComment.$key, {
-      comment: this.editedText
+      comment: this.editedText,
     });
 
   }
