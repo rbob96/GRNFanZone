@@ -16,14 +16,14 @@
   },
 
   "Dashboard": {
-    "Dashboard":"Tablón",
+    "Dashboard": "Tablón",
     "ShowMore": "Mostrar más"
   },
 
   "Fixture": {
-    "Fixture": "Fixture",
-    "Home": "Home",
-    "Away": "Away"
+    "Fixture": "Fixture", //TODO
+    "Home": "Home", //TODO
+    "Away": "Away" //TODO
   },
 
   "List": {
@@ -33,14 +33,12 @@
   },
 
   "Login": {
-    "Title":"Entrar"
+    "Title": "Entrar"
   },
 
   "NavBar": {
-    "Dashboard":"Tablón",
-    "List": "Lista",
     "Language": "Idioma",
-    "Logout":"Salir"
+    "Logout": "Salir"
   },
 
   "PlayerProfile": {
@@ -52,7 +50,7 @@
     "Teams": "Equipos",
     "Clubs": "Clubs",
     "Biography": "Biografía",
-    "Posts": "Posts"
+    "Posts": "Posts" //TODO
   },
 
   "PlayersFollowed": {
@@ -69,8 +67,7 @@
   },
 
   "UserProfile": {
-    "UserProfile":"Perfil de usuario",
-    "Email": "Email",
+    "UserProfile": "Perfil de usuario",
     "Following": "Siguiendo",
     "SeeAll": "Ver todos",
     "Players": "Jugadores",
@@ -82,14 +79,15 @@
     "Players": "Jugadores",
     "Teams": "Equipos",
     "Clubs": "Clubs",
-    "Users":"Usuarios",
-    "Fixtures": "Fixtures",
+    "Fixtures": "Fixtures", //TODO
     "Location": "Ubicación",
     "Age": "Edad",
     "AgeGroup": "Grupo de edad"
   },
 
-  "Search": {},
+  "Search": {
+    "SearchBoxPlaceholder": "Search..." //TODO
+  },
 
   "TeamProfile": {
     "TeamProfile": "Perfil del equipo",
@@ -97,15 +95,14 @@
     "AgeGroup": "Grupo de edad",
     "Type": "Tipo",
     "Gender": "Sexo",
-    "Description": "Description",
+    "Description": "Descripión",
     "Players": "Jugadores",
     "Posts": "Posts",
-    "UpcomingFixtures": "Upcoming Fixtures",
-    "RecentFixtures": "Recent Fixtures"
+    "UpcomingFixtures": "Upcoming Fixtures", //TODO
+    "RecentFixtures": "Recent Fixtures" //TODO
   },
 
   "TeamsFollowed": {
     "TeamsFollowed": "Equipos seguidos"
   }
-
 }

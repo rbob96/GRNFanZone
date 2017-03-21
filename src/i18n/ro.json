@@ -33,13 +33,11 @@
   },
 
   "Login": {
-    "Title":"Conectează-te"
+    "Title": "Conectează-te"
   },
 
   "NavBar": {
-    "Dashboard":"Dashboard",
-    "List":"Listează",
-    "Logout":"Deconectare",
+    "Logout": "Deconectare",
     "Language": "Limba"
   },
 
@@ -70,7 +68,6 @@
 
   "UserProfile": {
     "UserProfile": "Profilul Utilizatorului",
-    "Email": "Email",
     "Following": "Urmărește",
     "SeeAll": "Vezi tot",
     "Players": "Jucători",
@@ -82,14 +79,15 @@
     "Clubs": "Cluburi",
     "Teams": "Echipe",
     "Players": "Jucători",
-    "Users": "Utilizatori",
-    "Fixtures": "Fixtures",
+    "Fixtures": "Fixtures", //TODO
     "Location": "Locație",
     "Age": "Vârstă",
     "AgeGroup": "Grup de vârstă"
   },
 
-  "Search": {},
+  "Search": {
+    "SearchBoxPlaceholder": "Search..." //TODO
+  },
 
   "TeamProfile": {
     "TeamProfile": "Profilul Echipei",
@@ -100,12 +98,11 @@
     "Description": "Descriere",
     "Players": "Jucători",
     "Posts": "Postări",
-    "UpcomingFixtures": "Upcoming Fixtures",
-    "RecentFixtures": "Recent Fixtures"
+    "UpcomingFixtures": "Upcoming Fixtures", //TODO
+    "RecentFixtures": "Recent Fixtures" //TODO
   },
 
   "TeamsFollowed": {
     "TeamsFollowed": "Echipe Urmărite"
   }
-
 }

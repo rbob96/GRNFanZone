@@ -16,14 +16,14 @@
   },
 
   "Dashboard": {
-    "Dashboard":"Bacheca",
+    "Dashboard": "Bacheca",
     "ShowMore": "Mostra di piú"
   },
 
   "Fixture": {
-    "Fixture": "Fixture",
-    "Home": "Home",
-    "Away": "Away"
+    "Fixture": "Fixture", //TODO
+    "Home": "Home", //TODO
+    "Away": "Away" //TODO
   },
 
   "List": {
@@ -33,14 +33,12 @@
   },
 
   "Login": {
-    "Title":"Entra"
+    "Title": "Entra"
   },
 
   "NavBar": {
-    "Dashboard":"Bacheca",
-    "List": "Liste",
     "Language": "Lingue",
-    "Logout":"Esci"
+    "Logout": "Esci"
   },
 
   "PlayerProfile": {
@@ -69,8 +67,7 @@
   },
 
   "UserProfile": {
-    "UserProfile":"Profilo",
-    "Email": "E-mail",
+    "UserProfile": "Profilo",
     "Following": "Seguiti",
     "SeeAll": "Mostra tutti",
     "Players": "Giocatori",
@@ -82,14 +79,15 @@
     "Players": "Giocatori",
     "Teams": "Squadre",
     "Clubs": "Club",
-    "Users":"Utenti",
-    "Fixtures": "Fixtures",
+    "Fixtures": "Fixtures", //TODO
     "Location": "Localitá",
     "Age": "Etá",
     "AgeGroup": "Gruppi di etá"
   },
 
-  "Search": {},
+  "Search": {
+    "SearchBoxPlaceholder": "Search..." //TODO
+  },
 
   "TeamProfile": {
     "TeamProfile": "Profilo della squadra",
@@ -100,8 +98,8 @@
     "Description": "Descrizione",
     "Players": "Giocatori",
     "Posts": "Post",
-    "UpcomingFixtures": "Upcoming Fixtures",
-    "RecentFixtures": "Recent Fixtures"
+    "UpcomingFixtures": "Upcoming Fixtures", //TODO
+    "RecentFixtures": "Recent Fixtures" //TODO
   },
 
   "TeamsFollowed": {

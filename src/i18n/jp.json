@@ -37,8 +37,6 @@
   },
 
   "NavBar": {
-    "Dashboard": "ニュースフィード",
-    "List": "名鑑",
     "Logout": "ログアウト",
     "Language": "言語"
   },
@@ -70,7 +68,6 @@
 
   "UserProfile": {
     "UserProfile": "ユーザープロフィール",
-    "Email": "Eメール",
     "Following": "フォロー",
     "SeeAll": "すべて見る",
     "Players": "選手",
@@ -82,14 +79,15 @@
     "Clubs": "クラブ",
     "Teams": "チーム",
     "Players": "選手",
-    "Users": "ユーザー",
-    "Fixtures": "Fixtures",
+    "Fixtures": "Fixtures", //TODO
     "Location": "ロケーション",
     "Age": "年齢",
     "AgeGroup": "年齢層"
   },
 
-  "Search": {},
+  "Search": {
+    "SearchBoxPlaceholder": "Search..." //TODO
+  },
 
   "TeamProfile": {
     "TeamProfile": "チームプロフィール",
@@ -100,12 +98,11 @@
     "Description": "説明",
     "Players": "選手",
     "Posts": "投稿",
-    "UpcomingFixtures": "Upcoming Fixtures",
-    "RecentFixtures": "Recent Fixtures"
+    "UpcomingFixtures": "Upcoming Fixtures", //TODO
+    "RecentFixtures": "Recent Fixtures" //TODO
   },
 
   "TeamsFollowed": {
     "TeamsFollowed": "チームフォロー"
   }
-
 }
