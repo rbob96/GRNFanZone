@@ -30,3 +30,7 @@
 .sebm-google-map-container {
   height: 300px;
 }
+
+a:hover {
+  cursor: pointer;
+}
