@@ -14,6 +14,8 @@ export class HomeComponent {
   uid: string;
   user: any;
 
+  checkRun = false;
+
   newUser = null;
 
   constructor(private af: AngularFire,
@@ -22,25 +24,27 @@ export class HomeComponent {
 
     // Subscribe to the user
     this.af.auth.subscribe(user => {
-      this.uid = user.uid;
+      if (user) {
+        this.uid = user.uid;
+      }
     });
 
     // Check the user's following choices to see if they have any. If they don't, then we show the
     // results component.
 
-
     if (this.uid) {
-      this.af.database.object('users/' + this.uid).subscribe( user => {
-
-        if (!isNullOrUndefined(user.clubs_followed) ||
-          !isNullOrUndefined(user.clubs_followed) ||
-          !isNullOrUndefined(user.players_followed)) {
-          this.newUser = false;
-        } else {
-          this.newUser = true;
-        }
-
-      });
+      if (this.uid && !this.checkRun) {
+        // Only get the first result! Otherwise we get insta-directed to the dash after one follow
+        this.af.database.object('users/' + this.uid, {preserveSnapshot: true}).take(1).subscribe(snap => {
+          if (!isNullOrUndefined(snap.val().clubs_followed) ||
+            !isNullOrUndefined(snap.val().teams_followed) ||
+            !isNullOrUndefined(snap.val().players_followed)) {
+            this.newUser = false;
+          } else {
+            this.newUser = true;
+          }
+        });
+      }
     }
 
   }
