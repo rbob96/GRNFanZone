@@ -161,13 +161,6 @@ export class PostComponent implements OnInit {
 
     this.postDataService.getComments(this.post.id).update(this.editComment.$key, {
       comment: this.editedText,
-      commented_at: this.editComment.commented_at,
-      author: this.editComment.author,
-      author_name: this.editComment.author_name,
-      author_avatar: this.editComment.author_avatar,
-      likes: this.editComment.likes,
-      noLikes: this.editComment.noLikes,
-      likedBy: this.editComment.likedBy
     });
 
   }
