@@ -98,8 +98,8 @@
     "Description": "Aprašymas",
     "Players": "Žaidėjai",
     "Posts": "Įrašai",
-    "UpcomingFixtures": "Artimiausios varžybos", //TODO
-    "RecentFixtures": "Praėjusios varžybos" //TODO
+    "UpcomingFixtures": "Artimiausios varžybos",
+    "RecentFixtures": "Praėjusios varžybos"
   },
 
   "TeamsFollowed": {
