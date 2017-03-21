@@ -63,8 +63,9 @@ export class AuthService {
     });
   }
   logout() {
-    this.af.auth.logout();
-    this.router.navigate(['/login']);
+    this.af.auth.logout().then( () => {
+      this.router.navigate(['/login']);
+    });
   }
   private getProvider(from: String) {
     switch (from) {

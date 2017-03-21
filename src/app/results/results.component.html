@@ -1,16 +1,13 @@
 <div>
   <ul class="nav nav-tabs" role="tablist">
-    <li class="nav-item">
-      <a class="nav-link active" data-toggle="tab" href="#clubs" role="tab">{{"Results.Clubs"| translate}}</a>
+    <li class="nav-item active">
+      <a class="nav-link" data-toggle="tab" href="#clubs" role="tab">{{"Results.Clubs"| translate}}</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" data-toggle="tab" href="#teams" role="tab">{{"Results.Teams"| translate}}</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" data-toggle="tab" href="#players" role="tab">{{"Results.Players"| translate}}</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="#users" role="tab">{{"Results.Users"| translate}}</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" data-toggle="tab" href="#fixtures" role="tab">{{"Results.Fixtures"| translate}}</a>
@@ -74,22 +71,6 @@
               <button *ngIf="followTeams.indexOf(team?.id) !== -1" (click)="unfollowTeam(team?.id)" type="button"
                       class="btn btn-sm btn-danger pull-right">{{"Unfollow" | translate}}
               </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div id="users" class="tab-pane" role="tabpanel">
-      <div *ngFor="let user of users" class="col-md-5 col-md-offset-1">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <a (click)="sendToUser(user.$key)">
-              <h3 class="panel-title">{{user?.name}}</h3>
-            </a>
-          </div>
-          <div class="panel-body">
-            <div class="col-xs-6 col-md-4">
-              <img src="{{user?.avatar}}" class="as-banner"/>
             </div>
           </div>
         </div>

@@ -13,6 +13,7 @@ import {AuthService} from '../services/auth.service';
 export class DashboardComponent {
 
   posts = [];
+  postsRetrieved = false;
   postsLimit = 2;
   shownPostAmount = 0;
   shownPosts = [];
@@ -54,9 +55,7 @@ export class DashboardComponent {
                   }
                 });
               }
-              if (this.posts.length === 0 && this.router.url === '/') {
-                this.router.navigate(['results']);
-              }
+
               this.posts.sort((a, b) => b.created_at - a.created_at);
               if (this.posts.length >= this.postsLimit) {
                 this.shownPostAmount += this.postsLimit;
@@ -65,7 +64,12 @@ export class DashboardComponent {
               }
               this.shownPosts = this.posts.slice(0, this.shownPostAmount);
             }
+
+            this.postsRetrieved = true;
+
           });
+
+
 
   }
 
