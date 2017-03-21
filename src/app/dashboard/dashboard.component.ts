@@ -56,7 +56,7 @@ export class DashboardComponent {
             }
             // Dashboard should only be reloaded when new posts have been made
             this.newPosts.sort((a, b) => b.created_at - a.created_at);
-            if(this.newPosts.length != this.posts.length) {
+            if (this.newPosts.length !== this.posts.length) {
               this.posts = this.newPosts;
               if (this.posts.length >= this.postsLimit) {
                 this.shownPostAmount += this.postsLimit;
