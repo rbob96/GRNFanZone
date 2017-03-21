@@ -25,7 +25,6 @@ import { DataListModule } from 'primeng/primeng';
 import { DialogModule } from 'primeng/primeng';
 import {UserDataService} from './services/user-data.service';
 import {TeamDataService} from './services/team-data.service';
-import {ClubDataService} from './services/club-data.service';
 import {PlayerDataService} from './services/player-data.service';
 import {SponsorsComponent} from './sponsors/sponsors.component';
 
@@ -41,6 +40,7 @@ import { FixtureComponent } from './fixture/fixture.component';
 import { AgmCoreModule } from 'angular2-google-maps/core';
 import {SendtoService} from './services/sendto.service';
 import {UnauthGuardService} from './services/unauth-guard.service';
+import { HomeComponent } from './home/home.component';
 
 
 export const firebaseConfig = {
@@ -75,7 +75,8 @@ export const googleMapsConfig = {
     SearchComponent,
     ResultsComponent,
     SponsorsComponent,
-    FixtureComponent
+    FixtureComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -101,7 +102,6 @@ export const googleMapsConfig = {
     UnauthGuardService,
     PlayerDataService,
     TeamDataService,
-    ClubDataService,
     PostDataService,
     SendtoService
   ],

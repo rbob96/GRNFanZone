@@ -1,3 +1,13 @@
+<div *ngIf="posts?.length === 0 && postsRetrieved === true" class="alert alert-warning" role="alert">
+
+  Looks like nobody you follow has posted anything yet!
+  Please follow some more players, teams or clubs to view their posts. You can
+  discover more by searching! :)
+
+</div>
+
+
+
 <app-post *ngFor="let post of shownPosts " [post]="post"></app-post>
 <div class="row"
     infinite-scroll

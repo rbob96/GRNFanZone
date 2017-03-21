@@ -13,6 +13,7 @@ import {AuthService} from '../services/auth.service';
 export class DashboardComponent {
 
   posts = [];
+  postsRetrieved = false;
   newPosts = [];
   postsLimit = 2;
   shownPostAmount = 0;
@@ -65,6 +66,9 @@ export class DashboardComponent {
               }
               this.shownPosts = this.posts.slice(0, this.shownPostAmount);
             }
+
+            this.postsRetrieved = true;
+
           });
 
   }
