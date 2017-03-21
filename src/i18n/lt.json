@@ -21,9 +21,9 @@
   },
 
   "Fixture": {
-    "Fixture": "Fixture", //TODO
-    "Home": "Home", //TODO
-    "Away": "Away" //TODO
+    "Fixture": "Varžybos",
+    "Home": "Namų komanda",
+    "Away": "Išvykos komanda" 
   },
 
   "List": {
@@ -79,14 +79,14 @@
     "Clubs": "Klubai",
     "Teams": "Komandos",
     "Players": "Žaidėjai",
-    "Fixtures": "Fixtures", //TODO
+    "Fixtures": "Varžybos",
     "Location": "Vieta",
     "Age": "Amžius",
     "AgeGroup": "Amžiaus grupė"
   },
 
   "Search": {
-    "SearchBoxPlaceholder": "Search..." //TODO
+    "SearchBoxPlaceholder": "Ieškoti..."
   },
 
   "TeamProfile": {
@@ -98,8 +98,8 @@
     "Description": "Aprašymas",
     "Players": "Žaidėjai",
     "Posts": "Įrašai",
-    "UpcomingFixtures": "Upcoming Fixtures", //TODO
-    "RecentFixtures": "Recent Fixtures" //TODO
+    "UpcomingFixtures": "Artimiausios varžybos", //TODO
+    "RecentFixtures": "Praėjusios varžybos" //TODO
   },
 
   "TeamsFollowed": {
