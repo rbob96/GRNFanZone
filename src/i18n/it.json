@@ -21,9 +21,9 @@
   },
 
   "Fixture": {
-    "Fixture": "Fixture", //TODO
-    "Home": "Home", //TODO
-    "Away": "Away" //TODO
+    "Fixture": "Incontro",
+    "Home": "In casa",
+    "Away": "Trasferta"
   },
 
   "List": {
@@ -79,14 +79,14 @@
     "Players": "Giocatori",
     "Teams": "Squadre",
     "Clubs": "Club",
-    "Fixtures": "Fixtures", //TODO
+    "Fixtures": "Incontri",
     "Location": "Localitá",
     "Age": "Etá",
     "AgeGroup": "Gruppi di etá"
   },
 
   "Search": {
-    "SearchBoxPlaceholder": "Search..." //TODO
+    "SearchBoxPlaceholder": "Ricerca..."
   },
 
   "TeamProfile": {
@@ -98,8 +98,8 @@
     "Description": "Descrizione",
     "Players": "Giocatori",
     "Posts": "Post",
-    "UpcomingFixtures": "Upcoming Fixtures", //TODO
-    "RecentFixtures": "Recent Fixtures" //TODO
+    "UpcomingFixtures": "Prossimi Incontri",
+    "RecentFixtures": "Incontri Recenti"
   },
 
   "TeamsFollowed": {
