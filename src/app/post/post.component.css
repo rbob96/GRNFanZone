@@ -16,6 +16,12 @@
   white-space: pre-wrap;
 }
 
+.comment-layout {
+    margin-left: 50px;
+    margin-right: 50px;
+    overflow: hidden;
+}
+
 .comment-image {
   border-radius: 10%;
   height: 48px;
