@@ -79,14 +79,14 @@
     "Clubs": "クラブ",
     "Teams": "チーム",
     "Players": "選手",
-    "Fixtures": "Fixtures", //TODO
+    "Fixtures": "試合スケジュール",
     "Location": "ロケーション",
     "Age": "年齢",
     "AgeGroup": "年齢層"
   },
 
   "Search": {
-    "SearchBoxPlaceholder": "Search..." //TODO
+    "SearchBoxPlaceholder": "検索..."
   },
 
   "TeamProfile": {
@@ -98,8 +98,8 @@
     "Description": "説明",
     "Players": "選手",
     "Posts": "投稿",
-    "UpcomingFixtures": "Upcoming Fixtures", //TODO
-    "RecentFixtures": "Recent Fixtures" //TODO
+    "UpcomingFixtures": "将来の試合",
+    "RecentFixtures": "最近の試合"
   },
 
   "TeamsFollowed": {

@@ -79,14 +79,14 @@
     "Clubs": "Cluburi",
     "Teams": "Echipe",
     "Players": "Jucători",
-    "Fixtures": "Fixtures", //TODO
+    "Fixtures": "Meciuri",
     "Location": "Locație",
     "Age": "Vârstă",
     "AgeGroup": "Grup de vârstă"
   },
 
   "Search": {
-    "SearchBoxPlaceholder": "Search..." //TODO
+    "SearchBoxPlaceholder": "Caută..."
   },
 
   "TeamProfile": {
@@ -98,8 +98,8 @@
     "Description": "Descriere",
     "Players": "Jucători",
     "Posts": "Postări",
-    "UpcomingFixtures": "Upcoming Fixtures", //TODO
-    "RecentFixtures": "Recent Fixtures" //TODO
+    "UpcomingFixtures": "Meciuri viitoare",
+    "RecentFixtures": "Meciuri recente"
   },
 
   "TeamsFollowed": {
