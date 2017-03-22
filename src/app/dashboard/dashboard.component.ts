@@ -20,6 +20,7 @@ export class DashboardComponent {
   shownPosts = [];
   currentUserId: string;
   userData = null;
+  followed = false;
 
   constructor(private postDataService: PostDataService,
               private authService: AuthService,
@@ -41,6 +42,11 @@ export class DashboardComponent {
           af.database.list('posts').subscribe(posts => {
             this.newPosts = [];
             if (this.userData != null) {
+              if (this.userData.players_followed != null ||
+                  this.userData.teams_followed != null ||
+                  this.userData.clubs_followed != null) {
+                this.followed = true;
+              }
               posts.forEach(post => {
 
                 if (this.userData.players_followed != null &&
@@ -66,9 +72,7 @@ export class DashboardComponent {
               }
               this.shownPosts = this.posts.slice(0, this.shownPostAmount);
             }
-
             this.postsRetrieved = true;
-
           });
 
   }
