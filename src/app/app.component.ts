@@ -37,8 +37,6 @@ export class AppComponent {
       .fromEvent(document, 'keyup')
       .map((e: KeyboardEvent) => e.keyCode);
 
-    console.log(keys);
-
     const matches: any = keys.bufferCount(10, 1)
       .mergeMap(
         (last10: any) =>
@@ -47,7 +45,7 @@ export class AppComponent {
       );
 
     matches.subscribe(matched => {
-      this.easterEgg = true;
+      // this.easterEgg = true;
     });
     // Easter egg ends
 
