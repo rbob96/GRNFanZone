@@ -8,7 +8,7 @@ import { ProfileComponent } from './profile.component';
 import { Router, ActivatedRoute } from '@angular/router';
 import { RouterStub } from '../../testing/router-stubs';
 
-import {firebaseConfig} from '../app.module';
+import {firebaseConfig, googleMapsConfig} from '../app.module';
 import {Observable} from 'rxjs';
 import {UserDataService} from '../services/user-data.service';
 import {AngularFire, AngularFireModule} from 'angularfire2';
@@ -17,6 +17,11 @@ import {AuthService} from '../services/auth.service';
 import {MockUserDataService, testUser} from '../../testing/mock.user-data.service';
 import {TranslateLoader, TranslateService, TranslateParser, TranslateModule} from 'ng2-translate';
 import {SendtoService} from '../services/sendto.service';
+import {NearbyFixturesComponent} from '../nearby-fixtures/nearby-fixtures.component';
+import {AgmCoreModule} from 'angular2-google-maps/core';
+import {MomentModule} from 'angular2-moment';
+import {GeolocationService} from '../services/geolocation.service';
+import {MockGeolocationService} from '../../testing/mock.geolocation.service';
 
 describe('ProfileComponent', () => {
   let component: ProfileComponent;
@@ -25,7 +30,8 @@ describe('ProfileComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        ProfileComponent
+        ProfileComponent,
+        NearbyFixturesComponent
       ], providers: [
         { provide: Router, useClass: RouterStub },
         { provide: ActivatedRoute, useValue: { 'params': Observable.from([{ 'id': 'h5m9PT4rgdSYDGzoyOLolYgUaUu1' }]) } },
@@ -35,11 +41,14 @@ describe('ProfileComponent', () => {
         TranslateLoader,
         TranslateService,
         TranslateParser,
-        SendtoService
+        SendtoService,
+        { provide: GeolocationService, useClass: MockGeolocationService},
       ],
       imports: [
         AngularFireModule.initializeApp(firebaseConfig),
-        TranslateModule
+        TranslateModule,
+        MomentModule,
+        AgmCoreModule.forRoot(googleMapsConfig),
       ]
     })
     .compileComponents();

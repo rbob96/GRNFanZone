@@ -1,9 +1,43 @@
 <app-navbar></app-navbar>
 <div class="container">
+  <div *ngIf="easterEgg" class="alert alert-success" role="alert">
+    <i class="fa fa-3x fa-terminal pull-right" aria-hidden="true"></i>
+
+    <h4> Well done, you found the easter egg!</h4> <br>
+    GRN Fanzone was built in 2016-2017 as Team V's Team Project. <br>
+    <br>
+    <strong>Team V:</strong> <br>
+    <ul>
+      <li>Ruxandra Bob</li>
+      <li>Marios Constantinou</li>
+      <li>Daniel Juranec</li>
+      <li>Arnas Kapustinskas</li>
+      <li>Andrew McCluskey</li>
+    </ul>
+    <br>
+    <strong>Translations:</strong> <br>
+    <ul>
+      <li>Russian: Daniel Juranec</li>
+      <li>Japanese: Ruxandra Bob</li>
+      <li>Greek: Marios Constantinou</li>
+      <li>Romanian: Ruxandra Bob</li>
+      <li>Lithuanian: Arnas Kapustinskas & Daniel Juranec</li>
+      <li>Chinese: Jermy Yao & Andrew McCluskey</li>
+      <li>Spanish: Victoria Ponieman</li>
+      <li>Italian: Stefano Sesia</li>
+    </ul>
+
+  </div>
 
   <br>
   <router-outlet></router-outlet>
+
+
 </div>
+
 <br>
 <br>
 <app-sponsors></app-sponsors>
+
+
+
