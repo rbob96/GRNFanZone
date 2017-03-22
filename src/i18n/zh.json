@@ -21,9 +21,9 @@
   },
 
   "Fixture": {
-    "Fixture": "Fixture", //TODO
-    "Home": "Home", //TODO
-    "Away": "Away" //TODO
+    "Fixture": "Fixture",
+    "Home": "Home",
+    "Away": "Away"
   },
 
   "List": {
@@ -59,7 +59,7 @@
 
   "Post": {
     "likes": "喜欢",
-    "like": "like", //TODO
+    "like": "like",
     "SaveChanges": "保存更改",
     "Close": "关闭",
     "ShowMore": "显示更多",
@@ -79,7 +79,7 @@
     "Players": "球员",
     "Teams": "球队",
     "Clubs": "俱乐部",
-    "Fixtures": "Fixtures", //TODO
+    "Fixtures": "Fixtures",
     "Location": "居住地",
     "Age": "年龄",
     "AgeGroup": "年龄段"
@@ -98,8 +98,8 @@
     "Description": "简介",
     "Players": "球员",
     "Posts": "发帖",
-    "UpcomingFixtures": "Upcoming Fixtures", //TODO
-    "RecentFixtures": "Recent Fixtures" //TODO
+    "UpcomingFixtures": "Upcoming Fixtures",
+    "RecentFixtures": "Recent Fixtures"
   },
 
   "TeamsFollowed": {
