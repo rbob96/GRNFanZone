@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import {TranslateService} from 'ng2-translate';
 import {MomentModule} from 'angular2-moment';
-import * as moment from "moment";
+import * as moment from 'moment';
 import 'moment/min/locales';
 
 
