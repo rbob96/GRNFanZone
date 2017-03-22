@@ -42,13 +42,13 @@ export class NearbyFixturesComponent implements OnInit {
       af.database.list('fixtures').subscribe(fixtures => {
         // Now
         const now = new Date().getTime();
-        // Milliseconds in a day
-        const oneDay = 86400000;
+        // Milliseconds in three days
+        const threeDays = 259200000;
         this.fixtures = fixtures.filter(f => {
           if (NearbyFixturesComponent.distance(
               this.userLocation.coords.latitude, this.userLocation.coords.longitude,
               f.location.latitude, f.location.longitude) < 7500) {
-            if (f.kickoff - now > 0 && f.kickoff < (oneDay + now)) {
+            if (f.kickoff - now > 0 && f.kickoff < (threeDays + now)) {
               return true;
             }
           }
