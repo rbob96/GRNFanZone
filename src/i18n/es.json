@@ -21,9 +21,9 @@
   },
 
   "Fixture": {
-    "Fixture": "Fixture", //TODO
-    "Home": "Home", //TODO
-    "Away": "Away" //TODO
+    "Fixture": "Fixture",
+    "Home": "Home",
+    "Away": "Away"
   },
 
   "List": {
@@ -50,7 +50,7 @@
     "Teams": "Equipos",
     "Clubs": "Clubs",
     "Biography": "Biografía",
-    "Posts": "Posts" //TODO
+    "Posts": "Posts"
   },
 
   "PlayersFollowed": {
@@ -79,14 +79,14 @@
     "Players": "Jugadores",
     "Teams": "Equipos",
     "Clubs": "Clubs",
-    "Fixtures": "Fixtures", //TODO
+    "Fixtures": "Fixtures",
     "Location": "Ubicación",
     "Age": "Edad",
     "AgeGroup": "Grupo de edad"
   },
 
   "Search": {
-    "SearchBoxPlaceholder": "Search..." //TODO
+    "SearchBoxPlaceholder": "Search..."
   },
 
   "TeamProfile": {
@@ -98,8 +98,8 @@
     "Description": "Descripión",
     "Players": "Jugadores",
     "Posts": "Posts",
-    "UpcomingFixtures": "Upcoming Fixtures", //TODO
-    "RecentFixtures": "Recent Fixtures" //TODO
+    "UpcomingFixtures": "Upcoming Fixtures",
+    "RecentFixtures": "Recent Fixtures"
   },
 
   "TeamsFollowed": {
