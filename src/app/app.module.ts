@@ -41,6 +41,8 @@ import { AgmCoreModule } from 'angular2-google-maps/core';
 import {SendtoService} from './services/sendto.service';
 import {UnauthGuardService} from './services/unauth-guard.service';
 import { HomeComponent } from './home/home.component';
+import { NearbyFixturesComponent } from './nearby-fixtures/nearby-fixtures.component';
+import {GeolocationService} from './services/geolocation.service';
 
 
 export const firebaseConfig = {
@@ -76,7 +78,8 @@ export const googleMapsConfig = {
     ResultsComponent,
     SponsorsComponent,
     FixtureComponent,
-    HomeComponent
+    HomeComponent,
+    NearbyFixturesComponent
   ],
   imports: [
     BrowserModule,
@@ -103,7 +106,8 @@ export const googleMapsConfig = {
     PlayerDataService,
     TeamDataService,
     PostDataService,
-    SendtoService
+    SendtoService,
+    GeolocationService
   ],
   bootstrap: [ AppComponent ]
 })

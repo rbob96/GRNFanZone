@@ -6,10 +6,11 @@
 
 </div>
 
-
+<br>
 
 <app-post *ngFor="let post of shownPosts " [post]="post"></app-post>
 <div class="row"
     infinite-scroll
     (scrolled)="showMore()">
 </div>
+
