@@ -3,11 +3,14 @@
 # compiled output
 /dist
 /.tmp
-Documentation/Dissertation/dissertation.aux
-Documentation/Dissertation/dissertation.log
-Documentation/Dissertation/dissertation.out
-Documentation/Dissertation/dissertation.pdf
-Documentation/Dissertation/dissertation.synctex.gz
+*dissertation.aux
+*dissertation.log
+*dissertation.bbl
+*dissertation.blg
+*dissertation.out
+*dissertation.pdf
+*dissertation.synctex.gz
+
 
 # dependencies
 /node_modules
