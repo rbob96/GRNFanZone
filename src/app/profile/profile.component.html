@@ -35,28 +35,36 @@
             <div class="col-md-4 ">
 
               <div class="list-group" *ngIf="followingTeams">
-                <a class="list-group-item active lead text-center"> {{"UserProfile.Teams" | translate}}<span class="badge badge-pill badge-info">{{noTeams}}</span></a>
+                <a class="list-group-item active lead text-center"> {{"UserProfile.Teams" | translate}}<span
+                  class="badge badge-pill badge-info">{{noTeams}}</span></a>
                 <div *ngFor="let team of followingTeams | async; let i = index">
                   <div class="list-group-item list-group-item-action" *ngIf="i<10">
-                  <a (click)="sendToTeam(team.id)"> {{team.name}} </a>
+                    <a (click)="sendToTeam(team.id)"> {{team.name}} </a>
 
-                  <button *ngIf="currentUser === userId" type="button" class="btn btn-primary btn-xs btn-danger pull-right" (click)="unfollowTeam(team.id)">{{"Unfollow" | translate}}</button>
+                    <button *ngIf="currentUser === userId" type="button"
+                            class="btn btn-primary btn-xs btn-danger pull-right" (click)="unfollowTeam(team.id)">
+                      {{"Unfollow" | translate}}
+                    </button>
+                  </div>
                 </div>
-              </div>
                 <div class="list-group-item list-group-item-action" *ngIf="(followingTeams | async)?.length > 10">
                   <a (click)="sendToTeamsList(currentUser)">{{"UserProfile.SeeAll" | translate}}</a>
-              </div>
+                </div>
               </div>
             </div>
             <div class="col-md-4 ">
               <div class="list-group" *ngIf="followingPlayers">
-                <a class="list-group-item active lead text-center"> {{"UserProfile.Players" | translate}}<span class="badge badge-pill badge-info">{{noPlayers}}</span> </a>
+                <a class="list-group-item active lead text-center"> {{"UserProfile.Players" | translate}}<span
+                  class="badge badge-pill badge-info">{{noPlayers}}</span> </a>
                 <div *ngFor="let player of followingPlayers | async; let i = index">
                   <div class="list-group-item list-group-item-action" *ngIf="i<10">
-                  <a (click)="sendToPlayer(player.id)" > {{player.first_name + " " + player.last_name}} </a>
-                  <button *ngIf="currentUser === userId" type="button" class="btn btn-primary btn-xs btn-danger pull-right" (click)="unfollowPlayer(player.id)">{{"Unfollow" | translate}}</button>
+                    <a (click)="sendToPlayer(player.id)"> {{player.first_name + " " + player.last_name}} </a>
+                    <button *ngIf="currentUser === userId" type="button"
+                            class="btn btn-primary btn-xs btn-danger pull-right" (click)="unfollowPlayer(player.id)">
+                      {{"Unfollow" | translate}}
+                    </button>
+                  </div>
                 </div>
-              </div>
                 <div class="list-group-item list-group-item-action" *ngIf="(followingPlayers | async)?.length > 10">
                   <a (click)="sendToPlayersList(currentUser)">{{"UserProfile.SeeAll" | translate}}</a>
                 </div>
@@ -64,17 +72,27 @@
             </div>
             <div class="col-md-4 ">
               <div class="list-group" *ngIf="followingClubs">
-                <a class="list-group-item active lead text-center"> {{"UserProfile.Clubs" | translate}}<span class="badge badge-pill badge-info">{{noClubs}}</span> </a>
+                <a class="list-group-item active lead text-center"> {{"UserProfile.Clubs" | translate}}<span
+                  class="badge badge-pill badge-info">{{noClubs}}</span> </a>
                 <div *ngFor="let club of followingClubs | async; let i = index">
                   <div class="list-group-item list-group-item-action" *ngIf="i<10">
-                  <a (click)="sendToClub(club.id)"> {{club.name}} </a>
-                  <button *ngIf="currentUser === userId" type="button" class="btn btn-primary btn-xs btn-danger pull-right" (click)="unfollowClub(club.id)">{{"Unfollow" | translate}}</button>
+                    <a (click)="sendToClub(club.id)"> {{club.name}} </a>
+                    <button *ngIf="currentUser === userId" type="button"
+                            class="btn btn-primary btn-xs btn-danger pull-right" (click)="unfollowClub(club.id)">
+                      {{"Unfollow" | translate}}
+                    </button>
+                  </div>
                 </div>
-              </div>
                 <div class="list-group-item list-group-item-action" *ngIf="(followingClubs | async)?.length > 10">
                   <a (click)="sendToClubsList(currentUser)">{{"UserProfile.SeeAll" | translate}}</a>
                 </div>
               </div>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-md-12">
+              <app-nearby-fixtures></app-nearby-fixtures>
             </div>
           </div>
         </div>
