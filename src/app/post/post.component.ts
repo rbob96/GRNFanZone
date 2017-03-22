@@ -104,11 +104,12 @@ export class PostComponent implements OnInit {
     let commentLikes = [];
     if (commentid) {
 
-      this.af.database.list('posts/' + postid + '/comments/' + commentid + '/likes').subscribe(likes => {
-        commentLikes = likes.map(l => {
-          return l.$key;
-        });
-      });
+      // TODO: Fix likes
+      // this.af.database.list('posts/' + postid + '/comments/' + commentid + '/likes').subscribe(likes => {
+      //   commentLikes = likes.map(l => {
+      //     return l.$key;
+      //   });
+      // });
 
       const observable = this.af.database.object('posts/' + postid + '/comments/' + commentid + '/likes/' + uid);
       const likeObs = this.af.database.object('posts/' + postid + '/comments/' + commentid + '/noLikes');
