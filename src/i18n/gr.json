@@ -21,9 +21,9 @@
   },
 
   "Fixture": {
-    "Fixture": "Fixture", //TODO
-    "Home": "Home", //TODO
-    "Away": "Away" //TODO
+    "Fixture": "Αγωνιστική", 
+    "Home": "Εντός", 
+    "Away": "Εκτός" 
   },
 
   "List": {
@@ -79,14 +79,14 @@
     "Clubs": "Σύλλογοι",
     "Teams": "Ομάδες",
     "Players": "Παίκτες",
-    "Fixtures": "Fixtures", //TODO
+    "Fixtures": "Αγωνιστική", 
     "Location": "Τοποθεσία",
     "Age": "Ηλικία",
     "AgeGroup": "Ηλικιακή ομάδα"
   },
 
   "Search": {
-    "SearchBoxPlaceholder": "Search..." //TODO
+    "SearchBoxPlaceholder": "Ψάξιμο..." 
   },
 
   "TeamProfile": {
@@ -98,8 +98,8 @@
     "Description": "Περιγραφή",
     "Players": "Παίκτες",
     "Posts": "Δημοσιεύσεις",
-    "UpcomingFixtures": "Upcoming Fixtures", //TODO
-    "RecentFixtures": "Recent Fixtures" //TODO
+    "UpcomingFixtures": "Προσεχείς αγώνες", 
+    "RecentFixtures": "Τελευταίοι αγώνες" 
   },
 
   "TeamsFollowed": {
