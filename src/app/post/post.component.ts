@@ -1,12 +1,11 @@
 import {Component, Input, OnInit} from '@angular/core';
-import { Post } from '../post';
+import {Post} from '../post';
 import {AngularFire} from 'angularfire2';
 import Any = jasmine.Any;
 import {AuthService} from '../services/auth.service';
 import {PostDataService} from '../services/post-data.service';
 import {Router} from '@angular/router';
 import {SendtoService} from '../services/sendto.service';
-
 
 
 @Component({
@@ -44,12 +43,12 @@ export class PostComponent implements OnInit {
 
   editedText = '';
 
-  constructor ( private af: AngularFire,
-                private authService: AuthService,
-                private postDataService: PostDataService,
-                private router: Router,
-                private sendto: SendtoService
-              ) {}
+  constructor(private af: AngularFire,
+              private authService: AuthService,
+              private postDataService: PostDataService,
+              private router: Router,
+              private sendto: SendtoService) {
+  }
 
   ngOnInit() {
 
@@ -61,12 +60,12 @@ export class PostComponent implements OnInit {
 
     if (this.post) {
       this.postDataService.getComments(this.post.id).subscribe(resComms => {
-          this.showBtn = [];
-          resComms.forEach(com => {
-            this.showBtn.push(com);
-          });
-          this.shownComs = this.showBtn.slice(this.commentsLimit);
+        this.showBtn = [];
+        resComms.forEach(com => {
+          this.showBtn.push(com);
         });
+        this.shownComs = this.showBtn.slice(this.commentsLimit);
+      });
       this.af.database.list('posts/' + this.post.id + '/likes').subscribe(likes => {
         this.likes = likes.map(l => {
           return l.$key;
@@ -84,7 +83,7 @@ export class PostComponent implements OnInit {
       // Check if uid in likes
       if (this.likes.indexOf(uid) === -1) {
 
-       // Create the like
+        // Create the like
         observable.set({
           liked_at: (new Date().getTime())
         });
@@ -98,45 +97,46 @@ export class PostComponent implements OnInit {
     }
 
   }
+  // TODO: Fix likes
+  // commentLikeToggle(commentid: string, postid: string, uid: string) {
+  //
+  //   let commentLikes = [];
+  //   if (commentid) {
+  //
+  //
+  //     this.af.database.list('posts/' + postid + '/comments/' + commentid + '/likes').subscribe(likes => {
+  //       commentLikes = likes.map(l => {
+  //         return l.$key;
+  //       });
+  //     });
+  //
+  //     const observable = this.af.database.object('posts/' + postid + '/comments/' + commentid + '/likes/' + uid);
+  //     const likeObs = this.af.database.object('posts/' + postid + '/comments/' + commentid + '/noLikes');
+  //     const likedByObs = this.af.database.object('posts/' + postid + '/comments/' + commentid + '/likedBy');
+  //     if (commentLikes.indexOf(uid) === -1) {
+  //       observable.set({
+  //         liked_at: (new Date().getTime())
+  //       });
+  //       likeObs.$ref.transaction(function (currentCount) {
+  //         return currentCount + 1;
+  //       });
+  //       likedByObs.$ref.transaction(function (text) {
+  //         return text + ' ' + uid;
+  //       });
+  //     } else {
+  //       observable.remove();
+  //       likeObs.$ref.transaction(function (currentCount) {
+  //         return currentCount - 1;
+  //       });
+  //       likedByObs.$ref.transaction(function (text) {
+  //         const str = text.replace(uid, '');
+  //         return str;
+  //       });
+  //     }
+  //   }
+  // }
 
-  commentLikeToggle(commentid: string, postid: string, uid: string) {
-
-    let commentLikes = [];
-    if (commentid) {
-
-      this.af.database.list('posts/' + postid + '/comments/' + commentid + '/likes').subscribe(likes => {
-        commentLikes = likes.map(l => {
-          return l.$key;
-        });
-      });
-
-      const observable = this.af.database.object('posts/' + postid + '/comments/' + commentid + '/likes/' + uid);
-      const likeObs = this.af.database.object('posts/' + postid + '/comments/' + commentid + '/noLikes');
-      const likedByObs = this.af.database.object('posts/' + postid + '/comments/' + commentid + '/likedBy');
-    if (commentLikes.indexOf(uid) === -1) {
-        observable.set({
-          liked_at: (new Date().getTime())
-        });
-        likeObs.$ref.transaction(function(currentCount) {
-          return currentCount + 1;
-});
-      likedByObs.$ref.transaction(function(text){
-        return text + ' ' + uid;
-      });
-    } else {
-      observable.remove();
-      likeObs.$ref.transaction(function(currentCount) {
-        return currentCount - 1;
-});
-    likedByObs.$ref.transaction(function (text) {
-        const str = text.replace(uid, '');
-        return str;
-});
-    }
-  }
-}
-
-  addComment(newComment: string, postid: string ) {
+  addComment(newComment: string, postid: string) {
     this.postDataService.getComments(this.post.id).push({
       comment: this.newComment,
       commented_at: (new Date().getTime()),
@@ -146,7 +146,7 @@ export class PostComponent implements OnInit {
       likes: [],
       noLikes: 0,
       likedBy: ''
-    }).then( _ => {
+    }).then(_ => {
       this.newComment = '';
       this.commentsLimit -= 1;
     });
