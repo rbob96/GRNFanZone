@@ -20,7 +20,7 @@
               <i>{{(post.created_at | amCalendar:{sameElse:'D MMMM, YYYY [at] h:mm a'})}}</i> <br>
 
               <div class="post-text">
-              {{post.text}}
+                {{post.text}}
               </div>
 
             </div>
@@ -31,8 +31,8 @@
           <div class="row">
             <div class="col-sm-12" [ngSwitch]="likes.length">
 
-                <b *ngSwitchCase="1">{{likes.length}} {{"Post.like" | translate}}</b>
-                <b *ngSwitchDefault>{{likes.length}} {{"Post.likes" | translate}}</b>
+              <b *ngSwitchCase="1">{{likes.length}} {{"Post.like" | translate}}</b>
+              <b *ngSwitchDefault>{{likes.length}} {{"Post.likes" | translate}}</b>
 
               <button *ngIf="likes.indexOf(currentUserId) !== -1" type="button"
                       class="btn btn-success pull-right btn-sm" (click)="likeToggle(currentUserId)">
@@ -61,18 +61,18 @@
           <br>
 
           <ul class="list-group">
-            <li *ngFor="let postComment of shownComs" class="list-group-item">
+            <li *ngFor="let postComment of shownComs" class="list-group-item comment-layout">
 
               <div class="media">
                 <div class="media-left">
                   <img class="media-object comment-image" src="{{postComment.author_avatar}}"
                        alt="{{postComment.author_name}}">
                 </div>
-
+                <div class="media-body">
                   <strong class="media-heading">{{postComment.author_name}}
-                    <span class="badge badge-success" *ngIf="currentUserId === postComment.author">{{"Me" | translate}}</span>
+                    <span class="badge badge-success"
+                          *ngIf="currentUserId === postComment.author">{{"Me" | translate}}</span>
                   </strong>
-
 
                   <div *ngIf="currentUserId === postComment.author" class="btn-group pull-right" role="group"
                        aria-label="Comment Options">
@@ -99,7 +99,9 @@
                             <button type="button" class="btn btn-success" data-dismiss="modal"
                                     (click)="updateComment()">{{"Post.SaveChanges" | translate}}
                             </button>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">{{"Post.Close" | translate}}</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">{{"Post.Close" |
+                              translate}}
+                            </button>
                           </div>
                         </div>
 
@@ -115,36 +117,46 @@
                   <br>
                   {{postComment.comment}}
                   <br>
-                  <small><em>{{(postComment.commented_at | amCalendar:{sameElse:'D MMMM, YYYY [at] h:mm a'})}}</em>
-                  </small>
-
-
                   <div class="row">
-                    <div class="col-sm-9" [ngSwitch]="postComment.noLikes">
-                        <b *ngSwitchCase="1">{{postComment.noLikes}} {{"Post.like" | translate}}</b>
-                        <b *ngSwitchDefault>{{postComment.noLikes}} {{"Post.likes" | translate}}</b>
-                        <b *ngSwitchCase="null">0 {{postComment.noLikes}} {{"Post.likes" | translate}}</b>
-                      </div>
-                      <div class="col-sm-3">
-                      <button *ngIf="postComment.likedBy?.includes(currentUserId) === false" type="button"
-                              class="btn btn-default pull-right btn-sm" (click)="commentLikeToggle(postComment.$key, post.id,currentUserId)"> Like
-                      </button>
-                      <button *ngIf="postComment.likedBy?.includes(currentUserId) === true" type="button"
-                              class="btn btn-default pull-right btn-sm" (click)="commentLikeToggle(postComment.$key, post.id,currentUserId)"> Unlike
-                      </button>
+                    <div class="col-sm-3">
+                      <small><em>{{(postComment.commented_at | amCalendar:{sameElse:'D MMMM, YYYY [at] h:mm a'})}}</em>
+                      </small>
                     </div>
+                    <!--TODO: Fix likes!-->
+                    <!--<div class="col-sm-9">-->
+                    <!--<small>-->
+                    <!--<div [ngSwitch]="postComment.noLikes" class="pull-left">-->
+                    <!--<span class="glyphicon glyphicon-thumbs-up"></span>-->
+                    <!--<em *ngSwitchDefault>{{postComment.noLikes}} </em>-->
+                    <!--<em *ngSwitchCase="null">0 </em>-->
+                    <!--</div>-->
+                    <!--</small>-->
+                    <!--</div>-->
                   </div>
-
+                  <!--TODO: Fix likes!-->
+                  <!--<div class="row">-->
+                  <!--<div class="col-sm-1">-->
+                  <!--<a *ngIf="postComment.likedBy?.includes(currentUserId) === false" class="pull-left"-->
+                  <!--(click)="commentLikeToggle(postComment.$key, post.id,currentUserId)" aria-hidden="true"> Like-->
+                  <!--</a>-->
+                  <!--<a *ngIf="postComment.likedBy?.includes(currentUserId) === true" class="pull-left"-->
+                  <!--(click)="commentLikeToggle(postComment.$key, post.id,currentUserId)" aria-hidden="true"> Unlike-->
+                  <!--</a>-->
+                  <!--</div>-->
+                  <!--<div class="col-sm-11">-->
+                  <!--</div>-->
+                  <!--</div>-->
+                </div>
               </div>
-
             </li>
           </ul>
 
           <br>
 
           <div class="input-group">
-            <input #box [(ngModel)]="newComment" class="form-control" type="text" placeholder="{{'Post.Comment' | translate}}..."
-              (keyup.enter)="addComment(box.value)"/>
+            <input #box [(ngModel)]="newComment" class="form-control" type="text"
+                   placeholder="{{'Post.Comment' | translate}}..."
+                   (keyup.enter)="addComment(box.value)"/>
             <span class="input-group-btn">
               <button [disabled]="newComment === ''" type="button" class="btn btn-success"
                       (click)="addComment()">

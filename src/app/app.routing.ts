@@ -15,6 +15,7 @@ import {AuthGuardService} from './services/auth-guard.service';
 import {ResultsComponent} from './results/results.component';
 import {FixtureComponent} from './fixture/fixture.component';
 import {UnauthGuardService} from './services/unauth-guard.service';
+import {HomeComponent} from './home/home.component';
 
 const appRoutes: Routes = [
   {
@@ -24,7 +25,7 @@ const appRoutes: Routes = [
   },
   {
     path: '',
-    component: DashboardComponent,
+    component: HomeComponent,
     canActivate: [AuthGuardService]
   },
   {

@@ -1,0 +1,12 @@
+<div *ngIf="newUser===false">
+  <app-dashboard></app-dashboard>
+</div>
+
+<div *ngIf="newUser===true">
+  <div class="alert alert-success" role="alert">
+
+    Welcome to GRNFanzone! To get started, try following some of your favourite clubs, teams or players
+
+  </div>
+  <app-results></app-results>
+</div>
