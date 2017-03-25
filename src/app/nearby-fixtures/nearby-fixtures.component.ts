@@ -13,7 +13,7 @@ export class NearbyFixturesComponent implements OnInit {
   userLocation;
   fixtures;
 
-  public static  distance(lat1, long1, lat2, long2) {
+  public static distance(lat1, long1, lat2, long2) {
     // Using the haversine formula to calculate distances
     // Adapted from http://www.movable-type.co.uk/scripts/latlong.html
     const R = 6371e3; // metres

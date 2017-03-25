@@ -72,7 +72,7 @@ describe('ProfileComponent', () => {
     // The UserId should exist
     expect(component.userId).toBeTruthy();
 
-    // The UserId should be 5
+    // The UserId should be this :
     expect(component.userId).toEqual('h5m9PT4rgdSYDGzoyOLolYgUaUu1');
 
   });
