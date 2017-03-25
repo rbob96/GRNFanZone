@@ -179,6 +179,46 @@ The CI and CD processes helped us by keeping our code of high quality, preventin
 
 %==============================================================================
 \newpage
+\section{Testing Considerations}
+\label{sec:testing}
+
+% Describe BDD
+Behaviour Driven Development is a development methodology where the development team
+ first describes use cases for a feature, then writes tests for it, and lastly 
+ develops the code for the feature. The team decided to use BDD as it comes 
+ reccomended by the Agile Alliance \cite{agilealliance_bdd}. Another reason
+ is that the angular CLI sets up a Karma Jasmine testing set up by default.
+ BDD is credited for helping to develop easily documented code - for example,
+ by making test cases into natural language sentences (see figure 
+ \ref{fig:testing_failed_test}), it becomes easier for human developers to 
+ understand what it tests, and why it is being tested \cite{north2006bdd}.
+ 
+ \input{figures/testing_failed_test}
+
+% Describe Karma and Jasmine testing with Angular2
+The Angular 2 CLI sets up a Karma Jasmine configuration to run tests on 
+ the typescript in the project. Karma is a test runner for javascript
+ that is platform agonostic and allows testing over different devices 
+ and browsers. Jasmine is a testing framework that aims to be as readable 
+ as possible - one of the key features of the BDD approach we wanted to 
+ adopt. Initially, we tried to use Mocha, another testing framework which
+ is targeted at Test Driven Development, however integrating it was difficult
+ and was taking too long to set up, so we decided to move from TDD to BDD and
+ just use Jasmine. One of the benefits this brought was the wealth of 
+ documentation and examples across the internet of using Karma Jasmine
+ with Angular code.
+ 
+% Describe how it was done well
+Blah
+
+% Difficulties we faced
+% reference common pitfall from agile alliance of being a big jump from tdd and hard for noobs
+% Struggles with angularfire2
+% struggles with @input components
+Blah
+
+%==============================================================================
+\newpage
 \section{Frontend Technology Considerations}
 \label{sec:frontend}
 
@@ -255,6 +295,19 @@ based on the specific issues discussed in previous sections.  Reflect
 on the extent to which these lessons could be generalised to other
 types of software project.  Relate the wider lessons to others
 reported in case studies in the software engineering literature.
+
+%==============================================================================
+
+\section{Appendices}
+\label{sec:appendices}
+
+\subsection{Glossary}
+\label{subsec:appendices:glossary}
+BDD - Behaviour Driven Development
+CLI - Command Line Interface
+TDD - Test Driven Development
+VCS - Version Control System
+
 
 %==============================================================================
 \bibliographystyle{plain}
