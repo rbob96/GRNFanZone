@@ -1,26 +1,17 @@
 % This example An LaTeX document showing how to use the l3proj class to
 % write your report. Use pdflatex and bibtex to process the file, creating
 % a PDF file as output (there is no need to use dvips when using pdflatex).
-
-
 \documentclass{l3proj}
-
 \begin{document}
-
 \title{Global Rugby Network FanZone (Web)}
-
 \author{Ruxandra Bob \\
 		Marios Constantinou \\
         Daniel Juranec \\
         Arnas Kapustinskas \\
         Andrew McCluskey}
-
 \date{10 February 2017}
-
 \maketitle
-
 \begin{abstract}
-
 Report on Team Project 3 coursework for Group V. The GRN Fanzone is a
  fan engagement web application developed to interface with the Global Rugby
  Network's online platform. The project tried to utilise 
@@ -29,17 +20,14 @@ Report on Team Project 3 coursework for Group V. The GRN Fanzone is a
  project management. This report covers some of the considerations taken
  during development and explains some of the benefits and disadvantages
  of the way the development team operated.
-
 \end{abstract}
-
 %% Comment out this line if you do not wish to give consent for your
 %% work to be distributed in electronic format.
 \educationalconsent
-
 \newpage
-
 %==============================================================================
 \section{Introduction}
+
 
 This paper presents a case study of the project and software development process of Group V, which consists of five students studying Software Engineering at the University of Glasgow, done as part of the University's Team Project 3 course.
 
@@ -57,18 +45,16 @@ Section \ref{sec:frontend} talks about the key technology used for the Frontend 
 
 Section \ref{sec:conclusion} is the conclusion, where we evaluate our performance over the whole process, what has been learned from it and how this experience can benefit us in following professional software projects.
 
+
 %==============================================================================
 \section{Case Study Background}
 \label{sec:background}
-
 Include details of
-
 \begin{itemize}
 \item The customer organisation and background.
 \item The rationale and initial objectives for the project.
 \item The final software was delivered for the customer.
 \end{itemize}
-
 %==============================================================================
 %\section{Alice}
 %\label{sec:alice}
@@ -337,8 +323,80 @@ One of Angular's benefits is that its developers have thoughtfully
  
 \input{figures/frontend_ng_cli}
 
-%==============================================================================
 
+%==============================================================================
+\newpage
+\section{Reflection on Agile Methodology}
+\label{sec:agile}
+
+% short description of agile development
+
+Agile software development consists of a set of practices and methods derived from the principles described in the Agile Manifesto. Agile enforces a strong collaboration between the development team and the business stakeholders, self-organizing teams and frequent delivery of functioning software.\cite{agile_overview}
+
+=======
+\section{Reflection on Agile Methodology}
+\label{sec:agile}
+
+% short description of agile development
+
+Agile software development consists of a set of practices and methods derived from the principles described in the Agile Manifesto. Agile enforces a strong collaboration between the development team and the business stakeholders, self-organizing teams and frequent delivery of functioning software.\cite{agile_overview}
+
+As agile development was highly recommended as part of our software development process, in the initial team meetings, we have decided to use the Scrum methodology.
+ 
+ % short description of SCRUM
+ Scrum is an agile framework originally formalized for software development projects. Scrum defines two major roles within a development team: the product owner and the scrum master. The product owner should maintain communication with the stakeholders and create a prioritized list goals to be achieved. The scrum master keeps the team focused and leads team meetings.\cite{scrum_overview}
+ 
+ % our agile development
+ Within our team, Andrew was the product owner and Ruxandra was the scrum master. After the first few team meetings, where the focus was on finalizing the initial requirements gathering, the focus was shifted to dividing the prioritised expected features. As a result of discussions between the product owner and the rest of the team, it was decided to split the work into seven sprints, each of them lasting two weeks. One sprint would end on Friday and the next one would start the following Monday. (Figure 6)
+ 
+ 
+ It was decided that instead of daily scrums, the team would have two weekly meetings, one on Wednesdays, during the software development lab, and one on Fridays. The format of the meetings included everyone describing what they've worked on since the previous meeting and the work they plan on completing until the next meeting. Each team member also discussed any difficulties they encountered, how they overcame them or whether they feel that they need help with certain issues.
+ 
+ The scrum master was tasked with closely observing these meetings. They had to determine whether the team could handle the workload of the respective sprint, if everyone in the team had something to work on and how to efficiently assign members to assist those who need help with something. The scrum master would also take into consideration any complaints or suggestions from the rest of the team, as well as initiate team retrospectives at the end of each sprint.
+ 
+ As the project progressed, our scrum process underwent a few changes. Once the desired goals and the predicted timelines were better defined, it was decided that one meeting during the PSD lab would be sufficient, with any additional meetings to be arranged if deemed necessary. Meanwhile, the team would communicate daily through a group chat on Facebook messenger, in order to keep everyone updated with the general progress.
+ 
+ Towards the end of the first semester, our sprints needed quite a few adjustments, due to the increase in additional assignments from other courses, that everyone in the team had to complete. There was also a slight halt in communication during the winter break, as all team members went home for the holidays. However, the additional time left at the end of our initial schedule allowed us to maintain the initial seven sprints and just shift everything by a few weeks.
+ 
+ As we became more comfortable working as a team and since at that point everyone was comfortable with the new technologies, team meetings became less structured and less formal. Along the way, the meetings became open discussions, while still making sure everyone is kept up to date. At the beginning of the second semester, our scrum framework transitioned into a less clearly defined agile framework, which still followed the main principles of the methodology. Sprints became of variable length (between one and three weeks) rather than a constant two weeks.
+ 
+ \input{figures/agile}
+ 
+ At the beginning of the development process, the product owner split every goal into separate small issues. The members of the team were also encouraged to make small commits as often as possible and only merge one small issue at a time in the development branch, in order to avoid disrupting someone else's work by generating conflicts. Every merge request needed to be approved by at least one more team member, in order to maintain the quality of the product.
+ 
+ At the end of each sprint, the product was fully or almost fully functional with respect to the features that needed to be completed up to that point. The end of most sprints coincided with the customer meetings. Thus, we were able to receive almost immediate feedback from both GRN and supervisors. This also offered us the opportunity to make additional improvements in the short time left between sprints.
+ 
+ To maintain the close communication with our client, as dictated by the agile methodology, the product owner would communicate weekly updates by email. The team was also in close contact with the development team of our client company, which was available for questions and pointed us towards useful resources. This was helpful in assuring that our version of the product would be as close as possible to the expectations of GRN, with respect to both design and implementation.
+ 
+ 
+ %==============================================================================
+\newpage
+\section{Project Planning}
+\label{sec:planning}
+
+After the project allocation day, GRN have sent us a project brief containing greater details about the project itself, as well as a list of functional requirements that the final product would be expected to meet. The first task we needed to complete was a detailed requirements document, that would contain non-functional and any additional functional requirements. It was decided that the focus of the first month would be allocated to finalizing the document, in order to assure that the client approved of the direction the team decided to take in working on the project.
+
+As part of the requirements gathering process, the team developed four personas and an epic description of how they would end up using the FanZone in their daily lives, illustrating that by documenting epic user stories. This was followed by writing down user stories centered around the following entities: team manager, sponsor, player, club supporter, rugby fan and international rugby fan. Doing this eased the process of identifying useful requirements and helped the team visualize what the final product should be offering potential users.
+
+After the initial requirements were outlined, the team followed by designing wireframes of the web application. Initially, each team member delivered a pencil-drawn sketch of each expected application screen. Afterwards, the best design from each wireframe were merged into the main wireframes, drawn using draw.io. GRN warned us that the main wireframes would not offer useful guidance when thinking how the application should transition to a mobile format, so the team repeated the process to generate mobile wireframes.
+
+Over the weeks dedicated to producing the requirements document, the team kept close contact with GRN, who have repeatedly offered helpful feedback and guidance regarding how the team can meet their expectations of the final product. This gave us some understanding of what the client found to be of most importance, and it helped us in the next stage in our project, which was prioritising the features of the application and separating them into achievable goals for each iteration.
+
+There were several aspects to be taken into consideration while deciding on a concrete structure of the development process. We had to consider our lack of experience with the technologies to be used and the fact that the available time to work on the project would vary as the academic year progressed. Another thing to consider was the fact that due to the agile methodology we decided to follow, at the end of each iteration, the product needed to be functional. Thus, it was decided to settle on having smaller, more easily achievable goals in the beginning, which would incrementally become more complex as advanced. In the end, we settled on seven iterations, excluding the initial one focused on the requirements document.
+
+
+The goals for each iteration become increasingly challenging, based on the expectancy that the first one or two iterations would offer all team members some hands on experience with both Angular2 and Firebase. The goals for each iteration were the following: first iteration - login and sign up; second iteration - dashboard and followed pages; third iteration - post creation and management; fourth iteration - view and edit profile, posts on comments; fifth iteration - search for teams/clubs/players or fixtures; sixth iteration - translation and additional tasks; seventh iteration - additional features, refinement, documentation.
+
+\input{figures/milestones}
+
+Gitlab allowed us to create project milestones. Each of them had a number of issues associated with it, the issues consisting of the goals for the respective iteration split into several multiple smaller issues. The deadline of each iteration would also appear on each issues, becoming bright red as the date came nearer, in order to alert the person assigned to the task.
+
+Throughout the project, our process was modified and improved by having team retrospectives around the end of each iteration. The format of the retrospectives consisted of every team member going through what they thought went good in our past iteration, what they thought went bad and what ideas they have to improve our workflow in future iterations. All these were discussed within the team and what the majority considered useful ideas were then included in the further development. The main points of each retrospective are documented on the wiki page of the project, which can be found on Gitlab.
+
+
+
+%==============================================================================
+\newpage
 \section{Conclusions}
 \label{sec:conclusion}
 
@@ -366,3 +424,11 @@ VCS - Version Control System
 \bibliographystyle{plain}
 \bibliography{dissertation}
 \end{document}
+\grid
+
+\grid
+<<<<<<< HEAD
+\grid
+\grid
+=======
+>>>>>>> dev
