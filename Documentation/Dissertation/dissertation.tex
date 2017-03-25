@@ -370,14 +370,41 @@ One of Angular's benefits is that its developers have thoughtfully
 
 %==============================================================================
 \newpage
-\section{Reflection on Agile Methodology}
-\label{sec:agile}
+\section{Backend Technology Considerations}
+\label{sec:backend}
 
-% short description of agile development
+As with the frontend, our clients defined what technology they wanted the team to use for the backend of the project before we started development.
+We were tasked to use Firebase, which is a mobile and web application platform that was acquired by google in 2014.
+Its inital product was a NoSQL realtime database, however since then it has added a large range of features, including static hosting services, authentication and storage.
 
-Agile software development consists of a set of practices and methods derived from the principles described in the Agile Manifesto. Agile enforces a strong collaboration between the development team and the business stakeholders, self-organizing teams and frequent delivery of functioning software.\cite{agile_overview}
+We started off by registering our project GRNFanZone on the Firebase website, which provided us access to the Firebase console, as well as an API key to initialise and access the database.
+Afterwards, we followed the documentation to implement authentication using Facebook and Google, which was an initial requirement for the project.
+Finally the team used Firebase's CLI to deploy thie initial build using the provided static hosting service. This process was later refined and automated as part of our continuous deployment strategy.
+Overall, the ease at which Firebase allowed these features to be set up and implemented benefitted us greatly, as it allowed us to concentrate on other needs of the project.
 
-=======
+The main benefit of Firebase for the project was the realtime cloud-hosted NoSQL database.
+All of the data in the database is defined using JavaScript Object Notation (JSON).
+The database can be edited by using the inline editor in the Firebase console, or by creating a JSON file and either deploying it using the CLI, or importing it in the console.
+We used Globally Unique Identifiers (GUID) for main entity IDs, and divided our data into six main categories:
+\begin{itemize}
+\item \textit{users}, where every user would contain some personal information from social authentication, as well as clubs, teams and players that user follows.
+\item \textit{posts}, containing the text and title of the post, the post author ID and some information about him, the comments and likes to that post, and a timestamp.
+\item \textit{fixtures}, which contains the home and away team IDs and names, timestamps of fixture creation and kickoff, location, and the score if the fixture has already happened.
+\item \textit{clubs}, where each club has their crest, name, description, location, and the posts made by that club.
+\item \textit{teams}, which, alongside the same identificatory information as clubs, contains what club the team belongs to, the team's age group and type, alongside posts made by the team.
+\item \textit{players}, that has every players' name, age, bio, location and profile picture, as well as what team the player plays for and posts by him.
+\end{itemize}
+As the purpose of the web application was to provide a social platform for rugby fans, all connected users being synced to the database made for a much natural and interactive user experience.
+
+\input{figures/dbexample}
+
+Firebase did not, however, come without its drawbacks. As usage of NoSQL databases has only recently become more prevalent, none of the team members had previously had experience of using or modelling data for one.
+Perhaps the biggest issue that arose while getting acquainted to using Firebase, was changing our relational database data modelling mentality to one that would work well with a NoSQL database. For example, duplicated data, which is considered undesireable in an SQL database, was necessary for us to be able to retrieve infomation about posts efficiently. It also meant that we had more limited functionality when it came to querying the database.
+Another big issue was identified later on into the project. We used the Angularfire2 module to interface between Firebase and Angular2, which meant that all of our calls to the database had to be in the form of subscriptions to certain keys.
+As the application grew in complexity, more and more subscriptions had to be made, due to which there arose some race conditions concerning the load order of the data and issues where retrieved data would be needlessly reloaded. Fixing these problems was very frustrating and took up a lot of time that could have been spent implementing new features.
+
+%==============================================================================
+\newpage
 \section{Reflection on Agile Methodology}
 \label{sec:agile}
 
@@ -441,6 +468,7 @@ Throughout the project, our process was modified and improved by having team ret
 
 %==============================================================================
 \newpage
+
 \section{Conclusions}
 \label{sec:conclusion}
 
