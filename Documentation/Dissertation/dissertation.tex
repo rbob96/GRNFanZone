@@ -274,7 +274,7 @@ We used Globally Unique Identifiers (GUID) for main entity IDs, and divided our 
 \end{itemize}
 As the purpose of the web application was to provide a social platform for rugby fans, all connected users being synced to the database made for a much natural and interactive user experience.
 
-Firebase did not, however, come without its drawbacks. As usage of NoSQL databases have only recently become more prevalent, none of the team members had previously had experience of using or modelling data for one.
+Firebase did not, however, come without its drawbacks. As usage of NoSQL databases has only recently become more prevalent, none of the team members had previously had experience of using or modelling data for one.
 Perhaps the biggest issue that arose while getting acquainted to using Firebase, was changing our relational database data modelling mentality to one that would work well with a NoSQL database. For example, duplicated data, which is considered undesireable in an SQL database, was necessary for us to be able to retrieve infomation about posts efficiently. It also meant that we had more limited functionality when it came to querying the database.
 Another big issue was identified later on into the project. We used the Angularfire2 module to interface between Firebase and Angular2, which meant that all of our calls to the database had to be in the form of subscriptions to certain keys.
 As the application grew in complexity, more and more subscriptions had to be made, due to which there arose some race conditions concerning the load order of the data and issues where retrieved data would be needlessly reloaded. Fixing these problems was very frustrating and took up a lot of time that could have been spent implementing new features.
