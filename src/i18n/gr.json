@@ -16,14 +16,14 @@
   },
 
   "Dashboard": {
-    "Dashboard":"Τοίχος",
+    "Dashboard": "Τοίχος",
     "ShowMore": "Περισσότερα"
   },
 
   "Fixture": {
-    "Fixture": "Fixture",
-    "Home": "Home",
-    "Away": "Away"
+    "Fixture": "Αγωνιστική", 
+    "Home": "Εντός", 
+    "Away": "Εκτός" 
   },
 
   "List": {
@@ -33,14 +33,12 @@
   },
 
   "Login": {
-    "Title":"Συνδεθείτε"
+    "Title": "Συνδεθείτε"
   },
 
   "NavBar": {
-    "Dashboard":"Τοίχος",
-    "List":"Λίστα",
     "Language": "Γλώσσα",
-    "Logout":"Αποσυνδέση"
+    "Logout": "Αποσυνδέση"
   },
 
   "PlayerProfile": {
@@ -69,8 +67,7 @@
   },
 
   "UserProfile": {
-    "UserProfile":"Προφίλ Χρήστη",
-    "Email": "Ηλεκτρονική Διεύθυνση",
+    "UserProfile": "Προφίλ Χρήστη",
     "Following": "Ακολουθείτε",
     "SeeAll": "Προβολή Όλων",
     "Players": "Παίκτες",
@@ -82,14 +79,15 @@
     "Clubs": "Σύλλογοι",
     "Teams": "Ομάδες",
     "Players": "Παίκτες",
-    "Users": "Users",
-    "Fixtures": "Fixtures",
+    "Fixtures": "Αγωνιστική", 
     "Location": "Τοποθεσία",
     "Age": "Ηλικία",
     "AgeGroup": "Ηλικιακή ομάδα"
   },
 
-  "Search": {},
+  "Search": {
+    "SearchBoxPlaceholder": "Ψάξιμο..." 
+  },
 
   "TeamProfile": {
     "TeamProfile": "Προφίλ Ομάδας ",
@@ -100,12 +98,11 @@
     "Description": "Περιγραφή",
     "Players": "Παίκτες",
     "Posts": "Δημοσιεύσεις",
-    "UpcomingFixtures": "Upcoming Fixtures",
-    "RecentFixtures": "Recent Fixtures"
+    "UpcomingFixtures": "Προσεχείς αγώνες", 
+    "RecentFixtures": "Τελευταίοι αγώνες" 
   },
 
   "TeamsFollowed": {
     "TeamsFollowed": "Ομάδες που Ακολουθείτε"
   }
-
 }
