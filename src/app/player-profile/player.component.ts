@@ -39,15 +39,6 @@ export class PlayerComponent implements OnInit {
     this.af.auth.subscribe(user => {
       if (user) {
         this.currentUserId = user.uid;
-        this.af.database.list('users/' + user.uid + '/players_followed').subscribe(players => {
-
-          players.forEach(player => {
-            if (player.$key === this.playerId) {
-              this.userFollowing = true;
-            }
-          });
-
-        });
       } else {
         this.currentUserId = null;
       }
@@ -62,6 +53,14 @@ export class PlayerComponent implements OnInit {
 
       // Get player data
       this.playerData = this.af.database.object('players/' + this.playerId);
+
+      this.af.database.list('users/' + this.currentUserId + '/players_followed').subscribe(players => {
+        players.forEach(player => {
+          if (player.$key === this.playerId) {
+            this.userFollowing = true;
+          }
+        });
+      });
 
       this.af.database.list('players/' + this.playerId + '/teams').subscribe(
         teams => {

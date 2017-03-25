@@ -1,55 +1,54 @@
 % This example An LaTeX document showing how to use the l3proj class to
 % write your report. Use pdflatex and bibtex to process the file, creating
 % a PDF file as output (there is no need to use dvips when using pdflatex).
-
-
 \documentclass{l3proj}
-
 \begin{document}
-
 \title{Global Rugby Network FanZone (Web)}
-
 \author{Ruxandra Bob \\
 		Marios Constantinou \\
         Daniel Juranec \\
         Arnas Kapustinskas \\
         Andrew McCluskey}
-
 \date{10 February 2017}
-
 \maketitle
-
 \begin{abstract}
-
-The abstract goes here
-
+Report on Team Project 3 coursework for Group V. The GRN Fanzone is a
+ fan engagement web application developed to interface with the Global Rugby
+ Network's online platform. The project tried to utilise
+ emerging technologies ranging from Angular to Firebase, and use
+ cutting-edge methodologies, such as Test Driven Development and Agile
+ project management. This report covers some of the considerations taken
+ during development and explains some of the benefits and disadvantages
+ of the way the development team operated.
 \end{abstract}
-
 %% Comment out this line if you do not wish to give consent for your
 %% work to be distributed in electronic format.
 \educationalconsent
-
 \newpage
-
 %==============================================================================
 \section{Introduction}
 
-Software engineering
 
-This paper presents a case study of...
+This paper presents a case study of the project and software development process of Group V, which consists of five students studying Software Engineering at the University of Glasgow, done as part of the University's Team Project 3 course.
 
+Our customers for the project were Global Rugby Network (GRN), who tasked us with creating a web application that would allow professional and amateur rugby clubs, teams, and players to interact with rugby fans. This social platform would then be integrated with the software that GRN already provides to rugby clubs. The end result is GRNFanZone, a fully functioning web application that allows people to follow their favourite clubs, see the latest posts made by them, find rugby matches happening near them, and much more.
 
-%% Final paragraph.
-The rest of the case study is structured as follows.  Section
-\ref{sec:background} presents the background of the case study
-discussed, describing the customer and project context, aims and
-objectives and project state at the time of writing.  Sections
-\ref{sec:alice} through Section \ref{sec:managing} discuss issues that
-arose during the project...
+The purpose of this document is to reflect on the achievements and challenges that arose during the development of this project. It also explores the concepts and methodologies touched upon in the concurrently running Professional Software Development (PSD) course, how we decided to implement them, and the effectiveness of our implementation.
+
+The rest of the case study is structured as follows.
+
+Section \ref{sec:background} presents the background of the case study discussed, describing the customer and project context, aims and objectives and project state at the time of writing.
+
+Section \ref{sec:cicd} discusses the Continuous Integration and Continuous Deployment techniques that were used in order to ensure higher quality of code and to continuously deliver new implementations. It also outlines challenges the team faced when using these techniques.
+
+Section \ref{sec:frontend} talks about the key technology used for the Frontend implementation of the project. It contains an overview of the technology and justification for its usage in the project.
+
+Section \ref{sec:conclusion} is the conclusion, where we evaluate our performance over the whole process, what has been learned from it and how this experience can benefit us in following professional software projects.
+
 
 %==============================================================================
 \section{Case Study Background}
-
+\label{sec:background}
 Include details of
 
 \subsection{Client Background}
@@ -82,7 +81,7 @@ included in the initial Objectives, was to give followers the ability to maintai
 own profile page, where all of their followed Teams,Clubs and Players would be displayed
 in a good manner. In this way, Users would be able to navigate almost to every other
 page of the App, starting from their very own profile page. In addition, followers
-should have the ability to read about future events and upcoming nearby fixtures, and 
+should have the ability to read about future events and upcoming nearby fixtures, and
 learn about their location by using the Google maps.
 
 On the other hand, Profile-Owners consist of all the Clubs, Teams and Players despite
@@ -100,158 +99,351 @@ supporters, but with sponsors as well.
 \begin{itemize}
 \item The final software was delivered for the customer.
 \end{itemize}
+%==============================================================================
+%\section{Alice}
+%\label{sec:alice}
+%\input{figures/alice}
+%==============================================================================
+\newpage
+\section{Continuous Integration and Continuous Deployment Considerations}
+\label{sec:cicd}
+
+The project used a multitude of Continuous Integration (CI) and Continuous
+ Deployment (sometimes Delivery) (CD) techniques. A CI server's purpose "is to check the code
+ repository for changes, check out the code if it spots any [changes], and run a
+ list of commands to trigger the build."\cite{meyer2014continuous} A build is "ideally more than just
+ compiling - it should also include a thorough test suite to help verify that the code
+ still works with every change."\cite{meyer2014continuous} This gives a development
+ team a quick, automated way of checking their code works, follows a style guide and
+ doesn't break any other work.
+
+One of the key concepts of CI is often phrased as: "Commit Daily,
+ Commit Often"\cite{meyer2014continuous}. For our project, this was sometimes a struggle.
+ This was due to a small number of factors, which boiled down to: "We don't work on the project
+ every day", and "I'm not used to git". There was little we could do to remedy the former issue -
+ all we could do was commit often \textit{whilst we worked on the project}. The gitflow
+ branching system we used in the VCS (see section \ref{sec:VCS}) was unfamiliar to several
+ members of the team, and it took time for everyone to become accustomed to the system. As the
+ project progressed however, more builds were made, more commits pushed, and more bugs found.
+
+Another hurdle at which we fell was getting into the habit of writing tests for our code. I shall
+ mention this briefly here, but for more details please see section \ref{sec:testing}. In Fowler's
+ 2006 paper on CI, he says: "Imperfect tests, run frequently, are much better than perfect tests
+ that are never written at all."\cite{fowler2006continuous}
+
+Continuous Deployment is the practice of continually deploying working builds to production
+ as often as possible. It adheres to the Agile principles of:
+ \begin{itemize}
+ \item
+ Our highest priority is to satisfy the customer
+ through early and continuous delivery
+ of valuable software. \cite{agileprinciples}
+ \item
+ Deliver working software frequently, from a
+ couple of weeks to a couple of months, with a
+ preference to the shorter timescale. \cite{agileprinciples}
+ \end{itemize}
+ In our project, as soon as a new feature is merged into the dev branch,
+ tests are run, and then the changes are deployed to a staging server, hosted by firebase. Similarly,
+ as soon as dev is merged into master, master is pushed to our production server, also hosted by Firebase.
+ The dev branch was typically merged into master once a week, allowing time for any changes to be made
+ to features that weren't quite perfect, and to iron out any bugs that were found after time in dev.
+
+Our CI and CD was operated using Gitlab's integrated CI system. This uses docker to
+ run a set of instructions defined in the 'gitlab-ci.yml' file.  Instructions are
+ separated into tasks. Tasks belong to stages - in our project, these were
+ "test" and "deploy". The tasks are run as builds within a pipeline. The docker instances were
+ in some cases hosted for free by Gitlab (sponsored by a cloud company). In other cases,
+ builds were run on team computers. A common upper limit for build time is quoted as
+ 10 minutes\cite{fowler2006continuous} - ours typically ranged from 5-15 minutes, with some exceptions that were
+ typically waiting on the gitlab CI runners to free up. The single largest time-drain was
+ running \texttt{npm install} every time docker span up a new instance. Running tests typically took under
+ a minute after this.
+
+ \input{figures/cicd_build_duration}
+
+
+% Describe Linting task
+The first task used by the project's 'test' stage ran a series of lint checks over the
+ project's source code. Linting involves performing static analysis on code to detect bugs
+ or violations of a style guide. These kind of checks are also performed by compilers and
+ so on. These issues can range from missing semicolons, to using a mix of
+ double and single quotes, to whether a function is never called. The task tested CSS,
+ JSON, typescript, javascript,  HTML and LESS. Whilst this was often annoying, these tests
+ did help maintain a higher quality of code in the codebase. As our policy was to not allow a
+ merge to dev take place if a branch was not passing tests, we had a method of
+ enforcing that the standards we defined were upheld.
+
+% Describe testing task
+The second task ran the project's tests. Again, this task had to complete successfully in
+ order for a branch to be merged into dev. This stage also generated coverage reports which
+ were used to give the team an indication of how well our code was tested.
+
+ \input{figures/cicd_failed_pipeline}
+
+% Considered combining test tasks
+Merging these two tasks was considered, but left aside for now. The tasks take 5-10 minutes
+ each to run, and are run in parallel. The downside of this separation is the fact that \texttt{npm install}
+ is run twice. However, by leaving the tasks separate, we get a quicker, clearer indication
+ of which part of the stage failed - actual functionality, or a style issue.
+
+ \input{figures/cicd_coverage_buttons}
+
+% Describe deployment tasks
+The Continuous deployment tasks were both essentially the same, but related to which branch was being
+ committed to. As both dev and master can only be merged into instead of committed to, these tasks can
+ be run only on merge commits to dev or master. The tasks run tests (to allow coverage reports for the branches)
+ and then deploy to our live servers. The dev branch deploys to the staging zone, and
+ master to our production site.
+
+The fact that this is automated helps encourage rapid deployment, as the steps take some time, and are
+ boring for people to do. This methodology takes out the human steps, and means that the development team
+ can focus on development. These rapid deployments also help by making it easy for the team to demonstrate
+ and generate feedback from the public.
+
+
+% consider how it helped us and how it could have been improved
+The CI and CD processes helped us by keeping our code of high quality, preventing broken commits and reducing
+ manual time spent doing menial tasks. However, it took a fairly large period of time to get working and to
+ optimise into time chunks that were consistent with the goal of 10 minutes. It is arguable that the time
+ could have been better spent working on the actual project itself. As a counterpoint to this, it could be
+ argued that the CI and CD has saved the development team time in fixing bugs later on, and by ensuring code is more
+ readable, reducing time wasted understanding the code.
 
 %==============================================================================
-\section{Alice}
-\label{sec:alice}
+\newpage
+\section{Testing Considerations}
+\label{sec:testing}
 
-ALICE \cite{alice} was beginning to get very tired of sitting by her sister
-on the bank and of having nothing to do: once or twice she had peeped into
-the book her sister was reading, but it had no pictures or conversations in
-it, ``and what is the use of a book,'' thought Alice, ``without pictures or
-conversations?'
+% Describe BDD
+Behaviour Driven Development is a development methodology where the development team
+ first describes use cases for a feature, then writes tests for it, and lastly
+ develops the code for the feature. The team decided to use BDD as it comes
+ reccomended by the Agile Alliance \cite{agilealliance_bdd}. Another reason
+ is that the angular CLI sets up a Karma Jasmine testing set up by default.
+ BDD is credited for helping to develop easily documented code - for example,
+ by making test cases into natural language sentences (see figure
+ \ref{fig:testing_failed_test}), it becomes easier for human developers to
+ understand what it tests, and why it is being tested \cite{north2006bdd}.
 
-So she was considering, in her own mind (as well as she could, for the hot
-day made her feel very sleepy and stupid), whether the pleasure of making a
-daisy-chain would be worth the trouble of getting up and picking the
-daisies, when suddenly a White Rabbit with pink eyes ran close by her.
+ \input{figures/testing_failed_test}
 
-There was nothing so very remarkable in that; nor did Alice think it so
-very much out of the way to hear the Rabbit say to itself ``Oh dear! Oh
-dear! I shall be too late!'' (when she thought it over afterwards it
-occurred to her that she ought to have wondered at this, but at the time it
-all seemed quite natural); but, when the Rabbit actually took a watch out
-of its waistcoat-pocket, and looked at it, and then hurried on, Alice
-started to her feet, for it flashed across her mind that she had never
-before seen a rabbit with either a waistcoat-pocket, or a watch to take out
-of it, and burning with curiosity, she ran across the field after it, and
-was just in time to see it pop down a large rabbit-hole under the hedge.
+% Describe Karma and Jasmine testing with Angular2
+The Angular 2 CLI sets up a Karma Jasmine configuration to run tests on
+ the typescript in the project. Karma is a test runner for javascript
+ that is platform agonostic and allows testing over different devices
+ and browsers. Jasmine is a testing framework that aims to be as readable
+ as possible - one of the key features of the BDD approach we wanted to
+ adopt. Initially, we tried to use Mocha, another testing framework which
+ is targeted at Test Driven Development, however integrating it was difficult
+ and was taking too long to set up, so we decided to move from TDD to BDD and
+ just use Jasmine. One of the benefits this brought was the wealth of
+ documentation and examples across the internet of using Karma Jasmine
+ with Angular code.
 
-In another moment down went Alice after it, never once considering how in
-the world she was to get out again.
+% Describe how it was done well
+% mention test coverage
+Despite the difficulties we faced, a number of tests were written. These
+ tried to cover edge cases and a variety of conditions they could face in
+ the wild. Our code coverage - a metric which enumerates what proportion of
+ the code is tested - tended to stay fairly high. We have exact figures due
+ to our Continuous Integration, which ran the tests every time a commit was
+ pushed, though we did not place any constraints on a minimum coverage value.
+ Typically, the coverage ranged from 80\% to 60\%. Towards the end of the
+ project, the value was just over 75\%. This was representative of just under 40
+ tests written. To increase transparency across the project, we displayed values
+ for our test coverage on dev and master in the readme, using icons provided by gitlab.
 
-The rabbit-hole went straight on like a tunnel for some way, and then
-dipped suddenly down, so suddenly that Alice had not a moment to think
-about stopping herself before she found herself falling down what seemed to
-be a very deep well.
+ The code coverage metrics also provided a file-by-file breakdown of where
+ coverage was high or low. This proved to be helpful when choosing
+ where to focus our effort - there's no point in writing tests for
+ well-tested code, it makes much more sense to write new tests for the
+ code that is less well tested. See figure \ref{fig:testing_coverage_metrics}
+ for an example of the html display.
 
-Either the well was very deep, or she fell very slowly, for she had plenty
-of time as she went down to look about her, and to wonder what was going to
-happen next. First, she tried to look down and make out what she was coming
-to, but it was too dark to see anything: then she looked at the sides of
-the well, and noticed that they were filled with cupboards and
-book-shelves: here and there she saw maps and pictures hung upon pegs. She
-took down ajar from one of the shelves as she passed: it was labeled
-``ORANGE MARMALADE'' but to her great disappointment it was empty: she did
-not like to drop the jar, for fear of killing somebody underneath, so
-managed to put it into one of the cupboards as she fell past it.
+% Difficulties we faced
+% reference common pitfall from agile alliance of being a big jump from tdd and hard for noobs
+% Struggles with angularfire2
+% struggles with @input components
+Testing was not always easy. For example, getting into a habit of writing tests
+ proved difficult for the team, showing that working in a development team on a
+ complicated project is very different to working on individual projects. The
+ Agile Alliance warns that "BDD requires familiarity with a greater range of
+ concepts than TDD does, and it seems difficult to recommend a novice programmer
+ should first learn BDD without prior exposure to TDD concepts"
+ \cite{agilealliance_bdd}. This turned out to be a significant difficulty for
+ our team.
 
-``Well!'' thought Alice to herself ``After such a fall as this, I shall think
-nothing of tumbling down-stairs! How brave they'll all think me at home!
-Why, I wouldn't say anything about it, even if I fell off the top of the
-house!'' (which was very likely true.)
+Another struggle was getting tests to run. Due to the interconnectivity of
+ Angular components, a complex data flow has to be replicated. For example,
+ components that use the \texttt{@input()} tag to receive data don't have a
+ trivial way of faking this. This means that the data flow there becomes
+ difficult to test accurately. Had this not been such an issue, the post
+ component would have been much easier to test - currently, it has the worst
+ code coverage in the project.
 
-Down, down, down. Would the fall never come to an end? ``I wonder how many
-miles I've fallen by this time?'' she said aloud. ``I must be getting
-somewhere near the centre of the earth. Let me see: that would be four
-thousand miles down, I think-'' (for, you see, Alice had learnt several
-things of this sort in her lessons in the school-room, and though this was
-not a very good opportunity for showing off her knowledge, as there was no
-one to listen to her, still it was good practice to say it over) `` yes
-that's about the right distance -- but then I wonder what Latitude or
-Longitude I've got to?'' (Alice had not the slightest idea what Latitude
-was, or Longitude either, but she thought they were nice grand words to
-say.)
+There were also issues when testing backend connections. Whilst it is
+ allegedly possible, the team did not find a way of mocking angularfire, the
+ service which provides an interface between Angular and Firebase. This meant
+ that tests would affect the production database, something which could not be
+ allowed. As a result, calls made to angularfire were not tested, despite the
+ fact that they constituted a significant amount of our business logic.
 
-Presently she began again. ``I wonder if I shall fall fight through the
-earth! How funny it'll seem to come out among the people that walk with
-their heads downwards! The antipathies, I think-'' (she was rather glad
-there was no one listening, this time, as it didn't sound at all the right
-word) ``but I shall have to ask them what the name of the country is, you
-know. Please, Ma'am, is this New Zealand? Or Australia?'' (and she tried to
-curtsey as she spoke- fancy, curtseying as you're falling through the air!
-Do you think you could manage it?) ``And what an ignorant little girl she'll
-think me for asking! No, it'll never do to ask: perhaps I shall see it
-written up somewhere.''
+Overall, the team's testing methodologies were too optimistic. We assumed that
+ we could make a large jump to an unfamiliar methodology, whilst also learning
+ to write new tests. ANother of the mistakes we made was putting testing aside
+ and instead trying to get features out. This resulted in a code base that did
+ not have the test coverage we desired, but also gave us a large task in writing
+ the tests after the fact. This proved more difficult than writing them as we
+ went along.
 
-Down, down, down. There was nothing else to do, so Alice soon began talking
-again. ``Dinah'll miss me very much to-night, I should think!'' (Dinah was
-the cat.) ``I hope they'll remember her saucer of milk at tea-time. Dinah,
-my dear! I wish you were down here with me! There are no mice in the air,
-I'm afraid, but you might catch a bat, and that's very like a mouse, you
-know. But do cats eat bats, I wonder?'' And here Alice began to get rather
-sleepy, and went on saying to herself, in a dreamy son of way, ``Do cats eat
-bats? Do cats eat bats?'' and sometimes ``Do bats eat cats?'' for, you see, as
-she couldn't answer either question, it didn't much matter which way she
-put it. She felt that she was dozing off, and had just begun to dream that
-she was walking hand in hand with Dinah, and was saying to her, very
-earnestly, ``Now, Dinah, tell me the truth: did you ever eat a bat?'' when
-suddenly, thump! thump! down she came upon a heap of sticks and dry leaves,
-and the fall was over.
+ \include{figures/testing_coverage_metrics}
 
-Alice was not a bit hurt, and she jumped up on to her feet in a moment: she
-looked up, but it was all dark overhead: before her was another long
-passage, and the White Rabbit was still in sight, hurrying down it. There
-was not a moment to be lost: away went Alice like the wind, and was just in
-time to hear it say, as it turned a comer, ``Oh my ears and whiskers, how
-late it's getting!'' She was close behind it when she turned the comer, but
-the Rabbit was no longer to be seen: she found herself in a long, low hall,
-which was lit up by a row of lamps hanging from the roof.
-
-There were doors all round the hall, but they were all locked; and when
-Alice had been all the way down one side and up the other, trying every
-door, she walked sadly down the middle, wondering how she was ever to get
-out again.
-
-Suddenly she came upon a little three-legged table, all made of solid
-glass: there was nothing on it but a tiny golden key, and Alice's first
-idea was that this might belong to one of the doors of the hall; but, alas!
-either the locks were too large, or the key was too small, but at any rate
-it would not open any of them. However, on the second time round, she came
-upon a low curtain she had not noticed before, and behind it was a little
-door about fifteen inches high: she tried the little golden key in the
-lock, and to her great delight it fitted!
-
-\input{figures/alice}
-
-Alice opened the door (see Figure \ref{fig:alice}) and found that it
-led into a small passage, not much larger than a rat-hole: she knelt
-down and looked along the passage into the loveliest garden you ever
-saw. How she longed to get out of that dark hall, and wander about
-among those beds of bright flowers and those cool fountains, but she
-could not even get her head through the doorway; ``and even if my head
-would go through,'' thought poor Alice, ``it would be of very little
-use without my shoulders. Oh, how I wish I could shut up like a
-telescope! I think I could, if I only knew how to begin.'' For, you
-see, so many out-of-the- way things had happened lately, that Alice
-had begun to think that very few things indeed were really impossible.
 
 %==============================================================================
+\newpage
+\section{Frontend Technology Considerations}
+\label{sec:frontend}
 
-\section{Choice of Colours}
-\label{design}
+At the start of the project, GRN chose to give us a set of technologies they
+ wanted us to use. These included defining Angular 2 as our frontend framework.
+ Angular is a framework maintained by google, which has been gaining popularity
+ over the last 8 years\cite{angularjsoverview}. The framework uses typescript,
+ a type safe flavour of javascript. It focuses on being portable, high performance
+ and easy to write\cite{angular_features}. Many of the contributors to Angular are from Google, but
+ the project is open source under the MIT license and anyone can commit to
+ it\cite{angularjsoverview}. Angular is built on top of NodeJS, providing
+ easy access to a wide range of external components.
 
-The following diagrams (especially figure \ref{fig:alice}) illustrate the
-process...
+Angular embeds code in html, and uses a "controller" to define component behaviour. This
+ "component" object is the basis of most Angular development. Angular also tries
+ to minimise the logic in controllers, by either abstracting it to other components
+ or building "services" - shared libraries of code snippets. The final piece of the puzzle
+ is a "module" which co-ordinates resource injection into controllers from one
+ file. A project may have more than one module for it's subsections, but we stuck to
+ one file. We made use of several services, and many components.
+
+ % Pros and cons of ng-cli
+Angular provides a CLI that makes it easy to start projects, and provides
+ templates for components, services and modules. This allows a "quick start"
+ option. The basis of the project was generated in under a minute, which set up
+ testing frameworks, a basic starter app and a \texttt{package.json} file for NPM.
+ When generating a new component, a html template, CSS styles file, karma
+ jasmine test file as well as the typescript controller. These were populated
+ with template code to allow easy starts. This helped ensure we could get to
+ the business logic of the component or service quickly, without wasting time
+ on the configurational nightmare javascript and typescript development has
+ become.
+
+ \input{figures/frontend_components}
+
+ % Why we liked it (easy to maintain, works out the box, good documentation)
+Angular gave us a huge advantage when working on this project. Components provide
+ an easy way of separating concerns, and reducing code duplication. Generating new
+ code is easy with the CLI, and entire projects can be started off and be running
+ in hours. The documentation for Angular is also excellent. Maintained by google,
+ it is kept up-to-date with the regular releases Angular receives.
+
+ % why we disliked it (steep learning curve)
+The most significant barrier to using Angular was our own inexperience.
+ Thus far, our formal education has not involved developing webapps in
+ javascript based frameworks. Beyond this, typescript was new to every
+ member of the team. This meant that there was a steep learning curve for
+ the team to deal with and adapt to. This caused some issues early on,
+ before we had a good grasp of how to use the actual features Angular
+ provides.
+
+ % How easy it was to test
+One of Angular's benefits is that its developers have thoughtfully
+ considered testing. Software testing has long been an important
+ aspect of software development, and this has only become more true
+ in recent years \cite{tuteja2012testing}. The Angular CLI generates
+ a functional karma file, which has been configured for Angular. The
+ Angular CLI also provides an interface for running tests. Parameters
+ range from single/constant runs of the test suite to enabling code
+ coverage reporting. In spite of this, it was found to be very
+ difficult to mock our services which used angularfire to generate
+ good tests (please see section \ref{sec:testing} for more on this).
+
+\input{figures/frontend_ng_cli}
+
 
 %==============================================================================
-\section{Managing Dress Sense}
-\label{managing}
+\newpage
+\section{Reflection on Agile Methodology}
+\label{sec:agile}
 
-In this chapter, we describe how the implemented the system.
+% short description of agile development
 
-%------------------------------------------------------------------------------
-\section{Kangaroo Practices}
+Agile software development consists of a set of practices and methods derived from the principles described in the Agile Manifesto. Agile enforces a strong collaboration between the development team and the business stakeholders, self-organizing teams and frequent delivery of functioning software.\cite{agile_overview}
+
+=======
+\section{Reflection on Agile Methodology}
+\label{sec:agile}
+
+% short description of agile development
+
+Agile software development consists of a set of practices and methods derived from the principles described in the Agile Manifesto. Agile enforces a strong collaboration between the development team and the business stakeholders, self-organizing teams and frequent delivery of functioning software.\cite{agile_overview}
+
+As agile development was highly recommended as part of our software development process, in the initial team meetings, we have decided to use the Scrum methodology.
+
+ % short description of SCRUM
+ Scrum is an agile framework originally formalized for software development projects. Scrum defines two major roles within a development team: the product owner and the scrum master. The product owner should maintain communication with the stakeholders and create a prioritized list goals to be achieved. The scrum master keeps the team focused and leads team meetings.\cite{scrum_overview}
+
+ % our agile development
+ Within our team, Andrew was the product owner and Ruxandra was the scrum master. After the first few team meetings, where the focus was on finalizing the initial requirements gathering, the focus was shifted to dividing the prioritised expected features. As a result of discussions between the product owner and the rest of the team, it was decided to split the work into seven sprints, each of them lasting two weeks. One sprint would end on Friday and the next one would start the following Monday. (Figure 6)
+
+
+ It was decided that instead of daily scrums, the team would have two weekly meetings, one on Wednesdays, during the software development lab, and one on Fridays. The format of the meetings included everyone describing what they've worked on since the previous meeting and the work they plan on completing until the next meeting. Each team member also discussed any difficulties they encountered, how they overcame them or whether they feel that they need help with certain issues.
+
+ The scrum master was tasked with closely observing these meetings. They had to determine whether the team could handle the workload of the respective sprint, if everyone in the team had something to work on and how to efficiently assign members to assist those who need help with something. The scrum master would also take into consideration any complaints or suggestions from the rest of the team, as well as initiate team retrospectives at the end of each sprint.
+
+ As the project progressed, our scrum process underwent a few changes. Once the desired goals and the predicted timelines were better defined, it was decided that one meeting during the PSD lab would be sufficient, with any additional meetings to be arranged if deemed necessary. Meanwhile, the team would communicate daily through a group chat on Facebook messenger, in order to keep everyone updated with the general progress.
+
+ Towards the end of the first semester, our sprints needed quite a few adjustments, due to the increase in additional assignments from other courses, that everyone in the team had to complete. There was also a slight halt in communication during the winter break, as all team members went home for the holidays. However, the additional time left at the end of our initial schedule allowed us to maintain the initial seven sprints and just shift everything by a few weeks.
+
+ As we became more comfortable working as a team and since at that point everyone was comfortable with the new technologies, team meetings became less structured and less formal. Along the way, the meetings became open discussions, while still making sure everyone is kept up to date. At the beginning of the second semester, our scrum framework transitioned into a less clearly defined agile framework, which still followed the main principles of the methodology. Sprints became of variable length (between one and three weeks) rather than a constant two weeks.
+
+ \input{figures/agile}
+
+ At the beginning of the development process, the product owner split every goal into separate small issues. The members of the team were also encouraged to make small commits as often as possible and only merge one small issue at a time in the development branch, in order to avoid disrupting someone else's work by generating conflicts. Every merge request needed to be approved by at least one more team member, in order to maintain the quality of the product.
+
+ At the end of each sprint, the product was fully or almost fully functional with respect to the features that needed to be completed up to that point. The end of most sprints coincided with the customer meetings. Thus, we were able to receive almost immediate feedback from both GRN and supervisors. This also offered us the opportunity to make additional improvements in the short time left between sprints.
+
+ To maintain the close communication with our client, as dictated by the agile methodology, the product owner would communicate weekly updates by email. The team was also in close contact with the development team of our client company, which was available for questions and pointed us towards useful resources. This was helpful in assuring that our version of the product would be as close as possible to the expectations of GRN, with respect to both design and implementation.
+
+
+ %==============================================================================
+\newpage
+\section{Project Planning}
+\label{sec:planning}
+
+After the project allocation day, GRN have sent us a project brief containing greater details about the project itself, as well as a list of functional requirements that the final product would be expected to meet. The first task we needed to complete was a detailed requirements document, that would contain non-functional and any additional functional requirements. It was decided that the focus of the first month would be allocated to finalizing the document, in order to assure that the client approved of the direction the team decided to take in working on the project.
+
+As part of the requirements gathering process, the team developed four personas and an epic description of how they would end up using the FanZone in their daily lives, illustrating that by documenting epic user stories. This was followed by writing down user stories centered around the following entities: team manager, sponsor, player, club supporter, rugby fan and international rugby fan. Doing this eased the process of identifying useful requirements and helped the team visualize what the final product should be offering potential users.
+
+After the initial requirements were outlined, the team followed by designing wireframes of the web application. Initially, each team member delivered a pencil-drawn sketch of each expected application screen. Afterwards, the best design from each wireframe were merged into the main wireframes, drawn using draw.io. GRN warned us that the main wireframes would not offer useful guidance when thinking how the application should transition to a mobile format, so the team repeated the process to generate mobile wireframes.
+
+Over the weeks dedicated to producing the requirements document, the team kept close contact with GRN, who have repeatedly offered helpful feedback and guidance regarding how the team can meet their expectations of the final product. This gave us some understanding of what the client found to be of most importance, and it helped us in the next stage in our project, which was prioritising the features of the application and separating them into achievable goals for each iteration.
+
+There were several aspects to be taken into consideration while deciding on a concrete structure of the development process. We had to consider our lack of experience with the technologies to be used and the fact that the available time to work on the project would vary as the academic year progressed. Another thing to consider was the fact that due to the agile methodology we decided to follow, at the end of each iteration, the product needed to be functional. Thus, it was decided to settle on having smaller, more easily achievable goals in the beginning, which would incrementally become more complex as advanced. In the end, we settled on seven iterations, excluding the initial one focused on the requirements document.
+
+
+The goals for each iteration become increasingly challenging, based on the expectancy that the first one or two iterations would offer all team members some hands on experience with both Angular2 and Firebase. The goals for each iteration were the following: first iteration - login and sign up; second iteration - dashboard and followed pages; third iteration - post creation and management; fourth iteration - view and edit profile, posts on comments; fifth iteration - search for teams/clubs/players or fixtures; sixth iteration - translation and additional tasks; seventh iteration - additional features, refinement, documentation.
+
+\input{figures/milestones}
+
+Gitlab allowed us to create project milestones. Each of them had a number of issues associated with it, the issues consisting of the goals for the respective iteration split into several multiple smaller issues. The deadline of each iteration would also appear on each issues, becoming bright red as the date came nearer, in order to alert the person assigned to the task.
+
+Throughout the project, our process was modified and improved by having team retrospectives around the end of each iteration. The format of the retrospectives consisted of every team member going through what they thought went good in our past iteration, what they thought went bad and what ideas they have to improve our workflow in future iterations. All these were discussed within the team and what the majority considered useful ideas were then included in the further development. The main points of each retrospective are documented on the wiki page of the project, which can be found on Gitlab.
 
 
 
-% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-\section{Knots and Bundles}
-\label{sec:managing}
-
-
-%------------------------------------------------------------------------------
+%==============================================================================
+\newpage
 \section{Conclusions}
+\label{sec:conclusion}
+
 
 Explain the wider lessons that you learned about software engineering,
 based on the specific issues discussed in previous sections.  Reflect
@@ -260,6 +452,20 @@ types of software project.  Relate the wider lessons to others
 reported in case studies in the software engineering literature.
 
 %==============================================================================
+
+\section{Appendices}
+\label{sec:appendices}
+
+\subsection{Glossary}
+\label{subsec:appendices:glossary}
+BDD - Behaviour Driven Development
+CLI - Command Line Interface
+TDD - Test Driven Development
+VCS - Version Control System
+
+
+%==============================================================================
 \bibliographystyle{plain}
 \bibliography{dissertation}
 \end{document}
+\grid

@@ -54,4 +54,28 @@ describe('PostComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should not automatically load anything', () => {
+    expect(component.post).not.toBeTruthy();
+  });
+
+  it('should set the new edit comment', () => {
+
+    const comment = {
+      author: 'PbhYdb2xSvbRhimHN6r7oj2lXSw1',
+      author_avatar: 'https://lh4.googleusercontent.com/-MCCGj5kYYjI/AAAAAAAAAAI/AAAAAAAAD5U/M0LqEOphFxU/photo.jpg',
+      author_name: 'Daniel Juranec',
+      comment: 'I love rugby',
+      commented_at: 1486500926223
+    };
+
+    component.setEditComment(comment);
+
+    expect(component.editComment).toEqual(comment);
+    expect(component.editedText).toEqual(comment.comment);
+
+  });
+
+
+
 });

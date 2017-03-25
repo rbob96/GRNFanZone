@@ -1,0 +1,31 @@
+<div class="panel panel-info" *ngIf="fixtures && userLocation">
+  <div class="panel-heading">
+    <h4>Nearby Fixtures</h4>
+  </div>
+  <div class="panel-body">
+    <sebm-google-map [latitude]="userLocation.coords.latitude"
+                     [longitude]="userLocation.coords.longitude"
+                     [zoom]="10"
+    >
+
+      <sebm-google-map-circle [latitude]="userLocation.coords.latitude"
+                              [longitude]="userLocation.coords.longitude"
+                              [radius]="10000">
+      </sebm-google-map-circle>
+
+      <sebm-google-map-marker *ngFor="let f of fixtures"
+                              [latitude]="f?.location.latitude"
+                              [longitude]="f?.location.longitude">
+        <sebm-google-map-info-window [disableAutoPan]="true">
+          <h4>{{f?.home_team}} vs. {{f?.away_team}}</h4>
+          {{f?.location.address}} <br>
+          <em>{{f?.kickoff | amDateFormat:'LL'}} <br>
+            {{f?.kickoff | amDateFormat:'hh:MM'}}</em>
+        </sebm-google-map-info-window>
+      </sebm-google-map-marker>
+
+    </sebm-google-map>
+  </div>
+</div>
+
+

@@ -57,7 +57,6 @@ export class ResultsComponent implements OnInit {
         this.searchTerm = '';
       }
       this.findPlayers();
-      this.findUsers();
       this.findTeams();
       this.findClubs();
       this.findFixtures();
@@ -90,17 +89,6 @@ export class ResultsComponent implements OnInit {
           this.players.push(result);
         } else if ((result.location.city.toLowerCase()).includes(this.searchTerm.toLowerCase())) {
           this.players.push(result);
-        }
-      });
-    });
-  }
-
-  findUsers() {
-    const users = this.af.database.list('/users').subscribe(serverResults => {
-      this.users = [];
-      serverResults.forEach(result => {
-        if ((result.name.toLowerCase()).includes(this.searchTerm.toLowerCase())) {
-          this.users.push(result);
         }
       });
     });

@@ -2,7 +2,7 @@
 
   "Follow": "Подписаться",
   "Unfollow": "Отписаться",
-  "Me": "Это я",
+  "Me": "Я",
 
   "ClubProfile": {
     "ClubProfile": "Профиль клуба",
@@ -37,8 +37,6 @@
   },
 
   "NavBar": {
-    "Dashboard": "Лента",
-    "List": "Список",
     "Language": "Язык",
     "Logout": "Выйти"
   },
@@ -70,7 +68,6 @@
 
   "UserProfile": {
     "UserProfile": "Профиль пользователя",
-    "Email": "Эл. почта",
     "Following": "Подписки",
     "SeeAll": "Просмотреть все",
     "Players": "Игроки",
@@ -82,14 +79,15 @@
     "Clubs": "Клубы",
     "Teams": "Команды",
     "Players": "Игроки",
-    "Users": "Пользователи",
     "Fixtures": "Матчи",
     "Location": "Местонахождение",
     "Age": "Возраст",
     "AgeGroup": "Возрастная группа"
   },
 
-  "Search": {},
+  "Search": {
+    "SearchBoxPlaceholder": "Поиск..."
+  },
 
   "TeamProfile": {
     "TeamProfile": "Профиль команды",
@@ -107,5 +105,4 @@
   "TeamsFollowed": {
     "TeamsFollowed": "Команды"
   }
-
 }
