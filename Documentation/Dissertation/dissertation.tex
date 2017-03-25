@@ -209,13 +209,63 @@ The Angular 2 CLI sets up a Karma Jasmine configuration to run tests on
  with Angular code.
  
 % Describe how it was done well
-Blah
-
+% mention test coverage
+Despite the difficulties we faced, a number of tests were written. These
+ tried to cover edge cases and a variety of conditions they could face in
+ the wild. Our code coverage - a metric which enumerates what proportion of
+ the code is tested - tended to stay fairly high. We have exact figures due 
+ to our Continuous Integration, which ran the tests every time a commit was 
+ pushed, though we did not place any constraints on a minimum coverage value.
+ Typically, the coverage ranged from 80\% to 60\%. Towards the end of the 
+ project, the value was just over 75\%. This was representative of just under 40 
+ tests written. To increase transparency across the project, we displayed values 
+ for our test coverage on dev and master in the readme, using icons provided by gitlab.
+  
+ The code coverage metrics also provided a file-by-file breakdown of where 
+ coverage was high or low. This proved to be helpful when choosing
+ where to focus our effort - there's no point in writing tests for 
+ well-tested code, it makes much more sense to write new tests for the 
+ code that is less well tested. See figure \ref{fig:testing_coverage_metrics}
+ for an example of the html display.
+ 
 % Difficulties we faced
 % reference common pitfall from agile alliance of being a big jump from tdd and hard for noobs
 % Struggles with angularfire2
 % struggles with @input components
-Blah
+Testing was not always easy. For example, getting into a habit of writing tests
+ proved difficult for the team, showing that working in a development team on a 
+ complicated project is very different to working on individual projects. The 
+ Agile Alliance warns that "BDD requires familiarity with a greater range of 
+ concepts than TDD does, and it seems difficult to recommend a novice programmer 
+ should first learn BDD without prior exposure to TDD concepts"
+ \cite{agilealliance_bdd}. This turned out to be a significant difficulty for
+ our team.
+ 
+Another struggle was getting tests to run. Due to the interconnectivity of 
+ Angular components, a complex data flow has to be replicated. For example,
+ components that use the \texttt{@input()} tag to receive data don't have a 
+ trivial way of faking this. This means that the data flow there becomes
+ difficult to test accurately. Had this not been such an issue, the post
+ component would have been much easier to test - currently, it has the worst
+ code coverage in the project.
+ 
+There were also issues when testing backend connections. Whilst it is 
+ allegedly possible, the team did not find a way of mocking angularfire, the 
+ service which provides an interface between Angular and Firebase. This meant
+ that tests would affect the production database, something which could not be
+ allowed. As a result, calls made to angularfire were not tested, despite the
+ fact that they constituted a significant amount of our business logic.
+ 
+Overall, the team's testing methodologies were too optimistic. We assumed that
+ we could make a large jump to an unfamiliar methodology, whilst also learning
+ to write new tests. ANother of the mistakes we made was putting testing aside
+ and instead trying to get features out. This resulted in a code base that did 
+ not have the test coverage we desired, but also gave us a large task in writing
+ the tests after the fact. This proved more difficult than writing them as we
+ went along.
+ 
+ \include{figures/testing_coverage_metrics} 
+
 
 %==============================================================================
 \newpage
