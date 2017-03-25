@@ -42,12 +42,40 @@ describe('ResultsComponent', () => {
   }));
 
   beforeEach(() => {
+
     fixture = TestBed.createComponent(ResultsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+
+    spyOn(component, 'findPlayers');
+    spyOn(component, 'findTeams');
+    spyOn(component, 'findClubs');
+    spyOn(component, 'findFixtures');
+
+
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should get query from Router', () => {
+    // The UserId should exist
+    expect(component.searchTerm).toBeTruthy();
+
+    // The search term should be this :
+    expect(component.searchTerm).toEqual('Hopkins');
+
+  });
+
+  it('should call "find" functions in ngOnInit', () => {
+
+    component.ngOnInit();
+    expect(component.findPlayers).toHaveBeenCalled();
+    expect(component.findTeams).toHaveBeenCalled();
+    expect(component.findClubs).toHaveBeenCalled();
+    expect(component.findFixtures).toHaveBeenCalled();
+
+  });
+
 });

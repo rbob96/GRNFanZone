@@ -55,5 +55,13 @@ describe('PlayersFollowedComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should get id from Router', () => {
+    // The UserId should exist
+    expect(component.userId).toBeTruthy();
+
+    // The UserId should be 5
+    expect(component.userId).toEqual('h5m9PT4rgdSYDGzoyOLolYgUaUu1');
+
+  });
 
 });
