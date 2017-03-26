@@ -1,7 +1,7 @@
-% This example An LaTeX document showing how to use the l3proj class to
-% write your report. Use pdflatex and bibtex to process the file, creating
-% a PDF file as output (there is no need to use dvips when using pdflatex).
 \documentclass{l3proj}
+
+\usepackage{float}
+
 \begin{document}
 \title{Global Rugby Network FanZone (Web)}
 \author{Ruxandra Bob \\
@@ -24,6 +24,7 @@ Report on Team Project 3 coursework for Group V. The GRN Fanzone is a
 %% Comment out this line if you do not wish to give consent for your
 %% work to be distributed in electronic format.
 \educationalconsent
+%TODO: Remove this later
 \newpage
 \tableofcontents
 \newpage
@@ -133,9 +134,9 @@ At the start of the project, GRN chose to give us a set of technologies they
  Angular is a framework maintained by google, which has been gaining popularity
  over the last 8 years\cite{angularjsoverview}. The framework uses typescript,
  a type safe flavour of javascript. It focuses on being portable, high performance
- and easy to write\cite{angular_features}. Many of the contributors to Angular are from Google, but
- the project is open source under the MIT license and anyone can commit to
- it\cite{angularjsoverview}. Angular is built on top of NodeJS, providing
+ and easy to write\cite{angular_features}. Many of the contributors to Angular are
+ from Google, but the project is open source under the MIT license and anyone can
+ commit to it\cite{angularjsoverview}. Angular is built on top of NodeJS, providing
  easy access to a wide range of external components.
 
 Angular embeds code in html, and uses a "controller" to define component behaviour. This
@@ -253,7 +254,7 @@ As the purpose of the web application was to provide a social platform for
  rugby fans, all connected users being synced to the database made for a much
  natural and interactive user experience.
 
-\input{figures/dbexample}
+\input{figures/backend_dbexample}
 
 Firebase did not, however, come without its drawbacks. As usage of NoSQL
  databases has only recently become more prevalent, none of the team members
@@ -529,7 +530,7 @@ The goals for each iteration become increasingly challenging, based on the
  additional tasks; seventh iteration - additional features, refinement,
  documentation.
 
-\input{figures/milestones}
+\input{figures/planning_milestones}
 
 Gitlab allowed us to create project milestones. Each of them had a number
  of issues associated with it, the issues consisting of the goals for the
@@ -576,7 +577,7 @@ As agile development was highly recommended as part of our software development
   expected features. As a result of discussions between the product owner and
   the rest of the team, it was decided to split the work into seven sprints,
   each of them lasting two weeks. One sprint would end on Friday and the next
-  one would start the following Monday. (Figure \reference{fig:agile_gantt} )
+  one would start the following Monday. (Figure \ref{fig:agile_gantt} )
 
 
  It was decided that instead of daily scrums, the team would have two weekly
@@ -651,7 +652,6 @@ To maintain the close communication with our client, as dictated by
 %==============================================================================
 \section{Conclusions}
 \label{sec:conclusion}
-
 
 Explain the wider lessons that you learned about software engineering,
 based on the specific issues discussed in previous sections.  Reflect
