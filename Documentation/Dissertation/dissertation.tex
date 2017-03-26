@@ -12,7 +12,7 @@
 \date{10 February 2017}
 \maketitle
 \begin{abstract}
-Report on Team Project 3 coursework for Group V. The GRNFanzone is a
+Report on Team Project 3 coursework for Group V. The GRN FanZone is a
  fan engagement web application developed to interface with the Global Rugby
  Network's online platform. The project tried to utilise
  emerging technologies ranging from Angular to Firebase, and use
@@ -40,7 +40,7 @@ Our customers for the project were Global Rugby Network (GRN), who tasked us
  with creating a web application that would allow professional and amateur
  rugby clubs, teams, and players to interact with rugby fans. This social
  platform would then be integrated with the software that GRN already provides
- to rugby clubs. The end result is GRNFanZone, a fully functioning web application
+ to rugby clubs. The end result is GRN FanZone, a fully functioning web application
  that allows people to follow their favourite clubs, see the latest posts
  made by them, find rugby matches happening near them, and much more.
 
@@ -97,12 +97,12 @@ As mentioned above, our client's primary objective is to provide a platform that
  and initial objective was to build an online social platform for rugby fans, who could
  be kept up to date with official information from teams.
 
-GRNFanZone, was developed as a web application, and aims to provide users a way of
+GRN FanZone was developed as a web application, and aims to provide users a way of
  interacting with their favourite clubs, teams and players, inside a user-friendly
  environment. The two initial target audiences included the profile-owners, and the
  profile-followers.
 
-Profile-followers are the users who will be registering accounts with GRNFanzone to
+Profile-followers are the users who will be registering accounts with GRN FanZone to
  stay up-to-date with rugby news. As an initial step, followers sign in using Google or 
  Facebook accounts. After this, users are presented with a list of clubs, teams and players
  that they can choose to follow. Another requirement is letting profile-followers "unfollow"
@@ -111,7 +111,7 @@ Profile-followers are the users who will be registering accounts with GRNFanzone
 
 Profile-owners represent the group of clubs, teams and players who have registered with
  GRN. These entities will not access the web application directly, but use their GRN account
- to provide information, which is subsequently pushed to the GRNFanzone and then presented
+ to provide information, which is subsequently pushed to the GRN FanZone and then presented
  to the profile-followers.
 
 As a result, some could argue that our Project Motivation was to use technology, and help
@@ -311,7 +311,7 @@ The Angular 2 CLI sets up a Karma Jasmine configuration to run tests on
 % Describe how it was done well
 % mention test coverage
 By the end of the project, a number of tests had been incorporated into the 
- project. These tried to cover edge cases and a variety of conditions the GRNFanzone 
+ project. These tried to cover edge cases and a variety of conditions the GRN FanZone 
  could face in the wild. Our code coverage - a metric which enumerates what 
  proportion of the code is tested - tended to stay fairly high. We have exact 
  figures due to our Continuous Integration, which ran the tests every time a 
@@ -320,7 +320,7 @@ By the end of the project, a number of tests had been incorporated into the
  Towards the end of the project, the value was just over 75\%. This was 
  representative of just under 40 tests written. To increase transparency 
  across the project, we displayed values for our test coverage on dev and 
- master in the readme, using icons provided by Gitlab (see figure 
+ master in the readme, using icons provided by GitLab (see figure 
  \ref{fig:cicd_coverage_buttons}.
 
  The code coverage metrics also provided a file-by-file breakdown of where
@@ -416,14 +416,14 @@ Continuous Deployment is the practice of continually deploying working builds to
  The dev branch was typically merged into master once a week, allowing time for any changes to be made
  to features that weren't quite perfect, and to iron out any bugs that were found after time in dev.
 
-Our CI and CD was operated using Gitlab's integrated CI system. This uses docker to
+Our CI and CD was operated using GitLab's integrated CI system. This uses docker to
  run a set of instructions defined in the 'gitlab-ci.yml' file.  Instructions are
  separated into tasks. Tasks belong to stages - in our project, these were
  "test" and "deploy". The tasks are run as builds within a pipeline. The docker instances were
- in some cases hosted for free by Gitlab (sponsored by a cloud company). In other cases,
+ in some cases hosted for free by GitLab (sponsored by a cloud company). In other cases,
  builds were run on team computers. A common upper limit for build time is quoted as
  10 minutes\cite{fowler2006continuous} - ours typically ranged from 5-15 minutes, with some exceptions that were
- typically waiting on the gitlab CI runners to free up. The single largest time-drain was
+ typically waiting on the GitLab CI runners to free up. The single largest time-drain was
  running \texttt{npm install} every time docker span up a new instance. Running builds
  typically took under a minute after this.
 
@@ -542,7 +542,7 @@ The goals for each iteration become increasingly challenging, based on the
 
 \input{figures/planning_milestones}
 
-Gitlab allowed us to create project milestones. Each of them had a number
+GitLab allowed us to create project milestones. Each of them had a number
  of issues associated with it, the issues consisting of the goals for the
  respective iteration split into several multiple smaller issues. The deadline
  of each iteration would also appear on each issues, becoming bright red as the
@@ -555,7 +555,7 @@ Throughout the project, our process was modified and improved by having team
  improve our workflow in future iterations. All these were discussed within
  the team and what the majority considered useful ideas were then included
  in the further development. The main points of each retrospective are
- documented on the wiki page of the project, which can be found on Gitlab.
+ documented on the wiki page of the project, which can be found on GitLab.
 
 %==============================================================================
 \section{Agile Methodology} %1-3 pages
@@ -712,7 +712,7 @@ One of the biggest issues we first faced was co-ordinating ourselves as a
 We also discovered that whilst the project's architecture is important, 
  it is also important to remain focussed on the actual product. We 
  spent a considerable amount of time at the start of the project setting 
- up the VCS, branching strategy, Gitlab and CI configuration. Whilst these
+ up the VCS, branching strategy, GitLab and CI configuration. Whilst these
  were all valuable to the project, it would have been worth taking a step
  back and asking "is this the best thing for the customer?". Finding a balance
  is important.
