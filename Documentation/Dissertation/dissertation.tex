@@ -47,14 +47,23 @@ Section \ref{sec:conclusion} is the conclusion, where we evaluate our performanc
 
 
 %==============================================================================
+\newpage
 \section{Case Study Background}
-\label{sec:background}
-Include details of
 
 \subsection{Client Background}
-\begin{itemize}
-\item The customer organisation and background.
-\end{itemize}
+
+GRN which stands for Global Rugby Network, is a free team management software
+for rugby teams around the world. Their aim, is to try and bring anyone who loves
+Rugby closer, while supporting coaches building healthier, stronger and more
+successful teams.
+
+The team consists of 7 members, all privileged enough to have played rugby on both
+professional and semi-professional levels. As a result, all of them know by first-hand, the
+difficulty that a team possesses if it was to progress to the highest level of Rugby. In
+order to try and make it easier, GRN combined video-tagging, team management and team
+communication into this free and easy-to-use software, providing them with an alternative
+path, to a successful career.
+
 
 \subsection{Initial Objectives}
 As mentioned above, our client's primary objective is to help coaches build
@@ -96,9 +105,25 @@ rugby community generate additional engagement not only with potential followers
 supporters, but with sponsors as well.
 
 \subsection{Summary}
-\begin{itemize}
-\item The final software was delivered for the customer.
-\end{itemize}
+Our Team managed to completely fulfill all of the initial requirements given by the customer.
+Users are able to choose between either their Facebook, or Gmail account in order
+to register with FanZone. Further more, they are greeted with a list of multiple Clubs,
+Teams and Players, from which they can choose any of those to start following, and start
+getting updates from them. Once they do follow some of the items listed, their dashboard
+gets populated by posts made by them. Users can either comment on the post, like it, like
+any comments already posted by other Users on that same post, and even choose to visit
+the Post's owner profile page for more information. Information found on either a Clubs, Teams
+or Players profile, include Biographies, personal data such as gender, age and fixtures.
+In addition, Users are able to use google maps, in order to find the exact location of
+a specific or nearby fixture.
+
+Even though some might think that Users may have a hard time using all of the above
+features and the application in general, our team made sure to provide them with an
+excellent user-friendly interface, in combination with one of the easiest to use
+navigation systems. Making use of Bootstrap's components, along with Angular's routing
+configurations, Users can jump from one place to another, with no more than a couple
+of mouse clicks. As a result, this ensures to make FanZone not just an on-line
+social platform, but also a User's best rugby friend.
 %==============================================================================
 %\section{Alice}
 %\label{sec:alice}
@@ -480,7 +505,7 @@ For our branching model we selected one called Gitflow. \cite{gitflow} At its co
 In the Gitflow model, dev by itself does not allow any commits. therefore all the development has to be done in separate branches, called feature branches. For each issue in the issue tracker, its assignee created a new branch, and went on coding in that branch. We encouraged every team member to commit often, as it let us follow the development process better; to add to that, the testing of every commit, powered by our continuous integration system, enabled us to catch bugs early on. After the development of the feature was done, the assignee submitted a merge request for the feature branch to be merged into dev. It first had to be approved by any other team member, after he performed a code review. Code reviews allowed us to find mistakes in the source code not noticed by the developer, and therefore improve the quality of our project. If any mistakes were found, the reviewer could add some comments to the merge request, explaining what could be improved. Another thing which could prevent the merge request was merge conflicts. They occured if Git could not figure out on its own which lines of the source code to add, keep or remove, in case that files in dev and in feature branch differed greatly. It was on the assignee to resolve the merge conflicts. In the end, if CI tests passed, the merge requests were resolved, and the code reviews were performed, the merge request could be accepted. It resulted in the issue being closed, the new code being merged into the dev branch, and the feature branch being removed, so as not to clutter the repository with unnecessary files.
 
 Encountering some issues with the workflow of GitLab was unavoidable. For example, if a feature branch was not being worked on for some time, it was getting behind dev, resulting in a lot of merge conflicts. The solution was either to resolve all of those manually, or, if there was not much progress done on the feature branch - simply remove it and start over. Code reviews were not always performed carefully (or not at all, during crunch time), so problems were often encountered even on the dev branch. On the other hand, the issue tracker did not cause any major issues; its level of convenience and robustness helped us get on the issues quickly, submit bug reports when encountered, and generally stay on top of the things.
-    
+
 
 %==============================================================================
 \newpage
