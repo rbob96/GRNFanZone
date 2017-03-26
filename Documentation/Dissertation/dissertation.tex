@@ -12,14 +12,15 @@
 \date{10 February 2017}
 \maketitle
 \begin{abstract}
-Report on Team Project 3 coursework for Group V. The GRN Fanzone is a
+Report on Team Project 3 coursework for Group V. The GRNFanzone is a
  fan engagement web application developed to interface with the Global Rugby
  Network's online platform. The project tried to utilise
  emerging technologies ranging from Angular to Firebase, and use
- cutting-edge methodologies, such as Test Driven Development and Agile
+ cutting-edge methodologies, such as Behaviour Driven Development and Agile
  project management. This report covers some of the considerations taken
  during development and explains some of the benefits and disadvantages
- of the way the development team operated.
+ of the way the development team operated. The report will also the lessons
+ the team learned over the course of the six months.
 \end{abstract}
 %% Comment out this line if you do not wish to give consent for your
 %% work to be distributed in electronic format.
@@ -29,12 +30,11 @@ Report on Team Project 3 coursework for Group V. The GRN Fanzone is a
 \tableofcontents
 \newpage
 %==============================================================================
-\section{Introduction}
-
+\section{Introduction} %1-2 pages
 
 This paper presents a case study of the project and software development process
- of Group V, which consists of five students studying Software Engineering at the
- University of Glasgow, done as part of the University's Team Project 3 course.
+ of Group V, which consists of five Software Engineersing students at the
+ University of Glasgow, as part of the University's Team Project 3 course.
 
 Our customers for the project were Global Rugby Network (GRN), who tasked us
  with creating a web application that would allow professional and amateur
@@ -56,14 +56,24 @@ Section \ref{sec:background} presents the background of the case study
  discussed, describing the customer and project context, aims and
  objectives and project state at the time of writing.
 
+Section \ref{sec:frontend} talks about the key technology used for the
+ frontend implementation of the project. It contains an overview of the
+ technology and justification for its usage in the project.
+
+Section \ref{sec:backend} covers the key technologies used for the 
+ backend development of the project. This section will also describe
+ some of the difficulties faced by the team in this area.
+
+Section \ref{sec:testing} %TODO
+
 Section \ref{sec:cicd} discusses the Continuous Integration and Continuous
  Deployment techniques that were used in order to ensure higher quality
  of code and to continuously deliver new implementations. It also outlines
  challenges the team faced when using these techniques.
 
-Section \ref{sec:frontend} talks about the key technology used for the
- Frontend implementation of the project. It contains an overview of the
- technology and justification for its usage in the project.
+Section \ref{sec:planning} %TODO
+
+Section \ref{sec:agile} %TODO
 
 Section \ref{sec:conclusion} is the conclusion, where we evaluate our
  performance over the whole process, what has been learned from it and
@@ -71,7 +81,7 @@ Section \ref{sec:conclusion} is the conclusion, where we evaluate our
 
 
 %==============================================================================
-\section{Case Study Background}
+\section{Case Study Background} %4-5 pages
 \label{sec:background}
 Include details of
 
@@ -81,59 +91,50 @@ Include details of
 \end{itemize}
 
 \subsection{Initial Objectives}
-As mentioned above, our client's primary objective is to help coaches build
-stronger and more successful teams, by providing them with one of the greatest
-and free team management systems. However, being privileged enough to have been
-part of the vast rugby community, our clients realized that this was not enough,
-and something should be done in order to try and grow this community even bigger.
-As a result, our project motivation and initial objective was to build an on-line
-social rugby platform, from where rugby lovers would be able to follow any
-updates concerning not only their favourite rugby Teams,Clubs and Players, but also
-the rugby world as a whole.
+As mentioned above, our client's primary objective is to provide a platform that
+ enables coaches to manage their teams.  The client noticed that there was a lack of
+ fan engagement opportunities on their platform. As a result, our project motivation 
+ and initial objective was to build an online social platform for rugby fans, who could
+ be kept up to date with official information from teams.
 
-GRNFanZone, was developed as a Web Application, and aims to provide Users a way of
-interacting with their favourite Clubs, Teams and Players, inside a user-friendly
-environment. The two initial target audiences included the Profile-Owners, and the
-Profile followers.
+GRNFanZone, was developed as a web application, and aims to provide users a way of
+ interacting with their favourite clubs, teams and players, inside a user-friendly
+ environment. The two initial target audiences included the profile-owners, and the
+ profile-followers.
 
-Profile-Followers consist of all the Users interested on keeping their knowledge about
-rugby up to date. As an initial step, followers should use either their Facebook account
-or their Google account, in order to register with FanZone. By doing so, followers
-are able to start following on the spot, by just clicking the follow button which
-appears next to each of their favourite group's resulting profile picture. In addition,
-included in the initial Objectives, was to give followers the ability to maintain their
-own profile page, where all of their followed Teams,Clubs and Players would be displayed
-in a good manner. In this way, Users would be able to navigate almost to every other
-page of the App, starting from their very own profile page. In addition, followers
-should have the ability to read about future events and upcoming nearby fixtures, and
-learn about their location by using the Google maps.
+Profile-followers are the users who will be registering accounts with GRNFanzone to
+ stay up-to-date with rugby news. As an initial step, followers sign in using Google or 
+ Facebook accounts. After this, users are presented with a list of clubs, teams and players
+ that they can choose to follow. Another requirement is letting profile-followers "unfollow"
+ a currently followed entity. There is also the opportunity to get information about 
+ upcoming fixtures.
 
-On the other hand, Profile-Owners consist of all the Clubs, Teams and Players despite
-of their level. Profile owners, should be able to maintain their very own profile page,
-where all the important information concerning the Club/Team or Player, would be released
-to its profile-followers. For our project's initial Objective, those information should
-have the form of a text Post, on which followers should be able to comment, like and read
-comments posted by other followers as well.
+Profile-owners represent the group of clubs, teams and players who have registered with
+ GRN. These entities will not access the web application directly, but use their GRN account
+ to provide information, which is subsequently pushed to the GRNFanzone and then presented
+ to the profile-followers.
 
 As a result, some could argue that our Project Motivation was to use technology, and help
 rugby community generate additional engagement not only with potential followers and
 supporters, but with sponsors as well.
+
+In general terms, our aim was to use technology to encourage enagagement amongst the 
+ rugby community - ranging from fans to sponsors.
 
 \subsection{Summary}
 \begin{itemize}
 \item The final software was delivered for the customer.
 \end{itemize}
 
-
 %==============================================================================
-\section{Frontend Technology Considerations}
+\section{Frontend Technology Considerations} %1-3 pages
 \label{sec:frontend}
 
 At the start of the project, GRN chose to give us a set of technologies they
  wanted us to use. These included defining Angular 2 as our frontend framework.
  Angular is a framework maintained by google, which has been gaining popularity
  over the last 8 years\cite{angularjsoverview}. The framework uses typescript,
- a type safe flavour of javascript. It focuses on being portable, high performance
+ a type safe flavour of javascript. Angular focuses on being portable, high performance
  and easy to write\cite{angular_features}. Many of the contributors to Angular are
  from Google, but the project is open source under the MIT license and anyone can
  commit to it\cite{angularjsoverview}. Angular is built on top of NodeJS, providing
@@ -142,29 +143,28 @@ At the start of the project, GRN chose to give us a set of technologies they
 Angular embeds code in html, and uses a "controller" to define component behaviour. This
  "component" object is the basis of most Angular development. Angular also tries
  to minimise the logic in controllers, by either abstracting it to other components
- or building "services" - shared libraries of code snippets. The final piece of the puzzle
- is a "module" which co-ordinates resource injection into controllers from one
+ or building "services" - shared libraries of code snippets. The final part of this 
+ structure is a "module" which co-ordinates resource injection into controllers from one
  file. A project may have more than one module for it's subsections, but we stuck to
  one file. We made use of several services, and many components.
 
  % Pros and cons of ng-cli
 Angular provides a CLI that makes it easy to start projects, and provides
- templates for components, services and modules. This allows a "quick start"
- option. The basis of the project was generated in under a minute, which set up
+ templates for components, services and modules. This provides the \texttt{ng init}
+ command, which prepares a skeleton project in a matter of minutes.
+ The basis of the project was generated in under a minute, which set up
  testing frameworks, a basic starter app and a \texttt{package.json} file for NPM.
  When generating a new component, a html template, CSS styles file, karma
  jasmine test file as well as the typescript controller. These were populated
  with template code to allow easy starts. This helped ensure we could get to
- the business logic of the component or service quickly, without wasting time
- on the configurational nightmare javascript and typescript development has
- become.
+ the business logic of the component or service quickly, without wasting time.
 
- \input{figures/frontend_components}
+  \input{figures/frontend_components}
 
  % Why we liked it (easy to maintain, works out the box, good documentation)
-Angular gave us a huge advantage when working on this project. Components provide
+Angular 2 gave us a huge advantage when working on this project. Components provide
  an easy way of separating concerns, and reducing code duplication. Generating new
- code is easy with the CLI, and entire projects can be started off and be running
+ code is easy with the CLI, and entire projects can be started and running
  in hours. The documentation for Angular is also excellent. Maintained by google,
  it is kept up-to-date with the regular releases Angular receives.
 
@@ -178,7 +178,7 @@ The most significant barrier to using Angular was our own inexperience.
  provides.
 
  % How easy it was to test
-One of Angular's benefits is that its developers have thoughtfully
+One of Angular's benefits is that its developers have carefully
  considered testing. Software testing has long been an important
  aspect of software development, and this has only become more true
  in recent years \cite{tuteja2012testing}. The Angular CLI generates
@@ -192,7 +192,7 @@ One of Angular's benefits is that its developers have thoughtfully
 \input{figures/frontend_ng_cli}
 
 %==============================================================================
-\section{Backend Technology Considerations}
+\section{Backend Technology Considerations} %1-3 pages
 \label{sec:backend}
 
 As with the frontend, our clients defined what technology they wanted the team
@@ -207,52 +207,55 @@ We started off by registering our project GRNFanZone on the Firebase website,
  initialise and access the database. Afterwards, we followed the documentation
  to implement authentication using Facebook and Google, which was an initial
  requirement for the project. Finally the team used Firebase's CLI to deploy
- thie initial build using the provided static hosting service. This process
- was later refined and automated as part of our continuous deployment strategy.
- Overall, the ease at which Firebase allowed these features to be set up and
- implemented benefitted us greatly, as it allowed us to concentrate on other
- needs of the project.
+ the initial build using the provided static hosting service. This process
+ was later refined and automated as part of our continuous deployment strategy
+ (discussed in section \ref{sec:cicd}). Overall, the ease with which Firebase 
+ allowed these features to be set up and implemented benefitted us greatly, 
+ as it allowed us to concentrate on other parts of the project.
 
 The main benefit of Firebase for the project was the realtime cloud-hosted
  NoSQL database. All of the data in the database is defined using JavaScript
- Object Notation (JSON). The database can be edited by using the inline editor
- in the Firebase console, or by creating a JSON file and either deploying it
- using the CLI, or importing it in the console. We used Globally Unique
+ Object Notation (JSON). The database can be edited by using the editor
+ in the online Firebase console, or by creating a JSON file and either deploying 
+ it using the CLI, or importing it in the console. We used Globally Unique
  Identifiers (GUID) for main entity IDs, and divided our data into six main categories:
 \begin{itemize}
 \item
-\textit{users}, where every user would contain some personal information
+\textit{Users}, where every user would contain some personal information
  from social authentication, as well as clubs, teams and players that user
  follows.
 
 \item
-\textit{posts}, containing the text and title of the post, the post
+\textit{Posts}, containing the text and title of the post, the post
  author ID and some information about him, the comments and likes to
  that post, and a timestamp.
 
 \item
-\textit{fixtures}, which contains the home and away team IDs and names,
+\textit{Fixtures}, which contains the home and away team IDs and names,
  timestamps of fixture creation and kickoff, location, and the score if
  the fixture has already happened.
 
 \item
-\textit{clubs}, where each club has their crest, name, description,
+\textit{Clubs}, where each club has their crest, name, description,
 location, and the posts made by that club.
 
 \item
-\textit{teams}, which, alongside the same identificatory information as
+\textit{Teams}, which, alongside the same identificatory information as
 clubs, contains what club the team belongs to, the team's age group and
 type, alongside posts made by the team.
 
 \item
-\textit{players}, that has every players' name, age, bio, location and
+\textit{Players}, that has every players' name, age, bio, location and
  profile picture, as well as what team the player plays for and posts
  by them.
 
 \end{itemize}
-As the purpose of the web application was to provide a social platform for
- rugby fans, all connected users being synced to the database made for a much
- natural and interactive user experience.
+The angularfire2 package that was used to interact with the backend used
+ observables to provide data, information was updated on the frontend in 
+ realtime, even without refreshing the app. As the purpose of the web 
+ application was to provide a social platform for rugby fans, all connected 
+ users being synced to the database made for a much natural and interactive 
+ user experience.
 
 \input{figures/backend_dbexample}
 
@@ -269,16 +272,14 @@ Firebase did not, however, come without its drawbacks. As usage of NoSQL
 Another big issue was identified later on into the project. We used the
  Angularfire2 module to interface between Firebase and Angular2, which meant
  that all of our calls to the database had to be in the form of subscriptions
- to certain keys.
-
-As the application grew in complexity, more and more subscriptions had to be
- made, due to which there arose some race conditions concerning the load order
- of the data and issues where retrieved data would be needlessly reloaded.
- Fixing these problems was very frustrating and took up a lot of time that
- could have been spent implementing new features.
+ to certain keys. As the application grew in complexity, more and more 
+ subscriptions had to be made, due to which there arose some race conditions 
+ concerning the load order of the data and issues where retrieved data would 
+ be needlessly reloaded. Fixing these problems was very frustrating and took 
+ up a lot of time that could have been spent implementing new features.
 
 %==============================================================================
-\section{Testing Considerations}
+\section{Testing Considerations} %1-3 pages
 \label{sec:testing}
 
 % Describe BDD
@@ -287,7 +288,7 @@ Behaviour Driven Development is a development methodology where the development 
  develops the code for the feature. The team decided to use BDD as it comes
  reccomended by the Agile Alliance \cite{agilealliance_bdd}. Another reason
  is that the angular CLI sets up a Karma Jasmine testing set up by default.
- BDD is credited for helping to develop easily documented code - for example,
+ BDD is credited with helping to develop easily documented code - for example,
  by making test cases into natural language sentences (see figure
  \ref{fig:testing_failed_test}), it becomes easier for human developers to
  understand what it tests, and why it is being tested \cite{north2006bdd}.
@@ -298,27 +299,29 @@ Behaviour Driven Development is a development methodology where the development 
 The Angular 2 CLI sets up a Karma Jasmine configuration to run tests on
  the typescript in the project. Karma is a test runner for javascript
  that is platform agonostic and allows testing over different devices
- and browsers. Jasmine is a testing framework that aims to be as readable
- as possible - one of the key features of the BDD approach we wanted to
- adopt. Initially, we tried to use Mocha, another testing framework which
- is targeted at Test Driven Development, however integrating it was difficult
- and was taking too long to set up, so we decided to move from TDD to BDD and
- just use Jasmine. One of the benefits this brought was the wealth of
- documentation and examples across the internet of using Karma Jasmine
- with Angular code.
+ and browsers\cite{jina2013javascript}. Jasmine is a testing framework 
+ that aims to be as readable as possible - one of the key features of 
+ the BDD approach we wanted to adopt. Initially, we tried to use Mocha, 
+ another testing framework which is targeted at Test Driven Development,
+ however integrating it was difficult and was taking too long to set up, 
+ so we decided to move from TDD to BDD and just use Jasmine. One of the 
+ benefits this brought was the wealth of documentation and examples 
+ across the internet of using Karma with Jasmine on Angular code.
 
 % Describe how it was done well
 % mention test coverage
-Despite the difficulties we faced, a number of tests were written. These
- tried to cover edge cases and a variety of conditions they could face in
- the wild. Our code coverage - a metric which enumerates what proportion of
- the code is tested - tended to stay fairly high. We have exact figures due
- to our Continuous Integration, which ran the tests every time a commit was
- pushed, though we did not place any constraints on a minimum coverage value.
- Typically, the coverage ranged from 80\% to 60\%. Towards the end of the
- project, the value was just over 75\%. This was representative of just under 40
- tests written. To increase transparency across the project, we displayed values
- for our test coverage on dev and master in the readme, using icons provided by gitlab.
+By the end of the project, a number of tests had been incorporated into the 
+ project. These tried to cover edge cases and a variety of conditions the GRNFanzone 
+ could face in the wild. Our code coverage - a metric which enumerates what 
+ proportion of the code is tested - tended to stay fairly high. We have exact 
+ figures due to our Continuous Integration, which ran the tests every time a 
+ commit was pushed(section \ref{sec:cicd}), though we did not place any constraints 
+ on a minimum coverage value. Typically, the coverage ranged from 80\% to 60\%. 
+ Towards the end of the project, the value was just over 75\%. This was 
+ representative of just under 40 tests written. To increase transparency 
+ across the project, we displayed values for our test coverage on dev and 
+ master in the readme, using icons provided by Gitlab (see figure 
+ \ref{fig:cicd_coverage_buttons}.
 
  The code coverage metrics also provided a file-by-file breakdown of where
  coverage was high or low. This proved to be helpful when choosing
@@ -338,7 +341,10 @@ Testing was not always easy. For example, getting into a habit of writing tests
  concepts than TDD does, and it seems difficult to recommend a novice programmer
  should first learn BDD without prior exposure to TDD concepts"
  \cite{agilealliance_bdd}. This turned out to be a significant difficulty for
- our team.
+ our team. This demonstrated to us first hand that it is important to choose where
+ in the project a team should focus their learning time, and that too much new technology
+ can stretch a team to the point where the effort spent to learn new things 
+ overtakes that spent on features.
 
 Another struggle was getting tests to run. Due to the interconnectivity of
  Angular components, a complex data flow has to be replicated. For example,
@@ -349,7 +355,7 @@ Another struggle was getting tests to run. Due to the interconnectivity of
  code coverage in the project.
 
 There were also issues when testing backend connections. Whilst it is
- allegedly possible, the team did not find a way of mocking angularfire, the
+ allegedly possible, the team did not find a way of mocking Angularfire2, the
  service which provides an interface between Angular and Firebase. This meant
  that tests would affect the production database, something which could not be
  allowed. As a result, calls made to angularfire were not tested, despite the
@@ -357,7 +363,7 @@ There were also issues when testing backend connections. Whilst it is
 
 Overall, the team's testing methodologies were too optimistic. We assumed that
  we could make a large jump to an unfamiliar methodology, whilst also learning
- to write new tests. ANother of the mistakes we made was putting testing aside
+ to write new tests. Another of the mistakes we made was putting testing aside
  and instead trying to get features out. This resulted in a code base that did
  not have the test coverage we desired, but also gave us a large task in writing
  the tests after the fact. This proved more difficult than writing them as we
@@ -366,7 +372,7 @@ Overall, the team's testing methodologies were too optimistic. We assumed that
  \include{figures/testing_coverage_metrics}
 
 %==============================================================================
-\section{Continuous Integration and Continuous Deployment Considerations}
+\section{Continuous Integration and Deployment} %1-3 pages
 \label{sec:cicd}
 
 The project used a multitude of Continuous Integration (CI) and Continuous
@@ -383,7 +389,7 @@ One of the key concepts of CI is often phrased as: "Commit Daily,
  This was due to a small number of factors, which boiled down to: "We don't work on the project
  every day", and "I'm not used to git". There was little we could do to remedy the former issue -
  all we could do was commit often \textit{whilst we worked on the project}. The gitflow
- branching system we used in the VCS (see section \ref{sec:VCS}) was unfamiliar to several
+ branching system we used in the VCS (see section \ref{sec:planning}) was unfamiliar to several
  members of the team, and it took time for everyone to become accustomed to the system. As the
  project progressed however, more builds were made, more commits pushed, and more bugs found.
 
@@ -418,13 +424,13 @@ Our CI and CD was operated using Gitlab's integrated CI system. This uses docker
  builds were run on team computers. A common upper limit for build time is quoted as
  10 minutes\cite{fowler2006continuous} - ours typically ranged from 5-15 minutes, with some exceptions that were
  typically waiting on the gitlab CI runners to free up. The single largest time-drain was
- running \texttt{npm install} every time docker span up a new instance. Running tests typically took under
- a minute after this.
+ running \texttt{npm install} every time docker span up a new instance. Running builds
+ typically took under a minute after this.
 
  \input{figures/cicd_build_duration}
 
 % Describe Linting task
-The first task used by the project's 'test' stage ran a series of lint checks over the
+The first task used by the project's "test" stage ran a series of lint checks over the
  project's source code. Linting involves performing static analysis on code to detect bugs
  or violations of a style guide. These kind of checks are also performed by compilers and
  so on. These issues can range from missing semicolons, to using a mix of
@@ -450,7 +456,7 @@ Merging these two tasks was considered, but left aside for now. The tasks take 5
  \input{figures/cicd_coverage_buttons}
 
 % Describe deployment tasks
-The Continuous deployment tasks were both essentially the same, but related to which branch was being
+The continuous deployment tasks were both essentially the same, but related to which branch was being
  committed to. As both dev and master can only be merged into instead of committed to, these tasks can
  be run only on merge commits to dev or master. The tasks run tests (to allow coverage reports for the branches)
  and then deploy to our live servers. The dev branch deploys to the staging zone, and
@@ -459,7 +465,8 @@ The Continuous deployment tasks were both essentially the same, but related to w
 The fact that this is automated helps encourage rapid deployment, as the steps take some time, and are
  boring for people to do. This methodology takes out the human steps, and means that the development team
  can focus on development. These rapid deployments also help by making it easy for the team to demonstrate
- and generate feedback from the public.
+ and generate feedback from the public. This also allowed the client to continuously check our progress and
+ give us feedback.
 
 
 % consider how it helped us and how it could have been improved
@@ -471,12 +478,12 @@ The CI and CD processes helped us by keeping our code of high quality, preventin
  readable, reducing time wasted understanding the code.
 
  %==============================================================================
-\section{Project Planning}
+\section{Project Planning} %1-3 pages
 \label{sec:planning}
 
 After the project allocation day, GRN have sent us a project brief containing
- greater details about the project itself, as well as a list of functional
- requirements that the final product would be expected to meet. The first
+ more details about the project itself, as well as a list of functional
+ requirements that the final product was expected to meet. The first
  task we needed to complete was a detailed requirements document, that would
  contain non-functional and any additional functional requirements. It was
  decided that the focus of the first month would be allocated to finalizing
@@ -484,8 +491,7 @@ After the project allocation day, GRN have sent us a project brief containing
  the team decided to take in working on the project.
 
 As part of the requirements gathering process, the team developed four personas
- and an epic user story of how they would end up using the FanZone in their daily
- lives, illustrating that by documenting epic user stories. This was followed by
+ and an epic user story of how they envisioned the project being used. This was followed by
  writing down user stories centered around the following entities: team manager,
  sponsor, player, club supporter, rugby fan and international rugby fan. Doing
  this eased the process of identifying useful requirements and helped the team
@@ -502,10 +508,11 @@ After the initial requirements were outlined, the team followed by designing
 Over the weeks dedicated to producing the requirements document, the team
  kept close contact with GRN, who have repeatedly offered helpful feedback
  and guidance regarding how the team can meet their expectations of the
- final product. This gave us some understanding of what the client found
+ final product. This was in the form of a weekly progress email, and a monthly
+ physical meeting, giving us some understanding of what the client found
  to be of most importance, and it helped us in the next stage in our
  project, which was prioritising the features of the application and separating
-  them into achievable goals for each iteration.
+ them into achievable goals for each iteration.
 
 There were several aspects to be taken into consideration while deciding
  on a concrete structure of the development process. We had to consider
@@ -522,13 +529,16 @@ There were several aspects to be taken into consideration while deciding
 The goals for each iteration become increasingly challenging, based on the
  expectation that the first one or two iterations would offer all team
  members some hands on experience with both Angular2 and Firebase. The
- goals for each iteration were the following: first iteration - login
- and sign up; second iteration - dashboard and followed pages;
- third iteration - post creation and management; fourth iteration -
- view and edit profile, posts on comments; fifth iteration - search for
- teams/clubs/players or fixtures; sixth iteration - translation and
- additional tasks; seventh iteration - additional features, refinement,
- documentation.
+ goals for each iteration were the following: 
+\begin{itemize}
+\item First iteration - login and sign up
+\item Second iteration - dashboard and followed pages
+\item Third iteration - post creation and management
+\item Fourth iteration - view and edit profile, posts on comments
+\item Fifth iteration - search for teams/clubs/players or fixtures
+\item Sixth iteration - translation and additional tasks
+\item seventh iteration - additional features, refinement, documentation
+\end{itemize} 
 
 \input{figures/planning_milestones}
 
@@ -548,7 +558,7 @@ Throughout the project, our process was modified and improved by having team
  documented on the wiki page of the project, which can be found on Gitlab.
 
 %==============================================================================
-\section{Reflection on Agile Methodology}
+\section{Agile Methodology} %1-3 pages
 \label{sec:agile}
 
 % short description of agile development
@@ -560,15 +570,16 @@ Agile software development consists of a set of practices and methods derived
  software\cite{agile_overview}.
 
 As agile development was highly recommended as part of our software development
- process, in the initial team meetings, we have decided to use the Scrum
+ process, in the initial team meetings, we decided to use the Scrum
  methodology.
 
  % short description of SCRUM
- Scrum is an agile framework originally formalized for software development
- projects. Scrum defines two major roles within a development team: the product
- owner and the scrum master. The product owner should maintain communication
- with the stakeholders and create a prioritized list goals to be achieved.
- The scrum master keeps the team focused and leads team meetings.\cite{scrum_overview}
+ Scrum is an agile framework originally formalised for software development
+ projects. Scrum defines several major roles within the framework: the product
+ owner, the scrum master, the development team and the customer. The product 
+ owner should maintain communication with the stakeholders and create a prioritized 
+ list goals to be achieved. The scrum master keeps the team focused and leads team 
+ meetings.\cite{scrum_overview}
 
  % our agile development
  Within our team, Andrew was the product owner and Ruxandra was the scrum master.
@@ -577,7 +588,7 @@ As agile development was highly recommended as part of our software development
   expected features. As a result of discussions between the product owner and
   the rest of the team, it was decided to split the work into seven sprints,
   each of them lasting two weeks. One sprint would end on Friday and the next
-  one would start the following Monday. (Figure \ref{fig:agile_gantt} )
+  one would start the following Monday (Figure \ref{fig:agile_gantt}).
 
 
  It was decided that instead of daily scrums, the team would have two weekly
@@ -606,7 +617,7 @@ As agile development was highly recommended as part of our software development
 Towards the end of the first semester, our sprints needed quite a few
  adjustments, due to the increase in additional assignments from other
  courses, that everyone in the team had to complete. There was also a
- slight halt in communication during the winter break, as all team members
+ slight halt in communication during the winter break, as team members
  went home for the holidays. However, the additional time left at the
  end of our initial schedule allowed us to maintain the initial seven
  sprints and just shift everything by a few weeks.
@@ -624,12 +635,15 @@ As we became more comfortable working as a team and since at that
  \input{figures/agile_gantt}
 
 At the beginning of the development process, the product owner split
- every goal into separate small issues. The members of the team were
+ every goal into separate small issues. Over the course of the project,
+ these were refined and split further. The members of the team were
  also encouraged to make small commits as often as possible and only
- merge one small issue at a time in the development branch, in order
+ merge one small issue at a time in a separate development branch, in order
  to avoid disrupting someone else's work by generating conflicts.
- Every merge request needed to be approved by at least one more
- team member, in order to maintain the quality of the product.
+ Every merge request needed to be approved by at least one other
+ team member following a code review, in order to maintain the quality 
+ of the product. These code reviews helped us to spot obvious mistakes,
+ and to improve team understanding of how components worked.
 
 At the end of each sprint, the product was fully or almost fully
  functional with respect to the features that needed to be completed
@@ -650,7 +664,7 @@ To maintain the close communication with our client, as dictated by
 
 
 %==============================================================================
-\section{Conclusions}
+\section{Conclusions} %1-2 pages
 \label{sec:conclusion}
 
 Explain the wider lessons that you learned about software engineering,
@@ -659,23 +673,19 @@ on the extent to which these lessons could be generalised to other
 types of software project.  Relate the wider lessons to others
 reported in case studies in the software engineering literature.
 
+% Main Points: 
+% Co-ordinating teams
+% Wasting time on setup instead of features
+% Compromising on systems
+% Client requirements affecting our choices
+% Learning new technology is part of the industry
+
+This software project was a valuable learning experience. 
+
+
 %==============================================================================
 \newpage
-\section{Appendices}
-\label{sec:appendices}
-
-\subsection{Glossary}
-\label{subsec:appendices:glossary}
-BDD - Behaviour Driven Development
-
-CLI - Command Line Interface
-
-TDD - Test Driven Development
-
-VCS - Version Control System
-
-%==============================================================================
-\bibliographystyle{plain}
+\bibliographystyle{plain} %1-2 pages
 \bibliography{dissertation}
 \end{document}
 \grid
