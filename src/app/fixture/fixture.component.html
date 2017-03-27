@@ -28,7 +28,7 @@
         </div>
       </div>
 
-      <!-- Away -->
+      <!-- Away Team -->
       <div class="col-md-6">
         <div class="row">
           <div class="col-md-12">
@@ -40,12 +40,13 @@
           <div class="col-md-12">
             <a (click)="sendToTeam(fixtureData.away_team_id)"><h2>{{(fixtureData)?.away_team}}</h2></a>
             <h3>{{"Fixture.Away" | translate}}</h3>
+            <!-- display fixture score if the game already took place-->
             <h4 *ngIf="(fixtureData?.kickoff < getTime())">{{fixtureData?.away_score}}</h4>
           </div>
         </div>
       </div>
     </div>
-
+    <!-- information about the fixture: location, date, location on map-->
     <div [hidden]="!(fixtureData)" class="well">
 
       <h4>

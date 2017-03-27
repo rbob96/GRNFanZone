@@ -43,7 +43,7 @@ export class TeamComponent implements OnInit {
               private route: ActivatedRoute,
               private userDataService: UserDataService,
               private sendto: SendtoService) {
-
+    // get current user id
     this.af.auth.subscribe(user => {
       if (user) {
         this.currentUserId = user.uid;
@@ -56,9 +56,10 @@ export class TeamComponent implements OnInit {
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.teamId = params['id'];
-
+      // get current team data
       this.teamData = this.af.database.object('teams/' + this.teamId);
 
+      // check if current team is followed by the current user
       this.af.database.list('users/' + this.currentUserId + '/teams_followed').subscribe(teams => {
         teams.forEach(team => {
           if (team.$key === this.teamId) {
@@ -66,7 +67,7 @@ export class TeamComponent implements OnInit {
           }
         });
       });
-
+      // get club the team is associated with
       this.af.database.list('teams').subscribe(teams => {
         teams.forEach(team => {
           if (team.id === this.teamId) {
@@ -75,7 +76,7 @@ export class TeamComponent implements OnInit {
           }
         });
       });
-
+      // get list of players belonging to the team
       this.af.database.list('players').subscribe(players => {
         players.forEach(player => {
           if (this.teamId in player.teams) {
@@ -83,19 +84,20 @@ export class TeamComponent implements OnInit {
           }
         });
       });
-
+      // check if players are followed by the current user
       this.af.database.list('users/' + this.currentUserId + '/players_followed').subscribe(players => {
         this.follows = players.map(p => {
           return p.$key;
         });
       });
 
+      // get the posts of the team
       this.af.database.list('posts').subscribe(posts => {
         this.teamPosts = posts.filter(p => {
           return p.posted_by === this.teamId;
         });
       });
-
+      // get fixtures involving the current team
       this.af.database.list('fixtures').subscribe(fixtures => {
         // 604800000 == 1 week in milliseconds (1000*60*60*24*7)
         const d = new Date;
@@ -112,7 +114,7 @@ export class TeamComponent implements OnInit {
 
     });
   }
-
+ // follow/unfollow team/players
   public unfollowTeam() {
     this.userDataService.unfollowTeam(this.currentUserId, this.teamId);
     this.userFollowing = false;

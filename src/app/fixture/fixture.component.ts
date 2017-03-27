@@ -30,9 +30,11 @@ export class FixtureComponent implements OnInit {
       this.fixtureId = params['id'];
     });
 
+ // get fixture data
     this.af.database.object('fixtures/' + this.fixtureId).subscribe(fixture => {
       this.fixtureData = fixture;
 
+// get home and away team from the fixture
       this.af.database.object('teams/' + this.fixtureData.home_team_id).subscribe(team => {
         this.homeTeam = team;
       });
