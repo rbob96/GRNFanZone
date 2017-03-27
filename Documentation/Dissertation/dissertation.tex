@@ -19,15 +19,14 @@ Report on Team Project 3 coursework for Group V. The GRN FanZone is a
  cutting-edge methodologies, such as Behaviour Driven Development and Agile
  project management. This report covers some of the considerations taken
  during development and explains some of the benefits and disadvantages
- of the way the development team operated. The report will also the lessons
+ of the way the development team operated. The report will also cover the lessons
  the team learned over the course of the six months.
 \end{abstract}
 %% Comment out this line if you do not wish to give consent for your
 %% work to be distributed in electronic format.
 \educationalconsent
-%TODO: Remove this later
-\newpage
-\tableofcontents
+%\newpage
+%\tableofcontents
 \newpage
 %==============================================================================
 \section{Introduction} %1-2 pages
@@ -60,7 +59,7 @@ Section \ref{sec:frontend} talks about the key technology used for the
  frontend implementation of the project. It contains an overview of the
  technology and justification for its usage in the project.
 
-Section \ref{sec:backend} covers the key technologies used for the 
+Section \ref{sec:backend} covers the key technologies used for the
  backend development of the project. This section will also describe
  some of the difficulties faced by the team in this area.
 
@@ -81,19 +80,28 @@ Section \ref{sec:conclusion} is the conclusion, where we evaluate our
 
 
 %==============================================================================
-\section{Case Study Background} %4-5 pages
+\section{Case Study Background}
 \label{sec:background}
-Include details of
 
 \subsection{Client Background}
-\begin{itemize}
-\item The customer organisation and background.
-\end{itemize}
+
+GRN which stands for Global Rugby Network, is a free team management software
+for rugby teams around the world. Their aim, is to try and bring anyone who loves
+Rugby closer, while supporting coaches building healthier, stronger and more
+successful teams.
+
+The team consists of 7 members, all privileged enough to have played rugby on both
+professional and semi-professional levels. As a result, all of them know by first-hand, the
+difficulty that a team possesses if it was to progress to the highest level of Rugby. In
+order to try and make it easier, GRN combined video-tagging, team management and team
+communication into this free and easy-to-use software, providing them with an alternative
+path, to a successful career.
+
 
 \subsection{Initial Objectives}
 As mentioned above, our client's primary objective is to provide a platform that
  enables coaches to manage their teams.  The client noticed that there was a lack of
- fan engagement opportunities on their platform. As a result, our project motivation 
+ fan engagement opportunities on their platform. As a result, our project motivation
  and initial objective was to build an online social platform for rugby fans, who could
  be kept up to date with official information from teams.
 
@@ -103,10 +111,10 @@ GRN FanZone was developed as a web application, and aims to provide users a way 
  profile-followers.
 
 Profile-followers are the users who will be registering accounts with GRN FanZone to
- stay up-to-date with rugby news. As an initial step, followers sign in using Google or 
+ stay up-to-date with rugby news. As an initial step, followers sign in using Google or
  Facebook accounts. After this, users are presented with a list of clubs, teams and players
  that they can choose to follow. Another requirement is letting profile-followers "unfollow"
- a currently followed entity. There is also the opportunity to get information about 
+ a currently followed entity. There is also the opportunity to get information about
  upcoming fixtures.
 
 Profile-owners represent the group of clubs, teams and players who have registered with
@@ -114,18 +122,29 @@ Profile-owners represent the group of clubs, teams and players who have register
  to provide information, which is subsequently pushed to the GRN FanZone and then presented
  to the profile-followers.
 
-As a result, some could argue that our Project Motivation was to use technology, and help
-rugby community generate additional engagement not only with potential followers and
-supporters, but with sponsors as well.
-
-In general terms, our aim was to use technology to encourage enagagement amongst the 
+In general terms, our aim was to use technology to encourage enagagement amongst the
  rugby community - ranging from fans to sponsors.
 
 \subsection{Summary}
-\begin{itemize}
-\item The final software was delivered for the customer.
-\end{itemize}
+Our Team managed to completely fulfill all of the initial requirements given by the customer.
+Users are able to choose between either their Facebook, or Gmail account in order
+to register with FanZone. Further more, they are greeted with a list of multiple Clubs,
+Teams and Players, from which they can choose any of those to start following, and start
+getting updates from them. Once they do follow some of the items listed, their dashboard
+gets populated by posts made by them. Users can either comment on the post, like it, like
+any comments already posted by other Users on that same post, and even choose to visit
+the Post's owner profile page for more information. Information found on either a Clubs, Teams
+or Players profile, include Biographies, personal data such as gender, age and fixtures.
+In addition, Users are able to use google maps, in order to find the exact location of
+a specific or nearby fixture.
 
+Even though some might think that Users may have a hard time using all of the above
+features and the application in general, our team made sure to provide them with an
+excellent user-friendly interface, in combination with one of the easiest to use
+navigation systems. Making use of Bootstrap's components, along with Angular's routing
+configurations, Users can jump from one place to another, with no more than a couple
+of mouse clicks. As a result, this ensures to make FanZone not just an on-line
+social platform, but also a User's best rugby friend.
 %==============================================================================
 \section{Frontend Technology Considerations} %1-3 pages
 \label{sec:frontend}
@@ -143,7 +162,7 @@ At the start of the project, GRN chose to give us a set of technologies they
 Angular embeds code in html, and uses a "controller" to define component behaviour. This
  "component" object is the basis of most Angular development. Angular also tries
  to minimise the logic in controllers, by either abstracting it to other components
- or building "services" - shared libraries of code snippets. The final part of this 
+ or building "services" - shared libraries of code snippets. The final part of this
  structure is a "module" which co-ordinates resource injection into controllers from one
  file. A project may have more than one module for it's subsections, but we stuck to
  one file. We made use of several services, and many components.
@@ -209,14 +228,14 @@ We started off by registering our project GRNFanZone on the Firebase website,
  requirement for the project. Finally the team used Firebase's CLI to deploy
  the initial build using the provided static hosting service. This process
  was later refined and automated as part of our continuous deployment strategy
- (discussed in section \ref{sec:cicd}). Overall, the ease with which Firebase 
- allowed these features to be set up and implemented benefitted us greatly, 
+ (discussed in section \ref{sec:cicd}). Overall, the ease with which Firebase
+ allowed these features to be set up and implemented benefitted us greatly,
  as it allowed us to concentrate on other parts of the project.
 
 The main benefit of Firebase for the project was the realtime cloud-hosted
  NoSQL database. All of the data in the database is defined using JavaScript
  Object Notation (JSON). The database can be edited by using the editor
- in the online Firebase console, or by creating a JSON file and either deploying 
+ in the online Firebase console, or by creating a JSON file and either deploying
  it using the CLI, or importing it in the console. We used Globally Unique
  Identifiers (GUID) for main entity IDs, and divided our data into six main categories:
 \begin{itemize}
@@ -251,10 +270,10 @@ type, alongside posts made by the team.
 
 \end{itemize}
 The angularfire2 package that was used to interact with the backend used
- observables to provide data, information was updated on the frontend in 
- realtime, even without refreshing the app. As the purpose of the web 
- application was to provide a social platform for rugby fans, all connected 
- users being synced to the database made for a much natural and interactive 
+ observables to provide data, information was updated on the frontend in
+ realtime, even without refreshing the app. As the purpose of the web
+ application was to provide a social platform for rugby fans, all connected
+ users being synced to the database made for a much natural and interactive
  user experience.
 
 \input{figures/backend_dbexample}
@@ -272,10 +291,10 @@ Firebase did not, however, come without its drawbacks. As usage of NoSQL
 Another big issue was identified later on into the project. We used the
  Angularfire2 module to interface between Firebase and Angular2, which meant
  that all of our calls to the database had to be in the form of subscriptions
- to certain keys. As the application grew in complexity, more and more 
- subscriptions had to be made, due to which there arose some race conditions 
- concerning the load order of the data and issues where retrieved data would 
- be needlessly reloaded. Fixing these problems was very frustrating and took 
+ to certain keys. As the application grew in complexity, more and more
+ subscriptions had to be made, due to which there arose some race conditions
+ concerning the load order of the data and issues where retrieved data would
+ be needlessly reloaded. Fixing these problems was very frustrating and took
  up a lot of time that could have been spent implementing new features.
 
 %==============================================================================
@@ -299,28 +318,28 @@ Behaviour Driven Development is a development methodology where the development 
 The Angular 2 CLI sets up a Karma Jasmine configuration to run tests on
  the typescript in the project. Karma is a test runner for javascript
  that is platform agonostic and allows testing over different devices
- and browsers\cite{jina2013javascript}. Jasmine is a testing framework 
- that aims to be as readable as possible - one of the key features of 
- the BDD approach we wanted to adopt. Initially, we tried to use Mocha, 
+ and browsers\cite{jina2013javascript}. Jasmine is a testing framework
+ that aims to be as readable as possible - one of the key features of
+ the BDD approach we wanted to adopt. Initially, we tried to use Mocha,
  another testing framework which is targeted at Test Driven Development,
- however integrating it was difficult and was taking too long to set up, 
- so we decided to move from TDD to BDD and just use Jasmine. One of the 
- benefits this brought was the wealth of documentation and examples 
+ however integrating it was difficult and was taking too long to set up,
+ so we decided to move from TDD to BDD and just use Jasmine. One of the
+ benefits this brought was the wealth of documentation and examples
  across the internet of using Karma with Jasmine on Angular code.
 
 % Describe how it was done well
 % mention test coverage
-By the end of the project, a number of tests had been incorporated into the 
- project. These tried to cover edge cases and a variety of conditions the GRN FanZone 
- could face in the wild. Our code coverage - a metric which enumerates what 
- proportion of the code is tested - tended to stay fairly high. We have exact 
- figures due to our Continuous Integration, which ran the tests every time a 
- commit was pushed(section \ref{sec:cicd}), though we did not place any constraints 
- on a minimum coverage value. Typically, the coverage ranged from 80\% to 60\%. 
- Towards the end of the project, the value was just over 75\%. This was 
- representative of just under 40 tests written. To increase transparency 
- across the project, we displayed values for our test coverage on dev and 
- master in the readme, using icons provided by GitLab (see figure 
+By the end of the project, a number of tests had been incorporated into the
+ project. These tried to cover edge cases and a variety of conditions the GRN FanZone
+ could face in the wild. Our code coverage - a metric which enumerates what
+ proportion of the code is tested - tended to stay fairly high. We have exact
+ figures due to our Continuous Integration, which ran the tests every time a
+ commit was pushed(section \ref{sec:cicd}), though we did not place any constraints
+ on a minimum coverage value. Typically, the coverage ranged from 80\% to 60\%.
+ Towards the end of the project, the value was just over 75\%. This was
+ representative of just under 40 tests written. To increase transparency
+ across the project, we displayed values for our test coverage on dev and
+ master in the readme, using icons provided by GitLab (see figure
  \ref{fig:cicd_coverage_buttons}.
 
  The code coverage metrics also provided a file-by-file breakdown of where
@@ -343,7 +362,7 @@ Testing was not always easy. For example, getting into a habit of writing tests
  \cite{agilealliance_bdd}. This turned out to be a significant difficulty for
  our team. This demonstrated to us first hand that it is important to choose where
  in the project a team should focus their learning time, and that too much new technology
- can stretch a team to the point where the effort spent to learn new things 
+ can stretch a team to the point where the effort spent to learn new things
  overtakes that spent on features.
 
 Another struggle was getting tests to run. Due to the interconnectivity of
@@ -529,7 +548,7 @@ There were several aspects to be taken into consideration while deciding
 The goals for each iteration become increasingly challenging, based on the
  expectation that the first one or two iterations would offer all team
  members some hands on experience with both Angular2 and Firebase. The
- goals for each iteration were the following: 
+ goals for each iteration were the following:
 \begin{itemize}
 \item First iteration - login and sign up
 \item Second iteration - dashboard and followed pages
@@ -538,7 +557,7 @@ The goals for each iteration become increasingly challenging, based on the
 \item Fifth iteration - search for teams/clubs/players or fixtures
 \item Sixth iteration - translation and additional tasks
 \item seventh iteration - additional features, refinement, documentation
-\end{itemize} 
+\end{itemize}
 
 \input{figures/planning_milestones}
 
@@ -576,9 +595,9 @@ As agile development was highly recommended as part of our software development
  % short description of SCRUM
  Scrum is an agile framework originally formalised for software development
  projects. Scrum defines several major roles within the framework: the product
- owner, the scrum master, the development team and the customer. The product 
- owner should maintain communication with the stakeholders and create a prioritized 
- list goals to be achieved. The scrum master keeps the team focused and leads team 
+ owner, the scrum master, the development team and the customer. The product
+ owner should maintain communication with the stakeholders and create a prioritized
+ list goals to be achieved. The scrum master keeps the team focused and leads team
  meetings.\cite{scrum_overview}
 
  % our agile development
@@ -641,7 +660,7 @@ At the beginning of the development process, the product owner split
  merge one small issue at a time in a separate development branch, in order
  to avoid disrupting someone else's work by generating conflicts.
  Every merge request needed to be approved by at least one other
- team member following a code review, in order to maintain the quality 
+ team member following a code review, in order to maintain the quality
  of the product. These code reviews helped us to spot obvious mistakes,
  and to improve team understanding of how components worked.
 
@@ -666,71 +685,71 @@ To maintain the close communication with our client, as dictated by
 \section{Change Management and Version Control Methods}
 \label{sec:changemgmt}
 
-At the very start of the project, we used a shared Google Docs folder 
- to exchange initial ideas, such as user stories, wireframes, etc. 
- Of course, when we started coding, some kind of version control 
- repository had to be selected, and our choice landed on GitLab. 
- The main attracting features of GitLab for us were the support for 
- Git, which we were mostly familiar with at this point, and issue 
- tracking, which enabled us to submit feature requests and bug reports 
+At the very start of the project, we used a shared Google Docs folder
+ to exchange initial ideas, such as user stories, wireframes, etc.
+ Of course, when we started coding, some kind of version control
+ repository had to be selected, and our choice landed on GitLab.
+ The main attracting features of GitLab for us were the support for
+ Git, which we were mostly familiar with at this point, and issue
+ tracking, which enabled us to submit feature requests and bug reports
  with ease.
 
 %TODO Expand a bit
-After we gathered the requirements for the project and defined the general 
- development timeline, the issue tracker had to be filled in. GitLab allowed 
+After we gathered the requirements for the project and defined the general
+ development timeline, the issue tracker had to be filled in. GitLab allowed
  us to firstly create the sprints (with the possibility of assigning a deadline
- to each of them), and afterwards the feature requests could be assigned to a 
- particular sprint. Additional attributes, such as assignee (the person 
- responsible for resolving the issue), labels (feature, customer request, 
- hotfix, non-essential, etc.), weight (1-10; decided during team meetings 
+ to each of them), and afterwards the feature requests could be assigned to a
+ particular sprint. Additional attributes, such as assignee (the person
+ responsible for resolving the issue), labels (feature, customer request,
+ hotfix, non-essential, etc.), weight (1-10; decided during team meetings
  and retrospectives) could also be added, streamlining the development process.
 
-For our branching model we selected one called Gitflow\cite{gitflow}. At 
- its core, there are two main branches - dev and master. The master branch 
- is the production-ready branch, and it reflects the state of the latest 
- production release. Meanwhile, the dev branch reflects the state of our 
- latest development efforts. We usually merged the changes from dev into 
- master once a week to ensure the fewest bugs possible, as most 
+For our branching model we selected one called Gitflow\cite{gitflow}. At
+ its core, there are two main branches - dev and master. The master branch
+ is the production-ready branch, and it reflects the state of the latest
+ production release. Meanwhile, the dev branch reflects the state of our
+ latest development efforts. We usually merged the changes from dev into
+ master once a week to ensure the fewest bugs possible, as most
  of the testing was done even before merging to the dev branch.
 
 \input{figures/changemgmt_merge_request}
 
-In the Gitflow model, dev by itself does not allow any commits. therefore 
- all the development has to be done in separate branches, called feature 
- branches. For each issue in the issue tracker, its assignee created a 
- new branch, and went on coding in that branch. We encouraged every team 
- member to commit often, as it let us follow the development process better; 
- to add to that, the testing of every commit, powered by our continuous 
- integration system (section \ref{sec:cicd}), enabled us to catch bugs 
- early on. After the development of the feature was done, the assignee 
- submitted a merge request for the feature branch to be merged into dev. 
- It first had to be approved by any other team member, after he performed a 
- code review. Code reviews allowed us to find mistakes in the source code not 
- noticed by the developer, and therefore improve the quality of our project. 
- If any mistakes were found, the reviewer could add some comments to the merge 
- request, explaining what could be improved. Another thing which could 
- prevent the merge request was merge conflicts. They occured if Git could not 
- figure out on its own which lines of the source code to add, keep or 
- remove, in case that files in dev and in feature branch differed 
- greatly. It was on the assignee to resolve the merge conflicts. In 
- the end, if CI tests passed, the merge requests were resolved, and 
- the code reviews were performed, the merge request could be accepted. 
- It resulted in the issue being closed, the new code being merged into 
- the dev branch, and the feature branch being removed, so as not to 
+In the Gitflow model, dev by itself does not allow any commits. therefore
+ all the development has to be done in separate branches, called feature
+ branches. For each issue in the issue tracker, its assignee created a
+ new branch, and went on coding in that branch. We encouraged every team
+ member to commit often, as it let us follow the development process better;
+ to add to that, the testing of every commit, powered by our continuous
+ integration system (section \ref{sec:cicd}), enabled us to catch bugs
+ early on. After the development of the feature was done, the assignee
+ submitted a merge request for the feature branch to be merged into dev.
+ It first had to be approved by any other team member, after he performed a
+ code review. Code reviews allowed us to find mistakes in the source code not
+ noticed by the developer, and therefore improve the quality of our project.
+ If any mistakes were found, the reviewer could add some comments to the merge
+ request, explaining what could be improved. Another thing which could
+ prevent the merge request was merge conflicts. They occured if Git could not
+ figure out on its own which lines of the source code to add, keep or
+ remove, in case that files in dev and in feature branch differed
+ greatly. It was on the assignee to resolve the merge conflicts. In
+ the end, if CI tests passed, the merge requests were resolved, and
+ the code reviews were performed, the merge request could be accepted.
+ It resulted in the issue being closed, the new code being merged into
+ the dev branch, and the feature branch being removed, so as not to
  clutter the repository with unnecessary files.
 
-Encountering some issues with the workflow of GitLab was unavoidable. 
- For example, if a feature branch was not being worked on for some time, 
- it was getting behind dev, resulting in a lot of merge conflicts. 
- The solution was either to resolve all of those manually, or, if 
- there was not much progress done on the feature branch - simply remove 
- it and start over. Code reviews were not always performed carefully 
- (or not at all, during crunch time), so problems were often encountered 
- even on the dev branch. On the other hand, the issue tracker did not 
- cause any major issues; its level of convenience and robustness helped 
- us get on the issues quickly, submit bug reports when encountered, 
+Encountering some issues with the workflow of GitLab was unavoidable.
+ For example, if a feature branch was not being worked on for some time,
+ it was getting behind dev, resulting in a lot of merge conflicts.
+ The solution was either to resolve all of those manually, or, if
+ there was not much progress done on the feature branch - simply remove
+ it and start over. Code reviews were not always performed carefully
+ (or not at all, during crunch time), so problems were often encountered
+ even on the dev branch. On the other hand, the issue tracker did not
+ cause any major issues; its level of convenience and robustness helped
+ us get on the issues quickly, submit bug reports when encountered,
  and generally stay on top of the things.
-    
+
 
 %==============================================================================
 \section{Conclusions} %1-2 pages
@@ -742,7 +761,7 @@ on the extent to which these lessons could be generalised to other
 types of software project.  Relate the wider lessons to others
 reported in case studies in the software engineering literature.
 
-% Main Points: 
+% Main Points:
 % Co-ordinating teams
 % Wasting time on setup instead of features
 % Compromising on systems
@@ -753,46 +772,46 @@ This software project was a valuable learning experience. Each and every one of
  us learned new technologies, in addition to a much improved understanding
  of what working in a team over a long period of time involves. These lessons
  included: teamwork, organisation, time management and communication.
- 
-One of the biggest issues we first faced was co-ordinating ourselves as a 
- new team of strangers. By using icebreaker excercises to get to know 
- one another, and discussing our strengths and weaknesses, we got to 
+
+One of the biggest issues we first faced was co-ordinating ourselves as a
+ new team of strangers. By using icebreaker excercises to get to know
+ one another, and discussing our strengths and weaknesses, we got to
  understand where each member of the team was comfortable working. There
  were occasionally difficulties in getting everyone to meetings and ensuring
  work was done on time, but by communicating well, we managed to share
  meeting information and helping each other out on difficult issues.
- 
-We also discovered that whilst the project's architecture is important, 
- it is also important to remain focussed on the actual product. We 
- spent a considerable amount of time at the start of the project setting 
+
+We also discovered that whilst the project's architecture is important,
+ it is also important to remain focussed on the actual product. We
+ spent a considerable amount of time at the start of the project setting
  up the VCS, branching strategy, GitLab and CI configuration. Whilst these
  were all valuable to the project, it would have been worth taking a step
  back and asking "is this the best thing for the customer?". Finding a balance
  is important.
- 
+
 As GRN already uses certain technologies (such as Angular 2 and Firebase),
  we were asked to also use them in order to ensure compatibility. GRN also
- gave us feedback that differed from what we expected, resulting in us 
+ gave us feedback that differed from what we expected, resulting in us
  having to change our mindsets (particularly at the start of the year,
- before the team developed a clear vision for it). This taught us that 
+ before the team developed a clear vision for it). This taught us that
  whilst you may want to do things in your own way, the client is ultimately
  the decision-maker for many choices. By having regular contact with them
  allowed us to get feedback quickly and reduced the risk of a feature that
  would have to be completly scrapped.
- 
-Many of of these technologies were new to the team (and to the industry), 
- which meant that we had to learn them in a short period of time. This 
- ate into development time, but was also necessary to fulfil the client's 
+
+Many of of these technologies were new to the team (and to the industry),
+ which meant that we had to learn them in a short period of time. This
+ ate into development time, but was also necessary to fulfil the client's
  needs. Learning these new technologies was interesting and challenging,
- but also came at the cost of time we could have spent on developing 
- features, and resulted in bugs that would not have existed if a more 
+ but also came at the cost of time we could have spent on developing
+ features, and resulted in bugs that would not have existed if a more
  familiar framework had been used. Ultimately, learning to use new, different
  technologies is a fundamental part of being active in computer science,
  and the ablity to aapt quickly to new ways of thinking will serve us well
  should we choose to go into industry.
- 
+
 The project gave us a chance to experience the world of software development
- first hand. We learnt about pitfalls to avoid in the future, but also how 
+ first hand. We learnt about pitfalls to avoid in the future, but also how
  to work well in a team and put our education into practice. This experience
  will certainly be of great use to us in the future, from the technologies we
  learnt, to the mistakes we made, to the late nights coding before client meetings.
