@@ -47,7 +47,9 @@ The purpose of this document is to reflect on the achievements and challenges
  that arose during the development of this project. It also explores the concepts
  and methodologies touched upon in the concurrently running Professional Software
  Development (PSD) course, how we decided to implement them, and the effectiveness
- of our implementation.
+ of our implementation. The document is structured in a way that will start from
+ a customer-facing perspective, working through to the backend and then finally
+ our project management techniques.
 
 The rest of the case study is structured as follows.
 
@@ -63,16 +65,26 @@ Section \ref{sec:backend} covers the key technologies used for the
  backend development of the project. This section will also describe
  some of the difficulties faced by the team in this area.
 
-Section \ref{sec:testing} %TODO
+Section \ref{sec:testing} will reflect on the difficulties faced when
+ writing tests for the project in Karma Jasmine, a test-runner and framework
+ combination reccomended for use with our frontend technology. It will continue
+ to give examples of how these testing practices benefitted the team.
 
 Section \ref{sec:cicd} discusses the Continuous Integration and Continuous
  Deployment techniques that were used in order to ensure higher quality
  of code and to continuously deliver new implementations. It also outlines
  challenges the team faced when using these techniques.
 
-Section \ref{sec:planning} %TODO
+Section \ref{sec:planning} will show how the project was planned out,
+ what pitfalls we faced, and how we overcame them. It will also lay out
+ some of the lessons we learned about planning a large project.
 
-Section \ref{sec:agile} %TODO
+Section \ref{sec:agile} explains some of the agile practices we used in our 
+ project.
+
+Section \ref{sec:changemgmt} describes how the team used their VCS and managed the 
+ project in day-to-day life. This will describe the lifecycle of an issue ticket in
+ depth.
 
 Section \ref{sec:conclusion} is the conclusion, where we evaluate our
  performance over the whole process, what has been learned from it and
@@ -85,17 +97,18 @@ Section \ref{sec:conclusion} is the conclusion, where we evaluate our
 
 \subsection{Client Background}
 
-GRN which stands for Global Rugby Network, is a free team management software
-for rugby teams around the world. Their aim, is to try and bring anyone who loves
-Rugby closer, while supporting coaches building healthier, stronger and more
-successful teams.
+The Global Rugby Network (GRN), is a free team management platform
+ for rugby teams around the world. Their aim is to provide high quality
+ team and performance management tools to amateur and semi-professional 
+ rugby teams worldwide. 
 
-The team consists of 7 members, all privileged enough to have played rugby on both
-professional and semi-professional levels. As a result, all of them know by first-hand, the
-difficulty that a team possesses if it was to progress to the highest level of Rugby. In
-order to try and make it easier, GRN combined video-tagging, team management and team
-communication into this free and easy-to-use software, providing them with an alternative
-path, to a successful career.
+The team consists of 7 members, all of whom have played rugby at a high level. 
+ As such, each of them understands the problem domain in great depth. After years in
+ professional rugby, and spending time talking to amateur and semi-professional coaches, 
+ Dave Millard, the CEO discovered "amateur teams and emerging rugby nations... find it 
+ hardest to access professional team management, coaching and performance software." 
+ GRN's product combines video-tagging, team management and team communication to help 
+ fill this gap.
 
 
 \subsection{Initial Objectives}
@@ -121,32 +134,78 @@ Profile-owners represent the group of clubs, teams and players who have register
  GRN. These entities will not access the web application directly, but use their GRN account
  to provide information, which is subsequently pushed to the GRN FanZone and then presented
  to the profile-followers.
+ 
+A club is the highest level entity in the hierarchy. A club can be the parent of many different
+ teams - for example, a club could have a juniors team for under 21 year olds, a women's team and
+ a men's team. These teams will often have the same location. A team consists of many players. A
+ player can play for more than one team - for example, Zander Fagerson plays for both the Scotland
+ team at an international level, and for the Glasgow Warriors at a professional level.
+ 
+These entities will interact such that the profile-owners will be able to disseminate
+ information to their profile-followers. In the future, the platform aims to include 
+ media-based posts such as video and audio, but as this introduces additional complexity
+ to the platform, GRN asked that we focus on textual posts for now. This allows the post system
+ to be extended later.
+
+ 
+Breaking the objectives down into more distinct areas, we can see three primary areas for
+ the platform to cover:
+
+\begin{itemize}
+\item[1] Club/Team/Player news in the form of posts
+\item[2] Club/Team/Player information in the form of their profile pages
+\item[3] Fixture information from fixture detail pages 
+\end{itemize}
+
+Sharing news as posts is important to improve fan engagement as it allows
+ profile-followers to be kept up to date with information that is generated quickly,
+ and it is relevant only for a short period of time. The post system reflects 
+ that, as each post is slowly hidden under newer posts displaying fresher 
+ information.
+
+The profile pages for each profile-owner are designed to allow fairly static 
+ information to be easily found. This includes genders, locations, age-groups and 
+ so on. 
+ 
+Fixtures are more interesting, as they are a crossover - they will be over soon, 
+ but we also have to include a lot of team information on them, as well as the
+ other information, such as the time of kickoff, or the score. We opted to make 
+ this a separate page, which is linked to from a team's page.
+ 
+As the product is intended to be used across the world, internationalisation
+ support was favoured by GRN when we suggested the idea. By easily integrating
+ other languages, we can open up the app to a much wider range of people - for
+ example, rugby is also popular in Italy, France and Japan, to name but a few.
 
 In general terms, our aim was to use technology to encourage enagagement amongst the
  rugby community - ranging from fans to sponsors.
 
-\subsection{Summary}
-Our Team managed to completely fulfill all of the initial requirements given by the customer.
-Users are able to choose between either their Facebook, or Gmail account in order
-to register with FanZone. Further more, they are greeted with a list of multiple Clubs,
-Teams and Players, from which they can choose any of those to start following, and start
-getting updates from them. Once they do follow some of the items listed, their dashboard
-gets populated by posts made by them. Users can either comment on the post, like it, like
-any comments already posted by other Users on that same post, and even choose to visit
-the Post's owner profile page for more information. Information found on either a Clubs, Teams
-or Players profile, include Biographies, personal data such as gender, age and fixtures.
-In addition, Users are able to use google maps, in order to find the exact location of
-a specific or nearby fixture.
+\subsection{Current State of Product}
+The GRN FanZone is currently deployed to \url{http://grnfanzone.firebaseapp.com}.
+ The product allows social sign in using facebook or google accounts. Following
+ login, the user is presented with a screen that allows them to follow clubs,
+ teams or players. Once a user has done this and reloads the dashboard, they
+ are presented with a newsfeed of posts. This feed uses infinite scrolling to 
+ reduce the amount loaded on launch but not impact the user experience.
+ 
+Profile pages for clubs, teams and players are also all implemented. They display
+ the key information for each of their respective entities. They also list 
+ recent posts that entity has made, and give the option to follow or unfollow 
+ the entity.
+ 
+Fixture pages show the kickoff time, the two teams playing and the score (if the
+ game has kicked off already). The page also shows the location of the game,
+ and displays it on a map, powered by the Google Maps API.
+ 
+In terms of internationalisation support, we managed translations for: Romanian,
+ Greek, Lithuanian, Russian, Japanese, Italian, Spanish and Chinese. These 
+ translations are mostly complete - Chinese and Spanish both have some phrases
+ not translated. This was due to the fact that we approached speakers of these 
+ languages before all of the phrases were finalised. 
 
-Even though some might think that Users may have a hard time using all of the above
-features and the application in general, our team made sure to provide them with an
-excellent user-friendly interface, in combination with one of the easiest to use
-navigation systems. Making use of Bootstrap's components, along with Angular's routing
-configurations, Users can jump from one place to another, with no more than a couple
-of mouse clicks. As a result, this ensures to make FanZone not just an on-line
-social platform, but also a User's best rugby friend.
+
 %==============================================================================
-\section{Frontend Technology Considerations} %1-3 pages
+\section{Frontend Technology} %1-3 pages
 \label{sec:frontend}
 
 At the start of the project, GRN chose to give us a set of technologies they
@@ -348,7 +407,7 @@ By the end of the project, a number of tests had been incorporated into the
  well-tested code, it makes much more sense to write new tests for the
  code that is less well tested. See figure \ref{fig:testing_coverage_metrics}
  for an example of the html display.
-
+ 
 % Difficulties we faced
 % reference common pitfall from agile alliance of being a big jump from tdd and hard for noobs
 % Struggles with angularfire2
@@ -364,6 +423,8 @@ Testing was not always easy. For example, getting into a habit of writing tests
  in the project a team should focus their learning time, and that too much new technology
  can stretch a team to the point where the effort spent to learn new things
  overtakes that spent on features.
+
+\input{figures/testing_coverage_metrics}
 
 Another struggle was getting tests to run. Due to the interconnectivity of
  Angular components, a complex data flow has to be replicated. For example,
@@ -387,8 +448,6 @@ Overall, the team's testing methodologies were too optimistic. We assumed that
  not have the test coverage we desired, but also gave us a large task in writing
  the tests after the fact. This proved more difficult than writing them as we
  went along.
-
- \include{figures/testing_coverage_metrics}
 
 %==============================================================================
 \section{Continuous Integration and Deployment} %1-3 pages
@@ -681,7 +740,6 @@ To maintain the close communication with our client, as dictated by
  to both design and implementation.
 
 %==============================================================================
-\newpage
 \section{Change Management and Version Control Methods}
 \label{sec:changemgmt}
 
