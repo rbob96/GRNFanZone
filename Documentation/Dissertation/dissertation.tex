@@ -15,7 +15,7 @@
 Report on Team Project 3 coursework for Group V. The GRN FanZone is a
  fan engagement web application developed to interface with the Global Rugby
  Network's online platform. The project tried to utilise
- emerging technologies ranging from Angular to Firebase, in addition to
+ emerging technologies ranging from AngularJS to Firebase, in addition to
  cutting-edge methodologies, such as Behaviour Driven Development and Agile
  project management. This report covers some of the considerations taken
  during development and explains some of the benefits and disadvantages
@@ -36,7 +36,7 @@ This paper presents a case study of the project and software development process
  University of Glasgow, as part of the University's Team Project 3 course.
 
 Our customers for the project were Global Rugby Network (GRN), who tasked us
- with creating a web application that would allow professional and amateur
+ with creating a web application that would allow semi-professional and amateur
  rugby clubs, teams, and players to interact with rugby fans. This social
  platform would then be integrated with the software that GRN already provides
  to rugby clubs. The end result is GRN FanZone, a fully functioning web application
@@ -79,7 +79,7 @@ The rest of the case study is structured as follows.
  what pitfalls we faced, and how we overcame them. It will also lay out
  some of the lessons we learned about planning a large project.
 
-\nameref{sec:agile} explains some of the agile practices we used in our 
+\nameref{sec:agile} explains some of the Agile practices we used in our 
  project.
 
 \nameref{sec:changemgmt} describes how the team used their VCS and managed the 
@@ -102,7 +102,7 @@ The Global Rugby Network (GRN), is a free team management platform
  team and performance management tools to amateur and semi-professional 
  rugby teams worldwide. 
 
-The team consists of 7 members, all of whom have played rugby at a high level. 
+The GRN team consists of 7 members, all of whom have played rugby at a high level. 
  As such, each of them understands the problem domain in great depth. After years in
  professional rugby, and spending time talking to amateur and semi-professional coaches, 
  Dave Millard, the CEO discovered "amateur teams and emerging rugby nations... find it 
@@ -152,9 +152,9 @@ Breaking the objectives down into more distinct areas, we can see three primary 
  the platform to cover:
 
 \begin{itemize}
-\item[1] Club/Team/Player news in the form of posts
-\item[2] Club/Team/Player information in the form of their profile pages
-\item[3] Fixture information from fixture detail pages 
+\item[1.] Club/Team/Player news in the form of posts
+\item[2.] Club/Team/Player information in the form of their profile pages
+\item[3.] Fixture information from fixture detail pages 
 \end{itemize}
 
 Sharing news as posts is important to improve fan engagement as it allows
@@ -175,15 +175,15 @@ Fixtures are more interesting, as they are a crossover - they will be over soon,
  
 As the product is intended to be used across the world, internationalisation
  support was favoured by GRN when we suggested the idea. By easily integrating
- other languages, we can open up the app to a much wider range of people - for
+ other languages, we can open up the application to a much wider range of people - for
  example, rugby is also popular in Italy, France and Japan, to name but a few.
 
 In general terms, our aim was to use technology to encourage engagement amongst the
  rugby community - ranging from fans to sponsors.
 
 \subsection{Current State of Product}
-The GRN FanZone is currently deployed to \url{http://grnfanzone.firebaseapp.com}.
- The product allows social sign in using facebook or google accounts. Following
+The GRN FanZone is currently deployed to \url{https://grnfanzone.firebaseapp.com}.
+ The product allows social sign in using Facebook or Google accounts. Following
  login, the user is presented with a screen that allows them to follow clubs,
  teams or players. Once a user has done this and reloads the dashboard, they
  are presented with a news feed of posts. This feed uses infinite scrolling to 
@@ -210,17 +210,17 @@ Regarding internationalisation support, we managed translations for: Romanian,
 \label{sec:frontend}
 
 At the start of the project, GRN chose to give us a set of technologies they
- wanted us to use. These included defining Angular 2 as our frontend framework.
- Angular is a framework maintained by Google, which has been gaining popularity
- over the last eight years\cite{angularjsoverview}. The framework uses typescript,
- a type safe flavour of javascript. Angular focuses on being portable, high performance
- and easy to write\cite{angular_features}. Many of the contributors to Angular are
- from Google, but the project is open source under the MIT license, and anyone can
- commit to it\cite{angularjsoverview}. Angular is built on top of NodeJS, providing
+ wanted us to use. These included defining AngularJS as our frontend framework.
+ AngularJS is a framework maintained by Google, which has been gaining popularity
+ over the last eight years\cite{angularjsoverview}. The framework uses Typescript,
+ a type safe flavour of Javascript. AngularJS focuses on being portable, high performance
+ and easy to write\cite{angular_features}. Many of the contributors to AngularJS are
+ from Google, but the project is open source under the MIT license and anyone can
+ commit to it\cite{angularjsoverview}. AngularJS is built on top of NodeJS, providing
  easy access to a wide range of external components.
 
-Angular embeds code in HTML and uses a "controller" to define component behaviour. This
- "component" object is the basis of most Angular development. Angular also tries
+AngularJS embeds code in HTML and uses a "controller" to define component behaviour. This
+ "component" object is the basis of most AngularJS development. AngularJS also tries
  to minimise the logic in controllers, by either abstracting it to other components
  or building "services" - shared libraries of code snippets. The final part of this
  structure is a "module" which coordinates resource injection into controllers from one
@@ -228,45 +228,44 @@ Angular embeds code in HTML and uses a "controller" to define component behaviou
  one file. We made use of several services, and many components.
 
  % Pros and cons of ng-cli
-Angular provides a CLI that makes it easy to start projects and provides
+AngularJS provides a Command Line Interface (CLI) that makes it easy to start projects and provides
  templates for components, services and modules. This provides the \texttt{ng init}
  command, which prepares a skeleton project in a matter of minutes.
  The basis of the project was generated in under a minute, which set up
- testing frameworks, a basic starter app and a \texttt{package.json} file for NPM.
- When generating a new component, a HTML template, CSS styles file, karma
- jasmine test file as well as the typescript controller. These were populated
+ testing frameworks, a basic starter application and a \texttt{package.json} file for NPM.
+ When generating a new component, a HTML template, CSS file, karma
+ jasmine test file as well as the Typescript controller. These were populated
  with template code to allow easy starts. This helped ensure we could get to
  the business logic of the component or service quickly, without wasting time.
 
   \input{figures/frontend_components}
 
  % Why we liked it (easy to maintain, works out the box, good documentation)
-Angular 2 gave us a huge advantage when working on this project. Components provide
+AngularJS gave us a huge advantage when working on this project. Components provide
  an easy way of separating concerns and reducing code duplication. Generating new
  code is easy with the CLI, and entire projects can be started and running
- in hours. The documentation for Angular is also excellent. Maintained by google,
- it is kept up-to-date with the regular releases Angular receives.
+ in hours. The documentation for AngularJS is also excellent. Maintained by google,
+ it is kept up-to-date with the regular releases AngularJS receives.
 
  % why we disliked it (steep learning curve)
-The most significant barrier to using Angular was our own inexperience.
+The most significant barrier to using AngularJS was our own inexperience.
  Thus far, our formal education has not involved developing web apps in
  Javascript based frameworks. Beyond this, Typescript was new to every
  member of the team. This meant that there was a steep learning curve for
  the team to deal with and adapt to. This caused some issues early on
- before we had a good grasp of how to use the actual features Angular
+ before we had a good grasp of how to use the actual features AngularJS
  provides.
 
  % How easy it was to test
-One of Angular's benefits is that its developers have carefully
+One of AngularJS's benefits is that its developers have carefully
  considered testing. Software testing has long been an important
  aspect of software development, and this has only become more true
- in recent years \cite{tuteja2012testing}. The Angular CLI generates
- a functional karma file, which has been configured for Angular. The
- Angular CLI also provides an interface for running tests. Parameters
+ in recent years \cite{tuteja2012testing}. The AngularJS CLI generates
+ a functional karma file, which has been configured for AngularJS. The
+ AngularJS CLI also provides an interface for running tests. Parameters
  range from single/constant runs of the test suite to enabling code
- coverage reporting. In spite of this, it was found to be very
- difficult to mock our services which used angularfire to generate
- useful tests (please see section \ref{sec:testing} for more on this).
+ coverage reporting. Despite this setup, we encountered some difficulties in
+ writing good tests (please see section \ref{sec:testing} for more on this).
 
 \input{figures/frontend_ng_cli}
 
@@ -276,9 +275,9 @@ One of Angular's benefits is that its developers have carefully
 
 As with the frontend, our clients defined what technology they wanted the team
  to use for the backend of the project before we started development. We were
- tasked to use Firebase, which is a mobile and web application platform that
+ tasked to use Firebase, which is a mobile and web application backend platform that
  was acquired by Google in 2014. Its initial product was a NoSQL real-time database,
- however, since then it has added a large range of features, including static
+ however, since then it has added a large range of features including static
  hosting services, authentication and storage.
 
 We started off by registering our project "GRNFanZone" on the Firebase website,
@@ -329,9 +328,9 @@ type, alongside posts made by the team.
  by them.
 
 \end{itemize}
-The angularfire2 package that was used to interact with the backend used
+The Angularfire2 package that was used to interact with the backend used
  observables to provide data; information was updated on the frontend in
- real-time, even without refreshing the app. As the purpose of the web
+ real-time, even without refreshing the application. As the purpose of the web
  application was to provide a social platform for rugby fans, all connected
  users being synced to the database made for a much natural and interactive
  user experience.
@@ -349,43 +348,49 @@ Firebase did not, however, come without its drawbacks. As usage of NoSQL
  functionality when it came to querying the database.
 
 Another big issue was identified later on in the project. We used the
- Angularfire2 module to interface between Firebase and Angular2, which meant
+ Angularfire2 module to interface between Firebase and AngularJS, which meant
  that all of our calls to the database had to be in the form of subscriptions
  to certain keys. As the application grew in complexity, more and more
- subscriptions had to be made, due to which there arose some race conditions
- concerning the load order of the data and issues where retrieved data would
+ subscriptions had to be made, resulting in race conditions
+ whereby the load order of the data and issues where retrieved data would
  be needlessly reloaded. Fixing these problems was very frustrating and took
  up a lot of time that could have been spent implementing new features.
 
 %==============================================================================
-\section{Testing Considerations} %1-3 pages
+\section{Testing} %1-3 pages
 \label{sec:testing}
 
 % Describe BDD
-Behaviour Driven Development is a development methodology where the development team
+Behaviour Driven Development is a testing methodology where the development team
  first describes use cases for a feature, then writes tests for it, and lastly
  develops the code for the feature. The team decided to use BDD as it comes
  recommended by the Agile Alliance \cite{agilealliance_bdd}. Another reason
- is that the angular CLI sets up a Karma Jasmine testing set up by default.
+ is that the AngularJS CLI sets up a Karma Jasmine testing set up by default.
  BDD is credited with helping to develop easily documented code - for example,
  by making test cases into natural language sentences (see figure
  \ref{fig:testing_failed_test}), it becomes easier for human developers to
  understand what it tests, and why it is being tested \cite{north2006bdd}.
+ 
+Initially, the team tried to use Mocha, another testing framework which 
+ is targeted at Test Driven Development, however integrating it was 
+ difficult and was taking too long to set up, so we decided to move 
+ from TDD to BDD and just use Jasmine. BDD is an offshoot of the TDD
+ methodology\cite{agilealliance_bdd}, that dictates that tests should be 
+ written before code. One of the issues noted with TDD is that it does
+ not account for tests that are pointless (i.e. do not help define the
+ required behaviour) \cite{north2006bdd}.
 
  \input{figures/testing_failed_test}
 
-% Describe Karma and Jasmine testing with Angular2
-The Angular 2 CLI sets up a Karma Jasmine configuration to run tests on
- the typescript in the project. Karma is a test runner for javascript
+% Describe Karma and Jasmine testing with AngularJS
+The AngularJS CLI sets up a Karma Jasmine configuration to run tests on
+ the Typescript in the project. Karma is a test runner for Javascript
  that is platform agnostic and allows testing on a range of different devices
  and browsers\cite{jina2013javascript}. Jasmine is a testing framework
  that aims to be as readable as possible - one of the key features of
- the BDD approach we wanted to adopt. Initially, we tried to use Mocha,
- another testing framework which is targeted at Test Driven Development,
- however integrating it was difficult and was taking too long to set up,
- so we decided to move from TDD to BDD and just use Jasmine. One of the
+ the BDD approach we wanted to adopt. One of the
  benefits this brought was the wealth of documentation and examples
- across the internet of using Karma with Jasmine on Angular code.
+ across the internet of using Karma with Jasmine on AngularJS code.
 
 % Describe how it was done well
 % mention test coverage
@@ -428,7 +433,7 @@ Testing was not always easy. For example, getting into a habit of writing tests
 \input{figures/testing_coverage_metrics}
 
 Another struggle was getting tests to run. Due to the interconnectivity of
- Angular components, a complex data flow has to be replicated. For example,
+ AngularJS components, a complex data flow has to be replicated. For example,
  components that use the \texttt{@input()} tag to receive data don't have a
  trivial way of faking this. This means that the data flow there becomes
  difficult to test accurately. Had this not been such an issue, the post
@@ -437,9 +442,9 @@ Another struggle was getting tests to run. Due to the interconnectivity of
 
 There were also issues when testing backend connections. While it is
  allegedly possible, the team did not find a way of mocking Angularfire2, the
- service which provides an interface between Angular and Firebase. This meant
+ service which provides an interface between AngularJS and Firebase. This meant
  that tests would affect the production database, something which could not be
- allowed. As a result, calls made to Angularfire were not tested, despite the
+ allowed. As a result, calls made to Angularfire2 were not tested, despite the
  fact that they constituted a significant amount of our business logic.
 
 Overall, the team's testing methodologies were too optimistic. We assumed that
@@ -468,7 +473,7 @@ One of the key concepts of CI is often phrased as: "Commit Daily,
  This was due to a small number of factors, which boiled down to: "We don't work on the project
  every day", and "I'm not used to git". There was little we could do to remedy the former issue -
  all we could do was commit often \textit{while we worked on the project}. The Gitflow
- branching system we used in the VCS (see section \ref{sec:planning}) was unfamiliar to several
+ branching system we used (see section \ref{sec:planning}) was unfamiliar to several
  members of the team, and it took time for everyone to become accustomed to the system. As the
  project progressed, however, more builds were made, more commits pushed, and more bugs found.
 
@@ -571,7 +576,7 @@ After the project allocation day, GRN sent us a project brief containing
 
 As part of the requirements gathering process, the team developed four personas
  and an epic user story of how they envisioned the project being used. This was followed by
- writing down user stories centred around the following entities: team manager,
+ breaking down the epic into shorter, more actionable user stories centred around the following entities: team manager,
  sponsor, player, club supporter, rugby fan and international rugby fan. Doing
  this eased the process of identifying useful requirements and helped the team
  visualise what the final product should be offering potential users.
@@ -598,7 +603,7 @@ There were several aspects to be taken into consideration while deciding
  our lack of experience with the technologies to be used and the fact
  that the available time to work on the project would vary as the academic
  year progressed. Another thing to consider was the fact that due to the
- agile methodology we decided to follow, at the end of each iteration, the
+ Agile methodology we decided to follow, at the end of each iteration, the
  product needed to be functional. Thus, it was decided to settle on having
  smaller, more easily achievable goals in the beginning, which would
  incrementally become more complex as advanced. In the end, we settled
@@ -607,16 +612,16 @@ There were several aspects to be taken into consideration while deciding
 
 The goals for each iteration become increasingly challenging, based on the
  expectation that the first one or two iterations would offer all team
- members some hands on experience with both Angular2 and Firebase. The
+ members some hands on experience with both AngularJS and Firebase. The
  goals for each iteration were the following:
 \begin{itemize}
-\item First iteration - login and sign up
-\item Second iteration - dashboard and followed pages
-\item Third iteration - post creation and management
-\item Fourth iteration - view and edit profile, posts on comments
-\item Fifth iteration - search for teams/clubs/players or fixtures
-\item Sixth iteration - translation and additional tasks
-\item seventh iteration - additional features, refinement, documentation
+\item First Iteration - login and sign up
+\item Second Iteration - dashboard and followed pages
+\item Third Iteration - post creation and management
+\item Fourth Iteration - view and edit profile, posts on comments
+\item Fifth Iteration - search for teams/clubs/players or fixtures
+\item Sixth Iteration - translation and additional tasks
+\item Seventh Iteration - additional features, refinement, documentation
 \end{itemize}
 
 \input{figures/planning_milestones}
@@ -648,12 +653,12 @@ Agile software development consists of a set of practices and methods derived
  self-organizing teams and frequent delivery of functioning
  software\cite{agile_overview}.
 
-As agile development was highly recommended as part of our software development
+As Agile development was highly recommended as part of our software development
  process, in the initial team meetings, we decided to use the Scrum
  methodology.
 
  % short description of SCRUM
- Scrum is an agile framework originally formalised for software development
+ Scrum is an Agile framework originally formalised for software development
  projects. Scrum defines several major roles within the framework: the Product
  Owner, the Scrum Master, the development team and the customer. The Product
  Owner should maintain communication with the stakeholders and create a prioritised
@@ -670,13 +675,13 @@ As agile development was highly recommended as part of our software development
   one would start the following Monday (Figure \ref{fig:agile_gantt}).
 
 
- It was decided that instead of daily scrums, the team would have two weekly
+ It was decided that instead of daily standups, the team would have two weekly
   meetings, one on Wednesdays, during the software development lab, and one on
-  Fridays. The format of the meetings included everyone describing what they've
-  worked on since the previous meeting and the work they plan on completing
-  until the next meeting. Each team member also discussed any difficulties
-  they encountered, how they overcame them or whether they feel that they
-  need help with certain issues.
+  Fridays. The format of the meetings tried to follow the layout of a Scrum standup,
+  including everyone describing what they had worked on since the previous meeting and 
+  the work they planned on completing before the next meeting. Each team member 
+  also discussed any difficulties they encountered, how they overcame them or 
+  whether they feel that they need help with certain issues.
 
  The Scrum Master was tasked with closely observing these meetings. They had
   to determine whether the team could handle the workload of the respective
@@ -686,7 +691,7 @@ As agile development was highly recommended as part of our software development
   the rest of the team, as well as initiate team retrospectives at the end of
   each sprint.
 
- As the project progressed, our scrum process underwent a few changes. Once
+ As the project progressed, our Scrum process underwent a few changes. Once
  the desired goals and the predicted timelines were better defined, it was
  decided that one meeting during the PSD lab would be sufficient, with any
  additional meetings to be arranged if deemed necessary. Meanwhile, the team
@@ -706,8 +711,8 @@ As we became more comfortable working as a team and since at that
  meetings became less structured and less formal. Along the way,
  the meetings became open discussions, while still making sure
  everyone is kept up to date. At the beginning of the second
- semester, our scrum framework transitioned into a less clearly
- defined agile framework, which still followed the main principles
+ semester, our Scrum framework transitioned into a less clearly
+ defined Agile framework, which still followed the main principles
  of the methodology. Sprints became of variable length (between
  one and three weeks) rather than a constant two weeks.
 
@@ -732,7 +737,7 @@ At the end of each sprint, the product was fully or almost fully
  to make additional improvements in the short time left between sprints.
 
 To maintain the close communication with our client, as dictated by
- the agile methodology, the Product Owner would communicate weekly
+ the Agile methodology, the Product Owner would communicate weekly
  updates by email. The team was also in close contact with the
  development team of our client company, which was available
  for questions and pointed us towards useful resources. This
@@ -858,8 +863,8 @@ Encountering some issues with the workflow of GitLab was unavoidable.
 % Client requirements affecting our choices
 % Learning new technology is part of the industry
 
-This software project was a valuable learning experience. Each and every one of
- us learned new technologies, in addition to a much-improved understanding
+This software project was a valuable learning experience. Each of
+ us learned new technologies, and gained a much-improved understanding
  of what working in a team over a long time involves. These lessons
  included: teamwork, organisation, time management and communication.
 
@@ -879,7 +884,7 @@ We also discovered that while the project's architecture is important,
  back and asking "is this the best thing for the customer?". Finding a balance
  is important.
 
-As GRN already uses certain technologies (such as Angular 2 and Firebase),
+As GRN already uses certain technologies (such as AngularJS and Firebase),
  we were asked to also use them in order to ensure compatibility. GRN also
  gave us feedback that differed from what we expected, resulting in us
  having to change our mindsets (particularly at the start of the year,
