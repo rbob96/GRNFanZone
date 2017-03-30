@@ -24,8 +24,6 @@ import { TabViewModule } from 'primeng/primeng';
 import { DataListModule } from 'primeng/primeng';
 import { DialogModule } from 'primeng/primeng';
 import {UserDataService} from './services/user-data.service';
-import {TeamDataService} from './services/team-data.service';
-import {PlayerDataService} from './services/player-data.service';
 import {SponsorsComponent} from './sponsors/sponsors.component';
 
 import { routing } from './app.routing';
@@ -43,6 +41,7 @@ import {UnauthGuardService} from './services/unauth-guard.service';
 import { HomeComponent } from './home/home.component';
 import { NearbyFixturesComponent } from './nearby-fixtures/nearby-fixtures.component';
 import {GeolocationService} from './services/geolocation.service';
+import { FixtureTickerComponent } from './fixture-ticker/fixture-ticker.component';
 
 
 export const firebaseConfig = {
@@ -79,7 +78,8 @@ export const googleMapsConfig = {
     SponsorsComponent,
     FixtureComponent,
     HomeComponent,
-    NearbyFixturesComponent
+    NearbyFixturesComponent,
+    FixtureTickerComponent
   ],
   imports: [
     BrowserModule,
@@ -103,8 +103,6 @@ export const googleMapsConfig = {
     UserDataService,
     AuthGuardService,
     UnauthGuardService,
-    PlayerDataService,
-    TeamDataService,
     PostDataService,
     SendtoService,
     GeolocationService

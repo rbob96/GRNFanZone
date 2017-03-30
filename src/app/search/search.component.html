@@ -1,6 +1,7 @@
+<!-- search box -->
 <form class="navbar-form navbar-left" role="search">
     <div class="form-group">
-        <input #input type="text" class="form-control" placeholder="Search" name="q" id="search-box">
+        <input #input type="text" class="form-control" placeholder="{{'Search.SearchBoxPlaceholder'| translate}}" name="q" id="search-box">
     </div>
     <button (click)="search(input.value)" class="btn btn-primary">
         <i class="glyphicon glyphicon-search"></i>

@@ -51,13 +51,14 @@ export class PostComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    // get current user data
     this.currentUserId = this.authService.uid;
 
     this.af.database.object('users/' + this.currentUserId).subscribe(user => {
       this.userData = user;
     });
 
+    // get list of comments belonging to current post
     if (this.post) {
       this.postDataService.getComments(this.post.id).subscribe(resComms => {
         this.showBtn = [];
@@ -66,6 +67,8 @@ export class PostComponent implements OnInit {
         });
         this.shownComs = this.showBtn.slice(this.commentsLimit);
       });
+
+      // get current post likes
       this.af.database.list('posts/' + this.post.id + '/likes').subscribe(likes => {
         this.likes = likes.map(l => {
           return l.$key;
@@ -75,7 +78,7 @@ export class PostComponent implements OnInit {
     }
   }
 
-
+// like posts - the same user can only like/unlike post one time
   likeToggle(uid: string) {
     if (this.post) {
       const observable = this.af.database.object('posts/' + this.post.id + '/likes/' + uid);
@@ -97,45 +100,8 @@ export class PostComponent implements OnInit {
     }
 
   }
-  // TODO: Fix likes
-  // commentLikeToggle(commentid: string, postid: string, uid: string) {
-  //
-  //   let commentLikes = [];
-  //   if (commentid) {
-  //
-  //
-  //     this.af.database.list('posts/' + postid + '/comments/' + commentid + '/likes').subscribe(likes => {
-  //       commentLikes = likes.map(l => {
-  //         return l.$key;
-  //       });
-  //     });
-  //
-  //     const observable = this.af.database.object('posts/' + postid + '/comments/' + commentid + '/likes/' + uid);
-  //     const likeObs = this.af.database.object('posts/' + postid + '/comments/' + commentid + '/noLikes');
-  //     const likedByObs = this.af.database.object('posts/' + postid + '/comments/' + commentid + '/likedBy');
-  //     if (commentLikes.indexOf(uid) === -1) {
-  //       observable.set({
-  //         liked_at: (new Date().getTime())
-  //       });
-  //       likeObs.$ref.transaction(function (currentCount) {
-  //         return currentCount + 1;
-  //       });
-  //       likedByObs.$ref.transaction(function (text) {
-  //         return text + ' ' + uid;
-  //       });
-  //     } else {
-  //       observable.remove();
-  //       likeObs.$ref.transaction(function (currentCount) {
-  //         return currentCount - 1;
-  //       });
-  //       likedByObs.$ref.transaction(function (text) {
-  //         const str = text.replace(uid, '');
-  //         return str;
-  //       });
-  //     }
-  //   }
-  // }
 
+// create a new comment
   addComment(newComment: string, postid: string) {
     this.postDataService.getComments(this.post.id).push({
       comment: this.newComment,
@@ -170,6 +136,7 @@ export class PostComponent implements OnInit {
     this.editedText = comment.comment;
   }
 
+// link to post author
   sendToAuthor() {
     if (this.post.poster === 'players') {
       return this.sendto.player(this.post.posted_by);
@@ -180,6 +147,7 @@ export class PostComponent implements OnInit {
     }
   }
 
+// display more comments
   showMore(term: number) {
     this.expandComs -= term;
     this.commentsLimit -= term;

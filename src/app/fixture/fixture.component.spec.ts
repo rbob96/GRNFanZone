@@ -50,4 +50,14 @@ describe('FixtureComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should get id from Router', () => {
+    // The UserId should exist
+    expect(component.fixtureId).toBeTruthy();
+
+    // The UserId should be 5
+    expect(component.fixtureId).toEqual('h5m9PT4rgdSYDGzoyOLolYgUaUu1');
+
+  });
+
 });

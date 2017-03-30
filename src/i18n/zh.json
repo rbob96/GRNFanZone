@@ -33,12 +33,10 @@
   },
 
   "Login": {
-    "Title":"登录"
+    "Title": "登录"
   },
 
   "NavBar": {
-    "Dashboard":"新动态",
-    "Language": "语言",
     "List":"列表",
     "Logout":"退出"
   },
@@ -61,6 +59,7 @@
 
   "Post": {
     "likes": "喜欢",
+    "like": "like",
     "SaveChanges": "保存更改",
     "Close": "关闭",
     "ShowMore": "显示更多",
@@ -69,7 +68,6 @@
 
   "UserProfile": {
     "UserProfile":"用户资料",
-    "Email": "电子邮件地址",
     "Following": "正在关注",
     "SeeAll": "显示全部",
     "Players": "球员",
@@ -81,7 +79,6 @@
     "Players": "球员",
     "Teams": "球队",
     "Clubs": "俱乐部",
-    "Users":"用户",
     "Fixtures": "Fixtures",
     "Location": "居住地",
     "Age": "年龄",
@@ -109,4 +106,3 @@
     "TeamsFollowed": "已关注球队"
   }
 }
-

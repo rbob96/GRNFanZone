@@ -35,7 +35,7 @@ export class PlayerComponent implements OnInit {
               private route: ActivatedRoute,
               private userDataService: UserDataService,
               private sendto: SendtoService) {
-
+// get current user id
     this.af.auth.subscribe(user => {
       if (user) {
         this.currentUserId = user.uid;
@@ -53,7 +53,7 @@ export class PlayerComponent implements OnInit {
 
       // Get player data
       this.playerData = this.af.database.object('players/' + this.playerId);
-
+      // check if current user is following current player
       this.af.database.list('users/' + this.currentUserId + '/players_followed').subscribe(players => {
         players.forEach(player => {
           if (player.$key === this.playerId) {
@@ -61,26 +61,26 @@ export class PlayerComponent implements OnInit {
           }
         });
       });
-
+      // get teams the player is associated with
       this.af.database.list('players/' + this.playerId + '/teams').subscribe(
         teams => {
           this.playerTeams = teams;
         }
       );
-
+      // get teams the current user is following
       this.af.database.list('users/' + this.currentUserId + '/teams_followed').subscribe(teams => {
         this.followTeams = teams.map(t => {
           return t.$key;
         });
       });
-
+      // get clubs the current user is following
       this.af.database.list('users/' + this.currentUserId + '/clubs_followed').subscribe(clubs => {
         this.followClubs = clubs.map(c => {
           return c.$key;
         });
       });
 
-      // and posts
+      // get posts made by the current player
       this.af.database.list('posts').subscribe( posts => {
 
         this.playerPosts = posts.filter( p => {
@@ -92,7 +92,7 @@ export class PlayerComponent implements OnInit {
     });
 
   }
-
+ // follow/unfollow club , team or player
   public unfollowPlayer() {
     this.userDataService.unfollowPlayer(this.currentUserId, this.playerId);
     this.userFollowing = false;
@@ -103,6 +103,7 @@ export class PlayerComponent implements OnInit {
     this.userFollowing = true;
   }
 
+// get a certain team by team id
   public getTeam (uid: string) {
     const item = this.af.database.object('teams/' + uid);
     let theTeam = 0;
@@ -112,6 +113,7 @@ export class PlayerComponent implements OnInit {
     return theTeam;
   }
 
+// get a club by team.club_id
   public getClub (uid: string) {
     const item = this.af.database.object('teams/' + uid);
     let clubId = 0;

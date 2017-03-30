@@ -37,6 +37,7 @@ export class ClubComponent implements OnInit {
               private sendto: SendtoService,
               private router: Router) {
 
+// get id of current user
     this.af.auth.subscribe(user => {
       if (user) {
         this.currentUserId = user.uid;
@@ -47,6 +48,8 @@ export class ClubComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    // check if the current user is following the current club
     this.sub = this.route.params.subscribe(params => {
       this.clubId = params['id'];
 
@@ -60,6 +63,7 @@ export class ClubComponent implements OnInit {
         });
       });
 
+// get list of teams associated to the current club
       this.af.database.list('teams').subscribe(teams => {
         teams.forEach(team => {
           if (this.clubId === team.club_id) {
@@ -67,13 +71,14 @@ export class ClubComponent implements OnInit {
           }
         });
       });
-
+// get list of teams followed by the current user to display follow/unfollow
       this.af.database.list('users/' + this.currentUserId + '/teams_followed').subscribe(teams => {
         this.follows = teams.map(t => {
           return t.$key;
         });
       });
 
+// get list of posts made by the current club
       this.af.database.list('posts').subscribe(posts => {
         this.clubPosts = posts.filter(p => {
           return p.posted_by === this.clubId;
@@ -82,6 +87,7 @@ export class ClubComponent implements OnInit {
     });
   }
 
+// methods to follow/unfollow teams and clubs
   public unfollowClub() {
     this.userDataService.unfollowClub(this.currentUserId, this.clubId);
     this.userFollowing = false;

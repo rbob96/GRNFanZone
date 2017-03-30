@@ -40,4 +40,46 @@ describe('NearbyFixturesComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+
+  describe('distance()', () => {
+
+    it ('should return 0 when coords are the same', () => {
+
+      // Check it's 0, rounded to nearest int
+      expect(NearbyFixturesComponent.distance(
+        55.8856149,
+        -4.2892879,
+        55.8856149,
+        -4.2892879)).toBeCloseTo(0, 0);
+
+    });
+
+    it('should get distance from University of Glasgow to Riverside Museum', () => {
+
+      // Google maps reports it as 1.37 km
+      // -1 in close to should get to nearest 10 metres
+      expect(NearbyFixturesComponent.distance(
+        55.8651907,
+        -4.3065124,
+        55.8721089,
+        -4.2883003)).toBeCloseTo(1370, -1);
+
+    });
+
+    it('should get distance from Glasgow to New York', () => {
+
+      // Google says about 5160 km -> 5,160,000 metres
+      // should be within 100 km accurate
+      expect(NearbyFixturesComponent.distance(
+        55.8642,
+        -4.2518,
+        40.7128,
+        -74.0059)).toBeCloseTo(5160000, -5);
+
+    });
+
+
+  });
+
 });

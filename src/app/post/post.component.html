@@ -1,5 +1,5 @@
 <div *ngIf="post">
-
+<!-- display post information and content-->
   <div class="row">
     <div
       class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
@@ -59,7 +59,7 @@
           </div>
 
           <br>
-
+<!-- display post comments -->
           <ul class="list-group">
             <li *ngFor="let postComment of shownComs" class="list-group-item comment-layout">
 
@@ -73,7 +73,7 @@
                     <span class="badge badge-success"
                           *ngIf="currentUserId === postComment.author">{{"Me" | translate}}</span>
                   </strong>
-
+                  <!-- edit and delete comment buttons only visible to comment author -->
                   <div *ngIf="currentUserId === postComment.author" class="btn-group pull-right" role="group"
                        aria-label="Comment Options">
 
@@ -85,7 +85,7 @@
                     <div class="modal fade" [attr.id]="post.id" role="dialog">
                       <div class="modal-dialog">
 
-                        <!-- Modal content-->
+                        <!-- Modal for comment editing -->
                         <div class="modal-content">
                           <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -107,13 +107,13 @@
 
                       </div>
                     </div>
-
+                    <!-- delete comment button -->
                     <button type="button" class="btn btn-danger btn-sm"
                             (click)="deleteComment(postComment.$key, post.id)">
                       <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                     </button>
                   </div>
-
+                  <!-- comment content and date and time it was posted at -->
                   <br>
                   {{postComment.comment}}
                   <br>
@@ -122,37 +122,14 @@
                       <small><em>{{(postComment.commented_at | amCalendar:{sameElse:'D MMMM, YYYY [at] h:mm a'})}}</em>
                       </small>
                     </div>
-                    <!--TODO: Fix likes!-->
-                    <!--<div class="col-sm-9">-->
-                    <!--<small>-->
-                    <!--<div [ngSwitch]="postComment.noLikes" class="pull-left">-->
-                    <!--<span class="glyphicon glyphicon-thumbs-up"></span>-->
-                    <!--<em *ngSwitchDefault>{{postComment.noLikes}} </em>-->
-                    <!--<em *ngSwitchCase="null">0 </em>-->
-                    <!--</div>-->
-                    <!--</small>-->
-                    <!--</div>-->
                   </div>
-                  <!--TODO: Fix likes!-->
-                  <!--<div class="row">-->
-                  <!--<div class="col-sm-1">-->
-                  <!--<a *ngIf="postComment.likedBy?.includes(currentUserId) === false" class="pull-left"-->
-                  <!--(click)="commentLikeToggle(postComment.$key, post.id,currentUserId)" aria-hidden="true"> Like-->
-                  <!--</a>-->
-                  <!--<a *ngIf="postComment.likedBy?.includes(currentUserId) === true" class="pull-left"-->
-                  <!--(click)="commentLikeToggle(postComment.$key, post.id,currentUserId)" aria-hidden="true"> Unlike-->
-                  <!--</a>-->
-                  <!--</div>-->
-                  <!--<div class="col-sm-11">-->
-                  <!--</div>-->
-                  <!--</div>-->
                 </div>
               </div>
             </li>
           </ul>
 
           <br>
-
+<!-- add new comments box -->
           <div class="input-group">
             <input #box [(ngModel)]="newComment" class="form-control" type="text"
                    placeholder="{{'Post.Comment' | translate}}..."
