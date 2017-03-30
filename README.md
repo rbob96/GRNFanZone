@@ -15,12 +15,13 @@
 Google Docs Team Project Folder:
     https://drive.google.com/open?id=0B5LCiApIyry6ZUVVSGhJOURHaTQ
 
-Script to log you into the VM without manually SSHing twice
-    ssh {MATRIC_NUM}@sibu.dcs.gla.ac.uk -t "command; ssh -i {VM_KEY.pem} {VM_USERNAME}@130.209.251.78 -t 'command; cd ~/; bash'"
+Script to log you into the VM without manually SSHing twice:  
+   ```ssh {MATRIC_NUM}@sibu.dcs.gla.ac.uk -t "command; ssh -i {VM_KEY.pem} {VM_USERNAME}@130.209.251.78 -t 'command; cd ~/; bash'"```
 
-Log in to the lab and open graphical browser
-    ssh -XC sibu.dcs.gla.ac.uk
+Log in to the lab and open graphical browser  
+    ```ssh -XC sibu.dcs.gla.ac.uk```
 
-Firebase:
-    main:    https://grnfanzone.firebaseapp.com/
-    staging: https://grnfanzone-staging.firebaseapp.com/
+
+### Deployments:
+Production:   https://grnfanzone.firebaseapp.com/  
+Staging:      https://grnfanzone-staging.firebaseapp.com/

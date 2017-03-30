@@ -24,8 +24,6 @@ import { TabViewModule } from 'primeng/primeng';
 import { DataListModule } from 'primeng/primeng';
 import { DialogModule } from 'primeng/primeng';
 import {UserDataService} from './services/user-data.service';
-import {TeamDataService} from './services/team-data.service';
-import {PlayerDataService} from './services/player-data.service';
 import {SponsorsComponent} from './sponsors/sponsors.component';
 
 import { routing } from './app.routing';
@@ -105,8 +103,6 @@ export const googleMapsConfig = {
     UserDataService,
     AuthGuardService,
     UnauthGuardService,
-    PlayerDataService,
-    TeamDataService,
     PostDataService,
     SendtoService,
     GeolocationService
