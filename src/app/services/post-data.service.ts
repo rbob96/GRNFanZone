@@ -12,17 +12,6 @@ export class PostDataService {
     });
   }
 
-  public getRecentPosts (n: number) {
-
-    return this.af.database.list('/posts', {
-      query: {
-        orderByChild : 'created_at',
-        limitToFirst: n
-      }
-    });
-
-  }
-
   public getComments(postid: string) {
     return this.af.database.list('/posts/' + postid + '/comments');
   }
