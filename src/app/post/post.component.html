@@ -122,30 +122,7 @@
                       <small><em>{{(postComment.commented_at | amCalendar:{sameElse:'D MMMM, YYYY [at] h:mm a'})}}</em>
                       </small>
                     </div>
-                    <!--TODO: Fix likes!-->
-                    <!--<div class="col-sm-9">-->
-                    <!--<small>-->
-                    <!--<div [ngSwitch]="postComment.noLikes" class="pull-left">-->
-                    <!--<span class="glyphicon glyphicon-thumbs-up"></span>-->
-                    <!--<em *ngSwitchDefault>{{postComment.noLikes}} </em>-->
-                    <!--<em *ngSwitchCase="null">0 </em>-->
-                    <!--</div>-->
-                    <!--</small>-->
-                    <!--</div>-->
                   </div>
-                  <!--TODO: Fix likes!-->
-                  <!--<div class="row">-->
-                  <!--<div class="col-sm-1">-->
-                  <!--<a *ngIf="postComment.likedBy?.includes(currentUserId) === false" class="pull-left"-->
-                  <!--(click)="commentLikeToggle(postComment.$key, post.id,currentUserId)" aria-hidden="true"> Like-->
-                  <!--</a>-->
-                  <!--<a *ngIf="postComment.likedBy?.includes(currentUserId) === true" class="pull-left"-->
-                  <!--(click)="commentLikeToggle(postComment.$key, post.id,currentUserId)" aria-hidden="true"> Unlike-->
-                  <!--</a>-->
-                  <!--</div>-->
-                  <!--<div class="col-sm-11">-->
-                  <!--</div>-->
-                  <!--</div>-->
                 </div>
               </div>
             </li>

@@ -100,44 +100,6 @@ export class PostComponent implements OnInit {
     }
 
   }
-  // TODO: Fix likes
-  // commentLikeToggle(commentid: string, postid: string, uid: string) {
-  //
-  //   let commentLikes = [];
-  //   if (commentid) {
-  //
-  //
-  //     this.af.database.list('posts/' + postid + '/comments/' + commentid + '/likes').subscribe(likes => {
-  //       commentLikes = likes.map(l => {
-  //         return l.$key;
-  //       });
-  //     });
-  //
-  //     const observable = this.af.database.object('posts/' + postid + '/comments/' + commentid + '/likes/' + uid);
-  //     const likeObs = this.af.database.object('posts/' + postid + '/comments/' + commentid + '/noLikes');
-  //     const likedByObs = this.af.database.object('posts/' + postid + '/comments/' + commentid + '/likedBy');
-  //     if (commentLikes.indexOf(uid) === -1) {
-  //       observable.set({
-  //         liked_at: (new Date().getTime())
-  //       });
-  //       likeObs.$ref.transaction(function (currentCount) {
-  //         return currentCount + 1;
-  //       });
-  //       likedByObs.$ref.transaction(function (text) {
-  //         return text + ' ' + uid;
-  //       });
-  //     } else {
-  //       observable.remove();
-  //       likeObs.$ref.transaction(function (currentCount) {
-  //         return currentCount - 1;
-  //       });
-  //       likedByObs.$ref.transaction(function (text) {
-  //         const str = text.replace(uid, '');
-  //         return str;
-  //       });
-  //     }
-  //   }
-  // }
 
 // create a new comment
   addComment(newComment: string, postid: string) {
