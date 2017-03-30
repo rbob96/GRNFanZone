@@ -24,7 +24,6 @@ import { TabViewModule } from 'primeng/primeng';
 import { DataListModule } from 'primeng/primeng';
 import { DialogModule } from 'primeng/primeng';
 import {UserDataService} from './services/user-data.service';
-import {SponsorsComponent} from './sponsors/sponsors.component';
 
 import { routing } from './app.routing';
 import { AuthService } from './services/auth.service';
@@ -75,7 +74,6 @@ export const googleMapsConfig = {
     PostComponent,
     SearchComponent,
     ResultsComponent,
-    SponsorsComponent,
     FixtureComponent,
     HomeComponent,
     NearbyFixturesComponent,
