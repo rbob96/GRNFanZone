@@ -34,7 +34,7 @@ export class FixtureTickerComponent implements OnInit {
         f.forEach(fix => {
           if ((fix.home_team_id in u.teams_followed ||
             fix.away_team_id in u.teams_followed) &&
-            this.fixtures.length < 5 ){
+            this.fixtures.length < 5 ) {
             this.fixtures.push(fix);
           }
         });

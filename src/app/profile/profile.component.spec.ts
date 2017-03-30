@@ -22,6 +22,7 @@ import {AgmCoreModule} from 'angular2-google-maps/core';
 import {MomentModule} from 'angular2-moment';
 import {GeolocationService} from '../services/geolocation.service';
 import {MockGeolocationService} from '../../testing/mock.geolocation.service';
+import {FixtureTickerComponent} from '../fixture-ticker/fixture-ticker.component';
 
 describe('ProfileComponent', () => {
   let component: ProfileComponent;
@@ -31,7 +32,8 @@ describe('ProfileComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         ProfileComponent,
-        NearbyFixturesComponent
+        NearbyFixturesComponent,
+        FixtureTickerComponent
       ], providers: [
         { provide: Router, useClass: RouterStub },
         { provide: ActivatedRoute, useValue: { 'params': Observable.from([{ 'id': 'h5m9PT4rgdSYDGzoyOLolYgUaUu1' }]) } },
