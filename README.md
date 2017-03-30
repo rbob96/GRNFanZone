@@ -25,3 +25,7 @@ Log in to the lab and open graphical browser
 ### Deployments:
 Production:   https://grnfanzone.firebaseapp.com/  
 Staging:      https://grnfanzone-staging.firebaseapp.com/
+
+### Requirements and Dissertation
+All documentation can be found in the ```GRNFanzone/Documentation```
+section of the repository. 
