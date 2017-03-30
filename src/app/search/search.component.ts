@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
-import { PlayerDataService } from '../services/player-data.service';
 import { Router } from '@angular/router';
 
 import {Subject} from 'rxjs/Subject';
@@ -17,7 +15,6 @@ export class SearchComponent {
   termSubject: Subject<any>;
 
   constructor(
-    private _search: PlayerDataService,
     private _router: Router) { }
 
   search = (term: string) => {
