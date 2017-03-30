@@ -25,6 +25,7 @@ export class DashboardComponent {
   constructor(private af: AngularFire,
               private router: Router) {
 
+          // get current user id
           this.af.auth.subscribe(user => {
             if (user) {
               this.currentUserId = user.uid;
@@ -33,9 +34,12 @@ export class DashboardComponent {
             }
           });
 
+          // get user data
           this.af.database.object('users/' + this.currentUserId).subscribe(userData => {
             this.userData = userData;
           });
+
+          // get posts from all entities followed by the current user
 
           af.database.list('posts').subscribe(posts => {
             this.newPosts = [];

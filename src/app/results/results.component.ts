@@ -39,6 +39,7 @@ export class ResultsComponent implements OnInit {
               private userDataService: UserDataService,
               private sendto: SendtoService) {
 
+// get current user id
     this.af.auth.subscribe(user => {
       if (user) {
         this.currentUserId = user.uid;
@@ -50,6 +51,8 @@ export class ResultsComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    // get the query data
     this.sub = this.route.params.subscribe(params => {
       if ('query' in params) {
         this.searchTerm = params['query'];
@@ -62,6 +65,7 @@ export class ResultsComponent implements OnInit {
       this.findFixtures();
     });
 
+// get all teams/clubs/players
     this.af.database.list('users/' + this.currentUserId + '/teams_followed').subscribe(teams => {
       this.followTeams = teams.map(t => {
         return t.$key;
@@ -80,6 +84,8 @@ export class ResultsComponent implements OnInit {
       });
     });
   }
+
+// filter all lists based on whether or not they contain the query
 
   findPlayers() {
     const results = this.af.database.list('/players').subscribe(serverResults => {
@@ -132,6 +138,7 @@ export class ResultsComponent implements OnInit {
     });
   }
 
+// follow/unfollow clubs/teams/players
   public unfollowClub(uid: string) {
     this.userDataService.unfollowClub(this.currentUserId, uid);
   }

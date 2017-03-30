@@ -6,12 +6,12 @@
           <div class="row">
             <div class="col-md-12 lead">{{"UserProfile.UserProfile" | translate}}
               <hr>
-
+<!-- display user data -->
             </div>
           </div>
           <div class="row">
             <div class="col-md-4 text-center">
-              <img class="img-circle avatar avatar-original" style="user-select:none; 
+              <img class="img-circle avatar avatar-original" style="user-select:none;
               -webkit-user-select:none; display:block; margin:auto;" src="{{(profileData | async)?.avatar}}">
             </div>
             <div class="col-md-8">
@@ -30,8 +30,10 @@
               {{"UserProfile.Following" | translate}}
             </div>
           </div>
-          <div class="row">
 
+          <!-- display lists of clubs/teams/players; if more than 10, show "see all" button to display list of all entries -->
+
+          <div class="row">
             <div class="col-md-4 ">
               <div class="list-group" *ngIf="followingClubs">
                 <a class="list-group-item active lead text-center"> {{"UserProfile.Clubs" | translate}}<span
@@ -92,6 +94,7 @@
 
           </div>
           <hr>
+          <!-- if current user location is available, then display nearby fixtures -->
           <div class="row">
             <div class="col-md-12">
               <app-nearby-fixtures></app-nearby-fixtures>

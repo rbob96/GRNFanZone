@@ -1,3 +1,4 @@
+<!-- display message if user follows some entities, but none have any posts -->
 <div *ngIf="posts?.length === 0 && postsRetrieved === true && followed === true" class="alert alert-warning" role="alert">
 
   Looks like nobody you follow has posted anything yet!
@@ -7,10 +8,10 @@
 </div>
 
 <br>
-
+<!-- display posts -->
 <app-post *ngFor="let post of shownPosts " [post]="post"></app-post>
+<!-- infinite scroll -->
 <div class="row"
     infinite-scroll
     (scrolled)="showMore()">
 </div>
-
