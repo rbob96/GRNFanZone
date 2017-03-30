@@ -6,7 +6,7 @@
       <div class="row">
         <div class="col-md-12 lead">
           {{"PlayerProfile.PlayerProfile" | translate}}
-
+<!-- display player data: follow/unfollow button, personal information, teams and clubs the player is associated with, biography and posts made by player -->
           <button *ngIf="!userFollowing" (click)="followPlayer()" type="button" class="btn btn-sm btn-primary pull-right">{{"Follow" | translate}}</button>
           <button *ngIf="userFollowing" (click)="unfollowPlayer()" type="button" class="btn btn-sm btn-danger pull-right">{{"Unfollow" | translate}}</button>
 

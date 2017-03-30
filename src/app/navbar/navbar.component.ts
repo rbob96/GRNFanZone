@@ -16,11 +16,13 @@ export class NavbarComponent {
   currentUser;
   constructor(public authService: AuthService,
               public translate: TranslateService) {
+  // get current user if and set default language to english
     this.currentUser = authService.userDetails;
     translate.setDefaultLang('en');
     moment.locale('en');
   }
 
+// get location of user if allowed
   setLocale(locale) {
     this.translate.setDefaultLang(locale);
     moment.locale(locale);

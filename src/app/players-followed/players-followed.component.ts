@@ -32,6 +32,7 @@ export class PlayersFollowedComponent implements OnInit {
                private af: AngularFire,
                private sendto: SendtoService) {
 
+    // get current user id
     this.af.auth.subscribe(user => {
       if (user) {
         this.currentUser = user.uid;

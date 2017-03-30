@@ -29,7 +29,6 @@ export class ProfileComponent implements OnInit {
 
   currentUser: string; // ID
 
-
   public sendToPlayer = this.sendto.player;
   public sendToTeam = this.sendto.team;
   public sendToClub = this.sendto.club;
@@ -58,18 +57,20 @@ export class ProfileComponent implements OnInit {
     // implement ngOnDestroy()
     this.sub = this.route.params.subscribe(params => {
       this.userId = params['id'];
-      // Get user data
+      // Get lists of clubs/teams/players followed by the current user
       this.profileData = this.userDataService.getUserData(this.userId);
       this.followingTeams = this.userDataService.getUserFollowingTeams(this.userId);
       this.followingPlayers = this.userDataService.getUserFollowingPlayers(this.userId);
       this.followingClubs = this.userDataService.getUserFollowingClubs(this.userId);
 
+      // get number of clubs/teams/players followed by the current user
       this.followingTeams.subscribe(result => { this.noTeams = result.length; });
       this.followingPlayers.subscribe(result => { this.noPlayers = result.length; });
       this.followingClubs.subscribe(result => { this.noClubs = result.length; });
     });
   }
 
+// unfollow clubs/teams/players
 
   public unfollowPlayer(uid: string) {
     this.userDataService.unfollowPlayer(this.currentUser, uid);
