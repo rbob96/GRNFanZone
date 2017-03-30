@@ -6,6 +6,7 @@ export class MockAuthService {
   displayName;
   photoURL;
   email;
+  uid;
   authState;
 
   constructor() {
@@ -13,6 +14,7 @@ export class MockAuthService {
       this.displayName = 'Andrew McCluskey';
       this.photoURL = 'https://people.cs.umass.edu/~barring/david_3.jpg';
       this.email = 'example@google.com';
+      this.uid = 'ABCD'
 
   }
 

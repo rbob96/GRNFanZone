@@ -1,0 +1,9 @@
+<h4>Upcoming Fixtures</h4>
+<ul *ngIf="fixtures" class="list-group">
+  <li *ngFor="let f of fixtures" class="list-group-item">
+    <a (click)="sendToFixture(f.$key)">{{(f)?.home_team}} - {{(f)?.away_team}}</a> <br>
+    <small><em>
+      {{(f)?.location.address}}, {{(f)?.location.city}} | {{(f)?.kickoff | amCalendar}}
+    </em></small>
+  </li>
+</ul>
