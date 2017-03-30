@@ -101,7 +101,6 @@ export class PostComponent implements OnInit {
 
   }
 
-  
 // create a new comment
   addComment(newComment: string, postid: string) {
     this.postDataService.getComments(this.post.id).push({
