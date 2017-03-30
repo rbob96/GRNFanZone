@@ -1,8 +1,6 @@
 import { Component} from '@angular/core';
 import {AngularFire} from 'angularfire2';
-import {PostDataService} from '../services/post-data.service';
 import {Router} from '@angular/router';
-import {AuthService} from '../services/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,21 +10,22 @@ import {AuthService} from '../services/auth.service';
 
 export class DashboardComponent {
 
-  posts = [];
-  postsRetrieved = false;
-  newPosts = [];
-  postsLimit = 2;
-  shownPostAmount = 0;
-  shownPosts = [];
   currentUserId: string;
   userData = null;
+
+  posts = [];
+  newPosts = [];
+  shownPosts = [];
+
+  postsRetrieved = false;
+  postsLimit = 2;
+  shownPostAmount = 0;
   followed = false;
 
-  constructor(private postDataService: PostDataService,
-              private authService: AuthService,
-              private af: AngularFire,
+  constructor(private af: AngularFire,
               private router: Router) {
 
+          // get current user id
           this.af.auth.subscribe(user => {
             if (user) {
               this.currentUserId = user.uid;
@@ -35,9 +34,12 @@ export class DashboardComponent {
             }
           });
 
+          // get user data
           this.af.database.object('users/' + this.currentUserId).subscribe(userData => {
             this.userData = userData;
           });
+
+          // get posts from all entities followed by the current user
 
           af.database.list('posts').subscribe(posts => {
             this.newPosts = [];
@@ -61,8 +63,8 @@ export class DashboardComponent {
                 }
               });
             }
-            // Dashboard should only be reloaded when new posts have been made
             this.newPosts.sort((a, b) => b.created_at - a.created_at);
+            // Dashboard should only be reloaded when new posts have been made
             if (this.newPosts.length !== this.posts.length) {
               this.posts = this.newPosts;
               if (this.posts.length >= this.postsLimit) {
@@ -76,20 +78,6 @@ export class DashboardComponent {
           });
 
   }
-
-
-  /*addComment(newComment: string, postid: string ) {
-    this.postDataService.getComments(postid).push({ comment: newComment });
-  }
-  updateComment(key: string, newComment: string, postid: string) {
-    this.postDataService.getComments(postid).update(key, { comment: newComment });
-  }
-  deleteComment(key: string, postid: string) {
-    this.postDataService.getComments(postid).remove(key);
-  }
-  deleteEverything(postid) {
-    this.postDataService.getComments(postid).remove();
-  }*/
 
   showMore() {
     if (this.posts.length - this.shownPostAmount >= this.postsLimit) {
