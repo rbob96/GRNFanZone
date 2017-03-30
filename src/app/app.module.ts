@@ -43,6 +43,7 @@ import {UnauthGuardService} from './services/unauth-guard.service';
 import { HomeComponent } from './home/home.component';
 import { NearbyFixturesComponent } from './nearby-fixtures/nearby-fixtures.component';
 import {GeolocationService} from './services/geolocation.service';
+import { FixtureTickerComponent } from './fixture-ticker/fixture-ticker.component';
 
 
 export const firebaseConfig = {
@@ -79,7 +80,8 @@ export const googleMapsConfig = {
     SponsorsComponent,
     FixtureComponent,
     HomeComponent,
-    NearbyFixturesComponent
+    NearbyFixturesComponent,
+    FixtureTickerComponent
   ],
   imports: [
     BrowserModule,
